@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, isDark }) => {
               <a href="/">
                 <img
                     src="/logo.png"
-                    alt="RealVo Company Logo" style={{ height: '50px' }}
+                    alt="RealVo Company Logo" style={{ height: '40px' }}
                 />
               </a>
           </div>
