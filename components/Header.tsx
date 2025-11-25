@@ -39,12 +39,12 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, isDark }) => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 bg-realvo-blue dark:bg-white rounded-lg flex items-center justify-center transition-transform group-hover:rotate-3">
-                <span className="text-white dark:text-realvo-blue font-bold text-xl">R</span>
-              </div>
-              <span className="text-2xl font-bold text-realvo-blue dark:text-white tracking-tight">RealVo</span>
-            </a>
+              <a href="/">
+                <img
+                    src="/logo.png"
+                    alt="RealVo Company Logo" className="h-8 w-auto"
+                />
+              </a>
           </div>
 
           {/* Desktop Nav */}
