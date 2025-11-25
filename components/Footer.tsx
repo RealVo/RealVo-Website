@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             <a href="/">
               <img
                 src="/logo_white.png"
-              alt="RealVo Company Logo" style={{ height: '70px' }}
+              alt="RealVo Company Logo" style={{ height: '50px' }}
               />
             </a>
             <p className="text-gray-400 text-sm leading-relaxed">
