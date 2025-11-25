@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <a href="/">
               <img
-                src="/logo.png"
+                src="/logo_white.png"
               alt="RealVo Company Logo" style={{ height: '70px' }}
               />
             </a>
