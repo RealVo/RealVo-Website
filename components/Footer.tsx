@@ -8,11 +8,11 @@ const Footer: React.FC = () => {
           
           {/* Brand */}
           <div className="space-y-4">
-            <a href="#" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-realvo-blue font-bold text-xl">R</span>
-              </div>
-              <span className="text-2xl font-bold tracking-tight">RealVo</span>
+            <a href="/">
+              <img
+                src="/logo.png"
+              alt="RealVo Company Logo" style={{ height: '60px' }}
+              />
             </a>
             <p className="text-gray-400 text-sm leading-relaxed">
               A storytelling & insights platform for human understanding. Trusted by leading organizations worldwide.
