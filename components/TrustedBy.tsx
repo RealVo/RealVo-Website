@@ -37,6 +37,46 @@ const clients: Client[] = [
     name: "Barnes Jewish Hospital",
     logo: "/BarnesJewishHospital.png",
     className: "h-16 md:h-24"
+  },
+  {
+    name: "ATT",
+    logo: "/ATT.png",
+    className: "h-16 md:h-24"
+  },
+  {
+    name: "Indiana University",
+    logo: "/IndianaU.png",
+    className: "h-16 md:h-24"
+  },
+  {
+    name: "CP Rail",
+    logo: "/CPRail.png",
+    className: "h-16 md:h-24"
+  },
+  {
+    name: "Banner Health",
+    logo: "/BannerHealth.png",
+    className: "h-16 md:h-24"
+  },
+  {
+    name: "Kelloggs",
+    logo: "/Kelloggs.png",
+    className: "h-16 md:h-24"
+  },
+  {
+    name: "Purdue",
+    logo: "/Purdue.png",
+    className: "h-16 md:h-24"
+  },
+  {
+    name: "Memorial Healthcare System",
+    logo: "/Memorial.png",
+    className: "h-16 md:h-24"
+  },
+  {
+    name: "Mastercard",
+    logo: "/Mastercard.png",
+    className: "h-16 md:h-24"
   }
 ];
 
