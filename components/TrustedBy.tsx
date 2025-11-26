@@ -95,7 +95,7 @@ const TrustedBy: React.FC = () => {
   };
 
   return (
-    <Section className="py-12 border-y border-gray-100 dark:border-gray-800 overflow-hidden" background="light">
+    <Section className="py-6 border-y border-gray-100 dark:border-gray-800 overflow-hidden" background="light">
       <div className="text-center mb-10">
         <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
           Trusted by Leading Organizations
