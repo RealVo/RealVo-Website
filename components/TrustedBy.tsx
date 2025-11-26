@@ -11,32 +11,32 @@ const clients: Client[] = [
   {
     name: "Microsoft",
     logo: "/microsoft.png",
-    className: "h-14 md:h-20"
+    className: "h-16 md:h-24"
   },
   {
     name: "Stanford University",
     logo: "/stanford.png",
-    className: "h-14 md:h-20"
+    className: "h-16 md:h-24"
   },
   {
     name: "UPMC",
     logo: "/upmc.png",
-    className: "h-14 md:h-20"
+    className: "h-16 md:h-24"
   },
   {
     name: "Ford",
     logo: "/ford.png",
-    className: "h-14 md:h-20"
+    className: "h-16 md:h-24"
   },
   {
     name: "Duke University",
     logo: "/duke.png",
-    className: "h-14 md:h-20"
+    className: "h-16 md:h-24"
   },
   {
     name: "Barnes Jewish Hospital",
     logo: "/BarnesJewishHospital.png",
-    className: "h-14 md:h-20"
+    className: "h-16 md:h-24"
   }
 ];
 
