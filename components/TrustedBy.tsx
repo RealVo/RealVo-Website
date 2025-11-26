@@ -21,62 +21,62 @@ const clients: Client[] = [
   {
     name: "UPMC",
     logo: "/upmc.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Ford",
     logo: "/ford.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Duke University",
     logo: "/duke.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Barnes Jewish Hospital",
     logo: "/BarnesJewishHospital.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "ATT",
     logo: "/ATT.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Indiana University",
     logo: "/IndianaU.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "CP Rail",
     logo: "/CPRail.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Banner Health",
     logo: "/BannerHealth.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Kelloggs",
     logo: "/Kelloggs.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Purdue",
     logo: "/Purdue.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Memorial Healthcare System",
     logo: "/Memorial.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Mastercard",
     logo: "/Mastercard.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   }
 ];
 
