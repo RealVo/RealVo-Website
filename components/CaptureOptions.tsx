@@ -108,5 +108,3 @@ const CaptureOptions: React.FC = () => {
 };
 
 export default CaptureOptions;
-
-export default CaptureOptions;
