@@ -52,7 +52,7 @@ const CaptureOptions: React.FC = () => {
                 src={option.image} 
                 alt={option.title}
                 title={option.title}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 relative z-10"
+                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 relative z-10"
                 onError={(e) => {
                   // Hide broken image icon and show parent div's placeholder content
                   e.currentTarget.style.display = 'none';
