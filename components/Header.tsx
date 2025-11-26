@@ -3,6 +3,11 @@ import { Menu, X, Moon, Sun, ChevronRight } from 'lucide-react';
 import Button from './Button';
 import { NavItem } from '../types';
 
+interface HeaderProps {
+  toggleTheme: () => void;
+  isDark: boolean;
+}
+
 const navItems: NavItem[] = [
   { label: 'Why RealVo', href: '#why-realvo' },
   { label: 'How It Works', href: '#how-it-works' },
@@ -10,7 +15,7 @@ const navItems: NavItem[] = [
   { label: 'Pricing', href: '#pricing' },
 ];
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ toggleTheme, isDark }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
