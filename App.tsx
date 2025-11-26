@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustedBy from './components/TrustedBy';
@@ -14,8 +14,8 @@ import Section from './components/Section';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-realvo-charcoal transition-colors duration-300">
-      <Header toggleTheme={toggleTheme} isDark={isDark} />
+    <div className="min-h-screen flex flex-col bg-white transition-colors duration-300">
+      <Header />
       
       <main className="flex-grow">
         <Hero />
@@ -28,12 +28,12 @@ const App: React.FC = () => {
         <Pricing />
         
         {/* Final CTA */}
-        <Section className="text-center py-24 border-t border-gray-100 dark:border-gray-800">
+        <Section className="text-center py-24 border-t border-gray-100">
           <div className="max-w-3xl mx-auto animate-fade-in-up">
-             <h2 className="text-4xl md:text-5xl font-bold text-realvo-charcoal dark:text-white mb-8 tracking-tight">
+             <h2 className="text-4xl md:text-5xl font-bold text-realvo-charcoal mb-8 tracking-tight">
               Ready to hear real voices?
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
+            <p className="text-lg text-gray-600 mb-10">
               Join the organizations that listen as closely as they lead.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
