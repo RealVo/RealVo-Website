@@ -11,12 +11,12 @@ const clients: Client[] = [
   {
     name: "Microsoft",
     logo: "/microsoft.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "Stanford University",
     logo: "/stanford.png",
-    className: "h-16 md:h-24"
+    className: "h-24 md:h-32"
   },
   {
     name: "UPMC",
