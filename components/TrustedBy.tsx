@@ -10,32 +10,32 @@ interface Client {
 const clients: Client[] = [
   {
     name: "Microsoft",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+    logo: "/microsoft.png",
     className: "h-8 md:h-10"
   },
   {
     name: "Stanford University",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Stanford_University_logo_2003.svg",
+    logo: "/stanford.png",
     className: "h-10 md:h-12"
   },
   {
     name: "UPMC",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/83/UPMC_Logo.svg",
+    logo: "/upmc.png",
     className: "h-6 md:h-8"
   },
   {
     name: "Ford",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg",
+    logo: "/ford.png",
     className: "h-12 md:h-16"
   },
   {
     name: "Duke University",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Duke_University_logo.svg",
+    logo: "/duke.png",
     className: "h-10 md:h-12"
   },
   {
     name: "Barnes Jewish Hospital",
-    logo: "https://logo.clearbit.com/barnesjewish.org",
+    logo: "/BarnesJewishHospital.png",
     className: "h-12 md:h-14"
   }
 ];
