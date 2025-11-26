@@ -16,30 +16,12 @@ const App: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Check system preference on mount
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setIsDark(true);
       document.documentElement.classList.add('dark');
     }
   }, []);
 
-GitHub App.tsx
-
-import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import TrustedBy from './components/TrustedBy';
-import WhatYouCanAchieve from './components/WhatYouCanAchieve';
-import HowItWorks from './components/HowItWorks';
-import CaptureOptions from './components/CaptureOptions';
-import VBPlatform from './components/VBPlatform';
-import Industries from './components/Industries';
-import Pricing from './components/Pricing';
-import Footer from './components/Footer';
-import Button from './components/Button';
-import Section from './components/Section';
-
-const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white transition-colors duration-300">
       <Header />
@@ -57,7 +39,7 @@ const App: React.FC = () => {
         {/* Final CTA */}
         <Section className="text-center py-24 border-t border-gray-100">
           <div className="max-w-3xl mx-auto animate-fade-in-up">
-             <h2 className="text-4xl md:text-5xl font-bold text-realvo-charcoal mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-realvo-charcoal mb-8 tracking-tight">
               Ready to hear real voices?
             </h2>
             <p className="text-lg text-gray-600 mb-10">
