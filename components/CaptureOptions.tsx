@@ -47,19 +47,18 @@ const CaptureOptions: React.FC = () => {
         {options.map((option, idx) => (
           <div key={idx} className="group rounded-brand overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             {/* Image container */}
-            <div className="h-64 overflow-hidden relative bg-white dark:bg-gray-700 flex items-center justify-center">
+            <div className="h-64 overflow-hidden relative flex items-center justify-center bg-white dark:bg-gray-700">
               <img 
                 src={option.image} 
                 alt={option.title}
                 title={option.title}
                 className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 relative z-10"
-                onError={(e) => {
-                  // Hide broken image icon and show parent div's placeholder content
+    onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   e.currentTarget.parentElement?.classList.add('image-error');
                 }}
               />
-              {/* Fallback placeholder that shows only if image fails to load */}
+              {/* Fallback placeholder visible only if image fails */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 p-4 text-center z-0">
                 <ImageOff className="w-10 h-10 mb-2 opacity-50" />
                 <span className="text-xs">Image not found:</span>
