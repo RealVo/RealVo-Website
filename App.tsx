@@ -1,3 +1,30 @@
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import TrustedBy from './components/TrustedBy';
+import WhatYouCanAchieve from './components/WhatYouCanAchieve';
+import HowItWorks from './components/HowItWorks';
+import CaptureOptions from './components/CaptureOptions';
+import VBPlatform from './components/VBPlatform';
+import Industries from './components/Industries';
+import Pricing from './components/Pricing';
+import Footer from './components/Footer';
+import Button from './components/Button';
+import Section from './components/Section';
+
+const App: React.FC = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check system preference on mount
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+GitHub App.tsx
+
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
