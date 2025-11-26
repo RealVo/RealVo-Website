@@ -47,7 +47,7 @@ const CaptureOptions: React.FC = () => {
         {options.map((option, idx) => (
           <div key={idx} className="group rounded-brand overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             {/* Image container */}
-            <div className="h-64 overflow-hidden relative bg-white dark:bg-gray-700 flex items-center justify-center">
+            <div className="h-64 overflow-hidden relative bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
               <img 
                 src={option.image} 
                 alt={option.title}
