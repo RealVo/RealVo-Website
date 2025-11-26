@@ -13,25 +13,6 @@ import Button from './components/Button';
 import Section from './components/Section';
 
 const App: React.FC = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // Check system preference on mount
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-    } else {
-      document.documentElement.classList.add('dark');
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-realvo-charcoal transition-colors duration-300">
       <Header toggleTheme={toggleTheme} isDark={isDark} />
