@@ -267,7 +267,7 @@ const App: React.FC = () => {
                     Submit
                   </Button>
                   <p className="mt-2 text-xs text-gray-400">
-                    * Required fields
+                    Required fields are marked with <span className="text-red-500">*</span>
                   </p>
                 </div>
               </form>
