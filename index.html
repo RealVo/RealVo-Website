@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charSet="UTF-8" />
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <!-- Hidden Netlify form for detection at build time -->
+    <!-- Hidden Netlify form so Netlify detects fields at build time -->
     <form
       name="contact"
       method="POST"
@@ -30,6 +30,7 @@
     </form>
 
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- IMPORTANT: your actual entry file is /index.tsx, not /src/main.tsx -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
