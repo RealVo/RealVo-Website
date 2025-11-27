@@ -5,7 +5,7 @@ import Section from './Section';
 
 const Hero: React.FC = () => {
   return (
-    <Section className="pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+    <Section className="pt-24 pb-12 md:pt-32 md:pb-20 relative overflow-hidden">
       {/* Background Abstract Shapes */}
       <div className="absolute top-0 right-0 -z-10 opacity-10 dark:opacity-5">
         <svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
