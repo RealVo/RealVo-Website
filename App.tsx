@@ -242,16 +242,16 @@ const App: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Message */}
+                {/* Activation Details */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Anything else we should know?
+                    Tell us about your activation
                   </label>
                   <textarea
                     name="message"
                     rows={3}
                     className="w-full rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                    placeholder="Share timing, event location, goals..."
+                    placeholder="Share timing, location, goals, outcomes"
                   />
                 </div>
 
