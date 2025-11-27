@@ -1,199 +1,114 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import Button from './Button';
 
-type NavItem = {
-  id: string;
-  label: string;
-};
-
-const navItems: NavItem[] = [
-  { id: 'why-realvo', label: 'Why RealVo' },
-  { id: 'how-it-works', label: 'How It Works' },
-  { id: 'solutions', label: 'Solutions' },
-  { id: 'industries', label: 'Who We Serve' },
-  { id: 'pricing', label: 'Pricing' }
+const navLinks = [
+  { label: 'Why RealVo', targetId: 'why-realvo' },
+  { label: 'How It Works', targetId: 'how-it-works' },
+  { label: 'Solutions', targetId: 'solutions' },
+  { label: 'Who We Serve', targetId: 'industries' },
+  { label: 'Pricing', targetId: 'pricing' },
 ];
 
 const Header: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const viewportTrigger = 140;
-      let current: string | null = null;
-
-      for (const item of navItems) {
-        const el = document.getElementById(item.id);
-        if (!el) continue;
-
-        const rect = el.getBoundingClientRect();
-        const inView =
-          rect.top <= viewportTrigger && rect.bottom >= viewportTrigger;
-
-        if (inView) {
-          current = item.id;
-          break;
-        }
-      }
-
-      if (!current && window.scrollY < 200) {
-        current = null;
-      }
-
-      setActiveSection(current);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Smooth scroll helper:
-  // - Mobile: behave like Hero button (scrollIntoView, no offset)
-  // - Desktop: use an offset so the section isn't hidden behind the sticky header
-  const scrollToSection = (
-    id: string,
-    options?: { desktopOffset?: number }
-  ) => {
+  const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const isMobile = window.innerWidth < 768;
+    // Close mobile nav first so header shrinks before we calculate position
+    setMobileOpen(false);
 
-    if (isMobile) {
+    // Give the layout a moment to update, then scroll using scrollIntoView
+    window.setTimeout(() => {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
-
-    const desktopOffset = options?.desktopOffset ?? 80;
-    const elementPosition = el.getBoundingClientRect().top + window.scrollY;
-    const target = elementPosition - desktopOffset;
-
-    window.scrollTo({ top: target, behavior: 'smooth' });
+    }, 50);
   };
 
-  const handleNavClick = (
-    id: string,
-    event: React.MouseEvent<HTMLAnchorElement>
-  ) => {
-    event.preventDefault();
-    scrollToSection(id);
+  const scrollToTop = () => {
     setMobileOpen(false);
-  };
-
-  const handleContactClick = () => {
-    scrollToSection('contact', { desktopOffset: 80 });
-    setMobileOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/95 backdrop-blur">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <a
-          href="/"
-          className="flex items-center gap-2"
-          onClick={() => setMobileOpen(false)}
-        >
-          <img src="/logo.png" alt="RealVo" className="h-8 w-auto" />
-        </a>
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-realvo-blue rounded-md"
+          >
+            <img
+              src="/logo.png"
+              alt="RealVo"
+              className="h-7 w-auto"
+            />
+          </button>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
-          {navItems.map((item) => {
-            const isActive = activeSection === item.id;
-
-            return (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => handleNavClick(item.id, e)}
-                className={[
-                  'text-base md:text-lg font-medium transition-all duration-200',
-                  'hover:scale-110',
-                  isActive
-                    ? 'text-realvo-blue scale-110 border-b-2 border-realvo-blue pb-1'
-                    : 'text-gray-600 hover:text-realvo-blue'
-                ].join(' ')}
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium text-gray-600">
+            {navLinks.map((link) => (
+              <button
+                key={link.targetId}
+                type="button"
+                onClick={() => scrollToSection(link.targetId)}
+                className="relative transition-colors hover:text-realvo-blue"
               >
-                {item.label}
-              </a>
-            );
-          })}
-        </nav>
+                {link.label}
+              </button>
+            ))}
+          </nav>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button size="sm" variant="primary" onClick={handleContactClick}>
-            Contact Us
-          </Button>
-        </div>
-
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-gray-200 text-gray-700 hover:bg-gray-50 active:bg-gray-100"
-          onClick={() => setMobileOpen((open) => !open)}
-          aria-label="Toggle navigation"
-        >
-          <span className="sr-only">Toggle navigation</span>
-          <div className="space-y-1">
-            <span
-              className={`block h-0.5 w-5 bg-gray-800 transition-transform duration-200 ${
-                mobileOpen ? 'translate-y-1.5 rotate-45' : ''
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-gray-800 transition-opacity duration-200 ${
-                mobileOpen ? 'opacity-0' : 'opacity-100'
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-gray-800 transition-transform duration-200 ${
-                mobileOpen ? '-translate-y-1.5 -rotate-45' : ''
-              }`}
-            />
+          {/* Desktop Contact button */}
+          <div className="hidden md:block">
+            <Button
+              size="sm"
+              variant="primary"
+              onClick={() => scrollToSection('contact')}
+            >
+              Contact Us
+            </Button>
           </div>
-        </button>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:text-realvo-blue focus:outline-none focus:ring-2 focus:ring-realvo-blue"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white/98 backdrop-blur">
-          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-2">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.id;
-
-              return (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={(e) => handleNavClick(item.id, e)}
-                  className={[
-                    'block py-2 text-base font-medium',
-                    isActive
-                      ? 'text-realvo-blue'
-                      : 'text-gray-700 hover:text-realvo-blue'
-                  ].join(' ')}
-                >
-                  {item.label}
-                </a>
-              );
-            })}
-
-            <div className="pt-2">
-              <Button
-                size="sm"
-                variant="primary"
-                className="w-full"
-                onClick={handleContactClick}
+        <div className="md:hidden border-t border-gray-100 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.targetId}
+                type="button"
+                onClick={() => scrollToSection(link.targetId)}
+                className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
               >
-                Contact Us
-              </Button>
-            </div>
-          </nav>
+                {link.label}
+              </button>
+            ))}
+
+            <Button
+              size="sm"
+              variant="primary"
+              className="mt-2 w-full"
+              onClick={() => scrollToSection('contact')}
+            >
+              Contact Us
+            </Button>
+          </div>
         </div>
       )}
     </header>
