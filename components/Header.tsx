@@ -18,7 +18,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const viewportTrigger = 140; // px from top where we "track" the active section
+      const viewportTrigger = 140;
       let current: string | null = null;
 
       for (const item of navItems) {
@@ -34,15 +34,14 @@ const Header: React.FC = () => {
         }
       }
 
-      // Fallback: if nothing matched, highlight the first section once we've scrolled past hero
       if (!current && window.scrollY < 200) {
-        current = null; // nothing active at very top
+        current = null;
       }
 
       setActiveSection(current);
     };
 
-    handleScroll(); // run once on mount
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', handleScroll);
@@ -53,7 +52,7 @@ const Header: React.FC = () => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const yOffset = -80; // offset for fixed header height
+    const yOffset = -80;
     const rect = el.getBoundingClientRect();
     const scrollTarget = window.scrollY + rect.top + yOffset;
 
@@ -61,10 +60,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="w-full py-4 border-b border-gray-100 bg-white">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        
-        {/* Logo */}
+    <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/95 backdrop-blur">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
           <img
             src="/logo.png"
@@ -73,7 +70,6 @@ const Header: React.FC = () => {
           />
         </a>
 
-        {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
@@ -97,17 +93,17 @@ const Header: React.FC = () => {
           })}
         </nav>
 
-        {/* CTA */}
         <div className="flex items-center gap-3">
           <Button size="sm" variant="primary">
             Contact Us
           </Button>
         </div>
-
       </div>
     </header>
   );
 };
+
+export default Header;
 
 export default Header;
 
