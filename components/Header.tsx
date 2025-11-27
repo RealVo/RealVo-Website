@@ -7,9 +7,10 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { id: 'why-realvo', label: 'Why RealVo' },
+   { id: 'why-realvo', label: 'Why RealVo' },
   { id: 'how-it-works', label: 'How It Works' },
   { id: 'solutions', label: 'Solutions' },
+  { id: 'industries', label: 'Industries' }, // NEW
   { id: 'pricing', label: 'Pricing' }
 ];
 
