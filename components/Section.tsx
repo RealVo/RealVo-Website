@@ -27,10 +27,14 @@ const Section: React.FC<SectionProps> = ({
     lg: 'py-20 md:py-28'
   };
 
+  // Add scroll margin only for the contact section so it isn't hidden under the sticky header
+  const scrollMarginClass =
+    id === 'contact' ? 'scroll-mt-24 md:scroll-mt-32' : '';
+
   return (
     <section
       id={id}
-      className={`${paddingStyles[padding]} px-4 sm:px-6 lg:px-8 ${bgStyles[background]} ${className}`}
+      className={`${scrollMarginClass} ${paddingStyles[padding]} px-4 sm:px-6 lg:px-8 ${bgStyles[background]} ${className}`}
     >
       <div className="max-w-7xl mx-auto w-full">
         {children}
@@ -40,4 +44,3 @@ const Section: React.FC<SectionProps> = ({
 };
 
 export default Section;
-
