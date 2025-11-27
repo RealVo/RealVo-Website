@@ -28,7 +28,8 @@ const Header: React.FC = () => {
         if (!el) continue;
 
         const rect = el.getBoundingClientRect();
-        const inView = rect.top <= viewportTrigger && rect.bottom >= viewportTrigger;
+        const inView =
+          rect.top <= viewportTrigger && rect.bottom >= viewportTrigger;
 
         if (inView) {
           current = item.id;
@@ -55,9 +56,9 @@ const Header: React.FC = () => {
 
     const yOffset = -80;
     const rect = el.getBoundingClientRect();
-    const scrollTarget = window.scrollY + rect.top + yOffset;
+    const targetY = window.scrollY + rect.top + yOffset;
 
-    window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
   };
 
   const handleNavClick = (
@@ -69,16 +70,21 @@ const Header: React.FC = () => {
     setMobileOpen(false);
   };
 
+  const handleContactClick = () => {
+    scrollToSection('contact');
+    setMobileOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/95 backdrop-blur">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-          <img
-            src="/logo.png"
-            alt="RealVo"
-            className="h-8 w-auto"
-          />
+        <a
+          href="/"
+          className="flex items-center gap-2"
+          onClick={() => setMobileOpen(false)}
+        >
+          <img src="/logo.png" alt="RealVo" className="h-8 w-auto" />
         </a>
 
         {/* Desktop Navigation */}
@@ -107,7 +113,7 @@ const Header: React.FC = () => {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Button size="sm" variant="primary">
+          <Button size="sm" variant="primary" onClick={handleContactClick}>
             Contact Us
           </Button>
         </div>
@@ -154,7 +160,9 @@ const Header: React.FC = () => {
                   onClick={(e) => handleNavClick(item.id, e)}
                   className={[
                     'block py-2 text-base font-medium',
-                    isActive ? 'text-realvo-blue' : 'text-gray-700 hover:text-realvo-blue'
+                    isActive
+                      ? 'text-realvo-blue'
+                      : 'text-gray-700 hover:text-realvo-blue'
                   ].join(' ')}
                 >
                   {item.label}
@@ -163,7 +171,12 @@ const Header: React.FC = () => {
             })}
 
             <div className="pt-2">
-              <Button size="sm" variant="primary" className="w-full">
+              <Button
+                size="sm"
+                variant="primary"
+                className="w-full"
+                onClick={handleContactClick}
+              >
                 Contact Us
               </Button>
             </div>
