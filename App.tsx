@@ -35,7 +35,6 @@ const App: React.FC = () => {
           className="border-t border-gray-100"
         >
           <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
-            
             {/* Left Column */}
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal tracking-tight">
@@ -67,7 +66,7 @@ const App: React.FC = () => {
                   <input
                     name="fullName"
                     required
-                    className="w-full rounded-lg border border-gray-300 text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                    className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                     placeholder="Jane Doe"
                   />
                 </div>
@@ -81,14 +80,13 @@ const App: React.FC = () => {
                     name="email"
                     type="email"
                     required
-                    className="w-full rounded-lg border border-gray-300 text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                    className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                     placeholder="you@company.com"
                   />
                 </div>
 
                 {/* Country + Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
                   {/* Country */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -97,14 +95,16 @@ const App: React.FC = () => {
                     <select
                       name="country"
                       required
-                      className="w-full rounded-lg border border-gray-300 bg-white text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                      className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                       defaultValue=""
                     >
-                      <option value="" disabled>Select your country</option>
+                      <option value="" disabled>
+                        Select your country
+                      </option>
                       <option value="Canada">Canada</option>
                       <option value="United States">United States</option>
 
-                      {/* Rest of world below */}
+                      {/* Rest of world */}
                       <option value="Afghanistan">Afghanistan</option>
                       <option value="Albania">Albania</option>
                       <option value="Algeria">Algeria</option>
@@ -143,7 +143,9 @@ const App: React.FC = () => {
                       <option value="Spain">Spain</option>
                       <option value="Sweden">Sweden</option>
                       <option value="Switzerland">Switzerland</option>
-                      <option value="United Arab Emirates">United Arab Emirates</option>
+                      <option value="United Arab Emirates">
+                        United Arab Emirates
+                      </option>
                       <option value="United Kingdom">United Kingdom</option>
                       <option value="Vietnam">Vietnam</option>
                     </select>
@@ -157,7 +159,7 @@ const App: React.FC = () => {
                     <input
                       name="phone"
                       type="tel"
-                      className="w-full rounded-lg border border-gray-300 text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                      className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
@@ -171,7 +173,7 @@ const App: React.FC = () => {
                   <input
                     name="organization"
                     required
-                    className="w-full rounded-lg border border-gray-300 text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                    className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                     placeholder="Company / University / Hospital"
                   />
                 </div>
@@ -183,14 +185,13 @@ const App: React.FC = () => {
                   </label>
                   <input
                     name="role"
-                    className="w-full rounded-lg border border-gray-300 text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                    className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                     placeholder="Director of Employee Experience"
                   />
                 </div>
 
                 {/* Inquiry + Budget */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
                   {/* Nature */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -199,14 +200,22 @@ const App: React.FC = () => {
                     <select
                       name="nature"
                       required
-                      className="w-full rounded-lg border border-gray-300 bg-white text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                      className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                       defaultValue=""
                     >
-                      <option value="" disabled>Select one</option>
+                      <option value="" disabled>
+                        Select one
+                      </option>
                       <option value="Purchase">Purchase</option>
-                      <option value="Rental - 1 week or less">Rental (1-week or less)</option>
-                      <option value="Rental - 1 month or less">Rental (1-month or less)</option>
-                      <option value="Rental - more than 1 month">Rental (more than 1-month)</option>
+                      <option value="Rental - 1 week or less">
+                        Rental (1-week or less)
+                      </option>
+                      <option value="Rental - 1 month or less">
+                        Rental (1-month or less)
+                      </option>
+                      <option value="Rental - more than 1 month">
+                        Rental (more than 1-month)
+                      </option>
                     </select>
                   </div>
 
@@ -218,10 +227,12 @@ const App: React.FC = () => {
                     <select
                       name="budget"
                       required
-                      className="w-full rounded-lg border border-gray-300 bg-white text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                      className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                       defaultValue=""
                     >
-                      <option value="" disabled>Select range</option>
+                      <option value="" disabled>
+                        Select range
+                      </option>
                       <option value="< 5000">Less than $5k</option>
                       <option value="5000-10000">$5k – $10k</option>
                       <option value="10000-15000">$10k – $15k</option>
@@ -239,7 +250,7 @@ const App: React.FC = () => {
                   <textarea
                     name="message"
                     rows={3}
-                    className="w-full rounded-lg border border-gray-300 text-sm p-2 focus:border-realvo-blue focus:ring-realvo-blue"
+                    className="w-full rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
                     placeholder="Share timing, event location, goals..."
                   />
                 </div>
@@ -258,7 +269,6 @@ const App: React.FC = () => {
                     * Required fields
                   </p>
                 </div>
-
               </form>
             </div>
           </div>
