@@ -1,7 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from './Button';
 
+type NavItem = {
+  id: string;
+  label: string;
+};
+
+const navItems: NavItem[] = [
+  { id: 'why-realvo', label: 'Why RealVo' },
+  { id: 'how-it-works', label: 'How It Works' },
+  { id: 'solutions', label: 'Solutions' },
+  { id: 'pricing', label: 'Pricing' }
+];
+
 const Header: React.FC = () => {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const viewportTrigger = 140; // px from top where we "track" the active section
+      let current: string | null = null;
+
+      for (const item of navItems) {
+        const el = document.getElementById(item.id);
+        if (!el) continue;
+
+        const rect = el.getBoundingClientRect();
+        const inView = rect.top <= viewportTrigger && rect.bottom >= viewportTrigger;
+
+        if (inView) {
+          current = item.id;
+          break;
+        }
+      }
+
+      // Fallback: if nothing matched, highlight the first section once we've scrolled past hero
+      if (!current && window.scrollY < 200) {
+        current = null; // nothing active at very top
+      }
+
+      setActiveSection(current);
+    };
+
+    handleScroll(); // run once on mount
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (id: string, event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const yOffset = -80; // offset for fixed header height
+    const rect = el.getBoundingClientRect();
+    const scrollTarget = window.scrollY + rect.top + yOffset;
+
+    window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
+  };
+
   return (
     <header className="w-full py-4 border-b border-gray-100 bg-white">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -17,33 +75,26 @@ const Header: React.FC = () => {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
-          <a
-            href="#why-realvo"
-            className="text-sm md:text-base font-medium text-gray-600 transition-transform duration-200 hover:scale-110 hover:text-realvo-blue"
-          >
-            Why RealVo
-          </a>
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
 
-          <a
-            href="#how-it-works"
-            className="text-sm md:text-base font-medium text-gray-600 transition-transform duration-200 hover:scale-110 hover:text-realvo-blue"
-          >
-            How It Works
-          </a>
-
-          <a
-            href="#solutions"
-            className="text-sm md:text-base font-medium text-gray-600 transition-transform duration-200 hover:scale-110 hover:text-realvo-blue"
-          >
-            Solutions
-          </a>
-
-          <a
-            href="#pricing"
-            className="text-sm md:text-base font-medium text-gray-600 transition-transform duration-200 hover:scale-110 hover:text-realvo-blue"
-          >
-            Pricing
-          </a>
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleNavClick(item.id, e)}
+                className={[
+                  'text-sm md:text-base font-medium transition-all duration-200',
+                  'hover:scale-110',
+                  isActive
+                    ? 'text-realvo-blue scale-110 border-b-2 border-realvo-blue pb-1'
+                    : 'text-gray-600 hover:text-realvo-blue'
+                ].join(' ')}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* CTA */}
@@ -59,3 +110,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
