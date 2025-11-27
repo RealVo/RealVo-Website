@@ -50,12 +50,13 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string, customOffset?: number) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const yOffset = -80;
     const rect = el.getBoundingClientRect();
+    const defaultOffset = -80;
+    const yOffset = customOffset ?? defaultOffset;
     const targetY = window.scrollY + rect.top + yOffset;
 
     window.scrollTo({ top: targetY, behavior: 'smooth' });
@@ -71,7 +72,10 @@ const Header: React.FC = () => {
   };
 
   const handleContactClick = () => {
-    scrollToSection('contact');
+    // Slightly different offset for mobile so the heading isn't cut off
+    const isMobile = window.innerWidth < 768;
+    const offset = isMobile ? -40 : -80;
+    scrollToSection('contact', offset);
     setMobileOpen(false);
   };
 
