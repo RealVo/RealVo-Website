@@ -7,10 +7,10 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-   { id: 'why-realvo', label: 'Why RealVo' },
+  { id: 'why-realvo', label: 'Why RealVo' },
   { id: 'how-it-works', label: 'How It Works' },
   { id: 'solutions', label: 'Solutions' },
-  { id: 'industries', label: 'Who We Serve' },
+  { id: 'industries', label: 'Industries' },
   { id: 'pricing', label: 'Pricing' }
 ];
 
@@ -63,6 +63,7 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/95 backdrop-blur">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
           <img
@@ -83,7 +84,7 @@ const Header: React.FC = () => {
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(item.id, e)}
                 className={[
-                  'text-sm md:text-base font-medium transition-all duration-200',
+                  'text-base md:text-lg font-medium transition-all duration-200',
                   'hover:scale-110',
                   isActive
                     ? 'text-realvo-blue scale-110 border-b-2 border-realvo-blue pb-1'
