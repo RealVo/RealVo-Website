@@ -50,16 +50,22 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string, customOffset?: number) => {
+  // Generic smooth scroll with separate desktop/mobile offsets
+  const scrollToSection = (
+    id: string,
+    options?: { desktopOffset?: number; mobileOffset?: number }
+  ) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const rect = el.getBoundingClientRect();
-    const defaultOffset = -80;
-    const yOffset = customOffset ?? defaultOffset;
-    const targetY = window.scrollY + rect.top + yOffset;
+    const desktopOffset = options?.desktopOffset ?? 80;
+    const mobileOffset = options?.mobileOffset ?? 80;
+    const headerOffset = window.innerWidth < 768 ? mobileOffset : desktopOffset;
 
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
+    const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+    const target = elementPosition - headerOffset;
+
+    window.scrollTo({ top: target, behavior: 'smooth' });
   };
 
   const handleNavClick = (
@@ -67,15 +73,14 @@ const Header: React.FC = () => {
     event: React.MouseEvent<HTMLAnchorElement>
   ) => {
     event.preventDefault();
-    scrollToSection(id);
+    scrollToSection(id); // standard offsets (80 / 80)
     setMobileOpen(false);
   };
 
   const handleContactClick = () => {
-    // Slightly different offset for mobile so the heading isn't cut off
-    const isMobile = window.innerWidth < 768;
-    const offset = isMobile ? -40 : -80;
-    scrollToSection('contact', offset);
+    // Desktop: same as other links (80)
+    // Mobile: a bit larger so the heading is clearly visible (try 130)
+    scrollToSection('contact', { desktopOffset: 80, mobileOffset: 130 });
     setMobileOpen(false);
   };
 
