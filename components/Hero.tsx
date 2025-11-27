@@ -27,6 +27,15 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const yOffset = -80;
+    const targetY = window.scrollY + rect.top + yOffset;
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+  };
+
   return (
     <Section className="pt-16 pb-8 md:pt-28 md:pb-16 relative overflow-hidden">
       {/* Background Abstract Shapes */}
@@ -75,10 +84,19 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-            <Button size="lg" variant="primary">
+            <Button
+              size="lg"
+              variant="primary"
+              onClick={() => scrollToSection('contact')}
+            >
               Contact Us
             </Button>
-            <Button size="lg" variant="outline" className="gap-2">
+            <Button
+              size="lg"
+              variant="outline"
+              className="gap-2"
+              onClick={() => scrollToSection('how-it-works')}
+            >
               <PlayCircle size={20} />
               How RealVo Works
             </Button>
