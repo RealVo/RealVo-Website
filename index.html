@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,11 +6,14 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>RealVo</title>
+    <title>RealVo – Authentic Voices</title>
+
+    <!-- This was in your original setup: keeps your Tailwind/CSS styling -->
+    <link rel="stylesheet" href="/index.css" />
   </head>
 
   <body>
-    <!-- Hidden Netlify form so Netlify detects fields at build time -->
+    <!-- Hidden Netlify form so Netlify knows about all the fields -->
     <form
       name="contact"
       method="POST"
@@ -30,7 +33,8 @@
     </form>
 
     <div id="root"></div>
-    <!-- IMPORTANT: your actual entry file is /index.tsx, not /src/main.tsx -->
+
+    <!-- IMPORTANT: your entry file is index.tsx at the repo root -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
