@@ -16,25 +16,42 @@ const Header: React.FC = () => {
         </a>
 
         {/* Navigation */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium text-realvo-charcoal">
-          <a href="#why-realvo" className="hover:text-realvo-blue transition-colors">
+        <nav className="hidden md:flex items-center space-x-10">
+          <a
+            href="#why-realvo"
+            className="text-sm md:text-base font-medium text-gray-600 transition-transform duration-200 hover:scale-110 hover:text-realvo-blue"
+          >
             Why RealVo
           </a>
-          <a href="#how-it-works" className="hover:text-realvo-blue transition-colors">
+
+          <a
+            href="#how-it-works"
+            className="text-sm md:text-base font-medium text-gray-600 transition-transform duration-200 hover:scale-110 hover:text-realvo-blue"
+          >
             How It Works
           </a>
-          <a href="#solutions" className="hover:text-realvo-blue transition-colors">
+
+          <a
+            href="#solutions"
+            className="text-sm md:text-base font-medium text-gray-600 transition-transform duration-200 hover:scale-110 hover:text-realvo-blue"
+          >
             Solutions
           </a>
-          <a href="#pricing" className="hover:text-realvo-blue transition-colors">
+
+          <a
+            href="#pricing"
+            className="text-sm md:text-base font-medium text-gray-600 transition-transform duration-200 hover:scale-110 hover:text-realvo-blue"
+          >
             Pricing
           </a>
         </nav>
 
         {/* CTA */}
-        <Button size="sm" variant="primary">
-          Contact Us
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button size="sm" variant="primary">
+            Contact Us
+          </Button>
+        </div>
 
       </div>
     </header>
