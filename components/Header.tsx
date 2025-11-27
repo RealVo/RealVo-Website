@@ -50,20 +50,26 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Generic smooth scroll with separate desktop/mobile offsets
+  // Smooth scroll helper:
+  // - Mobile: behave like Hero button (scrollIntoView, no offset)
+  // - Desktop: use an offset so the section isn't hidden behind the sticky header
   const scrollToSection = (
     id: string,
-    options?: { desktopOffset?: number; mobileOffset?: number }
+    options?: { desktopOffset?: number }
   ) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const desktopOffset = options?.desktopOffset ?? 80;
-    const mobileOffset = options?.mobileOffset ?? 80;
-    const headerOffset = window.innerWidth < 768 ? mobileOffset : desktopOffset;
+    const isMobile = window.innerWidth < 768;
 
+    if (isMobile) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    const desktopOffset = options?.desktopOffset ?? 80;
     const elementPosition = el.getBoundingClientRect().top + window.scrollY;
-    const target = elementPosition - headerOffset;
+    const target = elementPosition - desktopOffset;
 
     window.scrollTo({ top: target, behavior: 'smooth' });
   };
@@ -73,14 +79,12 @@ const Header: React.FC = () => {
     event: React.MouseEvent<HTMLAnchorElement>
   ) => {
     event.preventDefault();
-    scrollToSection(id); // standard offsets (80 / 80)
+    scrollToSection(id);
     setMobileOpen(false);
   };
 
   const handleContactClick = () => {
-    // Desktop: same as other links (80)
-    // Mobile: a bit larger so the heading is clearly visible (try 130)
-    scrollToSection('contact', { desktopOffset: 80, mobileOffset: 130 });
+    scrollToSection('contact', { desktopOffset: 80 });
     setMobileOpen(false);
   };
 
