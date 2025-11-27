@@ -62,6 +62,7 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/95 backdrop-blur">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        {/* Logo */}
         <a href="/" className="flex items-center gap-2">
           <img
             src="/logo.png"
@@ -70,6 +71,7 @@ const Header: React.FC = () => {
           />
         </a>
 
+        {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
@@ -93,6 +95,7 @@ const Header: React.FC = () => {
           })}
         </nav>
 
+        {/* CTA */}
         <div className="flex items-center gap-3">
           <Button size="sm" variant="primary">
             Contact Us
@@ -104,6 +107,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
-export default Header;
-
