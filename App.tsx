@@ -41,7 +41,8 @@ const App: React.FC = () => {
                 Ready to hear real voices?
               </h2>
               <p className="text-lg text-gray-600">
-                Tell us a little about your program — goals, timing, and where you’ll be capturing voices.
+                Tell us a little about your program — goals, timing, and where you’ll be
+                capturing voices.
               </p>
               <p className="text-sm text-gray-500">
                 We typically respond within 1–2 business days.
@@ -54,9 +55,11 @@ const App: React.FC = () => {
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                action="/"
+                netlify
+                action="/#contact"
                 className="space-y-5"
               >
+                {/* Netlify form name */}
                 <input type="hidden" name="form-name" value="contact" />
 
                 {/* Full Name */}
@@ -144,9 +147,7 @@ const App: React.FC = () => {
                       <option value="Spain">Spain</option>
                       <option value="Sweden">Sweden</option>
                       <option value="Switzerland">Switzerland</option>
-                      <option value="United Arab Emirates">
-                        United Arab Emirates
-                      </option>
+                      <option value="United Arab Emirates">United Arab Emirates</option>
                       <option value="United Kingdom">United Kingdom</option>
                       <option value="Vietnam">Vietnam</option>
                     </select>
