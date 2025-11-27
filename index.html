@@ -1,40 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>RealVo – Authentic Voices</title>
-
-    <!-- This was in your original setup: keeps your Tailwind/CSS styling -->
-    <link rel="stylesheet" href="/index.css" />
-  </head>
-
-  <body>
-    <!-- Hidden Netlify form so Netlify knows about all the fields -->
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      hidden
-    >
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="text" name="fullName" />
-      <input type="email" name="email" />
-      <input type="text" name="country" />
-      <input type="tel" name="phone" />
-      <input type="text" name="organization" />
-      <input type="text" name="role" />
-      <input type="text" name="nature" />
-      <input type="text" name="budget" />
-      <textarea name="message"></textarea>
-    </form>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RealVo - Authentic Voices. Real Impact.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              realvo: {
+                blue: '#2A4D69',
+                slate: '#6A7F93',
+                teal: '#2AB8B0',
+                light: '#F3F4F6',
+                mid: '#D4D8DC',
+                charcoal: '#1A1E23',
+              }
+            },
+            borderRadius: {
+              'brand': '12px',
+            },
+            animation: {
+              'scroll': 'scroll 40s linear infinite',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for a premium feel */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D4D8DC;
+        border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #4B5563;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-white dark:bg-realvo-charcoal text-realvo-charcoal dark:text-gray-100 transition-colors duration-300 antialiased selection:bg-realvo-teal selection:text-white">
     <div id="root"></div>
-
-    <!-- IMPORTANT: your entry file is index.tsx at the repo root -->
-    <script type="module" src="/index.tsx"></script>
-  </body>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>
