@@ -3,15 +3,14 @@ import Button from './Button';
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full py-4 px-4 sm:px-6 lg:px-8 flex items-center justify-between bg-white/90 backdrop-blur border-b border-gray-100 sticky top-0 z-30">
-      {/* Brand */}
-      <a href="#" className="flex items-center gap-2">
-        <span className="text-2xl font-extrabold tracking-tight text-realvo-blue">
-          RealVo
-        </span>
-        <span className="inline-flex items-center justify-center rounded-md border border-realvo-blue/30 text-realvo-blue text-[11px] font-semibold px-1.5 py-0.5 leading-none">
-          ▷
-        </span>
+    <header className="w-full py-4 px-4 sm:px-6 lg:px-8 flex items-center justify-between bg-white border-b border-gray-100">
+      {/* Logo */}
+      <a href="/" className="flex items-center gap-2">
+        <img
+          src="/logo.png"
+          alt="RealVo"
+          className="h-8 w-auto"
+        />
       </a>
 
       {/* Navigation */}
