@@ -174,7 +174,7 @@ const App: React.FC = () => {
                     name="organization"
                     required
                     className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                    placeholder="Company / University / Hospital"
+                    placeholder="Company / University / Hospital / Community / Non-profit"
                   />
                 </div>
 
