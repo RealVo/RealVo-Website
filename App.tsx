@@ -54,6 +54,7 @@ const App: React.FC = () => {
                 name="contact"
                 method="POST"
                 data-netlify="true"
+                action="/"
                 className="space-y-5"
               >
                 <input type="hidden" name="form-name" value="contact" />
@@ -267,7 +268,7 @@ const App: React.FC = () => {
                     Submit
                   </Button>
                   <p className="mt-2 text-xs text-gray-400">
-                    Required fields are marked with <span className="text-red-500">*</span>
+                    * Required fields
                   </p>
                 </div>
               </form>
