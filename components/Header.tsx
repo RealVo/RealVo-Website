@@ -10,7 +10,7 @@ const navItems: NavItem[] = [
    { id: 'why-realvo', label: 'Why RealVo' },
   { id: 'how-it-works', label: 'How It Works' },
   { id: 'solutions', label: 'Solutions' },
-  { id: 'industries', label: 'Industries' }, // NEW
+  { id: 'industries', label: 'Who We Serve' },
   { id: 'pricing', label: 'Pricing' }
 ];
 
