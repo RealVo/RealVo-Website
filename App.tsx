@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustedBy from './components/TrustedBy';
@@ -13,6 +13,34 @@ import Button from './components/Button';
 import Section from './components/Section';
 
 const App: React.FC = () => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Netlify requires form-name in the POST body
+    if (!formData.get('form-name')) {
+      formData.append('form-name', 'contact');
+    }
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      console.error('Form submission error', err);
+      // If you want, we can add an error message state later
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white transition-colors duration-300">
       <Header />
@@ -41,12 +69,19 @@ const App: React.FC = () => {
                 Ready to hear real voices?
               </h2>
               <p className="text-lg text-gray-600">
-                Tell us a little about your program — goals, timing, and where you’ll be
-                capturing voices.
+                Tell us a little about your program — goals, timing, and where you’ll
+                be capturing voices.
               </p>
               <p className="text-sm text-gray-500">
                 We typically respond within 1–2 business days.
               </p>
+
+              {submitted && (
+                <p className="text-sm text-green-600 mt-2">
+                  Thank you — your details have been submitted. We’ll be in touch
+                  shortly.
+                </p>
+              )}
             </div>
 
             {/* Contact Form */}
@@ -55,12 +90,17 @@ const App: React.FC = () => {
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                netlify
-                action="/#contact"
+                netlify-honeypot="bot-field"
                 className="space-y-5"
+                onSubmit={handleSubmit}
               >
-                {/* Netlify form name */}
+                {/* Required by Netlify + honeypot field */}
                 <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don’t fill this out if you’re human: <input name="bot-field" />
+                  </label>
+                </p>
 
                 {/* Full Name */}
                 <div>
@@ -147,7 +187,9 @@ const App: React.FC = () => {
                       <option value="Spain">Spain</option>
                       <option value="Sweden">Sweden</option>
                       <option value="Switzerland">Switzerland</option>
-                      <option value="United Arab Emirates">United Arab Emirates</option>
+                      <option value="United Arab Emirates">
+                        United Arab Emirates
+                      </option>
                       <option value="United Kingdom">United Kingdom</option>
                       <option value="Vietnam">Vietnam</option>
                     </select>
