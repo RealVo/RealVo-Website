@@ -60,7 +60,9 @@ const Hero: React.FC = () => {
           ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}
       >
+        {/* LEFT COLUMN */}
         <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+          {/* Eyebrow pill */}
           <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1 rounded-full text-sm font-medium text-realvo-blue dark:text-realvo-teal mb-2 sm:mb-4">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
@@ -69,6 +71,7 @@ const Hero: React.FC = () => {
             <span>Enterprise Video Capture Platform</span>
           </div>
 
+          {/* Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
             Authentic Voices.
             <br />
@@ -77,12 +80,14 @@ const Hero: React.FC = () => {
             </span>
           </h1>
 
+          {/* Supporting copy */}
           <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-            From corporate conferences and campus events to healthcare or
-            community programs, RealVo gives people a trusted way to share their
-            voices and experiences on video — in person or online.
+            Capture the messages that drive your programs forward—insights,
+            feedback, stories, and testimonials—all on video at enterprise
+            scale.
           </p>
 
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
             <Button
               size="lg"
@@ -101,12 +106,9 @@ const Hero: React.FC = () => {
               How RealVo Works
             </Button>
           </div>
-
-          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 pt-1 sm:pt-2">
-            Trusted by Fortune 500s, Universities, and Healthcare Systems.
-          </p>
         </div>
 
+        {/* RIGHT COLUMN */}
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-gray-100 dark:bg-gray-800 group">
             <img
@@ -162,3 +164,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
