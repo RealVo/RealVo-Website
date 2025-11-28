@@ -32,8 +32,7 @@ const TrustedBy: React.FC = () => {
       img.style.display = 'none';
       if (!parent.innerText) {
         parent.innerText = img.alt;
-        parent.className =
-          "flex-shrink-0 flex items-center justify-center px-4 text-lg font-bold text-gray-400 whitespace-nowrap";
+        parent.className = "flex-shrink-0 flex items-center justify-center px-4 text-lg font-bold text-gray-400 whitespace-nowrap";
       }
     }
   };
@@ -45,18 +44,15 @@ const TrustedBy: React.FC = () => {
       background="light"
     >
       <div className="text-center mb-10">
-        <h3 className="text-xl sm:text-2xl font-semibold text-gray-700 dark:text-gray-200 tracking-tight leading-tight">
-          Built on over 15 years of enterprise video capture experience.
+        <h3 className="text-lg font-medium tracking-tight text-gray-600 dark:text-gray-300">
+          Built on over 15 years of enterprise video capture experience
         </h3>
       </div>
 
       <div className="relative w-full overflow-hidden group">
         <div className="flex animate-scroll w-max gap-16 px-8 hover:[animation-play-state:paused] items-center">
           {[...clients, ...clients].map((client, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 flex items-center justify-center mx-4"
-            >
+            <div key={i} className="flex-shrink-0 flex items-center justify-center mx-4">
               <img
                 src={client.logo}
                 alt={client.name}
@@ -67,6 +63,7 @@ const TrustedBy: React.FC = () => {
           ))}
         </div>
 
+        {/* Edge fade */}
         <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-realvo-light dark:from-[#232830] to-transparent z-10 pointer-events-none"></div>
         <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-realvo-light dark:from-[#232830] to-transparent z-10 pointer-events-none"></div>
       </div>
@@ -75,4 +72,3 @@ const TrustedBy: React.FC = () => {
 };
 
 export default TrustedBy;
-
