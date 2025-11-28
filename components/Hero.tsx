@@ -102,11 +102,6 @@ const Hero: React.FC = () => {
             </Button>
           </div>
 
-          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 pt-1 sm:pt-2">
-            Built on over 15 years of enterprise video capture experience.
-          </p>
-        </div>
-
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-gray-100 dark:bg-gray-800 group">
             <img
