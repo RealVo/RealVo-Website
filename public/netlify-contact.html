@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Netlify Contact Form Template</title>
+  </head>
+  <body>
+    <!-- This page is never shown to users. It only exists so Netlify
+         can detect the `contact` form at build time. -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+
+      <!-- Fields just need to exist; labels/values don’t matter -->
+      <input type="text" name="fullName" />
+      <input type="email" name="email" />
+      <input type="text" name="country" />
+      <input type="text" name="phone" />
+      <input type="text" name="organization" />
+      <input type="text" name="role" />
+      <input type="text" name="nature" />
+      <input type="text" name="budget" />
+      <textarea name="message"></textarea>
+
+      <input type="text" name="bot-field" />
+    </form>
+  </body>
+</html>
 
