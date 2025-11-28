@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RealVo - Authentic Voices. Real Impact.</title>
 
+    <!-- Fonts & Tailwind -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -54,8 +54,22 @@
       };
     </script>
 
+    <!-- Import map used by AI Studio build, keep as-is -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+          "react/": "https://aistudiocdn.com/react@^19.2.0/",
+          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+        }
+      }
+    </script>
+
+    <!-- Vite / Tailwind output (if present) -->
+    <link rel="stylesheet" href="/index.css" />
+
     <style>
-      /* Custom scrollbar for a premium feel */
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -73,45 +87,37 @@
         scroll-behavior: smooth;
       }
     </style>
-
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://aistudiocdn.com/react@^19.2.0",
-          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-          "react/": "https://aistudiocdn.com/react@^19.2.0/",
-          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
-        }
-      }
-    </script>
-
-    <link rel="stylesheet" href="/index.css" />
   </head>
+
   <body
     class="bg-white dark:bg-realvo-charcoal text-realvo-charcoal dark:text-gray-100 transition-colors duration-300 antialiased selection:bg-realvo-teal selection:text-white"
   >
-    <!-- Hidden Netlify form so Netlify can register "contact" at build time -->
+    <!-- Hidden static form for Netlify detection -->
+    <!-- IMPORTANT: names match the React form fields in App.tsx -->
     <form
       name="contact"
-      netlify
-      netlify-honeypot="bot-field"
       method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
       hidden
     >
       <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="fullName" />
       <input type="email" name="email" />
       <input type="text" name="country" />
-      <input type="tel" name="phone" />
+      <input type="text" name="phone" />
       <input type="text" name="organization" />
       <input type="text" name="role" />
       <input type="text" name="nature" />
       <input type="text" name="budget" />
       <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
     </form>
 
+    <!-- React app root -->
     <div id="root"></div>
 
+    <!-- Vite entry point (keep as-is) -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
