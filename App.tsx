@@ -75,13 +75,6 @@ const App: React.FC = () => {
               <p className="text-sm text-gray-500">
                 We typically respond within 1–2 business days.
               </p>
-
-              {submitted && (
-                <p className="text-sm text-green-600 mt-2">
-                  Thank you — your details have been submitted. We’ll be in touch
-                  shortly.
-                </p>
-              )}
             </div>
 
             {/* Contact Form */}
@@ -300,7 +293,7 @@ const App: React.FC = () => {
                   />
                 </div>
 
-                {/* Submit */}
+                {/* Submit + required note + success message */}
                 <div className="pt-2">
                   <Button
                     type="submit"
@@ -310,9 +303,17 @@ const App: React.FC = () => {
                   >
                     Submit
                   </Button>
+
                   <p className="mt-2 text-xs text-gray-400">
                     * Required fields
                   </p>
+
+                  {submitted && (
+                    <p className="mt-2 text-sm text-green-600">
+                      Thank you — your details have been submitted. We’ll be in touch
+                      shortly.
+                    </p>
+                  )}
                 </div>
               </form>
             </div>
