@@ -78,9 +78,9 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-            From corporate conferences and campus events to healthcare or
-            community programs, RealVo gives people a trusted way to share their
-            voices and experiences on video — in person or online.
+            Capture the messages that drive your programs forward—insights,
+            feedback, stories, and testimonials—all on video at enterprise
+            scale.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
@@ -162,3 +162,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
