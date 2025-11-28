@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
             </span>
-            <span>Enterprise Storytelling Platform</span>
+            <span>Enterprise Video Capture Platform</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
