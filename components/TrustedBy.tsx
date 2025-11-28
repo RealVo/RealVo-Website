@@ -45,7 +45,7 @@ const TrustedBy: React.FC = () => {
       background="light"
     >
       <div className="text-center mb-10">
-        <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+        <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 tracking-wider">
           Built on over 15 years of enterprise video capture experience.
         </h3>
       </div>
