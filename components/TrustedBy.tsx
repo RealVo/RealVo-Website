@@ -1,47 +1,74 @@
 import React from 'react';
 import Section from './Section';
 
+interface Client {
+  name: string;
+  logo: string;
+  className: string;
+}
+
+const clients: Client[] = [
+  { name: "Microsoft", logo: "/microsoft.png", className: "h-24 md:h-32" },
+  { name: "Stanford University", logo: "/stanford.png", className: "h-24 md:h-32" },
+  { name: "UPMC", logo: "/upmc.png", className: "h-24 md:h-32" },
+  { name: "Ford", logo: "/ford.png", className: "h-24 md:h-32" },
+  { name: "Duke University", logo: "/duke.png", className: "h-24 md:h-32" },
+  { name: "Barnes Jewish Hospital", logo: "/BarnesJewishHospital.png", className: "h-24 md:h-32" },
+  { name: "ATT", logo: "/ATT.png", className: "h-24 md:h-32" },
+  { name: "Indiana University", logo: "/IndianaU.png", className: "h-24 md:h-32" },
+  { name: "CP Rail", logo: "/CPRail.png", className: "h-24 md:h-32" },
+  { name: "Banner Health", logo: "/BannerHealth.png", className: "h-24 md:h-32" },
+  { name: "Kelloggs", logo: "/Kelloggs.png", className: "h-24 md:h-32" },
+  { name: "Purdue", logo: "/Purdue.png", className: "h-24 md:h-32" },
+  { name: "Memorial Healthcare System", logo: "/Memorial.png", className: "h-24 md:h-32" },
+  { name: "Mastercard", logo: "/Mastercard.png", className: "h-24 md:h-32" }
+];
+
 const TrustedBy: React.FC = () => {
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const img = e.currentTarget;
+    const parent = img.parentElement;
+    if (parent) {
+      img.style.display = 'none';
+      if (!parent.innerText) {
+        parent.innerText = img.alt;
+        parent.className =
+          "flex-shrink-0 flex items-center justify-center px-4 text-lg font-bold text-gray-400 whitespace-nowrap";
+      }
+    }
+  };
+
   return (
     <Section
-      id="trustedby"
+      padding="sm"
+      className="border-y border-gray-100 dark:border-gray-800 overflow-hidden"
       background="light"
-      padding="lg"
-      className="text-center"
     >
-      {/* New heading */}
-      <h2 className="text-xl sm:text-2xl font-semibold text-realvo-charcoal dark:text-white mb-10">
-        Built on over 15 years of enterprise video capture experience.
-      </h2>
+      <div className="text-center mb-10">
+        <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+          Built on over 15 years of enterprise video capture experience.
+        </h3>
+      </div>
 
-      {/* Logo Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-10 items-center justify-center opacity-80">
-        {/* Example logos — keep or update */}
-        <img
-          src="/logos/purdue.svg"
-          alt="Purdue University"
-          className="h-10 sm:h-12 object-contain mx-auto"
-        />
-        <img
-          src="/logos/mastercard.svg"
-          alt="Mastercard"
-          className="h-10 sm:h-12 object-contain mx-auto"
-        />
-        <img
-          src="/logos/bannerhealth.svg"
-          alt="Banner Health"
-          className="h-10 sm:h-12 object-contain mx-auto"
-        />
-        <img
-          src="/logos/canadian-pacific.svg"
-          alt="Canadian Pacific"
-          className="h-10 sm:h-12 object-contain mx-auto"
-        />
-        <img
-          src="/logos/kelloggs.svg"
-          alt="Kellogg’s"
-          className="h-10 sm:h-12 object-contain mx-auto"
-        />
+      <div className="relative w-full overflow-hidden group">
+        <div className="flex animate-scroll w-max gap-16 px-8 hover:[animation-play-state:paused] items-center">
+          {[...clients, ...clients].map((client, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 flex items-center justify-center mx-4"
+            >
+              <img
+                src={client.logo}
+                alt={client.name}
+                className={`${client.className} w-auto object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer dark:invert-[.25] dark:hover:invert-0`}
+                onError={handleError}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-realvo-light dark:from-[#232830] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-realvo-light dark:from-[#232830] to-transparent z-10 pointer-events-none"></div>
       </div>
     </Section>
   );
