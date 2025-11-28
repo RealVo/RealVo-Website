@@ -56,10 +56,9 @@ const App: React.FC = () => {
 
       setSubmitted(true);
       form.reset();
-      setPhone(''); // clear controlled phone input
+      setPhone('');
     } catch (err) {
       console.error('Form submission error', err);
-      // Optional: add error state/message later
     }
   };
 
@@ -77,7 +76,6 @@ const App: React.FC = () => {
         <Industries />
         <Pricing />
 
-        {/* Contact / Final CTA */}
         <Section
           id="contact"
           background="white"
@@ -318,4 +316,37 @@ const App: React.FC = () => {
                   />
                 </div>
 
-                {/* Submit + required note + success me*
+                {/* Submit + required note + success message */}
+                <div className="pt-2">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    variant="primary"
+                    className="w-full sm:w-auto"
+                  >
+                    Submit
+                  </Button>
+
+                  <p className="mt-2 text-xs text-gray-400">
+                    * Required fields
+                  </p>
+
+                  {submitted && (
+                    <p className="mt-2 text-sm text-green-600">
+                      Thank you — your details have been submitted. We’ll be in touch
+                      shortly.
+                    </p>
+                  )}
+                </div>
+              </form>
+            </div>
+          </div>
+        </Section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
