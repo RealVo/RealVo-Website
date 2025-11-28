@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
           </div>
 
           <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 pt-1 sm:pt-2">
-            Trusted by Fortune 500s, Universities, and Healthcare Systems.
+            Built on over 15 years of enterprise video capture experience.
           </p>
         </div>
 
