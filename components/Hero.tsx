@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Supporting copy */}
-          <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
             Capture the voices and experiences that move your programs forward — from insights and feedback to stories and testimonials — on video, in person or online.
           </p>
 
