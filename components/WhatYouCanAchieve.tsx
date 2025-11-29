@@ -34,8 +34,8 @@ const WhatYouCanAchieve: React.FC = () => {
           What You Can <span className="text-realvo-blue">Achieve</span> with{' '}
           <span className="text-realvo-blue">RealVo</span>
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          Capture real voices to drive insights, enhance communication, and support marketing efforts.
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Capture real voices to deepen insights, improve communication, and amplify your message.
         </p>
       </div>
 
