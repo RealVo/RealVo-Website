@@ -57,8 +57,8 @@ const HowItWorks: React.FC = () => {
             {steps.map((step, i) => (
               <div key={step.number} className="flex group">
                 <div className="flex flex-col items-center mr-6">
-                  {/* EXACT original circle style, applied to all 7 */}
-                  <div className="w-8 h-8 rounded-full border-2 border-realvo-slate/30 flex items-center justify-center text-xs font-bold text-realvo-slate group-hover:border-realvo-blue group-hover:bg-realvo-blue group-hover:text-white transition-colors">
+                  {/* Circle badges with monospace digits so 07 matches 01–06 visually */}
+                  <div className="w-8 h-8 rounded-full border-2 border-realvo-slate/30 flex items-center justify-center text-xs font-bold font-mono text-realvo-slate group-hover:border-realvo-blue group-hover:bg-realvo-blue group-hover:text-white transition-colors">
                     {step.number}
                   </div>
                   {i !== steps.length - 1 && (
