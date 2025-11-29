@@ -3,37 +3,37 @@ import Section from './Section';
 
 const steps = [
   {
-    number: '01',
+    number: '1',
     title: 'Welcome & Context',
     desc: 'Set the stage with a custom welcome message.',
   },
   {
-    number: '02',
+    number: '2',
     title: 'Disclaimer & Privacy',
     desc: 'Clear, transparent permissions.',
   },
   {
-    number: '03',
+    number: '3',
     title: 'Profile Questions',
     desc: 'Understand who is speaking (name, email, role, etc.).',
   },
   {
-    number: '04',
+    number: '4',
     title: 'Reflection',
     desc: 'Guided prompts to elicit deep thought.',
   },
   {
-    number: '05',
+    number: '5',
     title: 'Record',
     desc: 'Capture messages in a calm, distraction-free recording interface.',
   },
   {
-    number: '06',
+    number: '6',
     title: 'Review or Retry',
     desc: 'Participants can refine what they said before submitting.',
   },
   {
-    number: '07',
+    number: '7',
     title: 'Submit & Upload',
     desc: 'Secure transfer to your VB.tv dashboard.',
   },
@@ -57,8 +57,8 @@ const HowItWorks: React.FC = () => {
             {steps.map((step, i) => (
               <div key={step.number} className="flex group">
                 <div className="flex flex-col items-center mr-6">
-                  {/* Circle badges with monospace digits so 07 matches 01–06 visually */}
-                  <div className="w-8 h-8 rounded-full border-2 border-realvo-slate/30 flex items-center justify-center text-xs font-bold font-mono text-realvo-slate group-hover:border-realvo-blue group-hover:bg-realvo-blue group-hover:text-white transition-colors">
+                  {/* Circle buttons 1–7 with blue hover + white text */}
+                  <div className="w-8 h-8 rounded-full border-2 border-realvo-slate/30 flex items-center justify-center text-xs font-bold text-realvo-slate group-hover:border-realvo-blue group-hover:bg-realvo-blue group-hover:text-white transition-colors">
                     {step.number}
                   </div>
                   {i !== steps.length - 1 && (
