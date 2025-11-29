@@ -31,10 +31,11 @@ const WhatYouCanAchieve: React.FC = () => {
     <Section id="why-realvo">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
-          What You Can Achieve with RealVo
+          What You Can <span className="text-realvo-blue">Achieve</span> with{' '}
+          <span className="text-realvo-blue">RealVo</span>
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300">
-          Gather authentic perspectives to drive insights, enhance communication, and support marketing efforts.
+          Capture real voices to drive insights, enhance communication, and support marketing efforts.
         </p>
       </div>
 
@@ -61,3 +62,4 @@ const WhatYouCanAchieve: React.FC = () => {
 };
 
 export default WhatYouCanAchieve;
+
