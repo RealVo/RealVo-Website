@@ -1,71 +1,57 @@
 import React from 'react';
+import { BarChart3, ShieldCheck, MessageSquare, Megaphone } from 'lucide-react';
 import Section from './Section';
-import { BarChart2, Users, MessageSquare, Megaphone } from 'lucide-react';
+import { Feature } from '../types';
 
-interface Outcome {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-}
-
-const outcomes: Outcome[] = [
+const features: Feature[] = [
   {
-    title: 'Hear the real voices behind your data',
-    description:
-      'Understand what people actually feel — not just what they select in a survey.',
-    icon: <BarChart2 className="h-5 w-5 text-realvo-blue" />,
+    title: "Hear the real voices behind your data",
+    description: "Understand what people actually feel — not just what they select in a survey.",
+    icon: BarChart3,
   },
   {
-    title: 'Build trust by giving people a voice',
-    description:
-      'Create a safe, professional space for honest stories, feedback, and perspectives.',
-    icon: <Users className="h-5 w-5 text-realvo-blue" />,
+    title: "Build trust by giving people a voice",
+    description: "Create a safe, professional space for honest stories, feedback, and perspectives.",
+    icon: ShieldCheck,
   },
   {
-    title: 'Strengthen communication with real stories',
-    description:
-      'Turn authentic experiences into compelling messages that resonate more than text.',
-    icon: <MessageSquare className="h-5 w-5 text-realvo-blue" />,
+    title: "Strengthen communication with real stories",
+    description: "Turn authentic experiences into compelling messages that resonate more than text.",
+    icon: MessageSquare,
   },
   {
-    title: 'Create content that amplifies your mission',
-    description:
-      'Use real voices to fuel brand storytelling, inspire advocacy, and expand awareness.',
-    icon: <Megaphone className="h-5 w-5 text-realvo-blue" />,
+    title: "Create content that amplifies your mission",
+    description: "Use real voices to fuel brand storytelling, inspire advocacy, and expand awareness.",
+    icon: Megaphone,
   },
 ];
 
 const WhatYouCanAchieve: React.FC = () => {
   return (
-    <Section
-      id="what-you-can-achieve"
-      background="white"
-      padding="lg"
-      className="text-center"
-    >
-      <h2 className="text-2xl sm:text-3xl font-bold text-realvo-charcoal mb-3">
-        What You Can Achieve with RealVo
-      </h2>
+    <Section id="why-realvo">
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
+          What You Can Achieve with RealVo
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300">
+          Gather authentic perspectives to drive insights, enhance communication, and support marketing efforts.
+        </p>
+      </div>
 
-      <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-600">
-        Capture real voices on video that improve understanding, strengthen
-        communication, and power the stories that move people to act.
-      </p>
-
-      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-left">
-        {outcomes.map((item, index) => (
-          <div
-            key={index}
-            className="rounded-2xl border border-gray-100 bg-white shadow-sm px-5 py-6 sm:px-6 sm:py-7 flex flex-col h-full"
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {features.map((feature, index) => (
+          <div 
+            key={index} 
+            className="bg-white dark:bg-gray-800 p-8 rounded-brand border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-shadow duration-300 group"
           >
-            <div className="flex items-center justify-center h-10 w-10 rounded-full bg-realvo-light mb-4">
-              {item.icon}
+            <div className="w-14 h-14 bg-realvo-light dark:bg-gray-700 rounded-full flex items-center justify-center text-realvo-blue dark:text-realvo-teal mb-6 group-hover:bg-realvo-blue group-hover:text-white transition-colors duration-300">
+              <feature.icon size={28} strokeWidth={1.5} />
             </div>
-            <h3 className="text-base sm:text-lg font-semibold text-realvo-charcoal mb-2">
-              {item.title}
+            <h3 className="text-xl font-bold text-realvo-charcoal dark:text-white mb-3">
+              {feature.title}
             </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              {item.description}
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              {feature.description}
             </p>
           </div>
         ))}
