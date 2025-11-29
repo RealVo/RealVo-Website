@@ -55,7 +55,8 @@ const HowItWorks: React.FC = () => {
             {steps.map((step, i) => (
               <div key={i} className="flex group">
                 <div className="flex flex-col items-center mr-6">
-                  <div className="w-8 h-8 rounded-full border-2 border-realvo-slate/30 flex items-center justify-center text-xs font-bold text-realvo-slate group-hover:border-realvo-blue group-hover:bg-realvo-blue group-hover:text-white transition-colors">
+                  {/* pill-style step badge, consistent for 01–07 */}
+                  <div className="min-w-[2.25rem] h-8 px-3 rounded-full border-2 border-realvo-slate/30 flex items-center justify-center text-xs font-bold text-realvo-slate group-hover:border-realvo-blue group-hover:bg-realvo-blue group-hover:text-white transition-colors">
                     {step.number}
                   </div>
                   {i !== steps.length - 1 && (
@@ -75,7 +76,7 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* RealVo Recorder mockup with subtle animation */}
+        {/* RealVo Recorder mockup with subtle hover animation */}
         <div className="relative group">
           <div className="absolute inset-0 bg-realvo-teal/10 transform rotate-3 rounded-2xl group-hover:rotate-2 transition-transform duration-700"></div>
           <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700 transform transition-transform duration-700 group-hover:-translate-y-2 group-hover:shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
@@ -117,4 +118,3 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
-
