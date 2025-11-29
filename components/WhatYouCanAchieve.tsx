@@ -15,7 +15,7 @@ const features: Feature[] = [
     icon: ShieldCheck,
   },
   {
-    title: "Strengthen communication with real stories",
+    title: "Strengthen your communication",
     description: "Turn authentic experiences into compelling messages that resonate more than text.",
     icon: MessageSquare,
   },
