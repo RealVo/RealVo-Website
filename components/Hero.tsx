@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
 
           {/* Supporting copy */}
           <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-            Capture the voices and experiences that move your programs forward — from insights and feedback to stories and testimonials — on video, in person or online.
+            Capture the voices and experiences that move your programs forward — from insights and feedback to stories and testimonials — through video, voice, and text, in person or online.
           </p>
 
           {/* CTAs */}
