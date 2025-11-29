@@ -1,73 +1,139 @@
 import React from 'react';
 import Section from './Section';
 
-const steps = [
-  { number: "01", title: "Welcome & Context", desc: "Set the stage with a custom welcome video." },
-  { number: "02", title: "Consent & Privacy", desc: "Clear, transparent permissions." },
-  { number: "03", title: "Profile Questions", desc: "Understand who is speaking (Role, Dept, etc)." },
-  { number: "04", title: "Reflection", desc: "Guided prompts to elicit deep thought." },
-  { number: "05", title: "Record", desc: "A calm, distraction-free recording interface." },
-  { number: "06", title: "Review & Upload", desc: "Secure transfer to your VB.tv dashboard." },
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const steps: Step[] = [
+  {
+    number: '01',
+    title: 'Welcome & Context',
+    description: 'Set the stage with a custom welcome message.',
+  },
+  {
+    number: '02',
+    title: 'Disclaimer & Privacy',
+    description: 'Clear, transparent permissions.',
+  },
+  {
+    number: '03',
+    title: 'Profile Questions',
+    description: 'Understand who is speaking (name, email, role, etc.).',
+  },
+  {
+    number: '04',
+    title: 'Reflection',
+    description: 'Guided prompts to elicit deep thought.',
+  },
+  {
+    number: '05',
+    title: 'Record',
+    description:
+      'Capture messages in a calm, distraction-free recording interface.',
+  },
+  {
+    number: '06',
+    title: 'Review or Retry',
+    description: 'Participants can refine what they said before submitting.',
+  },
+  {
+    number: '07',
+    title: 'Submit & Upload',
+    description: 'Secure transfer to your VB.tv dashboard.',
+  },
 ];
 
 const HowItWorks: React.FC = () => {
   return (
-    <Section id="how-it-works" background="light">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <Section
+      id="how-it-works"
+      background="light"
+      padding="lg"
+      className="relative"
+    >
+      <div className="grid gap-12 lg:grid-cols-2 items-start">
+        {/* Left: Steps */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
-            How RealVo Works
+          <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-4">
+            How <span className="text-realvo-blue">RealVo</span> Works
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
-            A simple, human-centered workflow for capturing meaningful stories — in person or online. We've removed the friction so you can focus on the insight.
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-8 max-w-xl">
+            A simple, human-centered workflow for capturing meaningful messages
+            — in person or online. We&apos;ve removed the friction so you can
+            focus on the insight.
           </p>
-          
-          <div className="space-y-0">
-            {steps.map((step, i) => (
-              <div key={i} className="flex group">
-                <div className="flex flex-col items-center mr-6">
-                  <div className="w-8 h-8 rounded-full border-2 border-realvo-slate/30 flex items-center justify-center text-xs font-bold text-realvo-slate group-hover:border-realvo-blue group-hover:bg-realvo-blue group-hover:text-white transition-colors">
+
+          <div className="space-y-6">
+            {steps.map((step, index) => (
+              <div key={step.number} className="flex items-start gap-4">
+                {/* Timeline / number column */}
+                <div className="flex flex-col items-center">
+                  <div className="w-9 h-9 rounded-full border border-gray-300 bg-white dark:bg-gray-800 flex items-center justify-center text-xs font-semibold text-gray-600 dark:text-gray-200">
                     {step.number}
                   </div>
-                  {i !== steps.length - 1 && (
-                    <div className="w-px h-full bg-gray-300 dark:bg-gray-700 my-2"></div>
+                  {index !== steps.length - 1 && (
+                    <div className="w-px flex-1 bg-gray-200 dark:bg-gray-700 mt-1" />
                   )}
                 </div>
-                <div className="pb-8">
-                  <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">{step.title}</h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{step.desc}</p>
+
+                {/* Text column */}
+                <div>
+                  <h3 className="text-base font-semibold text-realvo-charcoal dark:text-white">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    {step.description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
+        {/* Right: Recorder mock / visual */}
         <div className="relative">
-           <div className="absolute inset-0 bg-realvo-teal/10 transform rotate-3 rounded-2xl"></div>
-           <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
-              <div className="bg-realvo-charcoal p-4 flex items-center justify-between">
-                 <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                 </div>
-                 <div className="text-gray-400 text-xs">RealVo Recorder</div>
+          <div className="absolute -top-6 -right-6 w-64 h-64 bg-realvo-blue/5 rounded-3xl blur-2xl pointer-events-none hidden md:block" />
+          <div className="relative bg-realvo-charcoal rounded-3xl shadow-2xl overflow-hidden border border-gray-900">
+            {/* Fake window header */}
+            <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
               </div>
-              <div className="aspect-video bg-gray-900 relative flex items-center justify-center overflow-hidden">
-                 <img src="https://images.unsplash.com/photo-1598550476439-c9483a7f73fc?q=80&w=800" className="absolute inset-0 w-full h-full object-cover opacity-80" alt="Professional Recording Interface" />
-                 <div className="relative z-10 text-center p-8 w-full max-w-md">
-                    <h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg">"How has this event impacted your perspective?"</h3>
-                    <div className="w-16 h-16 rounded-full border-4 border-red-500 flex items-center justify-center mx-auto cursor-pointer hover:scale-110 transition-transform bg-black/20 backdrop-blur-sm">
-                       <div className="w-6 h-6 bg-red-500 rounded-sm"></div>
-                    </div>
-                    <p className="text-white/90 mt-4 text-sm font-medium bg-black/30 inline-block px-3 py-1 rounded-full backdrop-blur-sm">00:42 / 02:00</p>
-                 </div>
+              <span className="text-xs text-gray-400">RealVo Recorder</span>
+            </div>
+
+            {/* Main recording area */}
+            <div className="px-8 py-10 flex flex-col items-center text-center space-y-6 bg-[#060814]">
+              <p className="text-lg sm:text-xl font-semibold text-white max-w-md">
+                &quot;How has this event impacted your perspective?&quot;
+              </p>
+
+              <button
+                type="button"
+                className="w-16 h-16 rounded-full border-4 border-red-500 flex items-center justify-center"
+              >
+                <span className="w-7 h-7 rounded-md bg-red-500" />
+              </button>
+
+              <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-xs font-medium text-white tracking-wide">
+                00:42 / 02:00
               </div>
-              <div className="p-6 space-y-4">
-                 <div className="h-2 bg-gray-100 dark:bg-gray-700 rounded-full w-3/4"></div>
-                 <div className="h-2 bg-gray-100 dark:bg-gray-700 rounded-full w-1/2"></div>
+
+              <div className="w-full mt-4 space-y-2">
+                <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div className="h-full w-2/3 bg-realvo-teal" />
+                </div>
+                <div className="h-2 rounded-full bg-white/5 overflow-hidden">
+                  <div className="h-full w-1/3 bg-realvo-blue/70" />
+                </div>
               </div>
-           </div>
+            </div>
+          </div>
         </div>
       </div>
     </Section>
