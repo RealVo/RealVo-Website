@@ -43,7 +43,7 @@ const CaptureOptions: React.FC = () => {
           Ways to <span className="text-realvo-blue">Capture Stories</span>
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
-          Flexible hardware and software solutions designed for professional environments.
+          Flexible hardware and software solutions designed for every environment.
         </p>
       </div>
 
