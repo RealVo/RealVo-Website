@@ -40,7 +40,7 @@ const CaptureOptions: React.FC = () => {
     <Section id="solutions">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
-          <span className="text-realvo-blue">On-Site or Online</span>Capture Options for Every Environment
+          <span className="text-realvo-blue">On-Site or Online</span> — RealVo Fits Your Program
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
           Flexible hardware and software solutions designed for every environment.
