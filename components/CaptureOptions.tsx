@@ -15,23 +15,23 @@ const options: CaptureOption[] = [
   {
     title: "Free-standing Kiosk",
     description:
-      "Sleek, open-access capture for conferences and campuses. High visibility and fast deployment.",
+      "Sleek, approachable kiosk designed to make participation easy and comfortable in open public spaces.",
     image: "/kiosk_booth.png",
-    features: ["High Throughput", "Small Footprint", "Invite Interaction"],
+    features: ["Compact Footprint Design", "Setup In Minutes", "Flexible Placement Options"],
   },
   {
     title: "Desktop Tablet Kiosk",
     description:
-      "Compact and ideal for offices, clinics, and classrooms. Fits on any counter or table.",
+      "Compact kiosk designed for flexible placement in offices, clinics, classrooms, and reception areas.",
     image: "/tablet_booth.png",
-    features: ["Portable", "Counter-top", "Always-on"],
+    features: ["Countertop Friendly Size", "Lightweight & Portable", "Carry-on Friendly"],
   },
   {
     title: "Virtual Video Booth",
     description:
-      "Secure web-based recording from any device. Capture voices from anywhere in the world.",
+      "Web-based recording from any device. Capture voices from anywhere in the world.",
     image: "/virtual_booth.png",
-    features: ["Remote Access", "No App Required", "Mobile Friendly"],
+    features: ["Mobile Friendly Access", "No Download Required", "Hybrid Program Ready"],
   },
 ];
 
