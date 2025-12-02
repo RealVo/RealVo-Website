@@ -54,7 +54,7 @@ const CaptureOptions: React.FC = () => {
             className="group rounded-brand overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
           >
             {/* IMAGE AREA – no background, no overlay */}
-            <div className=""h-64 overflow-hidden relative flex items-center justify-center bg-white dark:bg-white p-4">
+            <div className="h-64 overflow-hidden relative flex items-center justify-center bg-white dark:bg-white p-4">
               <img
                 src={option.image}
                 alt={option.title}
