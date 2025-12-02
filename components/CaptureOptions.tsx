@@ -8,9 +8,9 @@ const options: CaptureOption[] = [
   {
     title: "Private Enclosed Booth",
     description:
-      "Sound-dampened, private, reflective environment. Ideal for deep emotional stories in busy venues.",
+      "Fully enclosed booth designed to give people a private space to speak comfortably and without distraction.",
     image: "/private_booth.png", // assuming these are in /public
-    features: ["Maximum Privacy", "Sound Isolation", "Premium Branding"],
+    features: ["Sound Dampened Environment", "High-quality AV Capture", "Premium Brand Messaging"],
   },
   {
     title: "Free-standing Kiosk",
