@@ -54,12 +54,12 @@ const CaptureOptions: React.FC = () => {
             className="group rounded-brand overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
           >
             {/* IMAGE AREA – no background, no overlay */}
-            <div className="h-64 overflow-hidden relative flex items-center justify-center">
+            <div className=""h-64 overflow-hidden relative flex items-center justify-center bg-white dark:bg-white p-4">
               <img
                 src={option.image}
                 alt={option.title}
                 title={option.title}
-                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 relative z-10"
+                className="w-full h-full object-contain transform transition-transform duration-700 relative z-10 md:group-hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   e.currentTarget.parentElement?.classList.add('image-error');
