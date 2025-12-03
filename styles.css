@@ -1,7 +1,7 @@
 @keyframes pulse-once {
-  0% { color: #1A1A1A; }     /* Start charcoal */
+  0% { color: #1A1E23; }     /* Start charcoal */
   50% { color: #2AB8B0; }    /* Teal mid pulse */
-  100% { color: #0055FF; }   /* End RealVo blue */
+  100% { color: #2A4D69; }   /* End RealVo blue */
 }
 
 .animate-pulse-once {
