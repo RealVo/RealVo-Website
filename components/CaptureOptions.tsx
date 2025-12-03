@@ -9,29 +9,49 @@ const options: CaptureOption[] = [
     title: "Private Enclosed Booth",
     description:
       "Stand-out booth presence that invites people to share their voice comfortably and without distraction.",
-    image: "/private_booth.png", // assuming these are in /public
-    features: ["Sound Dampened Environment", "High-quality AV Capture", "Premium Brand Messaging"],
+    image: "/private_booth.png",
+    features: [
+      "Sound Dampened Environment",
+      "High-quality AV Capture",
+      "Premium Brand Messaging",
+    ],
+    href: "/capture/private-enclosed-booth",
   },
   {
     title: "Free-standing Kiosk",
     description:
       "Sleek, approachable kiosk designed to make participation easy and comfortable in open public spaces.",
     image: "/kiosk_booth.png",
-    features: ["Compact Footprint Design", "Setup In Minutes", "Flexible Placement Options"],
+    features: [
+      "Compact Footprint Design",
+      "Setup In Minutes",
+      "Flexible Placement Options",
+    ],
+    href: "/capture/free-standing-kiosk",
   },
   {
     title: "Desktop Tablet Kiosk",
     description:
       "Compact kiosk designed for flexible placement in offices, clinics, classrooms, and reception areas.",
     image: "/tablet_booth.png",
-    features: ["Countertop Friendly Size", "Lightweight & Portable", "Carry-on Friendly"],
+    features: [
+      "Countertop Friendly Size",
+      "Lightweight & Portable",
+      "Carry-on Friendly",
+    ],
+    href: "/capture/desktop-tablet-kiosk",
   },
   {
     title: "Virtual Video Booth",
     description:
       "Web-based recording from any device. Capture voices from anywhere in the world.",
     image: "/virtual_booth.png",
-    features: ["Mobile Friendly Access", "No Download Required", "Hybrid Program Ready"],
+    features: [
+      "Mobile Friendly Access",
+      "No Download Required",
+      "Hybrid Program Ready",
+    ],
+    href: "/capture/virtual-video-booth",
   },
 ];
 
@@ -53,7 +73,7 @@ const CaptureOptions: React.FC = () => {
             key={idx}
             className="group rounded-brand overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
           >
-            {/* IMAGE AREA – no background, no overlay */}
+            {/* IMAGE AREA – forced white background */}
             <div className="h-64 overflow-hidden relative flex items-center justify-center bg-white dark:bg-white p-2">
               <img
                 src={option.image}
@@ -80,11 +100,11 @@ const CaptureOptions: React.FC = () => {
               <h3 className="text-xl font-bold text-realvo-charcoal dark:text-white mb-2">
                 {option.title}
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-1">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                 {option.description}
               </p>
 
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-2 mb-4">
                 {option.features.map((feat, i) => (
                   <li
                     key={i}
@@ -95,16 +115,26 @@ const CaptureOptions: React.FC = () => {
                   </li>
                 ))}
               </ul>
+
+              {option.href && (
+                <div className="mt-auto pt-2">
+                  <a href={option.href}>
+                    <Button
+                      variant="secondary"
+                      className="w-full text-xs py-2"
+                    >
+                      More Info
+                    </Button>
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="mt-12 text-center">
-        <Button variant="secondary">View Specifications</Button>
       </div>
     </Section>
   );
 };
 
 export default CaptureOptions;
+
