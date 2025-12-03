@@ -121,7 +121,7 @@ const CaptureOptions: React.FC = () => {
                   <a href={option.href}>
                     <Button
                       variant="secondary"
-                      className="w-full text-xs py-2"
+                      className="text-xs px-3 py-1.5 ml-auto mt-2"
                     >
                       More Info
                     </Button>
