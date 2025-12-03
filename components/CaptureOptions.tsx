@@ -117,11 +117,11 @@ const CaptureOptions: React.FC = () => {
               </ul>
 
               {option.href && (
-                <div className="mt-auto pt-2">
+                <div className="mt-auto pt-2 flex justify-end">
                   <a href={option.href}>
                     <Button
                       variant="secondary"
-                      className="text-xs px-3 py-1.5 ml-auto mt-2"
+                      className="text-xs px-3 py-1.5"
                     >
                       More Info
                     </Button>
