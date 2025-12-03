@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { BarChart3, ShieldCheck, MessageSquare, Megaphone } from 'lucide-react';
 import Section from './Section';
 import { Feature } from '../types';
@@ -32,6 +32,14 @@ const WhatYouCanAchieve: React.FC = () => {
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
           What You Can <span className="text-realvo-blue animate-pulse-once">Achieve</span> with RealVo
+          What You Can{" "}
+          <span
+            ref={achieveRef}
+            className="text-realvo-blue animate-pulse-once"
+            >
+            Achieve
+            </span>{" "}
+          with RealVo
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
           Capture real voices to deepen insights, improve communication, and drive engagement.
