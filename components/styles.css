@@ -1,9 +1,0 @@
-@keyframes pulse-once {
-  0% { color: #1A1A1A; }
-  50% { color: #2AB8B0; }
-  100% { color: #1A1A1A; }
-}
-
-.animate-pulse-once {
-  animation: pulse-once 1.2s ease-out 0.3s 1 forwards;
-}
