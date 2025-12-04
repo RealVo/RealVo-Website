@@ -34,11 +34,28 @@ const Header: React.FC = () => {
     }
   };
 
-const scrollToTop = () => {
-  setMobileOpen(false);
-  // Force an instant jump to top, overriding global smooth scroll
-  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-};
+  const scrollToTop = () => {
+    setMobileOpen(false);
+
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
+    const root = document.documentElement;
+    const body = document.body;
+
+    // Save any existing inline scroll-behavior
+    const prevRootBehavior = root.style.scrollBehavior;
+    const prevBodyBehavior = body.style.scrollBehavior;
+
+    // Force instant scroll, overriding global CSS like `html { scroll-behavior: smooth; }`
+    root.style.scrollBehavior = 'auto';
+    body.style.scrollBehavior = 'auto';
+
+    window.scrollTo(0, 0);
+
+    // Restore previous inline scroll-behavior
+    root.style.scrollBehavior = prevRootBehavior;
+    body.style.scrollBehavior = prevBodyBehavior;
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
@@ -121,3 +138,4 @@ const scrollToTop = () => {
 };
 
 export default Header;
+
