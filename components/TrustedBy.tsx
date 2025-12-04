@@ -42,34 +42,41 @@ const TrustedBy: React.FC = () => {
   };
 
   useEffect(() => {
-    const elems = logoRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (!elems.length) return;
+    let frameId: number;
 
-    // Create an IntersectionObserver that only "sees" a narrow band in the center
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const target = entry.target as HTMLElement;
-          const indexAttr = target.dataset.index;
-          if (indexAttr == null) return;
-          const idx = parseInt(indexAttr, 10);
-
-          if (entry.isIntersecting) {
-            setActiveIndex((prev) => (prev === idx ? prev : idx));
-          }
-        });
-      },
-      {
-        threshold: 0.5,
-        // Shrink the root horizontally so only a center band counts as "intersecting"
-        root: null,
-        rootMargin: '0px -35% 0px -35%',
+    const updateActive = () => {
+      const elems = logoRefs.current;
+      if (!elems.length) {
+        frameId = requestAnimationFrame(updateActive);
+        return;
       }
-    );
 
-    elems.forEach((el) => observer.observe(el));
+      const centerX = window.innerWidth / 2;
+      let closestIndex: number | null = null;
+      let closestDistance = Infinity;
 
-    return () => observer.disconnect();
+      elems.forEach((el, index) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const logoCenterX = rect.left + rect.width / 2;
+        const distance = Math.abs(logoCenterX - centerX);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      if (closestIndex !== null) {
+        setActiveIndex((prev) => (prev === closestIndex ? prev : closestIndex));
+      }
+
+      frameId = requestAnimationFrame(updateActive);
+    };
+
+    frameId = requestAnimationFrame(updateActive);
+
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   return (
@@ -93,7 +100,6 @@ const TrustedBy: React.FC = () => {
               <div
                 key={i}
                 ref={(el) => (logoRefs.current[i] = el)}
-                data-index={i}
                 className="flex-shrink-0 flex items-center justify-center mx-4"
               >
                 <img
