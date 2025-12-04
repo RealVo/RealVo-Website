@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
 
 interface Client {
@@ -25,6 +25,9 @@ const clients: Client[] = [
 ];
 
 const TrustedBy: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const logoRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const img = e.currentTarget;
     const parent = img.parentElement;
@@ -32,10 +35,42 @@ const TrustedBy: React.FC = () => {
       img.style.display = 'none';
       if (!parent.innerText) {
         parent.innerText = img.alt;
-        parent.className = "flex-shrink-0 flex items-center justify-center px-4 text-lg font-bold text-gray-400 whitespace-nowrap";
+        parent.className =
+          "flex-shrink-0 flex items-center justify-center px-4 text-lg font-bold text-gray-400 whitespace-nowrap";
       }
     }
   };
+
+  useEffect(() => {
+    const elems = logoRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (!elems.length) return;
+
+    // Create an IntersectionObserver that only "sees" a narrow band in the center
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const target = entry.target as HTMLElement;
+          const indexAttr = target.dataset.index;
+          if (indexAttr == null) return;
+          const idx = parseInt(indexAttr, 10);
+
+          if (entry.isIntersecting) {
+            setActiveIndex((prev) => (prev === idx ? prev : idx));
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+        // Shrink the root horizontally so only a center band counts as "intersecting"
+        root: null,
+        rootMargin: '0px -35% 0px -35%',
+      }
+    );
+
+    elems.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Section
@@ -51,24 +86,39 @@ const TrustedBy: React.FC = () => {
 
       <div className="relative w-full overflow-hidden group">
         <div className="flex animate-scroll w-max gap-16 px-8 hover:[animation-play-state:paused] items-center">
-          {[...clients, ...clients].map((client, i) => (
-            <div key={i} className="flex-shrink-0 flex items-center justify-center mx-4">
-              <img
-                src={client.logo}
-                alt={client.name}
-                className={`${client.className} w-auto object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer dark:invert-[.25] dark:hover:invert-0`}
-                onError={handleError}
-              />
-            </div>
-          ))}
+          {[...clients, ...clients].map((client, i) => {
+            const isActive = i === activeIndex;
+
+            return (
+              <div
+                key={i}
+                ref={(el) => (logoRefs.current[i] = el)}
+                data-index={i}
+                className="flex-shrink-0 flex items-center justify-center mx-4"
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className={`${client.className} w-auto object-contain transform transition-all duration-300 cursor-pointer dark:invert-[.25] dark:hover:invert-0
+                    ${
+                      isActive
+                        ? 'opacity-100 grayscale-0 scale-105'
+                        : 'opacity-50 grayscale hover:grayscale-0 hover:opacity-100'
+                    }`}
+                  onError={handleError}
+                />
+              </div>
+            );
+          })}
         </div>
 
         {/* Edge fade */}
-        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-realvo-light dark:from-[#232830] to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-realvo-light dark:from-[#232830] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-realvo-light dark:from-[#232830] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-realvo-light dark:from-[#232830] to-transparent z-10 pointer-events-none" />
       </div>
     </Section>
   );
 };
 
 export default TrustedBy;
+
