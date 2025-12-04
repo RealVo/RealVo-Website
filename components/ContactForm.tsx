@@ -168,14 +168,14 @@ const ContactForm: React.FC = () => {
       {/* Activation Details */}
       <div className="md:col-span-2">
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Tell us about your activation<span className="text-red-500">*</span>
+          Tell us about your activation or program<span className="text-red-500">*</span>
         </label>
         <textarea
           name="message"
           rows={3}
           required
           className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-realvo-blue focus:border-realvo-blue"
-          placeholder="Share timing, location, goals, outcomes"
+          placeholder="Share timing, location(s), audience, key goals, and how you’ll measure success."
         />
       </div>
 
@@ -188,11 +188,11 @@ const ContactForm: React.FC = () => {
             value="yes"
             className="rounded border-gray-300 text-realvo-blue focus:ring-realvo-blue"
           />
-          <span>I’d like to schedule a live demo of RealVo.</span>
+          <span>I’d like to schedule a live demo and planning call.</span>
         </label>
       </div>
 
-      {/* Required note + Submit + Confirmation (moved below button) */}
+      {/* Required note + Submit + Confirmation */}
       <div className="md:col-span-2 flex flex-col gap-2">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <p className="text-xs text-gray-500">
@@ -206,10 +206,8 @@ const ContactForm: React.FC = () => {
           </button>
         </div>
 
-        {/* 👉 Submission confirmation text now sits BELOW the button */}
         <p className="text-xs text-gray-500">
-          Once submitted, a member of our team will follow up with you as soon as possible.
-          {/* Replace this sentence with your exact confirmation copy if you already had one. */}
+          Once submitted, a member of our team will follow up with you, typically within one business day.
         </p>
       </div>
     </form>
