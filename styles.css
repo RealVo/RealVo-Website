@@ -7,3 +7,24 @@
 .animate-pulse-once {
   animation: pulse-once 1.4s ease-out 0.2s 1 forwards;
 }
+
+/* Single pulse for light text on dark backgrounds (Industries section) */
+@keyframes pulse-once-light {
+  0% {
+    color: #ffffff;      /* start white */
+  }
+  40% {
+    color: #2AB8B0;      /* RealVo teal */
+  }
+  80% {
+    color: #2A4D69;      /* RealVo blue (briefly) */
+  }
+  100% {
+    color: #ffffff;      /* end back on white */
+  }
+}
+
+.animate-pulse-once-light {
+  animation: pulse-once-light 1.4s ease-out forwards;
+}
+
