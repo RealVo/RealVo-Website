@@ -395,7 +395,7 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage />} />
         <Route
           path="/capture/private-enclosed-booth"
-          element={<PortableEnclosedBooth />}
+          element={<PrivateEnclosedBooth />}
         />
       </Routes>
     </Router>
