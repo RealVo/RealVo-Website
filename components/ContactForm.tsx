@@ -206,8 +206,13 @@ const ContactForm: React.FC = () => {
           </button>
         </div>
 
+        {/* 🔹 Only this line changed */}
         <p className="text-xs text-gray-500">
-          Once submitted, a member of our team will follow up with you, typically within one business day.
+          Once submitted, a member of our team will follow up with you so you can{' '}
+          <span className="animate-pulse-once font-semibold">
+            hear real voices
+          </span>{' '}
+          from your program.
         </p>
       </div>
     </form>
