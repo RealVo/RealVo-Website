@@ -14,8 +14,8 @@ const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
-    // Are we currently on the homepage?
-    const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
+    const isHome =
+      typeof window !== 'undefined' && window.location.pathname === '/';
 
     // Always close mobile nav first
     setMobileOpen(false);
@@ -29,13 +29,14 @@ const Header: React.FC = () => {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     } else {
-      // Navigate back to the homepage and jump to the section
+      // From a sub-page, go back to the homepage at the correct section
       window.location.href = `/#${id}`;
     }
   };
 
   const scrollToTop = () => {
-    const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
+    const isHome =
+      typeof window !== 'undefined' && window.location.pathname === '/';
 
     setMobileOpen(false);
 
@@ -57,11 +58,7 @@ const Header: React.FC = () => {
             onClick={scrollToTop}
             className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-realvo-blue rounded-md"
           >
-            <img
-              src="/logo.png"
-              alt="RealVo"
-              className="h-7 w-auto"
-            />
+            <img src="/logo.png" alt="RealVo" className="h-7 w-auto" />
           </button>
 
           {/* Desktop nav */}
@@ -132,4 +129,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
