@@ -13,7 +13,7 @@ import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 import Button from './components/Button';
 import Section from './components/Section';
-import PortableEnclosedBooth from './pages/PortableEnclosedBooth';
+import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
 
 // Home / Landing page content extracted into its own component
 const HomePage: React.FC = () => {
