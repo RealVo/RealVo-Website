@@ -37,24 +37,11 @@ const Header: React.FC = () => {
   const scrollToTop = () => {
     setMobileOpen(false);
 
-    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    if (typeof window === 'undefined') return;
 
-    const root = document.documentElement;
-    const body = document.body;
-
-    // Save any existing inline scroll-behavior
-    const prevRootBehavior = root.style.scrollBehavior;
-    const prevBodyBehavior = body.style.scrollBehavior;
-
-    // Force instant scroll, overriding global CSS like `html { scroll-behavior: smooth; }`
-    root.style.scrollBehavior = 'auto';
-    body.style.scrollBehavior = 'auto';
-
-    window.scrollTo(0, 0);
-
-    // Restore previous inline scroll-behavior
-    root.style.scrollBehavior = prevRootBehavior;
-    body.style.scrollBehavior = prevBodyBehavior;
+    // Reload the current page so it always starts at the top (no smooth scroll)
+    const { pathname, search } = window.location;
+    window.location.href = `${pathname}${search}`;
   };
 
   return (
