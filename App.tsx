@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -12,8 +13,10 @@ import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 import Button from './components/Button';
 import Section from './components/Section';
+import PortableEnclosedBooth from './pages/PortableEnclosedBooth';
 
-const App: React.FC = () => {
+// Home / Landing page content extracted into its own component
+const HomePage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('');
 
@@ -381,6 +384,21 @@ const App: React.FC = () => {
 
       <Footer />
     </div>
+  );
+};
+
+// App just wires up the routes
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/capture/portable-enclosed-booth"
+          element={<PortableEnclosedBooth />}
+        />
+      </Routes>
+    </Router>
   );
 };
 
