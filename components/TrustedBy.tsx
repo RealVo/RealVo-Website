@@ -105,7 +105,7 @@ const TrustedBy: React.FC = () => {
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className={`${client.className} w-auto object-contain transform transition-all duration-300 cursor-pointer dark:invert-[.25] dark:hover:invert-0
+                  className={`${client.className} w-auto object-contain transform transition-all duration-700 ease-in-out cursor-pointer dark:invert-[.25] dark:hover:invert-0
                     ${
                       isActive
                         ? 'opacity-100 grayscale-0 scale-105'
