@@ -36,8 +36,8 @@ const Header: React.FC = () => {
 
 const scrollToTop = () => {
   setMobileOpen(false);
-  // Always just snap to the top of the current page
-  window.scrollTo(0, 0);
+  // Force an instant jump to top, overriding global smooth scroll
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 };
 
   return (
