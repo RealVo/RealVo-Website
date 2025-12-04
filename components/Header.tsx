@@ -36,8 +36,8 @@ const Header: React.FC = () => {
 
 const scrollToTop = () => {
   setMobileOpen(false);
-  // Always instantly refresh home page at top
-  window.location.href = '/';
+  // Always just snap to the top of the current page
+  window.scrollTo(0, 0);
 };
 
   return (
