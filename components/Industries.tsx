@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import { Building2, GraduationCap, HeartPulse, Users2, ArrowRight } from 'lucide-react';
 import { Industry } from '../types';
@@ -27,6 +27,30 @@ const industries: Industry[] = [
 ];
 
 const Industries: React.FC = () => {
+  const serveRef = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    const node = serveRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && node) {
+            node.classList.remove('animate-pulse-once');
+            // force reflow so animation restarts
+            void node.offsetWidth;
+            node.classList.add('animate-pulse-once');
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section id="industries" background="dark" className="relative overflow-hidden">
       {/* Background Decoration */}
@@ -36,7 +60,12 @@ const Industries: React.FC = () => {
       </div>
 
       <div className="relative z-10 text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Who We Serve</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Who We{' '}
+          <span ref={serveRef} className="text-realvo-teal animate-pulse-once">
+            Serve
+          </span>
+        </h2>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           RealVo adapts to the unique needs of every sector we work with, providing specialized workflows for each environment.
         </p>
