@@ -11,14 +11,16 @@ const Footer: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && node) {
-            node.classList.remove('animate-pulse-once-light');
-            // force reflow so the animation restarts
+            node.classList.remove('animate-pulse-once');
+            // force a reflow to restart the animation
             void node.offsetWidth;
-            node.classList.add('animate-pulse-once-light');
+            node.classList.add('animate-pulse-once');
           }
         });
       },
-      { threshold: 0.2 } // footer just needs to be mostly in view
+      {
+        threshold: 0.3, 
+      }
     );
 
     observer.observe(node);
@@ -41,10 +43,13 @@ const Footer: React.FC = () => {
             </a>
             <p className="text-gray-400 text-sm leading-relaxed">
               Helping organizations{' '}
-              <span ref={hearRef} className="animate-pulse-once-light">
+              <span 
+                ref={hearRef} 
+                className="font-semibold text-realvo-charcoal animate-pulse-once"
+              >
                 hear real voices
               </span>{' '}
-              and turn them into meaningful insight. Trusted by leading organizations worldwide.
+              to drive understanding and meaningful change.
             </p>
           </div>
 
@@ -79,10 +84,7 @@ const Footer: React.FC = () => {
               <li>Privacy Policy</li>
               <li>Terms of Service</li>
               <li className="pt-4">
-                <a
-                  href="mailto:hello@realvo.com"
-                  className="text-realvo-teal hover:text-white transition-colors"
-                >
+                <a href="mailto:hello@realvo.com" className="text-realvo-teal hover:text-white transition-colors">
                   hello@realvo.com
                 </a>
               </li>
@@ -100,4 +102,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-
