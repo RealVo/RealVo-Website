@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
             Authentic Voices.
             <br />
-            <span className="text-realvo-blue dark:text-realvo-slate">
+            <span className="text-realvo-blue dark:text-realvo-slate animate-pulse-once">
               Real Impact.
             </span>
           </h1>
