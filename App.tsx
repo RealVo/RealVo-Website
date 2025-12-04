@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -16,6 +16,10 @@ import Section from './components/Section';
 const App: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('');
+
+  // contact headline animation state
+  const [contactInView, setContactInView] = useState(false);
+  const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
 
   // Format as 555-123-4567 while typing
   const formatPhone = (value: string) => {
@@ -63,6 +67,24 @@ const App: React.FC = () => {
     }
   };
 
+  // Observe the contact headline so the pulse can re-trigger on scroll
+  useEffect(() => {
+    const node = contactHeadlineRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          setContactInView(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-white transition-colors duration-300">
       <Header />
@@ -86,8 +108,20 @@ const App: React.FC = () => {
           <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
             {/* Left Column */}
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal tracking-tight">
-                Ready to hear real voices?
+              <h2
+                ref={contactHeadlineRef}
+                className="text-3xl md:text-4xl font-bold text-realvo-charcoal tracking-tight"
+              >
+                Ready to{' '}
+                <span
+                  className={
+                    contactInView
+                      ? 'text-realvo-blue animate-pulse-once'
+                      : 'text-realvo-blue'
+                  }
+                >
+                  hear real voices?
+                </span>
               </h2>
               <p className="text-lg text-gray-600">
                 Tell us a little about your program — goals, timing, and where you’ll
