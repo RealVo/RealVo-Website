@@ -37,10 +37,10 @@ const Industries: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && node) {
-            node.classList.remove('animate-pulse-once');
+            node.classList.remove('animate-pulse-once-light');
             // force reflow so animation restarts
             void node.offsetWidth;
-            node.classList.add('animate-pulse-once');
+            node.classList.add('animate-pulse-once-light');
           }
         });
       },
@@ -62,7 +62,7 @@ const Industries: React.FC = () => {
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Who We{' '}
-          <span ref={serveRef} className="text-realvo-teal animate-pulse-once">
+          <span ref={serveRef} className="animate-pulse-once-light">
             Serve
           </span>
         </h2>
