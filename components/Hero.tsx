@@ -6,7 +6,9 @@ import Section from './Section';
 const Hero: React.FC = () => {
   const [inView, setInView] = useState(false);
   const heroRef = useRef<HTMLDivElement | null>(null);
+  const impactRef = useRef<HTMLSpanElement | null>(null);
 
+  // Existing hero fade-in on first view
   useEffect(() => {
     const node = heroRef.current;
     if (!node) return;
@@ -24,6 +26,32 @@ const Hero: React.FC = () => {
     );
 
     observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  // New: re-trigger "Real Impact." text animation whenever hero comes into view
+  useEffect(() => {
+    const node = impactRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && node) {
+            node.classList.remove('animate-pulse-once');
+            // force reflow so the browser sees it as a "new" animation
+            void node.offsetWidth;
+            node.classList.add('animate-pulse-once');
+          }
+        });
+      },
+      {
+        threshold: 0.6, // mostly in view to trigger
+      }
+    );
+
+    observer.observe(node);
+
     return () => observer.disconnect();
   }, []);
 
@@ -75,7 +103,10 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
             Authentic Voices.
             <br />
-            <span className="text-realvo-blue dark:text-realvo-slate animate-pulse-once">
+            <span
+              ref={impactRef}
+              className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
+            >
               Real Impact.
             </span>
           </h1>
@@ -162,4 +193,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
