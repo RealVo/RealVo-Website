@@ -73,8 +73,8 @@ const Industries: React.FC = () => {
 
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
         {industries.map((industry, idx) => (
-          <div 
-            key={idx} 
+          <div
+            key={idx}
             className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-xl p-8 hover:bg-white/15 transition-colors group cursor-pointer"
           >
             <div className="flex items-start justify-between mb-4">
@@ -83,7 +83,7 @@ const Industries: React.FC = () => {
               </div>
               <ArrowRight className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" />
             </div>
-            
+
             <h3 className="text-xl font-bold text-white mb-3">{industry.name}</h3>
             <p className="text-white/70 leading-relaxed">{industry.description}</p>
           </div>
