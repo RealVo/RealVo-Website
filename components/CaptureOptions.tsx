@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import { CaptureOption } from '../types';
 import Button from './Button';
@@ -56,11 +56,34 @@ const options: CaptureOption[] = [
 ];
 
 const CaptureOptions: React.FC = () => {
+  const fitsRef = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    const node = fitsRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && node) {
+            node.classList.remove('animate-pulse-once');
+            void node.offsetWidth;
+            node.classList.add('animate-pulse-once');
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section id="solutions">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
-          RealVo <span className="text-realvo-blue">Fits Your Program</span> — On-Site or Online
+          RealVo <span ref={fitsRef} className="text-realvo-blue animate-pulse-once">Fits</span> Your Program — On-Site or Online
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
           Purpose-built capture options that adapt to your environment and goals.
@@ -85,7 +108,8 @@ const CaptureOptions: React.FC = () => {
                   e.currentTarget.parentElement?.classList.add('image-error');
                 }}
               />
-              {/* Fallback placeholder if the image fails */}
+
+              {/* FALLBACK */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 p-4 text-center z-0">
                 <ImageOff className="w-10 h-10 mb-2 opacity-50" />
                 <span className="text-xs">Image not found:</span>
@@ -137,4 +161,3 @@ const CaptureOptions: React.FC = () => {
 };
 
 export default CaptureOptions;
-
