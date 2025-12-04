@@ -1,32 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 const Footer: React.FC = () => {
-  const hearRef = useRef<HTMLSpanElement | null>(null);
-
-  useEffect(() => {
-    const node = hearRef.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && node) {
-            node.classList.remove('animate-pulse-once');
-            // force a reflow to restart the animation
-            void node.offsetWidth;
-            node.classList.add('animate-pulse-once');
-          }
-        });
-      },
-      {
-        threshold: 0.3, 
-      }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <footer className="bg-realvo-charcoal text-white py-16 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,19 +11,11 @@ const Footer: React.FC = () => {
             <a href="/">
               <img
                 src="/logo_white.png"
-                alt="RealVo Company Logo"
-                style={{ height: '50px' }}
+              alt="RealVo Company Logo" style={{ height: '50px' }}
               />
             </a>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Helping organizations{' '}
-              <span 
-                ref={hearRef} 
-                className="font-semibold text-realvo-charcoal animate-pulse-once"
-              >
-                hear real voices
-              </span>{' '}
-              to drive understanding and meaningful change.
+              A storytelling & insights platform for human understanding. Trusted by leading organizations worldwide.
             </p>
           </div>
 
@@ -84,9 +50,7 @@ const Footer: React.FC = () => {
               <li>Privacy Policy</li>
               <li>Terms of Service</li>
               <li className="pt-4">
-                <a href="mailto:hello@realvo.com" className="text-realvo-teal hover:text-white transition-colors">
-                  hello@realvo.com
-                </a>
+                 <a href="mailto:hello@realvo.com" className="text-realvo-teal hover:text-white transition-colors">hello@realvo.com</a>
               </li>
             </ul>
           </div>
