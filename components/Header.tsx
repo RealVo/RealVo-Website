@@ -34,19 +34,11 @@ const Header: React.FC = () => {
     }
   };
 
-  const scrollToTop = () => {
-    const isHome =
-      typeof window !== 'undefined' && window.location.pathname === '/';
-
-    setMobileOpen(false);
-
-    if (isHome) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      // From any sub-page, go back to the homepage
-      window.location.href = '/';
-    }
-  };
+const scrollToTop = () => {
+  setMobileOpen(false);
+  // Always instantly refresh home page at top
+  window.location.href = '/';
+};
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
