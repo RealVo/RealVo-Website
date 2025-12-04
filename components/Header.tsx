@@ -14,21 +14,37 @@ const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
+    // Are we currently on the homepage?
+    const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
 
-    // Close mobile nav first so header shrinks before we calculate position
+    // Always close mobile nav first
     setMobileOpen(false);
 
-    // Give the layout a moment to update, then scroll using scrollIntoView
-    window.setTimeout(() => {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 50);
+    if (isHome) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      // Give the layout a moment to update, then scroll using scrollIntoView
+      window.setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    } else {
+      // Navigate back to the homepage and jump to the section
+      window.location.href = `/#${id}`;
+    }
   };
 
   const scrollToTop = () => {
+    const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
+
     setMobileOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // From any sub-page, go back to the homepage
+      window.location.href = '/';
+    }
   };
 
   return (
@@ -116,3 +132,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
