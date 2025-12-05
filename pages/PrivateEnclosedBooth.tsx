@@ -29,12 +29,16 @@ const PrivateEnclosedBooth: React.FC = () => {
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
               {/* Image / hero visual */}
               <div className="relative rounded-3xl bg-slate-100 dark:bg-slate-900 overflow-hidden shadow-sm border border-slate-200/70 dark:border-slate-800/80">
-                {/* TODO: replace src with your real hero image path */}
                 <img
                   src="/private_booth.png"
                   alt="RealVo Private Enclosed Booth"
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur text-[11px] sm:text-xs font-medium text-white flex items-center gap-2">
+                  <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Sound-dampened, studio-style capture
+                </div>
+              </div>
 
               {/* Text content */}
               <div className="space-y-5 sm:space-y-6">
@@ -59,7 +63,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                     'Self-contained capture studio',
                     'Fully automated UX',
                     'Efficient high-traffic throughput',
-                  ].map(tag => (
+                  ].map((tag) => (
                     <span
                       key={tag}
                       className="inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-1 text-[11px] sm:text-xs font-medium text-slate-700 dark:text-slate-200"
@@ -70,10 +74,10 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  The RealVo Private Enclosed Booth gives you a stand-out,
-                  presence on-site. It invites participants to
-                  step away from the noise and record honest, high-quality
-                  stories that feel cinematic yet effortless.
+                  The RealVo Private Enclosed Booth gives you a stand-out presence
+                  on-site. It invites participants to step away from the noise and
+                  capture honest, high-quality messages — from feedback and
+                  reflections to testimonials, well-wishes, and more.
                 </p>
 
                 {/* Primary CTAs */}
