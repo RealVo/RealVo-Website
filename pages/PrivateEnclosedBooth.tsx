@@ -94,35 +94,38 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* Animated image gallery */}
+            {/* Booth in action – marquee gallery */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
-              <div className="flex items-center justify-between mb-4 sm:mb-5">
-                <h2 className="text-lg sm:text-xl font-semibold">Booth in action</h2>
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                  Swipe on mobile • Hover to preview on desktop
-                </p>
-              </div>
+              <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5">
+                Booth in action
+              </h2>
 
-              <div className="relative -mx-4 sm:mx-0">
-                <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+              <div className="overflow-hidden -mx-4 sm:mx-0">
+                <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused]">
                   {[
                     '/images/capture-options/portable-1.jpg',
                     '/images/capture-options/portable-2.jpg',
                     '/images/capture-options/portable-3.jpg',
                     '/images/capture-options/portable-4.jpg',
-                  ].map((src, index) => (
-                    <div
-                      key={src}
-                      className="snap-start shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group relative"
-                    >
-                      <img
-                        src={src}
-                        alt={`Private Enclosed Booth example ${index + 1}`}
-                        className="w-full h-44 sm:h-52 md:h-56 object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                      />
-                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
-                  ))}
+                  ]
+                    .concat([
+                      '/images/capture-options/portable-1.jpg',
+                      '/images/capture-options/portable-2.jpg',
+                      '/images/capture-options/portable-3.jpg',
+                      '/images/capture-options/portable-4.jpg',
+                    ])
+                    .map((src, index) => (
+                      <div
+                        key={index}
+                        className="shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
+                      >
+                        <img
+                          src={src}
+                          alt={`Private Enclosed Booth example ${index + 1}`}
+                          className="w-full h-44 sm:h-52 md:h-56 object-cover"
+                        />
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
