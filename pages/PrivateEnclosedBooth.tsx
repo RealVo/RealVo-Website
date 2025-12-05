@@ -8,6 +8,14 @@ const PrivateEnclosedBooth: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Image set for Booth in action marquee
+  const galleryImages = [
+    '/images/capture-options/portable-1.jpg',
+    '/images/capture-options/portable-2.jpg',
+    '/images/capture-options/portable-3.jpg',
+    '/images/capture-options/portable-4.jpg',
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
       <Header />
@@ -76,13 +84,13 @@ const PrivateEnclosedBooth: React.FC = () => {
                   reflections to testimonials, well-wishes, and more.
                 </p>
 
-                {/* Primary CTAs */}
+                {/* Primary CTA */}
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <a
                     href="/#contact"
                     className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition"
                   >
-                    Request pricing & availability
+                    Request pricing &amp; availability
                   </a>
                 </div>
               </div>
@@ -96,30 +104,18 @@ const PrivateEnclosedBooth: React.FC = () => {
 
               <div className="overflow-hidden -mx-4 sm:mx-0">
                 <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused]">
-                  {[
-                    '/images/capture-options/portable-1.jpg',
-                    '/images/capture-options/portable-2.jpg',
-                    '/images/capture-options/portable-3.jpg',
-                    '/images/capture-options/portable-4.jpg',
-                  ]
-                    .concat([
-                      '/images/capture-options/portable-1.jpg',
-                      '/images/capture-options/portable-2.jpg',
-                      '/images/capture-options/portable-3.jpg',
-                      '/images/capture-options/portable-4.jpg',
-                    ])
-                    .map((src, index) => (
-                      <div
-                        key={index}
-                        className="shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
-                      >
-                        <img
-                          src={src}
-                          alt={`Private Enclosed Booth example ${index + 1}`}
-                          className="w-full h-44 sm:h-52 md:h-56 object-cover"
-                        />
-                      </div>
-                    ))}
+                  {[...galleryImages, ...galleryImages].map((src, index) => (
+                    <div
+                      key={`${src}-${index}`}
+                      className="shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
+                    >
+                      <img
+                        src={src}
+                        alt={`Private Enclosed Booth example ${(index % galleryImages.length) + 1}`}
+                        className="w-full h-44 sm:h-52 md:h-56 object-cover"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
