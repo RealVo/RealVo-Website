@@ -31,7 +31,7 @@ const PrivateEnclosedBooth: React.FC = () => {
               <div className="relative rounded-3xl bg-slate-100 dark:bg-slate-900 overflow-hidden shadow-sm border border-slate-200/70 dark:border-slate-800/80">
                 {/* TODO: replace src with your real hero image path */}
                 <img
-                  src="/private_booth_hero.png"
+                  src="/private_booth_hero.jpg"
                   alt="RealVo Private Enclosed Booth"
                   className="w-full h-full object-cover"
                 />
