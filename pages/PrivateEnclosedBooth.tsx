@@ -48,13 +48,9 @@ const PrivateEnclosedBooth: React.FC = () => {
                     Capture Option
                   </p>
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                    Private Enclosed Booth{' '}
+                    Private Enclosed Booth
                     <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-1">
-                      Designed to{' '}
-                      <span className="text-realvo-blue dark:text-sky-400 animate-pulse-once">
-                        immerse
-                      </span>{' '}
-                      participants in a focused story space.
+                      Designed to immerse participants in a focused and safe space.
                     </span>
                   </h1>
                 </div>
@@ -78,7 +74,7 @@ const PrivateEnclosedBooth: React.FC = () => {
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
                   The RealVo Private Enclosed Booth gives you a stand-out,
-                  sound-dampened presence on-site. It invites participants to
+                  presence on-site. It invites participants to
                   step away from the noise and record honest, high-quality
                   stories that feel cinematic yet effortless.
                 </p>
