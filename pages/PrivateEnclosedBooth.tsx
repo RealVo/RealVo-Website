@@ -35,11 +35,6 @@ const PrivateEnclosedBooth: React.FC = () => {
                   alt="RealVo Private Enclosed Booth"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur text-[11px] sm:text-xs font-medium text-white flex items-center gap-2">
-                  <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Sound-dampened, studio-style capture
-                </div>
-              </div>
 
               {/* Text content */}
               <div className="space-y-5 sm:space-y-6">
@@ -58,10 +53,12 @@ const PrivateEnclosedBooth: React.FC = () => {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {[
-                    'On-site recording',
-                    'Sound-dampened',
-                    'High-traffic ready',
-                    'Premium presence',
+                    'Maximum privacy + comfort',
+                    'Immersive on-site presence',
+                    'Brand-forward exterior wrap',
+                    'Self-contained capture studio',
+                    'Fully automated UX',
+                    'Efficient high-traffic throughput',
                   ].map(tag => (
                     <span
                       key={tag}
