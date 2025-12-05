@@ -28,6 +28,7 @@
   animation: pulse-once-light 1.4s ease-out forwards;
 }
 
+/* Client logo marquee (TrustedBy) */
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -41,4 +42,31 @@
   animation: marquee 20s linear infinite;
 }
 
+/* Booth in action marquee (Private Enclosed Booth page) */
+@keyframes booth-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
+@keyframes booth-marquee2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* First track */
+.booth-marquee {
+  animation: booth-marquee 18s linear infinite;
+}
+
+/* Second track that follows behind the first */
+.booth-marquee2 {
+  animation: booth-marquee2 18s linear infinite;
+}
