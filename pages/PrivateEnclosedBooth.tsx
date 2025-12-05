@@ -80,11 +80,6 @@ const PrivateEnclosedBooth: React.FC = () => {
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <a
                     href="/#contact"
-                    onClick={(e) => {
-                      // Force navigation to the landing page contact section
-                      e.preventDefault();
-                      window.location.href = '/#contact';
-                    }}
                     className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition"
                   >
                     Request pricing &amp; availability
@@ -93,57 +88,39 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* Booth in action – continuous marquee gallery */}
+            {/* Booth in action – single-row seamless marquee */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
               <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5">
                 Booth in action
               </h2>
 
-              {/* Fixed-height, single-row marquee */}
-              <div className="relative -mx-4 sm:mx-0 h-48 sm:h-56 md:h-60 overflow-hidden">
-                {/* Track 1 */}
-                <div className="absolute inset-0 flex gap-4 booth-marquee hover:[animation-play-state:paused]">
+              <div className="overflow-hidden -mx-4 sm:mx-0">
+                <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused]">
                   {[
                     '/images/capture-options/portable-1.jpg',
                     '/images/capture-options/portable-2.jpg',
                     '/images/capture-options/portable-3.jpg',
                     '/images/capture-options/portable-4.jpg',
-                  ].map((src, index) => (
-                    <div
-                      key={`booth-track1-${index}`}
-                      className="shrink-0 w-64 sm:w-72 md:w-80 h-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
-                    >
-                      <img
-                        src={src}
-                        alt={`Private Enclosed Booth example ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Track 2 – follows right behind the first for a seamless loop */}
-                <div
-                  className="absolute inset-0 flex gap-4 booth-marquee2 hover:[animation-play-state:paused]"
-                  aria-hidden="true"
-                >
-                  {[
-                    '/images/capture-options/portable-1.jpg',
-                    '/images/capture-options/portable-2.jpg',
-                    '/images/capture-options/portable-3.jpg',
-                    '/images/capture-options/portable-4.jpg',
-                  ].map((src, index) => (
-                    <div
-                      key={`booth-track2-${index}`}
-                      className="shrink-0 w-64 sm:w-72 md:w-80 h-full rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
-                    >
-                      <img
-                        src={src}
-                        alt={`Private Enclosed Booth example duplicate ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
+                  ]
+                    // duplicate the images so the marquee loops smoothly
+                    .concat([
+                      '/images/capture-options/portable-1.jpg',
+                      '/images/capture-options/portable-2.jpg',
+                      '/images/capture-options/portable-3.jpg',
+                      '/images/capture-options/portable-4.jpg',
+                    ])
+                    .map((src, index) => (
+                      <div
+                        key={index}
+                        className="shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
+                      >
+                        <img
+                          src={src}
+                          alt={`Private Enclosed Booth example ${index + 1}`}
+                          className="w-full h-44 sm:h-52 md:h-56 object-cover"
+                        />
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
@@ -170,7 +147,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   </li>
                   <li>
                     • <strong>Premium branded exterior</strong> that feels like
-                      a feature, not an afterthought, in your event space.
+                    a feature, not an afterthought, in your event space.
                   </li>
                   <li>
                     • <strong>Guided RealVo prompts</strong> to keep recordings
@@ -303,10 +280,6 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
               <a
                 href="/#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.location.href = '/#contact';
-                }}
                 className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-white text-slate-900 hover:bg-slate-100 transition whitespace-nowrap"
               >
                 Talk to the RealVo team
@@ -322,4 +295,3 @@ const PrivateEnclosedBooth: React.FC = () => {
 };
 
 export default PrivateEnclosedBooth;
-
