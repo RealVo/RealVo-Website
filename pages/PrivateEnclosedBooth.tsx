@@ -91,37 +91,6 @@ const PrivateEnclosedBooth: React.FC = () => {
                     View tech specs
                   </a>
                 </div>
-
-                {/* Quick stats */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm">
-                  <div className="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 px-3 py-2.5">
-                    <p className="text-[11px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      Ideal for
-                    </p>
-                    <p className="mt-1 font-medium">
-                      Conferences, summits & internal events
-                    </p>
-                  </div>
-                  <div className="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 px-3 py-2.5">
-                    <p className="text-[11px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      Throughput
-                    </p>
-                    <p className="mt-1 font-medium">30–60 videos per hour*</p>
-                  </div>
-                  <div className="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 px-3 py-2.5">
-                    <p className="text-[11px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                      Footprint
-                    </p>
-                    <p className="mt-1 font-medium">
-                      Approx. 8&apos; x 8&apos; (plus queue space)
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-[11px] sm:text-xs text-slate-400 dark:text-slate-500">
-                  *Actual throughput depends on prompt length, recording time,
-                  and on-site flow.
-                </p>
               </div>
             </div>
 
