@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const PortableEnclosedBooth: React.FC = () => {
+const PrivateEnclosedBooth: React.FC = () => {
   // Scroll to top when navigating to this page
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -334,4 +334,4 @@ const PortableEnclosedBooth: React.FC = () => {
   );
 };
 
-export default PortableEnclosedBooth;
+export default PrivateEnclosedBooth;
