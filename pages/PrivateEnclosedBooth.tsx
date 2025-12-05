@@ -34,10 +34,6 @@ const PrivateEnclosedBooth: React.FC = () => {
                   alt="RealVo Private Enclosed Booth"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur text-[11px] sm:text-xs font-medium text-white flex items-center gap-2">
-                  <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Sound-dampened, studio-style capture
-                </div>
               </div>
 
               {/* Text content */}
