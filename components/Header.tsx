@@ -39,9 +39,16 @@ const Header: React.FC = () => {
 
     if (typeof window === 'undefined') return;
 
-    // Reload the current page so it always starts at the top (no smooth scroll)
-    const { pathname, search } = window.location;
-    window.location.href = `${pathname}${search}`;
+    const { pathname } = window.location;
+    const isHome = pathname === '/';
+
+    if (isHome) {
+      // Already on homepage: smooth scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // From any subpage: go to homepage root
+      window.location.href = '/';
+    }
   };
 
   return (
@@ -125,4 +132,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
