@@ -61,7 +61,7 @@ const Header: React.FC = () => {
             onClick={scrollToTop}
             className="flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-realvo-blue"
           >
-            <img src="/logo.png" alt="RealVo" className="h-7 w-auto" />
+            <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
           </button>
 
           {/* Desktop nav */}
