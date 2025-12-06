@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -26,6 +26,38 @@ const PrivateEnclosedBooth: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Lightbox state
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+  };
+
+  const closeLightbox = () => {
+    setLightboxIndex(null);
+  };
+
+  const showPrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLightboxIndex(prev =>
+      prev === null
+        ? null
+        : (prev + BOOTH_ACTION_IMAGES.length - 1) % BOOTH_ACTION_IMAGES.length
+    );
+  };
+
+  const showNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLightboxIndex(prev =>
+      prev === null
+        ? null
+        : (prev + 1) % BOOTH_ACTION_IMAGES.length
+    );
+  };
+
+  const currentLightboxImage =
+    lightboxIndex !== null ? BOOTH_ACTION_IMAGES[lightboxIndex] : null;
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
@@ -116,9 +148,11 @@ const PrivateEnclosedBooth: React.FC = () => {
               {/* Desktop: 4-image row */}
               <div className="hidden md:grid grid-cols-4 gap-4">
                 {BOOTH_ACTION_IMAGES.map((image, index) => (
-                  <div
+                  <button
                     key={index}
-                    className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900"
+                    type="button"
+                    onClick={() => openLightbox(index)}
+                    className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70"
                   >
                     <img
                       src={image.src}
@@ -126,7 +160,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
 
@@ -134,9 +168,11 @@ const PrivateEnclosedBooth: React.FC = () => {
               <div className="md:hidden overflow-x-auto mx-0">
                 <div className="flex gap-4 pb-2 snap-x snap-mandatory">
                   {BOOTH_ACTION_IMAGES.map((image, index) => (
-                    <div
+                    <button
                       key={index}
-                      className="snap-start shrink-0 w-64 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900"
+                      type="button"
+                      onClick={() => openLightbox(index)}
+                      className="snap-start shrink-0 w-64 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70"
                     >
                       <img
                         src={image.src}
@@ -144,13 +180,13 @@ const PrivateEnclosedBooth: React.FC = () => {
                         className="w-full h-44 sm:h-52 object-cover"
                         loading="lazy"
                       />
-                    </div>
+                    </button>
                   ))}
                 </div>
               </div>
 
               <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 md:hidden">
-                Swipe sideways to see more images.
+                Swipe sideways to see more images. Tap to view larger.
               </p>
             </div>
 
@@ -318,9 +354,60 @@ const PrivateEnclosedBooth: React.FC = () => {
         </section>
       </main>
 
+      {/* Lightbox modal */}
+      {currentLightboxImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center px-4 sm:px-8"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Booth in action image viewer"
+        >
+          <div
+            className="relative max-w-4xl w-full"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              type="button"
+              className="absolute -top-10 right-0 text-slate-200 hover:text-white text-sm sm:text-base"
+              onClick={closeLightbox}
+            >
+              Close ✕
+            </button>
+
+            {/* Image */}
+            <div className="relative w-full overflow-hidden rounded-2xl bg-black">
+              <img
+                src={currentLightboxImage.src}
+                alt={currentLightboxImage.alt}
+                className="w-full h-auto max-h-[80vh] object-contain"
+              />
+            </div>
+
+            {/* Nav arrows */}
+            <button
+              type="button"
+              onClick={showPrev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 sm:-translate-x-10 rounded-full bg-black/60 hover:bg-black/80 text-white w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-lg"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              onClick={showNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 sm:translate-x-10 rounded-full bg-black/60 hover:bg-black/80 text-white w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-lg"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   );
 };
 
 export default PrivateEnclosedBooth;
+
