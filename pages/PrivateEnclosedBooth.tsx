@@ -156,7 +156,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   </li>
                   <li>
                     • <strong>Premium branded exterior</strong> that feels like
-                    a feature, not an afterthought, in your event space.
+                      a feature, not an afterthought, in your event space.
                   </li>
                   <li>
                     • <strong>Guided RealVo prompts</strong> to keep recordings
