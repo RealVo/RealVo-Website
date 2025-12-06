@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+const VISIBLE_DESKTOP_IMAGES = 4;
+
 const BOOTH_ACTION_IMAGES = [
   {
     src: '/capture/private-enclosed-booth/air-force-collage.jpg',
@@ -18,6 +20,10 @@ const BOOTH_ACTION_IMAGES = [
   {
     src: '/capture/private-enclosed-booth/morel-global-collage.jpg',
     alt: 'RealVo activation - Morel Global event',
+  },
+  {
+    src: '/capture/private-enclosed-booth/lucid-collage.jpg',
+    alt: 'RealVo activation - Lucid event',
   },
 ];
 
@@ -58,6 +64,26 @@ const PrivateEnclosedBooth: React.FC = () => {
 
   const currentLightboxImage =
     lightboxIndex !== null ? BOOTH_ACTION_IMAGES[lightboxIndex] : null;
+
+    // Desktop carousel state (for Booth in action thumbnails)
+  const [desktopStartIndex, setDesktopStartIndex] = useState(0);
+  const totalImages = BOOTH_ACTION_IMAGES.length;
+  const showDesktopArrows = totalImages > VISIBLE_DESKTOP_IMAGES;
+
+  const desktopIndices = Array.from(
+    { length: Math.min(VISIBLE_DESKTOP_IMAGES, totalImages) },
+    (_, i) => (desktopStartIndex + i) % totalImages
+  );
+
+  const handleDesktopNext = () => {
+    if (!showDesktopArrows) return;
+    setDesktopStartIndex((prev) => (prev + 1) % totalImages);
+  };
+
+  const handleDesktopPrev = () => {
+    if (!showDesktopArrows) return;
+    setDesktopStartIndex((prev) => (prev - 1 + totalImages) % totalImages);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
@@ -145,23 +171,50 @@ const PrivateEnclosedBooth: React.FC = () => {
                 Booth in action
               </h2>
 
-              {/* Desktop: 4-image row */}
-<div className="hidden md:grid grid-cols-4 gap-4">
-  {BOOTH_ACTION_IMAGES.map((image, index) => (
+              {/* Desktop: 4-image carousel with arrows (no scrollbar) */}
+<div className="hidden md:flex items-center gap-4">
+  {showDesktopArrows && (
     <button
-      key={index}
       type="button"
-      onClick={() => openLightbox(index)}
-      className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      onClick={handleDesktopPrev}
+      className="inline-flex items-center justify-center rounded-full bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 shadow-lg hover:shadow-xl hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60 w-9 h-9 sm:w-10 sm:h-10"
+      aria-label="Previous booth in action image"
     >
-      <img
-        src={image.src}
-        alt={image.alt}
-        className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
-      />
+      ‹
     </button>
-  ))}
+  )}
+
+  <div className="flex-1 grid grid-cols-4 gap-4">
+    {desktopIndices.map((imageIndex) => {
+      const image = BOOTH_ACTION_IMAGES[imageIndex];
+      return (
+        <button
+          key={imageIndex}
+          type="button"
+          onClick={() => openLightbox(imageIndex)}
+          className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </button>
+      );
+    })}
+  </div>
+
+  {showDesktopArrows && (
+    <button
+      type="button"
+      onClick={handleDesktopNext}
+      className="inline-flex items-center justify-center rounded-full bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 shadow-lg hover:shadow-xl hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60 w-9 h-9 sm:w-10 sm:h-10"
+      aria-label="Next booth in action image"
+    >
+      ›
+    </button>
+  )}
 </div>
 
               {/* Mobile: horizontal swipe */}
