@@ -1,5 +1,5 @@
 // pages/PrivateEnclosedBooth.tsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -8,6 +8,17 @@ const PrivateEnclosedBooth: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Images used in "Booth in action"
+  const boothImages = [
+    '/images/capture-options/portable-1.jpg',
+    '/images/capture-options/portable-2.jpg',
+    '/images/capture-options/portable-3.jpg',
+    '/images/capture-options/portable-4.jpg',
+  ];
+
+  // Simple lightbox state
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
@@ -46,8 +57,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                     Private Enclosed Booth
                     <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-1">
-                      Designed to immerse participants in a focused and safe
-                      space.
+                      Designed to immerse participants in a focused and safe space.
                     </span>
                   </h1>
                 </div>
@@ -61,7 +71,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                     'Self-contained capture studio',
                     'Fully automated UX',
                     'Efficient high-traffic throughput',
-                  ].map(tag => (
+                  ].map((tag) => (
                     <span
                       key={tag}
                       className="inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-1 text-[11px] sm:text-xs font-medium text-slate-700 dark:text-slate-200"
@@ -72,11 +82,10 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  The RealVo Private Enclosed Booth gives you a stand-out
-                  presence on-site. It invites participants to step away from
-                  the noise and capture honest, high-quality messages — from
-                  feedback and reflections to testimonials, well-wishes, and
-                  more.
+                  The RealVo Private Enclosed Booth gives you a stand-out presence
+                  on-site. It invites participants to step away from the noise and
+                  capture honest, high-quality messages — from feedback and
+                  reflections to testimonials, well-wishes, and more.
                 </p>
 
                 {/* Primary CTA */}
@@ -91,39 +100,37 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* Booth in action – marquee gallery */}
+            {/* Booth in action – static gallery with horizontal swipe + lightbox */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
-              <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5">
-                Booth in action
-              </h2>
+              <div className="flex items-center justify-between mb-4 sm:mb-5">
+                <h2 className="text-lg sm:text-xl font-semibold">
+                  Booth in action
+                </h2>
+                <p className="hidden sm:block text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                  Click any image to enlarge
+                </p>
+              </div>
 
               <div className="overflow-hidden -mx-4 sm:mx-0">
-                <div className="flex flex-nowrap gap-4 animate-marquee hover:[animation-play-state:paused]">
-                  {[
-                    '/images/capture-options/portable-1.jpg',
-                    '/images/capture-options/portable-2.jpg',
-                    '/images/capture-options/portable-3.jpg',
-                    '/images/capture-options/portable-4.jpg',
-                  ]
-                    .concat([
-                      '/images/capture-options/portable-1.jpg',
-                      '/images/capture-options/portable-2.jpg',
-                      '/images/capture-options/portable-3.jpg',
-                      '/images/capture-options/portable-4.jpg',
-                    ])
-                    .map((src, index) => (
-                      <div
-                        key={index}
-                        className="shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
-                      >
-                        <img
-                          src={src}
-                          alt={`Private Enclosed Booth example ${index + 1}`}
-                          className="w-full h-44 sm:h-52 md:h-56 object-cover"
-                        />
-                      </div>
-                    ))}
+                <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+                  {boothImages.map((src, index) => (
+                    <button
+                      key={src}
+                      type="button"
+                      onClick={() => setLightboxImage(src)}
+                      className="snap-start shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group focus:outline-none focus:ring-2 focus:ring-realvo-blue"
+                    >
+                      <img
+                        src={src}
+                        alt={`Private Enclosed Booth example ${index + 1}`}
+                        className="w-full h-44 sm:h-52 md:h-56 object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </button>
+                  ))}
                 </div>
+                <p className="mt-2 sm:hidden text-[11px] text-slate-500 dark:text-slate-400">
+                  Swipe sideways to see more images.
+                </p>
               </div>
             </div>
 
@@ -149,7 +156,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   </li>
                   <li>
                     • <strong>Premium branded exterior</strong> that feels like
-                      a feature, not an afterthought, in your event space.
+                    a feature, not an afterthought, in your event space.
                   </li>
                   <li>
                     • <strong>Guided RealVo prompts</strong> to keep recordings
@@ -275,9 +282,9 @@ const PrivateEnclosedBooth: React.FC = () => {
                   story space to your next event.
                 </h2>
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Share a few details about your program or conference and
-                  we&apos;ll recommend the best way to use the Private Enclosed
-                  Booth with RealVo.
+                  Share a few details about your program or conference and we&apos;ll
+                  recommend the best way to use the Private Enclosed Booth with
+                  RealVo.
                 </p>
               </div>
               <a
@@ -292,6 +299,32 @@ const PrivateEnclosedBooth: React.FC = () => {
       </main>
 
       <Footer />
+
+      {/* Lightbox overlay */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full max-h-[90vh] bg-black rounded-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={lightboxImage}
+              alt="Private Enclosed Booth enlarged"
+              className="w-full h-full object-contain bg-black"
+            />
+            <button
+              type="button"
+              className="absolute top-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-900 hover:bg-white"
+              onClick={() => setLightboxImage(null)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
