@@ -52,7 +52,7 @@ const Header: React.FC = () => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-realvo-blue rounded-md"
+            className="flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-realvo-blue"
           >
             <img src="/logo.png" alt="RealVo" className="h-7 w-auto" />
           </button>
