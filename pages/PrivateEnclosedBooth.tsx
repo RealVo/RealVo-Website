@@ -377,7 +377,7 @@ const PrivateEnclosedBooth: React.FC = () => {
             </button>
 
             {/* Image */}
-<div className="relative w-full flex items-center justify-center bg-black p-2">
+<div className="relative w-full flex items-center justify-center bg-white p-2">
   <img
     src={currentLightboxImage.src}
     alt={currentLightboxImage.alt}
