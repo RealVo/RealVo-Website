@@ -2,6 +2,25 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+const BOOTH_ACTION_IMAGES = [
+  {
+    src: '/capture/private-enclosed-booth/air-force-collage.jpg',
+    alt: 'RealVo activation - Air Force event',
+  },
+  {
+    src: '/capture/private-enclosed-booth/att-collage.jpg',
+    alt: 'RealVo activation - AT&T event',
+  },
+  {
+    src: '/capture/private-enclosed-booth/dollar-general-collage.jpg',
+    alt: 'RealVo activation - Dollar General event',
+  },
+  {
+    src: '/capture/private-enclosed-booth/morel-global-collage.jpg',
+    alt: 'RealVo activation - Morel Global event',
+  },
+];
+
 const PrivateEnclosedBooth: React.FC = () => {
   // Scroll to top when navigating to this page
   useEffect(() => {
@@ -88,35 +107,49 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* Booth in action – static gallery with horizontal swipe on mobile */}
+            {/* Booth in action – 4-image row (desktop) + horizontal swipe (mobile) */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
               <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5">
                 Booth in action
               </h2>
 
-              <div className="overflow-x-auto mx-0">
+              {/* Desktop: 4-image row */}
+              <div className="hidden md:grid grid-cols-4 gap-4">
+                {BOOTH_ACTION_IMAGES.map((image, index) => (
+                  <div
+                    key={index}
+                    className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900"
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile: horizontal swipe */}
+              <div className="md:hidden overflow-x-auto mx-0">
                 <div className="flex gap-4 pb-2 snap-x snap-mandatory">
-                  {[
-                    '/images/capture-options/portable-1.jpg',
-                    '/images/capture-options/portable-2.jpg',
-                    '/images/capture-options/portable-3.jpg',
-                    '/images/capture-options/portable-4.jpg',
-                  ].map((src, index) => (
+                  {BOOTH_ACTION_IMAGES.map((image, index) => (
                     <div
-                      key={src}
-                      className="snap-start shrink-0 w-64 sm:w-1/4 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900"
+                      key={index}
+                      className="snap-start shrink-0 w-64 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900"
                     >
                       <img
-                        src={src}
-                        alt={`Private Enclosed Booth example ${index + 1}`}
-                        className="w-full h-44 sm:h-52 md:h-56 object-cover"
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-44 sm:h-52 object-cover"
+                        loading="lazy"
                       />
                     </div>
                   ))}
                 </div>
               </div>
 
-              <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 sm:hidden">
+              <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 md:hidden">
                 Swipe sideways to see more images.
               </p>
             </div>
