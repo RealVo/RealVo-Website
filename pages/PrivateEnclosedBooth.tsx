@@ -95,35 +95,33 @@ const PrivateEnclosedBooth: React.FC = () => {
               </h2>
 
               <div className="overflow-hidden -mx-4 sm:mx-0">
-                <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused]">
-                  {[
-                    '/images/capture-options/portable-1.jpg',
-                    '/images/capture-options/portable-2.jpg',
-                    '/images/capture-options/portable-3.jpg',
-                    '/images/capture-options/portable-4.jpg',
-                  ]
-                    // duplicate the images so the marquee loops smoothly
-                    .concat([
-                      '/images/capture-options/portable-1.jpg',
-                      '/images/capture-options/portable-2.jpg',
-                      '/images/capture-options/portable-3.jpg',
-                      '/images/capture-options/portable-4.jpg',
-                    ])
-                    .map((src, index) => (
-                      <div
-                        key={index}
-                        className="shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
-                      >
-                        <img
-                          src={src}
-                          alt={`Private Enclosed Booth example ${index + 1}`}
-                          className="w-full h-44 sm:h-52 md:h-56 object-cover"
-                        />
-                      </div>
-                    ))}
-                </div>
-              </div>
-            </div>
+  <div className="flex flex-nowrap gap-4 animate-marquee hover:[animation-play-state:paused]">
+    {[
+      '/images/capture-options/portable-1.jpg',
+      '/images/capture-options/portable-2.jpg',
+      '/images/capture-options/portable-3.jpg',
+      '/images/capture-options/portable-4.jpg',
+    ]
+      .concat([
+        '/images/capture-options/portable-1.jpg',
+        '/images/capture-options/portable-2.jpg',
+        '/images/capture-options/portable-3.jpg',
+        '/images/capture-options/portable-4.jpg',
+      ])
+      .map((src, index) => (
+        <div
+          key={index}
+          className="shrink-0 w-64 sm:w-72 md:w-80 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
+        >
+          <img
+            src={src}
+            alt={`Private Enclosed Booth example ${index + 1}`}
+            className="w-full h-44 sm:h-52 md:h-56 object-cover"
+          />
+        </div>
+      ))}
+  </div>
+</div>
 
             {/* Key benefits + Tech specs */}
             <div
