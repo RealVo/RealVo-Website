@@ -146,44 +146,44 @@ const PrivateEnclosedBooth: React.FC = () => {
               </h2>
 
               {/* Desktop: 4-image row */}
-              <div className="hidden md:grid grid-cols-4 gap-4">
-                {BOOTH_ACTION_IMAGES.map((image, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => openLightbox(index)}
-                    className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70"
-                  >
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </button>
-                ))}
-              </div>
+<div className="hidden md:grid grid-cols-4 gap-4">
+  {BOOTH_ACTION_IMAGES.map((image, index) => (
+    <button
+      key={index}
+      type="button"
+      onClick={() => openLightbox(index)}
+      className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+    </button>
+  ))}
+</div>
 
               {/* Mobile: horizontal swipe */}
-              <div className="md:hidden overflow-x-auto mx-0">
-                <div className="flex gap-4 pb-2 snap-x snap-mandatory">
-                  {BOOTH_ACTION_IMAGES.map((image, index) => (
-                    <button
-                      key={index}
-                      type="button"
-                      onClick={() => openLightbox(index)}
-                      className="snap-start shrink-0 w-64 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70"
-                    >
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-44 sm:h-52 object-cover"
-                        loading="lazy"
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
+<div className="md:hidden overflow-x-auto mx-0">
+  <div className="flex gap-4 pb-2 snap-x snap-mandatory">
+    {BOOTH_ACTION_IMAGES.map((image, index) => (
+      <button
+        key={index}
+        type="button"
+        onClick={() => openLightbox(index)}
+        className="group snap-start shrink-0 w-64 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      >
+        <img
+          src={image.src}
+          alt={image.alt}
+          className="w-full h-44 sm:h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+      </button>
+    ))}
+  </div>
+</div>
 
               <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 md:hidden">
                 Swipe sideways to see more images. Tap to view larger.
