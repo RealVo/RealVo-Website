@@ -177,7 +177,7 @@ const PrivateEnclosedBooth: React.FC = () => {
     <button
       type="button"
       onClick={handleDesktopPrev}
-      className="inline-flex items-center justify-center rounded-full bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 shadow-lg hover:shadow-xl hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60 w-9 h-9 sm:w-10 sm:h-10"
+      className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-realvo-slate/30 bg-white text-realvo-slate hover:bg-realvo-blue hover:border-realvo-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60"
       aria-label="Previous booth in action image"
     >
       ‹
@@ -206,15 +206,15 @@ const PrivateEnclosedBooth: React.FC = () => {
   </div>
 
   {showDesktopArrows && (
-    <button
-      type="button"
-      onClick={handleDesktopNext}
-      className="inline-flex items-center justify-center rounded-full bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 shadow-lg hover:shadow-xl hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60 w-9 h-9 sm:w-10 sm:h-10"
-      aria-label="Next booth in action image"
-    >
-      ›
-    </button>
-  )}
+  <button
+    type="button"
+    onClick={handleDesktopNext}
+    className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-realvo-slate/30 bg-white text-realvo-slate hover:bg-realvo-blue hover:border-realvo-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60"
+    aria-label="Next booth in action image"
+  >
+    ›
+  </button>
+)}
 </div>
 
               {/* Mobile: horizontal swipe */}
