@@ -377,13 +377,13 @@ const PrivateEnclosedBooth: React.FC = () => {
             </button>
 
             {/* Image */}
-            <div className="relative w-full overflow-hidden rounded-2xl bg-black">
-              <img
-                src={currentLightboxImage.src}
-                alt={currentLightboxImage.alt}
-                className="w-full h-auto max-h-[80vh] object-contain"
-              />
-            </div>
+<div className="relative w-full flex items-center justify-center bg-black p-2">
+  <img
+    src={currentLightboxImage.src}
+    alt={currentLightboxImage.alt}
+    className="max-h-[80vh] w-auto max-w-full object-contain"
+  />
+</div>
 
             {/* Nav arrows */}
             <button
