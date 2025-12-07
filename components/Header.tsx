@@ -4,9 +4,9 @@ import Button from './Button';
 
 const navLinks = [
   { label: 'Why RealVo', targetId: 'why-realvo' },
+  { label: 'Who We Serve', targetId: 'industries' },
   { label: 'How It Works', targetId: 'how-it-works' },
   { label: 'Solutions', targetId: 'solutions' },
-  { label: 'Who We Serve', targetId: 'industries' },
   { label: 'Pricing', targetId: 'pricing' },
 ];
 
