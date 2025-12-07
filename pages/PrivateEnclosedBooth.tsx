@@ -131,7 +131,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                 <div className="flex flex-wrap gap-2">
                   {[
                     'Maximum privacy + comfort',
-                    'Immersive on-site presence',
+                    'Commanding on-site presence',
                     'Brand-forward exterior wrap',
                     'Self-contained capture studio',
                     'Fully automated UX',
