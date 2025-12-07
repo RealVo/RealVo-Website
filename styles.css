@@ -5,7 +5,7 @@
 }
 
 .animate-pulse-once {
-  animation: pulse-once 1.4s ease-out 0.2s 1 forwards;
+  animation: pulse-once 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s 1 forwards;
 }
 
 /* Single pulse for light text on dark backgrounds (Industries section) */
