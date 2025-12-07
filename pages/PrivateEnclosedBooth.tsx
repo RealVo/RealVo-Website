@@ -167,7 +167,7 @@ const PrivateEnclosedBooth: React.FC = () => {
 
             {/* Booth in action – carousel on desktop, swipe on mobile */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
-              <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5">
+              <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                 Booth in action
               </h2>
 
@@ -250,7 +250,7 @@ const PrivateEnclosedBooth: React.FC = () => {
             >
               {/* Features with purpose / Benefits */}
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Features with purpose
                 </h2>
 
@@ -296,7 +296,7 @@ const PrivateEnclosedBooth: React.FC = () => {
 
               {/* Tech specs */}
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Technical specifications
                 </h2>
                 <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 grid gap-y-3 sm:gap-y-4 sm:grid-cols-2 sm:gap-x-6">
@@ -356,7 +356,7 @@ const PrivateEnclosedBooth: React.FC = () => {
             {/* Use cases & customization */}
             <div className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2">
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Ideal use cases
                 </h2>
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
@@ -370,7 +370,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Customization options
                 </h2>
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
