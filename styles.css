@@ -25,7 +25,7 @@
 }
 
 .animate-pulse-once-light {
-  animation: pulse-once-light 1.4s ease-out forwards;
+  animation: pulse-once-light 1.8s ease-out 0.3s 1;
 }
 
 /* Client logo marquee (TrustedBy) */
