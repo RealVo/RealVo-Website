@@ -127,14 +127,14 @@ const PrivateEnclosedBooth: React.FC = () => {
                   </h1>
                 </div>
 
-                {/* Tags */}
+                {/* Tags / Feature Pills */}
                 <div className="flex flex-wrap gap-2">
                   {[
                     'Maximum privacy + comfort',
                     'Commanding on-site presence',
                     'Brand-forward exterior wrap',
                     'Self-contained capture studio',
-                    'Fully automated UX',
+                    'Fully automated recording UX',
                     'Efficient high-traffic throughput',
                   ].map(tag => (
                     <span
@@ -243,58 +243,55 @@ const PrivateEnclosedBooth: React.FC = () => {
               </p>
             </div>
 
-            {/* Key benefits + Tech specs */}
+            {/* Features with purpose + Tech specs */}
             <div
               id="tech-specs"
               className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2"
             >
-              {/* Benefits / experience */}
+              {/* Features with purpose / Benefits */}
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
-                  Key benefits
+                  Features with purpose
                 </h2>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4">
-                  The Private Enclosed Booth is designed for moments where stories
-                  matter and distractions can&apos;t. It creates a calm, private
-                  environment where people feel safe on camera — and your team
-                  gets consistent, broadcast-quality footage at scale.
+                  The Private Enclosed Booth is built to quietly draw people in,
+                  make them feel comfortable, and keep your production values
+                  high.
                 </p>
 
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li>
-                    • <strong>High-privacy, sound-dampened interior</strong> that
-                    softens lobby and exhibit-hall noise so voices sound clear and
-                    confident.
+                    • <strong>Sound-dampened interior</strong> helps participants
+                    feel secure and speak freely — with clean, confident audio.
                   </li>
                   <li>
-                    • <strong>Immersive, fully branded exterior</strong> that acts
-                    as a feature installation — easy to spot, easy to photograph,
-                    and impossible to miss.
+                    • <strong>Consistent studio-grade lighting</strong> delivers
+                    professional-looking results across every recording.
                   </li>
                   <li>
-                    • <strong>Guided RealVo prompts + interface</strong> so
-                    participants always know what to say next, keeping recordings
-                    natural, focused, and on-message.
+                    • <strong>Immersive participant experience</strong> reduces
+                    distractions and encourages honest expression.
                   </li>
                   <li>
-                    • <strong>Fast one-in / one-out flow</strong> with clearly
-                    marked entry and exit, ideal for breaks, poster sessions, and
-                    high-traffic programs.
+                    • <strong>Self-guided prompts</strong> support clear,
+                    structured content — from quick feedback to deeper
+                    reflections.
                   </li>
                   <li>
-                    • <strong>Turn-key delivery, setup, and monitoring</strong> by
-                    RealVo or certified partners — so your team can focus on the
-                    program, not the tech.
+                    • <strong>Smooth participant flow</strong> keeps lines moving
+                    and lets more people take part.
+                  </li>
+                  <li>
+                    • <strong>Rapid setup + go-live</strong> handled by RealVo
+                    means low client lift on-site.
+                  </li>
+                  <li>
+                    • <strong>Integration with RealVo&apos;s VideoBooth.tv online
+                    content management platform</strong> for instant uploads,
+                    approvals, and publishing.
                   </li>
                 </ul>
-
-                <div className="mt-6 rounded-2xl border border-emerald-300/40 dark:border-emerald-400/30 bg-emerald-50/60 dark:bg-emerald-950/20 px-4 py-3 text-xs sm:text-sm text-emerald-900 dark:text-emerald-100">
-                  <span className="font-semibold">Accessibility note:</span>{' '}
-                  interior layout, seating, and lighting can be tailored for
-                  mobility, sensory, and inclusion requirements — including
-                  wheelchair access and assisted-use recording.
-                </div>
               </div>
 
               {/* Tech specs */}
@@ -331,7 +328,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   <div>
                     <p className="font-semibold">Camera &amp; audio</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Cinema-grade camera and directional microphone system
+                      High-definition camera and directional microphone system
                     </p>
                   </div>
                   <div>
@@ -377,11 +374,12 @@ const PrivateEnclosedBooth: React.FC = () => {
                   Customization options
                 </h2>
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
-                  <li>• Full exterior wrap in your brand or campaign creative</li>
-                  <li>• Custom backgrounds or physical set dressing inside</li>
-                  <li>• Tailored RealVo prompt scripts and question flows</li>
+                  <li>• Audio, text, and photo capture capabilities</li>
+                  <li>• Full exterior and interior creative branding</li>
+                  <li>• Tailored on-screen scripting and guided prompts</li>
                   <li>• White-label or co-branded participant experience</li>
-                  <li>• Integration with your existing video platforms</li>
+                  <li>• Accessibility-ready layout options</li>
+                  <li>• Integration with your existing video management platforms</li>
                 </ul>
               </div>
             </div>
@@ -472,3 +470,4 @@ const PrivateEnclosedBooth: React.FC = () => {
 };
 
 export default PrivateEnclosedBooth;
+
