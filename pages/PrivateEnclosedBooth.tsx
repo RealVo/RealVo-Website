@@ -65,7 +65,7 @@ const PrivateEnclosedBooth: React.FC = () => {
   const currentLightboxImage =
     lightboxIndex !== null ? BOOTH_ACTION_IMAGES[lightboxIndex] : null;
 
-    // Desktop carousel state (for Booth in action thumbnails)
+  // Desktop carousel state (for Booth in action thumbnails)
   const [desktopStartIndex, setDesktopStartIndex] = useState(0);
   const totalImages = BOOTH_ACTION_IMAGES.length;
   const showDesktopArrows = totalImages > VISIBLE_DESKTOP_IMAGES;
@@ -77,12 +77,12 @@ const PrivateEnclosedBooth: React.FC = () => {
 
   const handleDesktopNext = () => {
     if (!showDesktopArrows) return;
-    setDesktopStartIndex((prev) => (prev + 1) % totalImages);
+    setDesktopStartIndex(prev => (prev + 1) % totalImages);
   };
 
   const handleDesktopPrev = () => {
     if (!showDesktopArrows) return;
-    setDesktopStartIndex((prev) => (prev - 1 + totalImages) % totalImages);
+    setDesktopStartIndex(prev => (prev - 1 + totalImages) % totalImages);
   };
 
   return (
@@ -165,78 +165,78 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* Booth in action – 4-image row (desktop) + horizontal swipe (mobile) */}
+            {/* Booth in action – carousel on desktop, swipe on mobile */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
               <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5">
                 Booth in action
               </h2>
 
               {/* Desktop: 4-image carousel with arrows (no scrollbar) */}
-<div className="hidden md:flex items-center gap-4">
-  {showDesktopArrows && (
-    <button
-      type="button"
-      onClick={handleDesktopPrev}
-      className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-realvo-slate/30 bg-white text-realvo-slate hover:bg-realvo-blue hover:border-realvo-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60"
-      aria-label="Previous booth in action image"
-    >
-      ‹
-    </button>
-  )}
+              <div className="hidden md:flex items-center gap-4">
+                {showDesktopArrows && (
+                  <button
+                    type="button"
+                    onClick={handleDesktopPrev}
+                    className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-realvo-slate/30 bg-white text-realvo-slate hover:bg-realvo-blue hover:border-realvo-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60"
+                    aria-label="Previous booth in action image"
+                  >
+                    ‹
+                  </button>
+                )}
 
-  <div className="flex-1 grid grid-cols-4 gap-4">
-    {desktopIndices.map((imageIndex) => {
-      const image = BOOTH_ACTION_IMAGES[imageIndex];
-      return (
-        <button
-          key={imageIndex}
-          type="button"
-          onClick={() => openLightbox(imageIndex)}
-          className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-        </button>
-      );
-    })}
-  </div>
+                <div className="flex-1 grid grid-cols-4 gap-4">
+                  {desktopIndices.map(imageIndex => {
+                    const image = BOOTH_ACTION_IMAGES[imageIndex];
+                    return (
+                      <button
+                        key={imageIndex}
+                        type="button"
+                        onClick={() => openLightbox(imageIndex)}
+                        className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                      >
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
 
-  {showDesktopArrows && (
-  <button
-    type="button"
-    onClick={handleDesktopNext}
-    className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-realvo-slate/30 bg-white text-realvo-slate hover:bg-realvo-blue hover:border-realvo-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60"
-    aria-label="Next booth in action image"
-  >
-    ›
-  </button>
-)}
-</div>
+                {showDesktopArrows && (
+                  <button
+                    type="button"
+                    onClick={handleDesktopNext}
+                    className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-realvo-slate/30 bg-white text-realvo-slate hover:bg-realvo-blue hover:border-realvo-blue hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-realvo-blue/60"
+                    aria-label="Next booth in action image"
+                  >
+                    ›
+                  </button>
+                )}
+              </div>
 
               {/* Mobile: horizontal swipe */}
-<div className="md:hidden overflow-x-auto mx-0">
-  <div className="flex gap-4 pb-2 snap-x snap-mandatory">
-    {BOOTH_ACTION_IMAGES.map((image, index) => (
-      <button
-        key={index}
-        type="button"
-        onClick={() => openLightbox(index)}
-        className="group snap-start shrink-0 w-64 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-      >
-        <img
-          src={image.src}
-          alt={image.alt}
-          className="w-full h-44 sm:h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
-      </button>
-    ))}
-  </div>
-</div>
+              <div className="md:hidden overflow-x-auto mx-0">
+                <div className="flex gap-4 pb-2 snap-x snap-mandatory">
+                  {BOOTH_ACTION_IMAGES.map((image, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => openLightbox(index)}
+                      className="group snap-start shrink-0 w-64 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-realvo-blue/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-44 sm:h-52 object-cover transform transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               <p className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 md:hidden">
                 Swipe sideways to see more images. Tap to view larger.
@@ -253,38 +253,47 @@ const PrivateEnclosedBooth: React.FC = () => {
                 <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
                   Key benefits
                 </h2>
+
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4">
-                  The Private Enclosed Booth is built to quietly draw people in,
-                  make them feel comfortable, and keep your production values
-                  high.
+                  The Private Enclosed Booth is designed for moments where stories
+                  matter and distractions can&apos;t. It creates a calm, private
+                  environment where people feel safe on camera — and your team
+                  gets consistent, broadcast-quality footage at scale.
                 </p>
+
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li>
-                    • <strong>Sound-dampened interior</strong> reduces ambient
-                    noise, helping voices sound clear and confident.
+                    • <strong>High-privacy, sound-dampened interior</strong> that
+                    softens lobby and exhibit-hall noise so voices sound clear and
+                    confident.
                   </li>
                   <li>
-                    • <strong>Premium branded exterior</strong> that feels like
-                    a feature, not an afterthought, in your event space.
+                    • <strong>Immersive, fully branded exterior</strong> that acts
+                    as a feature installation — easy to spot, easy to photograph,
+                    and impossible to miss.
                   </li>
                   <li>
-                    • <strong>Guided RealVo prompts</strong> to keep recordings
-                    simple, structured, and emotionally engaging.
+                    • <strong>Guided RealVo prompts + interface</strong> so
+                    participants always know what to say next, keeping recordings
+                    natural, focused, and on-message.
                   </li>
                   <li>
-                    • <strong>Fast participant flow</strong> with clear signage
-                    and accessible entry / exit.
+                    • <strong>Fast one-in / one-out flow</strong> with clearly
+                    marked entry and exit, ideal for breaks, poster sessions, and
+                    high-traffic programs.
                   </li>
                   <li>
-                    • <strong>Turn-key setup</strong> handled by the RealVo team
-                    or approved partners.
+                    • <strong>Turn-key delivery, setup, and monitoring</strong> by
+                    RealVo or certified partners — so your team can focus on the
+                    program, not the tech.
                   </li>
                 </ul>
 
                 <div className="mt-6 rounded-2xl border border-emerald-300/40 dark:border-emerald-400/30 bg-emerald-50/60 dark:bg-emerald-950/20 px-4 py-3 text-xs sm:text-sm text-emerald-900 dark:text-emerald-100">
                   <span className="font-semibold">Accessibility note:</span>{' '}
-                  entry and interior layout can be tailored to your
-                  accessibility and inclusion requirements.
+                  interior layout, seating, and lighting can be tailored for
+                  mobility, sensory, and inclusion requirements — including
+                  wheelchair access and assisted-use recording.
                 </div>
               </div>
 
@@ -430,13 +439,13 @@ const PrivateEnclosedBooth: React.FC = () => {
             </button>
 
             {/* Image */}
-<div className="relative w-full flex items-center justify-center bg-white p-2">
-  <img
-    src={currentLightboxImage.src}
-    alt={currentLightboxImage.alt}
-    className="max-h-[80vh] w-auto max-w-full object-contain"
-  />
-</div>
+            <div className="relative w-full flex items-center justify-center bg-white p-2">
+              <img
+                src={currentLightboxImage.src}
+                alt={currentLightboxImage.alt}
+                className="max-h-[80vh] w-auto max-w-full object-contain"
+              />
+            </div>
 
             {/* Nav arrows */}
             <button
@@ -463,4 +472,3 @@ const PrivateEnclosedBooth: React.FC = () => {
 };
 
 export default PrivateEnclosedBooth;
-
