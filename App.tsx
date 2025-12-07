@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
   const [contactInView, setContactInView] = useState(false);
   const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
 
-  // 👇 NEW: watch the URL hash and scroll to #contact when needed
+  // 👇 Watch the URL hash and scroll to #contact when needed
   const location = useLocation();
   useEffect(() => {
     if (location.hash === '#contact') {
@@ -115,13 +115,14 @@ const HomePage: React.FC = () => {
       <Header />
 
       <main className="flex-grow">
+        {/* NEW ORDER */}
         <Hero />
         <TrustedBy />
         <WhatYouCanAchieve />
-        <HowItWorks />
-        <CaptureOptions />
-        <VBPlatform />
         <Industries />
+        <CaptureOptions />
+        <HowItWorks />
+        <VBPlatform />
         <Pricing />
 
         {/* CONTACT SECTION – note id="contact" */}
