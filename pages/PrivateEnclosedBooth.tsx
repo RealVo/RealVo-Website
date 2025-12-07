@@ -391,16 +391,10 @@ const PrivateEnclosedBooth: React.FC = () => {
                   Ready to activate RealVo
                 </p>
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                  Bring a{' '}
-                  <span className="text-realvo-blue/90 dark:text-sky-400 animate-pulse-once">
-                    focused
-                  </span>{' '}
-                  story space to your next event.
+                  Create a private space where participants share more — and say what really matters.
                 </h2>
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Share a few details about your program or conference and we&apos;ll
-                  recommend the best way to use the Private Enclosed Booth with
-                  RealVo.
+                  Share your goals — we’ll tailor the experience to maximize engagement and deliver measurable outcomes.
                 </p>
               </div>
               <a
