@@ -394,7 +394,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   Create a private space where participants share more — and say what really matters.
                 </h2>
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Share your goals — we’ll tailor the experience to maximize engagement and deliver measurable outcomes.
+                  Share your goals — we’ll tailor the experience to maximize engagement and deliver measurable results.
                 </p>
               </div>
               <a
