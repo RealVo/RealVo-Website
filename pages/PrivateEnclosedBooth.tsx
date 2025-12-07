@@ -261,32 +261,32 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </p>
 
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
-                  <li>
+                  <li className="pl-3 -indent-3">
                     • <strong>Sound-dampened interior</strong> helps participants
                     feel secure and speak freely — with clean, confident audio.
                   </li>
-                  <li>
+                  <li className="pl-3 -indent-3">
                     • <strong>Consistent studio-grade lighting</strong> delivers
                     professional-looking results across every recording.
                   </li>
-                  <li>
+                  <li className="pl-3 -indent-3">
                     • <strong>Immersive participant experience</strong> reduces
                     distractions and encourages honest expression.
                   </li>
-                  <li>
+                  <li className="pl-3 -indent-3">
                     • <strong>Self-guided prompts</strong> support clear,
                     structured content — from quick feedback to deeper
                     reflections.
                   </li>
-                  <li>
+                  <li className="pl-3 -indent-3">
                     • <strong>Smooth participant flow</strong> keeps lines moving
                     and lets more people take part.
                   </li>
-                  <li>
+                  <li className="pl-3 -indent-3">
                     • <strong>Rapid setup + go-live</strong> handled by RealVo
                     means low client lift on-site.
                   </li>
-                  <li>
+                  <li className="pl-3 -indent-3">
                     • <strong>Integration with RealVo&apos;s VideoBooth.tv online
                     content management platform</strong> for instant uploads,
                     approvals, and publishing.
