@@ -354,21 +354,20 @@ const PrivateEnclosedBooth: React.FC = () => {
             </div>
 
             {/* Use cases & customization */}
-            <div className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2">
-              <div>
-                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
-                  Ideal use cases
-                </h2>
-                <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
-                  <li>
-                    • Leadership and employee storytelling at internal summits
-                  </li>
-                  <li>• Customer or patient testimonials at conferences</li>
-                  <li>• Alumni and donor stories at advancement events</li>
-                  <li>• Community, health, or wellness program reflections</li>
-                  <li>• Any moment where privacy and focus matter</li>
-                </ul>
-              </div>
+<div className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2">
+  <div>
+    <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+      Ideal use cases
+    </h2>
+    <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
+      <li>Employee &amp; leadership storytelling</li>
+      <li>Customer or patient testimonials</li>
+      <li>Student, alumni &amp; donor reflections</li>
+      <li>Wellness &amp; community voice programs</li>
+      <li>Conference insights &amp; speaker reactions</li>
+      <li>Innovation feedback &amp; idea capture</li>
+    </ul>
+  </div>
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Customization options
