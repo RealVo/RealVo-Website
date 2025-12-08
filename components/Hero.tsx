@@ -100,21 +100,23 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
-            Authentic Voices.
-            <br />
-            <span
-              ref={impactRef}
-              className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
-            >
-              Real Impact.
-            </span>
-          </h1>
+<h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
+  Authentic Voices.
+  <br />
+  <span
+    ref={impactRef}
+    className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
+  >
+    Real Impact.
+  </span>
+</h1>
 
-          {/* Supporting copy */}
-          <p className="mt-3 text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-            Capture the voices and experiences that move your programs forward — from insights and feedback to stories and testimonials — through video, voice, and text, in person or online.
-          </p>
+{/* Supporting copy */}
+<p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-snug">
+  Capture the voices and experiences that move your programs forward — from
+  insights and feedback to stories and testimonials — through video, voice,
+  and text, in person or online.
+</p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
