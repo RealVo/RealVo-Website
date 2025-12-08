@@ -369,18 +369,18 @@ const PrivateEnclosedBooth: React.FC = () => {
     </ul>
   </div>
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
-                  Customization options
-                </h2>
-                <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
-                  <li>• Audio, text, and photo capture capabilities</li>
-                  <li>• Full exterior and interior creative branding</li>
-                  <li>• Tailored on-screen scripting and guided prompts</li>
-                  <li>• White-label or co-branded participant experience</li>
-                  <li>• Accessibility-ready layout options</li>
-                  <li>• Integration with your existing video management platforms</li>
-                </ul>
-              </div>
+  <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+    Customization options
+  </h2>
+  <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
+    <li>Audio, text, and photo capture support</li>
+    <li>Immersive branded interface (video intros + voice-over prompts)</li>
+    <li>Full exterior + interior creative branding</li>
+    <li>White-label activation ready</li>
+    <li>External display options (live-feed, promo video, or dynamic content)</li>
+    <li>Instant upload to VideoBooth.tv &amp; media integrations</li>
+  </ul>
+</div>
             </div>
 
             {/* Final CTA band */}
