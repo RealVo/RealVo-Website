@@ -71,7 +71,7 @@ const ImplementationProcess: React.FC = () => {
       padding="lg"
       className="border-t border-gray-100"
     >
-      <div className="text-center max-w-3xl mx-auto mb-14">
+      <div className="text-center max-w-3xl mx-auto mb-10">
         <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-4">
           How We Deliver a Successful RealVo Program
         </h2>
@@ -81,50 +81,58 @@ const ImplementationProcess: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        {steps.map((step) => {
-          const Icon = step.icon;
-          return (
-            <div
-              key={step.phase}
-              className="relative bg-white rounded-2xl border border-gray-200 shadow-sm 
-                         hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 
-                         overflow-hidden"
-            >
-              {/* Large ghosted step number in top-right */}
-              <div className="absolute -top-1 right-3 text-5xl font-extrabold text-gray-100 select-none pointer-events-none">
-                {step.number}
-              </div>
-
-              <div className="p-6 flex flex-col h-full">
-                {/* Icon + phase */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
-                    <Icon className="w-5 h-5" strokeWidth={1.6} />
-                  </div>
-                  <span className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate">
-                    {step.phase}
-                  </span>
+      {/* Light teal band behind the cards */}
+      <div className="bg-realvo-teal/5 rounded-3xl px-5 py-6 md:px-8 md:py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          {steps.map((step) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={step.phase}
+                className="group relative bg-white rounded-2xl border border-gray-200 shadow-sm 
+                           hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 
+                           overflow-hidden"
+              >
+                {/* Large ghosted step number in top-right */}
+                <div className="absolute -top-1 right-3 text-5xl font-extrabold text-gray-100 select-none pointer-events-none">
+                  {step.number}
                 </div>
 
-                {/* Title */}
-                <h3 className="text-lg font-semibold text-realvo-charcoal mb-3">
-                  {step.title}
-                </h3>
+                <div className="p-6 flex flex-col h-full">
+                  {/* Icon + phase */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="w-10 h-10 rounded-xl bg-realvo-light text-realvo-blue 
+                                 flex items-center justify-center 
+                                 transition-colors duration-300 
+                                 group-hover:bg-realvo-blue group-hover:text-white"
+                    >
+                      <Icon className="w-5 h-5" strokeWidth={1.6} />
+                    </div>
+                    <span className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate">
+                      {step.phase}
+                    </span>
+                  </div>
 
-                {/* Bullets */}
-                <ul className="space-y-1.5 text-sm text-gray-600">
-                  {step.bullets.map((b) => (
-                    <li key={b} className="flex gap-2">
-                      <span className="mt-[6px] w-1 h-1 rounded-full bg-realvo-teal shrink-0" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold text-realvo-charcoal mb-3">
+                    {step.title}
+                  </h3>
+
+                  {/* Bullets */}
+                  <ul className="space-y-1.5 text-sm text-gray-600">
+                    {step.bullets.map((b) => (
+                      <li key={b} className="flex gap-2">
+                        <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-realvo-teal shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </Section>
   );
