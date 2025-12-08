@@ -7,7 +7,6 @@ type Step = {
   title: string;
   bullets: string[];
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  number: string;
 };
 
 const steps: Step[] = [
@@ -20,7 +19,6 @@ const steps: Step[] = [
       'Match capture options to your use cases.',
     ],
     icon: Target,
-    number: '1',
   },
   {
     phase: 'Design',
@@ -31,7 +29,6 @@ const steps: Step[] = [
       'Plan review, approval, and publishing paths.',
     ],
     icon: LayoutTemplate,
-    number: '2',
   },
   {
     phase: 'Deploy',
@@ -42,7 +39,6 @@ const steps: Step[] = [
       'Train RealVo staff or your team as needed.',
     ],
     icon: Rocket,
-    number: '3',
   },
   {
     phase: 'Support',
@@ -53,7 +49,6 @@ const steps: Step[] = [
       'Review results and recommend next-step improvements.',
     ],
     icon: LifeBuoy,
-    number: '4',
   },
 ];
 
@@ -65,7 +60,7 @@ const ImplementationProcess: React.FC = () => {
       padding="lg"
       className="border-t border-gray-100"
     >
-      {/* Teal band now wraps headline + cards and fills the whole area */}
+      {/* Teal band wraps headline + cards */}
       <div className="rounded-3xl bg-realvo-teal/10 px-5 py-8 md:px-10 md:py-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-4">
@@ -87,11 +82,6 @@ const ImplementationProcess: React.FC = () => {
                            hover:shadow-2xl hover:-translate-y-1 transition-all duration-300
                            overflow-hidden"
               >
-                {/* Large ghosted step number – moved in and darkened */}
-                <div className="absolute top-5 right-6 text-4xl font-extrabold text-gray-300 select-none pointer-events-none">
-                  {step.number}
-                </div>
-
                 <div className="p-6 flex flex-col h-full">
                   {/* Icon + phase */}
                   <div className="flex items-center gap-3 mb-4">
@@ -113,7 +103,7 @@ const ImplementationProcess: React.FC = () => {
                     {step.title}
                   </h3>
 
-                  {/* Bullets – same size as CaptureOptions teal bullets */}
+                  {/* Bullets – matched to CaptureOptions teal bullets */}
                   <ul className="space-y-1.5 text-sm text-gray-600">
                     {step.bullets.map((b) => (
                       <li key={b} className="flex gap-2">
