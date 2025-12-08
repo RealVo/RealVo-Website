@@ -20,7 +20,8 @@ import Footer from './components/Footer';
 import Button from './components/Button';
 import Section from './components/Section';
 import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
-import ImplementationProcess from './components/ImplementationProcess'; // 👈 NEW
+import ImplementationProcess from './components/ImplementationProcess';
+import FreeStandingKiosk from './pages/FreeStandingKiosk';
 
 // ------------------------
 // Home / Landing page
@@ -385,6 +386,10 @@ const App: React.FC = () => {
         <Route
           path="/capture/private-enclosed-booth"
           element={<PrivateEnclosedBooth />}
+        />
+        <Route
+          path="/capture/free-standing-kiosk"
+          element={<FreeStandingKiosk />}
         />
       </Routes>
     </Router>
