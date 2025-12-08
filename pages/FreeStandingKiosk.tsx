@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 const VISIBLE_DESKTOP_IMAGES = 4;
 
-// TODO: Update these image paths once you have kiosk-specific collages
+// TODO: Replace these with actual kiosk collage images when ready
 const BOOTH_ACTION_IMAGES = [
   {
     src: '/capture/free-standing-kiosk/kiosk-collage-1.jpg',
@@ -64,7 +64,7 @@ const FreeStandingKiosk: React.FC = () => {
   const currentLightboxImage =
     lightboxIndex !== null ? BOOTH_ACTION_IMAGES[lightboxIndex] : null;
 
-  // Desktop carousel state (for Booth in action thumbnails)
+  // Desktop carousel state (for Kiosk in action thumbnails)
   const [desktopStartIndex, setDesktopStartIndex] = useState(0);
   const totalImages = BOOTH_ACTION_IMAGES.length;
   const showDesktopArrows = totalImages > VISIBLE_DESKTOP_IMAGES;
@@ -104,13 +104,13 @@ const FreeStandingKiosk: React.FC = () => {
             {/* Hero / Overview */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
               {/* Image / hero visual */}
-               <div className="relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden shadow-sm border border-slate-200/70 dark:border-slate-800/80 flex items-center justify-center p-6 min-h-[380px]">
+              <div className="relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden shadow-sm border border-slate-200/70 dark:border-slate-800/80 flex items-center justify-center p-6 min-h-[380px]">
                 <img
-                 src="/kiosk_booth.png"
-                 alt="RealVo Free-standing Kiosk"
-                 className="w-auto h-auto max-h-[320px] object-contain object-center"
-               />
-             </div>
+                  src="/kiosk_booth.png"
+                  alt="RealVo Free-standing Kiosk"
+                  className="w-auto h-auto max-h-[320px] object-contain object-center"
+                />
+              </div>
 
               {/* Text content */}
               <div className="space-y-5 sm:space-y-6">
@@ -121,8 +121,8 @@ const FreeStandingKiosk: React.FC = () => {
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                     Free-standing Kiosk
                     <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-1">
-                      A sleek, open-air kiosk that fits into busy environments without
-                      needing a full booth footprint.
+                      A sleek, open-air kiosk that fits into busy environments
+                      without needing a full booth footprint.
                     </span>
                   </h1>
                 </div>
@@ -165,7 +165,7 @@ const FreeStandingKiosk: React.FC = () => {
               </div>
             </div>
 
-            {/* Booth in action – carousel on desktop, swipe on mobile */}
+            {/* Kiosk in action – carousel on desktop, swipe on mobile */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
               <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                 Kiosk in action
@@ -372,8 +372,7 @@ const FreeStandingKiosk: React.FC = () => {
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
                   <li>Audio, text, and photo capture support.</li>
                   <li>
-                    Immersive branded interface (video intros + voice-over
-                    prompts).
+                    Immersive branded interface (video intros + voice-over prompts).
                   </li>
                   <li>Full exterior kiosk wrap plus on-screen brand elements.</li>
                   <li>White-label activation ready for agency or partner use.</li>
@@ -387,6 +386,17 @@ const FreeStandingKiosk: React.FC = () => {
                   </li>
                 </ul>
               </div>
+            </div>
+
+            {/* Next capture option – link to Desktop Tablet Kiosk */}
+            <div className="mt-10 sm:mt-14 flex justify-end">
+              <a
+                href="/capture/desktop-tablet-kiosk"
+                className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
+              >
+                Next capture option: Desktop Tablet Kiosk
+                <span className="ml-1 text-base">→</span>
+              </a>
             </div>
 
             {/* Final CTA band */}
