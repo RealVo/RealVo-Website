@@ -134,7 +134,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                     'Commanding on-site presence',
                     'Brand-forward exterior wrap',
                     'Self-contained capture studio',
-                    'Fully automated recording UX',
+                    'Self-guided recording UX',
                     'Efficient high-traffic throughput',
                   ].map(tag => (
                     <span
