@@ -88,7 +88,7 @@ const ImplementationProcess: React.FC = () => {
                            overflow-hidden"
               >
                 {/* Large ghosted step number – moved in and darkened */}
-                <div className="absolute top-3 right-4 text-5xl font-extrabold text-gray-200 select-none pointer-events-none">
+                <div className="absolute top-10 right-4 text-4xl font-extrabold text-gray-300 select-none pointer-events-none">
                   {step.number}
                 </div>
 
