@@ -20,6 +20,7 @@ import Footer from './components/Footer';
 import Button from './components/Button';
 import Section from './components/Section';
 import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
+import ImplementationProcess from './components/ImplementationProcess'; // 👈 NEW
 
 // ------------------------
 // Home / Landing page
@@ -121,6 +122,11 @@ const HomePage: React.FC = () => {
         <WhatYouCanAchieve />
         <Industries />
         <CaptureOptions />
+
+        {/* NEW: Process & Platform overview */}
+        <ImplementationProcess />
+
+        {/* Participant workflow + platform */}
         <HowItWorks />
         <VBPlatform />
         <Pricing />
