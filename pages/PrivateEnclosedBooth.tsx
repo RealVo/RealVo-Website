@@ -377,7 +377,7 @@ const PrivateEnclosedBooth: React.FC = () => {
     <li>Immersive branded interface (video intros + voice-over prompts)</li>
     <li>Full exterior + interior creative branding</li>
     <li>White-label activation ready</li>
-    <li>External display options (live-feed, promo video, or dynamic content)</li>
+    <li>External display options (live-feed, promo reel, or user content)</li>
     <li>Instant upload to VideoBooth.tv &amp; media integrations</li>
   </ul>
 </div>
