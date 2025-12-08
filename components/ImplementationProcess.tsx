@@ -86,7 +86,12 @@ const ImplementationProcess: React.FC = () => {
                 className="group relative bg-white rounded-2xl border border-gray-200 shadow-sm
                            hover:shadow-2xl hover:-translate-y-1 transition-all duration-300
                            overflow-hidden"
-            
+              >
+                {/* Large ghosted step number – moved in and darkened */}
+                <div className="absolute top-5 right-6 text-4xl font-extrabold text-gray-300 select-none pointer-events-none">
+                  {step.number}
+                </div>
+
                 <div className="p-6 flex flex-col h-full">
                   {/* Icon + phase */}
                   <div className="flex items-center gap-3 mb-4">
