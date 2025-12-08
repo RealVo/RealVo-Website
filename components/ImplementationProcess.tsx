@@ -69,7 +69,7 @@ const ImplementationProcess: React.FC = () => {
       <div className="rounded-3xl bg-realvo-teal/10 px-5 py-8 md:px-10 md:py-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-4">
-            How We Deliver a Successful RealVo Program
+            Your Guided Path to a Successful Program
           </h2>
           <p className="text-lg text-gray-700">
             We partner with you from first idea to ongoing support, so your
@@ -88,7 +88,7 @@ const ImplementationProcess: React.FC = () => {
                            overflow-hidden"
               >
                 {/* Large ghosted step number – moved in and darkened */}
-                <div className="absolute top-5 right-6 text-5xl font-extrabold text-gray-400 select-none pointer-events-none">
+                <div className="absolute top-5 right-6 text-4xl font-extrabold text-realvo-blue select-none pointer-events-none">
                   {step.number}
                 </div>
 
