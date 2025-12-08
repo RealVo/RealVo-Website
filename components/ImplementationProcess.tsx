@@ -1,43 +1,65 @@
+// src/components/ImplementationProcess.tsx
 import React from 'react';
 import Section from './Section';
-import type { LucideIcon } from 'lucide-react';
-import { Target, PenTool, Rocket, LifeBuoy } from 'lucide-react';
+import {
+  Target,
+  LayoutTemplate,
+  Rocket,
+  LifeBuoy,
+} from 'lucide-react';
 
 type Step = {
   phase: string;
   title: string;
-  description: string;
-  icon: LucideIcon;
+  bullets: string[];
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  number: string;
 };
 
 const steps: Step[] = [
   {
     phase: 'Assess',
     title: 'Align on objectives',
-    description:
-      'Clarify business goals, audiences, locations, and timelines so we know exactly what RealVo needs to deliver.',
+    bullets: [
+      'Clarify business goals and success measures.',
+      'Map audiences, locations, and timelines.',
+      'Match capture options to your use cases.',
+    ],
     icon: Target,
+    number: '1',
   },
   {
     phase: 'Design',
     title: 'Shape the experience',
-    description:
-      'Select capture options, booth configuration, prompts, and branding to match your program and culture.',
-    icon: PenTool,
+    bullets: [
+      'Select capture options and booth configurations.',
+      'Design branded interface, prompts, and visuals.',
+      'Plan review, approval, and publishing paths.',
+    ],
+    icon: LayoutTemplate,
+    number: '2',
   },
   {
     phase: 'Deploy',
     title: 'Launch on site',
-    description:
-      'Coordinate delivery, setup, testing, and training so recording day runs smoothly from first voice to last.',
+    bullets: [
+      'Coordinate delivery, setup, and on-site testing.',
+      'Verify connectivity, lighting, and audio quality.',
+      'Train RealVo staff or your team as needed.',
+    ],
     icon: Rocket,
+    number: '3',
   },
   {
     phase: 'Support',
     title: 'Sustain and improve',
-    description:
-      'Provide live support, manage content in VideoBooth.tv, and review results to recommend next-step improvements.',
+    bullets: [
+      'Provide live technical support during activations.',
+      'Manage content in VideoBooth.tv after events.',
+      'Review results and recommend next-step improvements.',
+    ],
     icon: LifeBuoy,
+    number: '4',
   },
 ];
 
@@ -45,49 +67,61 @@ const ImplementationProcess: React.FC = () => {
   return (
     <Section
       id="process-platform"
-      background="light"
+      background="white"
+      padding="lg"
       className="border-t border-gray-100"
     >
-      {/* Heading */}
-      <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-3">
+      <div className="text-center max-w-3xl mx-auto mb-14">
+        <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-4">
           How We Deliver a Successful RealVo Program
         </h2>
         <p className="text-lg text-gray-600">
-          We partner with you from first idea to ongoing support, so your capture
-          experience launches smoothly and keeps delivering value.
+          We partner with you from first idea to ongoing support, so your
+          capture experience launches smoothly and keeps delivering value.
         </p>
       </div>
 
-      {/* Process row – infographic style */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
-        {steps.map((step, index) => {
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {steps.map((step) => {
           const Icon = step.icon;
           return (
             <div
               key={step.phase}
-              className="flex flex-col items-center text-center"
+              className="relative bg-white rounded-2xl border border-gray-200 shadow-sm 
+                         hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 
+                         overflow-hidden"
             >
-              {/* Icon circle + step number */}
-              <div className="relative mb-5">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-realvo-blue to-realvo-teal flex items-center justify-center text-white shadow-xl">
-                  <Icon className="w-9 h-9" strokeWidth={1.7} />
-                </div>
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-white border border-realvo-blue/30 flex items-center justify-center text-xs font-semibold text-realvo-blue shadow-sm">
-                  {index + 1}
-                </div>
+              {/* Large ghosted step number in top-right */}
+              <div className="absolute -top-1 right-3 text-5xl font-extrabold text-gray-100 select-none pointer-events-none">
+                {step.number}
               </div>
 
-              {/* Labels + text */}
-              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-realvo-slate mb-1">
-                {step.phase}
-              </p>
-              <h3 className="text-base md:text-lg font-semibold text-realvo-charcoal mb-2">
-                {step.title}
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed max-w-xs">
-                {step.description}
-              </p>
+              <div className="p-6 flex flex-col h-full">
+                {/* Icon + phase */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
+                    <Icon className="w-5 h-5" strokeWidth={1.6} />
+                  </div>
+                  <span className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate">
+                    {step.phase}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-semibold text-realvo-charcoal mb-3">
+                  {step.title}
+                </h3>
+
+                {/* Bullets */}
+                <ul className="space-y-1.5 text-sm text-gray-600">
+                  {step.bullets.map((b) => (
+                    <li key={b} className="flex gap-2">
+                      <span className="mt-[6px] w-1 h-1 rounded-full bg-realvo-teal shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           );
         })}
@@ -97,3 +131,4 @@ const ImplementationProcess: React.FC = () => {
 };
 
 export default ImplementationProcess;
+
