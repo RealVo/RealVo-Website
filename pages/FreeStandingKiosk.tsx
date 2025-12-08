@@ -70,8 +70,8 @@ const FreeStandingKiosk: React.FC = () => {
                 <div className="absolute inset-0 rounded-3xl bg-realvo-teal/10 transform rotate-2" />
                 <div className="relative rounded-3xl bg-white shadow-2xl overflow-hidden border border-gray-200">
                   <img
-                    src="/capture/private-enclosed-booth/kiosk_booth.png"
-                    // TODO: update path if you move kiosk images into a dedicated folder
+                    src="/capture/free-standing-kiosk/kiosk_booth_hero.jpg"
+                    // Update this path/filename to match your actual kiosk asset
                     alt="RealVo free-standing video kiosk"
                     className="w-full h-full object-contain bg-gray-50"
                   />
@@ -161,76 +161,93 @@ const FreeStandingKiosk: React.FC = () => {
         </Section>
 
         {/* TECH SPECS */}
-        <Section background="light" padding="lg" className="border-t border-gray-100">
+        <Section
+          background="light"
+          padding="lg"
+          className="border-t border-gray-100"
+        >
           <div className="max-w-6xl mx-auto">
             <h2 className="text-xl md:text-2xl font-bold text-realvo-charcoal mb-6">
-              Technical overview
+              Technical Specifications
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-700">
-              <div className="space-y-4">
+              {/* LEFT COLUMN */}
+              <div className="space-y-6">
+                {/* Camera & Audio */}
                 <div>
-                  <h3 className="font-semibold text-realvo-charcoal mb-1">
-                    Form factor & footprint
+                  <h3 className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate mb-2">
+                    Camera &amp; audio
                   </h3>
-                  <p>
-                    Slim, vertical kiosk with a small base footprint—designed to
-                    fit standard event aisles, corridors, and lobby spaces.
-                  </p>
+                  <ul className="space-y-1.5">
+                    <li>High-definition 1080p camera (30 fps recording).</li>
+                    <li>Directional microphone system for clear voice capture.</li>
+                    <li>External XLR mic input (with optional phantom power).</li>
+                  </ul>
                 </div>
 
+                {/* Display & Lighting */}
                 <div>
-                  <h3 className="font-semibold text-realvo-charcoal mb-1">
-                    Display & interface
+                  <h3 className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate mb-2">
+                    Display &amp; lighting
                   </h3>
-                  <p>
-                    Large, eye-level touch display (typ. 24–32&quot;) with
-                    branded UI, guided prompts, and simple call-to-action
-                    buttons for participants.
-                  </p>
+                  <ul className="space-y-1.5">
+                    <li>19&quot; portrait-orientation LCD touchscreen.</li>
+                    <li>Integrated LED light ring for studio-quality front fill.</li>
+                  </ul>
                 </div>
 
+                {/* Connectivity & Storage */}
                 <div>
-                  <h3 className="font-semibold text-realvo-charcoal mb-1">
-                    Camera & audio
+                  <h3 className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate mb-2">
+                    Connectivity &amp; storage
                   </h3>
-                  <p>
-                    High-definition camera and directional microphone system,
-                    optimized for clear speech in open environments.
-                  </p>
+                  <ul className="space-y-1.5">
+                    <li>Gigabit ethernet (RJ45) and Wireless-N connectivity.</li>
+                    <li>970 GB removable SSD / HDD (USB3 / SATA).</li>
+                  </ul>
                 </div>
               </div>
 
-              <div className="space-y-4">
+              {/* RIGHT COLUMN */}
+              <div className="space-y-6">
+                {/* Power & Operating System */}
                 <div>
-                  <h3 className="font-semibold text-realvo-charcoal mb-1">
-                    Lighting
+                  <h3 className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate mb-2">
+                    Power &amp; operating system
                   </h3>
-                  <p>
-                    Integrated, soft front-facing lighting to keep faces
-                    evenly lit in mixed or low-light conditions.
-                  </p>
+                  <ul className="space-y-1.5">
+                    <li>PowerCon mains connection.</li>
+                    <li>Approx. 109 W consumption @ 220 V.</li>
+                    <li>Windows 10 Pro (64-bit).</li>
+                  </ul>
                 </div>
 
+                {/* Software & Workflow */}
                 <div>
-                  <h3 className="font-semibold text-realvo-charcoal mb-1">
-                    Power & connectivity
+                  <h3 className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate mb-2">
+                    Software &amp; workflow
                   </h3>
-                  <p>
-                    Standard power requirements with options for hard-wired,
-                    venue Wi-Fi, or dedicated networking—configured to your
-                    deployment.
-                  </p>
+                  <ul className="space-y-1.5">
+                    <li>VideoBooth 3 software with branded UI and prompts.</li>
+                    <li>Output via USB export, FTP upload, or network transfer.</li>
+                  </ul>
                 </div>
 
+                {/* Support & Options */}
                 <div>
-                  <h3 className="font-semibold text-realvo-charcoal mb-1">
-                    Deployment
+                  <h3 className="text-xs font-semibold tracking-[0.16em] uppercase text-realvo-slate mb-2">
+                    Support &amp; options
                   </h3>
-                  <p>
-                    Delivered and installed by RealVo or approved partners, with
-                    remote monitoring and support available during activations.
-                  </p>
+                  <ul className="space-y-1.5">
+                    <li>24-month hardware warranty.</li>
+                    <li>Lifetime technical support (phone / web / email).</li>
+                    <li>
+                      Optional extras: wide-angle lens, lighting controller,
+                      contact closure I/O, chroma-key backdrop, and
+                      international transit cases.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -244,3 +261,4 @@ const FreeStandingKiosk: React.FC = () => {
 };
 
 export default FreeStandingKiosk;
+
