@@ -18,12 +18,12 @@ const BOOTH_ACTION_IMAGES = [
     alt: 'RealVo activation - Dollar General event',
   },
   {
-    src: '/capture/private-enclosed-booth/morel-global-collage.jpg',
-    alt: 'RealVo activation - Morel Global event',
-  },
-  {
     src: '/capture/private-enclosed-booth/lucid-collage.jpg',
     alt: 'RealVo activation - Lucid event',
+  },
+  {
+    src: '/capture/private-enclosed-booth/morel-global-collage.jpg',
+    alt: 'RealVo activation - Morel Global event',
   },
 ];
 
