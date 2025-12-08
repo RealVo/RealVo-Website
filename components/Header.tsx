@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Why RealVo', targetId: 'why-realvo' },
   { label: 'Industries & Use Cases', targetId: 'industries' },
   { label: 'Solutions', targetId: 'solutions' },
-  { label: 'Process & Platform', targetId: 'how-it-works' },
+  { label: 'Process & Platform', targetId: 'process-platform' },
   { label: 'Pricing', targetId: 'pricing' },
 ];
 
