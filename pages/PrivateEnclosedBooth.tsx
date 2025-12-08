@@ -287,8 +287,8 @@ const PrivateEnclosedBooth: React.FC = () => {
                     means low client lift on-site.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Integration with VideoBooth.tv</strong> - RealVo&apos;s online
-                    content management platform for instant uploads,
+                    • <strong>Integration with VideoBooth.tv</strong> – RealVo&apos;s
+                    online content management platform for instant uploads,
                     approvals, and publishing.
                   </li>
                 </ul>
@@ -354,33 +354,45 @@ const PrivateEnclosedBooth: React.FC = () => {
             </div>
 
             {/* Use cases & customization */}
-<div className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2">
-  <div>
-    <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
-      Ideal use cases
-    </h2>
-    <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-      <li>Employee &amp; leadership storytelling</li>
-      <li>Customer or patient testimonials</li>
-      <li>Student, alumni &amp; donor reflections</li>
-      <li>Wellness &amp; community voice programs</li>
-      <li>Conference insights &amp; speaker reactions</li>
-      <li>Innovation feedback &amp; idea capture</li>
-    </ul>
-  </div>
+            <div className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2">
               <div>
-  <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
-    Customization options
-  </h2>
-  <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-    <li>Audio, text, and photo capture support</li>
-    <li>Immersive branded interface (video intros + voice-over prompts)</li>
-    <li>Full exterior + interior creative branding</li>
-    <li>White-label activation ready</li>
-    <li>External display options (live-feed, promo reel, or user content)</li>
-    <li>Instant upload to VideoBooth.tv &amp; media integrations</li>
-  </ul>
-</div>
+                <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                  Ideal use cases
+                </h2>
+                <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
+                  <li>Employee &amp; leadership storytelling</li>
+                  <li>Customer or patient testimonials</li>
+                  <li>Student, alumni &amp; donor reflections</li>
+                  <li>Wellness &amp; community voice programs</li>
+                  <li>Conference insights &amp; speaker reactions</li>
+                  <li>Innovation feedback &amp; idea capture</li>
+                </ul>
+              </div>
+
+              <div>
+                <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+                  Customization options
+                </h2>
+                <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
+                  <li>Audio, text, and photo capture support</li>
+                  <li>Immersive branded interface (video intros + voice-over prompts)</li>
+                  <li>Full exterior + interior creative branding</li>
+                  <li>White-label activation ready</li>
+                  <li>External display options (live-feed, promo reel, or user content)</li>
+                  <li>Instant upload to VideoBooth.tv &amp; media integrations</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Next capture option – link to Free-standing Kiosk */}
+            <div className="mt-10 sm:mt-14 flex justify-end">
+              <a
+                href="/capture/free-standing-kiosk"
+                className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
+              >
+                Next capture option: Free-standing Kiosk
+                <span className="ml-1 text-base">→</span>
+              </a>
             </div>
 
             {/* Final CTA band */}
@@ -463,4 +475,3 @@ const PrivateEnclosedBooth: React.FC = () => {
 };
 
 export default PrivateEnclosedBooth;
-
