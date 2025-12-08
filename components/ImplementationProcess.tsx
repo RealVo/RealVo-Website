@@ -1,12 +1,6 @@
-// src/components/ImplementationProcess.tsx
 import React from 'react';
 import Section from './Section';
-import {
-  Target,
-  LayoutTemplate,
-  Rocket,
-  LifeBuoy,
-} from 'lucide-react';
+import { Target, LayoutTemplate, Rocket, LifeBuoy } from 'lucide-react';
 
 type Step = {
   phase: string;
@@ -71,30 +65,30 @@ const ImplementationProcess: React.FC = () => {
       padding="lg"
       className="border-t border-gray-100"
     >
-      <div className="text-center max-w-3xl mx-auto mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-4">
-          How We Deliver a Successful RealVo Program
-        </h2>
-        <p className="text-lg text-gray-600">
-          We partner with you from first idea to ongoing support, so your
-          capture experience launches smoothly and keeps delivering value.
-        </p>
-      </div>
+      {/* Teal band now wraps headline + cards and fills the whole area */}
+      <div className="rounded-3xl bg-realvo-teal/10 px-5 py-8 md:px-10 md:py-10">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-4">
+            How We Deliver a Successful RealVo Program
+          </h2>
+          <p className="text-lg text-gray-700">
+            We partner with you from first idea to ongoing support, so your
+            capture experience launches smoothly and keeps delivering value.
+          </p>
+        </div>
 
-      {/* Light teal band behind the cards */}
-      <div className="bg-realvo-teal/5 rounded-3xl px-5 py-6 md:px-8 md:py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.phase}
-                className="group relative bg-white rounded-2xl border border-gray-200 shadow-sm 
-                           hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 
+                className="group relative bg-white rounded-2xl border border-gray-200 shadow-sm
+                           hover:shadow-2xl hover:-translate-y-1 transition-all duration-300
                            overflow-hidden"
               >
-                {/* Large ghosted step number in top-right */}
-                <div className="absolute -top-1 right-3 text-5xl font-extrabold text-gray-100 select-none pointer-events-none">
+                {/* Large ghosted step number – moved in and darkened */}
+                <div className="absolute top-3 right-4 text-5xl font-extrabold text-gray-200 select-none pointer-events-none">
                   {step.number}
                 </div>
 
@@ -102,9 +96,9 @@ const ImplementationProcess: React.FC = () => {
                   {/* Icon + phase */}
                   <div className="flex items-center gap-3 mb-4">
                     <div
-                      className="w-10 h-10 rounded-xl bg-realvo-light text-realvo-blue 
-                                 flex items-center justify-center 
-                                 transition-colors duration-300 
+                      className="w-10 h-10 rounded-xl bg-realvo-light text-realvo-blue
+                                 flex items-center justify-center
+                                 transition-colors duration-300
                                  group-hover:bg-realvo-blue group-hover:text-white"
                     >
                       <Icon className="w-5 h-5" strokeWidth={1.6} />
@@ -119,7 +113,7 @@ const ImplementationProcess: React.FC = () => {
                     {step.title}
                   </h3>
 
-                  {/* Bullets */}
+                  {/* Bullets – same size as CaptureOptions teal bullets */}
                   <ul className="space-y-1.5 text-sm text-gray-600">
                     {step.bullets.map((b) => (
                       <li key={b} className="flex gap-2">
