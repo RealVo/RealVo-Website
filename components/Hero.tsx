@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
         {/* LEFT COLUMN */}
         <div className="lg:col-span-7 space-y-6 sm:space-y-8">
           {/* Eyebrow pill */}
-          <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1 rounded-full text-sm font-medium text-realvo-blue dark:text-realvo-teal mb-2 sm:mb-4">
+          <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal mb-3 sm:mb-5">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Supporting copy */}
-          <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+          <p className="text-lg sm:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
             Capture the voices and experiences that move your programs forward — from insights and feedback to stories and testimonials — through video, voice, and text, in person or online.
           </p>
 
