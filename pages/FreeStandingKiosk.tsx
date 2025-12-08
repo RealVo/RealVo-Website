@@ -104,7 +104,7 @@ const FreeStandingKiosk: React.FC = () => {
             {/* Hero / Overview */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
               {/* Image / hero visual */}
-              <div className="relative rounded-3xl bg-slate-100 dark:bg-slate-900 overflow-hidden shadow-sm border border-slate-200/70 dark:border-slate-800/80">
+              <div className="relative rounded-3xl bg-slate-100 dark:bg-slate-900 overflow-hidden shadow-sm border border-slate-200/70 dark:border-slate-800/80 max-h-[420px] flex items-center justify-center">
                 <img
                   src="/kiosk_booth.png"
                   alt="RealVo Free-standing Kiosk"
