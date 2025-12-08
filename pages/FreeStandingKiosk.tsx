@@ -108,7 +108,7 @@ const FreeStandingKiosk: React.FC = () => {
                 <img
                   src="/kiosk_booth.png"
                   alt="RealVo Free-standing Kiosk"
-                  className="w-auto h-auto max-h-[400px] object-contain object-center"
+                  className="w-auto h-auto max-h-[410px] object-contain object-center"
                 />
               </div>
 
