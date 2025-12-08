@@ -130,10 +130,10 @@ const PrivateEnclosedBooth: React.FC = () => {
                 {/* Tags / Feature Pills */}
                 <div className="flex flex-wrap gap-2">
                   {[
+                    'Self-contained capture studio',
                     'Maximum privacy + comfort',
                     'Commanding on-site presence',
                     'Brand-forward exterior wrap',
-                    'Self-contained capture studio',
                     'Self-guided recording UX',
                     'Efficient high-traffic throughput',
                   ].map(tag => (
