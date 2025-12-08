@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import { Target, LayoutTemplate, Rocket, LifeBuoy } from 'lucide-react';
 
@@ -53,6 +53,30 @@ const steps: Step[] = [
 ];
 
 const ImplementationProcess: React.FC = () => {
+  const headlineSpanRef = useRef<HTMLSpanElement | null>(null);
+
+  // Re-trigger the pulse on "Successful Program" when section comes into view
+  useEffect(() => {
+    const node = headlineSpanRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && node) {
+            node.classList.remove('animate-pulse-once');
+            void node.offsetWidth; // force reflow
+            node.classList.add('animate-pulse-once');
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section
       id="process-platform"
@@ -60,11 +84,16 @@ const ImplementationProcess: React.FC = () => {
       padding="lg"
       className="border-t border-gray-100"
     >
-      {/* Teal band wraps headline + cards */}
       <div className="rounded-3xl bg-realvo-teal/10 px-5 py-8 md:px-10 md:py-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-4">
-            Your Guided Path to a Successful Program
+            Your Guided Path to a{' '}
+            <span
+              ref={headlineSpanRef}
+              className="text-realvo-blue animate-pulse-once"
+            >
+              Successful Program
+            </span>
           </h2>
           <p className="text-lg text-gray-700">
             We partner with you from first idea to ongoing support, so your
@@ -79,8 +108,7 @@ const ImplementationProcess: React.FC = () => {
               <div
                 key={step.phase}
                 className="group relative bg-white rounded-2xl border border-gray-200 shadow-sm
-                           hover:shadow-2xl hover:-translate-y-1 transition-all duration-300
-                           overflow-hidden"
+                           hover:shadow-xl transition-shadow duration-300 overflow-hidden"
               >
                 <div className="p-6 flex flex-col h-full">
                   {/* Icon + phase */}
@@ -123,4 +151,5 @@ const ImplementationProcess: React.FC = () => {
 };
 
 export default ImplementationProcess;
+
 
