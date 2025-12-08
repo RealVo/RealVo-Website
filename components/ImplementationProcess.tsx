@@ -1,48 +1,43 @@
 import React from 'react';
 import Section from './Section';
+import type { LucideIcon } from 'lucide-react';
+import { Target, PenTool, Rocket, LifeBuoy } from 'lucide-react';
 
 type Step = {
   phase: string;
   title: string;
-  points: string[];
+  description: string;
+  icon: LucideIcon;
 };
 
 const steps: Step[] = [
   {
     phase: 'Assess',
     title: 'Align on objectives',
-    points: [
-      'Clarify business goals and success measures.',
-      'Map audiences, locations, and timelines.',
-      'Match capture options to your use cases.',
-    ],
+    description:
+      'Clarify business goals, audiences, locations, and timelines so we know exactly what RealVo needs to deliver.',
+    icon: Target,
   },
   {
     phase: 'Design',
     title: 'Shape the experience',
-    points: [
-      'Select capture options and booth configurations.',
-      'Design branded interface, prompts, and visuals.',
-      'Plan review, approval, and publishing paths.',
-    ],
+    description:
+      'Select capture options, booth configuration, prompts, and branding to match your program and culture.',
+    icon: PenTool,
   },
   {
     phase: 'Deploy',
     title: 'Launch on site',
-    points: [
-      'Coordinate delivery, setup, and on-site testing.',
-      'Verify connectivity, lighting, and audio quality.',
-      'Train RealVo staff or your team as needed.',
-    ],
+    description:
+      'Coordinate delivery, setup, testing, and training so recording day runs smoothly from first voice to last.',
+    icon: Rocket,
   },
   {
     phase: 'Support',
     title: 'Sustain and improve',
-    points: [
-      'Provide live technical support during activations.',
-      'Manage content in VideoBooth.tv after events.',
-      'Review results and recommend next-step improvements.',
-    ],
+    description:
+      'Provide live support, manage content in VideoBooth.tv, and review results to recommend next-step improvements.',
+    icon: LifeBuoy,
   },
 ];
 
@@ -64,41 +59,41 @@ const ImplementationProcess: React.FC = () => {
         </p>
       </div>
 
-      {/* Steps grid */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {steps.map((step, index) => (
-          <div
-            key={step.phase}
-            className="relative bg-white rounded-2xl border border-gray-200 shadow-sm px-5 py-6 flex flex-col text-left overflow-hidden group hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
-          >
-            {/* Large soft number in the background */}
-            <div className="absolute -top-3 -right-1 text-6xl font-black text-gray-100 select-none pointer-events-none">
-              {index + 1}
-            </div>
+      {/* Process row – infographic style */}
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
+        {steps.map((step, index) => {
+          const Icon = step.icon;
+          return (
+            <div
+              key={step.phase}
+              className="flex flex-col items-center text-center"
+            >
+              {/* Icon circle + step number */}
+              <div className="relative mb-5">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-realvo-blue to-realvo-teal flex items-center justify-center text-white shadow-xl">
+                  <Icon className="w-9 h-9" strokeWidth={1.7} />
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-white border border-realvo-blue/30 flex items-center justify-center text-xs font-semibold text-realvo-blue shadow-sm">
+                  {index + 1}
+                </div>
+              </div>
 
-            {/* Content */}
-            <div className="relative z-10">
-              <p className="text-xs font-semibold tracking-[0.18em] uppercase text-realvo-slate mb-1">
+              {/* Labels + text */}
+              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-realvo-slate mb-1">
                 {step.phase}
               </p>
-              <h3 className="text-lg font-semibold text-realvo-charcoal mb-2">
+              <h3 className="text-base md:text-lg font-semibold text-realvo-charcoal mb-2">
                 {step.title}
               </h3>
-              <ul className="space-y-1.5 text-sm text-gray-600">
-                {step.points.map(point => (
-                  <li key={point} className="flex items-start gap-2">
-                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-realvo-teal" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm text-gray-600 leading-relaxed max-w-xs">
+                {step.description}
+              </p>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </Section>
   );
 };
 
 export default ImplementationProcess;
-
