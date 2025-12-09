@@ -34,19 +34,21 @@ const HomePage: React.FC = () => {
   const [contactInView, setContactInView] = useState(false);
   const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
 
-  // 👇 Watch the URL hash and scroll to the matching section (any id)
+  // 👇 Watch the URL hash and scroll to the matching section when needed
   const location = useLocation();
+
   useEffect(() => {
     if (!location.hash) return;
 
     const id = location.hash.replace('#', '');
-    const el = document.getElementById(id);
-    if (!el) return;
+    const scrollToTarget = () => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
 
     // small timeout to ensure layout is ready
-    setTimeout(() => {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 0);
+    setTimeout(scrollToTarget, 0);
   }, [location]);
 
   // Format as 555-123-4567 while typing
@@ -398,3 +400,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
