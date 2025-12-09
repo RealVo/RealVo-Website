@@ -67,14 +67,13 @@ const Header: React.FC = () => {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium text-gray-600">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.targetId}
-                type="button"
-                onClick={() => scrollToSection(link.targetId)}
+                href={`/#${link.targetId}`}
                 className="relative transition-colors hover:text-realvo-blue"
               >
                 {link.label}
-              </button>
+              </a>
             ))}
           </nav>
 
@@ -106,14 +105,14 @@ const Header: React.FC = () => {
         <div className="md:hidden border-t border-gray-100 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.targetId}
-                type="button"
-                onClick={() => scrollToSection(link.targetId)}
+                href={`/#${link.targetId}`}
+                onClick={() => setMobileOpen(false)}
                 className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
               >
                 {link.label}
-              </button>
+              </a>
             ))}
 
             <Button
