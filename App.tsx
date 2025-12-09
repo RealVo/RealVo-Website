@@ -34,18 +34,19 @@ const HomePage: React.FC = () => {
   const [contactInView, setContactInView] = useState(false);
   const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
 
-  // 👇 Watch the URL hash and scroll to #contact when needed
+  // 👇 Watch the URL hash and scroll to the matching section (any id)
   const location = useLocation();
   useEffect(() => {
-    if (location.hash === '#contact') {
-      const el = document.getElementById('contact');
-      if (el) {
-        // small timeout to ensure layout is ready
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 0);
-      }
-    }
+    if (!location.hash) return;
+
+    const id = location.hash.replace('#', '');
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // small timeout to ensure layout is ready
+    setTimeout(() => {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
   }, [location]);
 
   // Format as 555-123-4567 while typing
