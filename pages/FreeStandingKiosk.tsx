@@ -102,15 +102,28 @@ const FreeStandingKiosk: React.FC = () => {
             </button>
 
             {/* Hero / Overview */}
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
-              {/* Image / hero visual */}
-              <div className="relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden shadow-sm border border-slate-200/70 dark:border-slate-800/80 flex items-center justify-center p-6 min-h-[430px]">
-                <img
-                  src="/kiosk_booth.png"
-                  alt="RealVo Free-standing Kiosk"
-                  className="w-auto h-auto max-h-[415px] object-contain object-center"
-                />
-              </div>
+<div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
+  {/* Image / hero visual */}
+  <div
+    className="
+      relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
+      shadow-sm border border-slate-200/70 dark:border-slate-800/80
+      flex items-center justify-center
+      px-4 sm:px-6
+      min-h-[320px] sm:min-h-[380px] lg:min-h-[430px]
+    "
+  >
+    <img
+      src="/kiosk_booth.png"
+      alt="RealVo Free-standing Kiosk"
+      className="
+        w-full sm:w-full lg:w-auto
+        h-auto
+        max-h-[320px] sm:max-h-[360px] lg:max-h-[415px]
+        object-contain object-center
+      "
+    />
+  </div>
 
               {/* Text content */}
               <div className="space-y-5 sm:space-y-6">
