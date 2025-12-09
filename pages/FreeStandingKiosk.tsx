@@ -267,12 +267,6 @@ const FreeStandingKiosk: React.FC = () => {
                   Features with purpose
                 </h2>
 
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4">
-                  The Free-standing Kiosk is built to slot into busy environments
-                  while still delivering clean, confident recordings that feel
-                  considered — not improvised.
-                </p>
-
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li className="pl-3 -indent-3">
                     • <strong>Open, standing-height design</strong> encourages
