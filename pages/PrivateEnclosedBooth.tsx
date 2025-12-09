@@ -254,12 +254,6 @@ const PrivateEnclosedBooth: React.FC = () => {
                   Features with purpose
                 </h2>
 
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4">
-                  The Private Enclosed Booth is built to quietly draw people in,
-                  make them feel comfortable, and keep your production values
-                  high.
-                </p>
-
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li className="pl-3 -indent-3">
                     • <strong>Sound-dampened interior</strong> helps participants
