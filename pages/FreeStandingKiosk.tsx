@@ -299,7 +299,7 @@ const FreeStandingKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Camera &amp; audio</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      High-definition 1080p camera (30 fps) with directional
+                      HD 1080p camera (30 fps) with directional
                       microphone system.
                     </p>
                   </div>
