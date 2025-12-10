@@ -1,7 +1,16 @@
 @keyframes pulse-once {
-  0% { color: #1A1E23; }     /* Start charcoal */
-  50% { color: #2AB8B0; }    /* Teal mid pulse */
-  100% { color: #2A4D69; }   /* End RealVo blue */
+  0% {
+    color: #2A4D69;        /* Start on RealVo blue (matches your span class) */
+  }
+  45% {
+    color: #2AB8B0;        /* Pulse into teal */
+  }
+  75% {
+    color: #2AB8B0;        /* Hold teal briefly for emphasis */
+  }
+  100% {
+    color: #2AB8B0;        /* End on teal as the final state */
+  }
 }
 
 .animate-pulse-once {
