@@ -99,16 +99,16 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-realvo-charcoal dark:text-white">
   Understand what
   <br />
-  people truly think
+  people truly
   <br />
   <span
     ref={impactRef}
     className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
   >
-    and feel.
+    think and feel.
   </span>
 </h1>
 
