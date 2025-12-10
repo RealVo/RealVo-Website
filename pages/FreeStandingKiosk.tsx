@@ -151,7 +151,7 @@ const FreeStandingKiosk: React.FC = () => {
                     'Compact, space-efficient design',
                     'Brand-forward screen + body wrap',
                     'Self-guided recording UX',
-                    'Multi-location rollout friendly',
+                    'Quick setup time',
                     'Efficient high-traffic throughput',
                   ].map(tag => (
                     <span
