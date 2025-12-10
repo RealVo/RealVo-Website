@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { PlayCircle } from 'lucide-react';
 import Button from './Button';
 import Section from './Section';
 
@@ -29,7 +28,7 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // New: re-trigger "Real Impact." text animation whenever hero comes into view
+  // Re-trigger text animation whenever hero comes into view
   useEffect(() => {
     const node = impactRef.current;
     if (!node) return;
@@ -100,41 +99,33 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-<h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
-  Authentic Voices.
-  <br />
-  <span
-    ref={impactRef}
-    className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
-  >
-    Real Impact.
-  </span>
-</h1>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
+            Understand your people
+            <br />
+            <span
+              ref={impactRef}
+              className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
+            >
+              in a way traditional tools can’t.
+            </span>
+          </h1>
 
-{/* Supporting copy */}
-<p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-snug">
-  Capture the voices and experiences that move your programs forward — from
-  insights and feedback to stories and testimonials — through video, voice,
-  and text, in person or online.
-</p>
+          {/* Supporting copy */}
+          <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-snug">
+            RealVo captures meaningful video reflections — real stories and lived
+            experiences that reveal what people truly think, feel, and value. Use
+            it to strengthen culture, elevate student or community voices, improve
+            programs, or create authentic content for campaigns and events.
+          </p>
 
-          {/* CTAs */}
+          {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
             <Button
               size="lg"
               variant="primary"
               onClick={() => scrollToSection('contact')}
             >
-              Contact Us
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="gap-2"
-              onClick={() => scrollToSection('how-it-works')}
-            >
-              <PlayCircle size={20} />
-              How RealVo Works
+              Request Pricing &amp; Availability
             </Button>
           </div>
         </div>
@@ -195,3 +186,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
