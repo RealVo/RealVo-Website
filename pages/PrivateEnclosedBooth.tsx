@@ -300,6 +300,12 @@ const PrivateEnclosedBooth: React.FC = () => {
                       HD 1080p camera (30 fps) with directional microphone system.
                     </p>
                   </div>
+                  <div>
+                    <p className="font-semibold">Display &amp; interface</p>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      19" portrait touch display with branded UI and self-guided prompts.
+                    </p>
+                  </div>
                    <div>
                     <p className="font-semibold">Lighting</p>
                     <p className="text-slate-600 dark:text-slate-300">
@@ -320,15 +326,21 @@ const PrivateEnclosedBooth: React.FC = () => {
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold">Set up time</p>
+                    <p className="font-semibold">Storage</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      ~1.5–2 hours from arrival to first recording
+                      970GB Local SSD-based capture with export, VB.tv upload, or network transfer options.
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Footprint</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       Approx. 8&apos;W x 8&apos;L x 8&apos;H (plus queue space)
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Set up time</p>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      ~1.5–2 hours from arrival to first recording
                     </p>
                   </div>
                   <div>
