@@ -7,24 +7,28 @@ const VISIBLE_DESKTOP_IMAGES = 4;
 // TODO: Replace these with actual kiosk collage images when ready
 const BOOTH_ACTION_IMAGES = [
   {
-    src: '/capture/free-standing-kiosk/kiosk-collage-1.jpg',
-    alt: 'RealVo free-standing kiosk activation – collage 1',
+    src: '/capture/free-standing-kiosk/holiday-inn-collage.jpg',
+    alt: 'RealVo activation - Holiday Inn event',
   },
   {
-    src: '/capture/free-standing-kiosk/kiosk-collage-2.jpg',
-    alt: 'RealVo free-standing kiosk activation – collage 2',
+    src: '/capture/free-standing-kiosk/gore-collage.jpg',
+    alt: 'RealVo free-standing kiosk activation – Gore event',
   },
   {
-    src: '/capture/free-standing-kiosk/kiosk-collage-3.jpg',
-    alt: 'RealVo free-standing kiosk activation – collage 3',
+    src: '/capture/free-standing-kiosk/microsoft-collage.jpg',
+    alt: 'RealVo free-standing kiosk activation – Microsoft event',
   },
   {
-    src: '/capture/free-standing-kiosk/kiosk-collage-4.jpg',
-    alt: 'RealVo free-standing kiosk activation – collage 4',
+    src: '/capture/free-standing-kiosk/scott-pilgram-collage.jpg',
+    alt: 'RealVo free-standing kiosk activation – Scott Pilgram event',
   },
   {
-    src: '/capture/free-standing-kiosk/kiosk-collage-5.jpg',
-    alt: 'RealVo free-standing kiosk activation – collage 5',
+    src: '/capture/free-standing-kiosk/dove-collage.jpg',
+    alt: 'RealVo free-standing kiosk activation – Dove event',
+  },
+  {
+    src: '/capture/free-standing-kiosk/frito-lay-collage.jpg',
+    alt: 'RealVo free-standing kiosk activation – Frito Lay event',
   },
 ];
 
