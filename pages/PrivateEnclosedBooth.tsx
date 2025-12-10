@@ -294,16 +294,16 @@ const PrivateEnclosedBooth: React.FC = () => {
                   Technical specifications
                 </h2>
                 <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 grid gap-y-3 sm:gap-y-4 sm:grid-cols-2 sm:gap-x-6">
-                  <div>
-                    <p className="font-semibold">Set up time</p>
+                   <div>
+                    <p className="font-semibold">Camera &amp; audio</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      ~1.5–2 hours from arrival to first recording
+                      HD 1080p camera (30 fps) with directional microphone system.
                     </p>
                   </div>
-                  <div>
-                    <p className="font-semibold">Footprint</p>
+                   <div>
+                    <p className="font-semibold">Lighting</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Approx. 8&apos;W x 8&apos;L x 8&apos;H (plus queue space)
+                      Studio soft lighting optimized for flattering skin tones
                     </p>
                   </div>
                   <div>
@@ -320,15 +320,15 @@ const PrivateEnclosedBooth: React.FC = () => {
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold">Camera &amp; audio</p>
+                    <p className="font-semibold">Set up time</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      HD 1080p camera (30 fps) with directional microphone system.
+                      ~1.5–2 hours from arrival to first recording
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold">Lighting</p>
+                    <p className="font-semibold">Footprint</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Studio soft lighting optimized for flattering skin tones
+                      Approx. 8&apos;W x 8&apos;L x 8&apos;H (plus queue space)
                     </p>
                   </div>
                   <div>
