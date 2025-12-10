@@ -309,7 +309,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   <div>
                     <p className="font-semibold">Power</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Two standard 15A outlets (dedicated where possible)
+                      Single standard 15A outlet (dedicated where possible)
                     </p>
                   </div>
                   <div>
@@ -322,7 +322,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   <div>
                     <p className="font-semibold">Camera &amp; audio</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      High-definition 1080p camera (30 fps) with directional microphone system.
+                      HD 1080p camera (30 fps) with directional microphone system.
                     </p>
                   </div>
                   <div>
