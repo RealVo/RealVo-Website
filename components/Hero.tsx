@@ -99,18 +99,18 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.2] text-realvo-charcoal dark:text-white">
-            <span
-              ref={impactRef}
-              className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
-            >
-              Understand what people truly
-              <br />
-              think and feel
-            </span>
-            <br />
-            — in ways traditional tools can’t.
-          </h1>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
+  Understand what
+  <br />
+  people truly think
+  <br />
+  <span
+    ref={impactRef}
+    className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
+  >
+    and feel.
+  </span>
+</h1>
 
           {/* Supporting copy */}
           <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-snug">
