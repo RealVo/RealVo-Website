@@ -299,7 +299,7 @@ const FreeStandingKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Camera</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      HD 1080p camera (30 fps)
+                      High-definition 1080p camera (30 fps)
                     </p>
                   </div>
                   <div>
@@ -336,8 +336,7 @@ const FreeStandingKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Footprint</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Compact free-standing base suitable for lobbies, corridors,
-                      and event spaces.
+                      Approx. 6&apos;W x 6&apos;L x 8&apos;H (plus queue space)
                     </p>
                   </div>
                   <div>
