@@ -164,7 +164,7 @@ const FreeStandingKiosk: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  The RealVo Free-Standing Kiosk is built for visibility and engagement in the places people naturally gather — conference floors, exhibitor halls, campus hotspots, hospital corridors, community centers, and more. It creates a welcoming, always-on capture point for quick, high-quality messages, stories, and reactions — right in the flow of everyday movement.
+                  Built for visibility in the places people naturally gather — office hubs, conference halls, campuses, hospitals, and community spaces — the Free-Standing Kiosk provides a welcoming, always-on capture point for quick, high-quality stories and reactions.
                 </p>
 
                 {/* Primary CTA */}
