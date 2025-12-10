@@ -399,16 +399,26 @@ const FreeStandingKiosk: React.FC = () => {
               </div>
             </div>
 
-            {/* Next capture option – link to Desktop Tablet Kiosk */}
-            <div className="mt-10 sm:mt-14 flex justify-end">
-              <a
-                href="/capture/desktop-tablet-kiosk"
-                className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
-              >
-                Next capture option: Desktop Tablet Kiosk
-                <span className="ml-1 text-base">→</span>
-              </a>
-            </div>
+            {/* Capture option navigation – previous + next */}
+<div className="mt-10 sm:mt-14 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+  {/* Back to Booth */}
+  <a
+    href="/capture/private-enclosed-booth"
+    className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
+  >
+    <span className="mr-1 text-base">←</span>
+    Previous capture option: Private Enclosed Booth
+  </a>
+
+  {/* Forward to Desktop */}
+  <a
+    href="/capture/desktop-tablet-kiosk"
+    className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
+  >
+    Next capture option: Desktop Tablet Kiosk
+    <span className="ml-1 text-base">→</span>
+  </a>
+</div>
 
             {/* Final CTA band */}
             <div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
