@@ -270,28 +270,22 @@ const FreeStandingKiosk: React.FC = () => {
 
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li className="pl-3 -indent-3">
-                    • <strong>Open, standing-height design</strong> encourages
-                    spontaneous participation in high-traffic spaces.
+                    • <strong>Sleek lines and inviting shapes</strong> ensure it will fit into any environment.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Consistent, studio-grade lighting</strong> delivers
-                    professional-looking results in varied venue conditions.
+                    • <strong>Open, standing-height design</strong> encourages spontaneous participation in high-traffic spaces.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Self-guided prompts</strong> support clear,
-                    structured content — from quick check-ins to short reflections.
+                    • <strong>Self-guided prompts</strong> support clear, structured content — from quick feedback to deeper reflections.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Compact footprint</strong> keeps aisles clear while
-                    still offering a strong branded presence.
+                    • <strong>Compact footprint</strong> while still offering a strong branded presence.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Rapid setup + go-live</strong> handled by RealVo
-                    or trained partners — low client lift on-site.
+                    • <strong>Rapid setup + go-live</strong> (managed by client or contracted RealVo tech).
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Integration with VideoBooth.tv</strong> for instant
-                    uploads, approvals, and publishing.
+                    • <strong>Integration with VideoBooth.tv</strong> – RealVo's online content management platform for instant uploads, approvals, and publishing.
                   </li>
                 </ul>
               </div>
