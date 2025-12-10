@@ -273,13 +273,13 @@ const FreeStandingKiosk: React.FC = () => {
                     • <strong>Sleek lines and inviting shapes</strong> ensure it will fit into any environment.
                   </li>
                   <li className="pl-3 -indent-3">
+                    • <strong>Compact footprint</strong> while still offering a strong branded presence.
+                  </li>
+                  <li className="pl-3 -indent-3">
                     • <strong>Open, standing-height design</strong> encourages spontaneous participation in high-traffic spaces.
                   </li>
                   <li className="pl-3 -indent-3">
                     • <strong>Self-guided prompts</strong> support clear, structured content — from quick feedback to deeper reflections.
-                  </li>
-                  <li className="pl-3 -indent-3">
-                    • <strong>Compact footprint</strong> while still offering a strong branded presence.
                   </li>
                   <li className="pl-3 -indent-3">
                     • <strong>Rapid setup + go-live</strong> (managed by client or contracted RealVo tech).
