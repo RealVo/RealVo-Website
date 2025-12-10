@@ -297,10 +297,15 @@ const FreeStandingKiosk: React.FC = () => {
                 </h2>
                 <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 grid gap-y-3 sm:gap-y-4 sm:grid-cols-2 sm:gap-x-6">
                   <div>
-                    <p className="font-semibold">Camera &amp; audio</p>
+                    <p className="font-semibold">Camera</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      HD 1080p camera (30 fps) with directional
-                      microphone system.
+                      HD 1080p camera (30 fps)
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Audio</p>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      Integrated directional microphone + external XLR connection.
                     </p>
                   </div>
                   <div>
@@ -311,20 +316,13 @@ const FreeStandingKiosk: React.FC = () => {
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold">Footprint</p>
-                    <p className="text-slate-600 dark:text-slate-300">
-                      Compact free-standing base suitable for lobbies, corridors,
-                      and event spaces.
-                    </p>
-                  </div>
-                  <div>
                     <p className="font-semibold">Power</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       Single standard 15A outlet (dedicated where possible).
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold">Connectivity</p>
+                    <p className="font-semibold">Internet</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       Ethernet and Wi-Fi options with offline fallback workflows.
                     </p>
@@ -332,8 +330,20 @@ const FreeStandingKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Storage</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Local SSD-based capture with export, upload, or network
-                      transfer options.
+                      970GB Local SSD / USB export, VB.tv upload, or network transfer.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Footprint</p>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      Compact free-standing base suitable for lobbies, corridors,
+                      and event spaces.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Set up time</p>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      ~.30–1 hour from arrival to first recording.
                     </p>
                   </div>
                   <div>
@@ -346,7 +356,7 @@ const FreeStandingKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">On-site support</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      RealVo technician(s) or trained partner staff as required.
+                      Client-managed or contracted RealVo tech.
                     </p>
                   </div>
                 </div>
