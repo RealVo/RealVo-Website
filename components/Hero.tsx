@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
         `}
       >
         {/* LEFT COLUMN */}
-        <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+        <div className="lg:col-span-8 space-y-6 sm:space-y-8">
           {/* Eyebrow pill */}
           <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal mb-3 sm:mb-5">
             <span className="relative flex h-2 w-2">
@@ -131,7 +131,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* RIGHT COLUMN */}
-        <div className="lg:col-span-5 relative">
+        <div className="lg:col-span-4 relative">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-gray-100 dark:bg-gray-800 group">
             <img
               src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop"
