@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement | null>(null);
   const impactRef = useRef<HTMLSpanElement | null>(null);
 
-  // Existing hero fade-in on first view
+  // Hero fade-in on first view
   useEffect(() => {
     const node = heroRef.current;
     if (!node) return;
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Re-trigger text animation whenever hero comes into view
+  // Re-trigger "truly think and feel." text animation whenever hero comes into view
   useEffect(() => {
     const node = impactRef.current;
     if (!node) return;
@@ -99,24 +99,22 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-realvo-charcoal dark:text-white">
-  Understand what
-  <br />
-  people truly
-  <br />
-  <span
-    ref={impactRef}
-    className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
-  >
-    think and feel.
-  </span>
-</h1>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
+            Understand what people
+            <br />
+            <span
+              ref={impactRef}
+              className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
+            >
+              truly think and feel.
+            </span>
+          </h1>
 
           {/* Supporting copy */}
           <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-snug">
             RealVo captures meaningful video reflections — real stories and lived
-            experiences that reveal what people truly think, feel, and value. Use
-            it to strengthen culture, elevate student or community voices, improve
+            experiences that reveal what people truly think, feel, and value. Use it
+            to strengthen culture, elevate student or community voices, improve
             programs, or create authentic content for campaigns and events.
           </p>
 
@@ -188,4 +186,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
