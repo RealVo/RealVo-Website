@@ -328,7 +328,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                   <div>
                     <p className="font-semibold">Storage</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      970GB Local SSD-based capture with export, VB.tv upload, or network transfer options.
+                      970GB Local SSD / USB export, VB.tv upload, or network transfer.
                     </p>
                   </div>
                   <div>
