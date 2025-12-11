@@ -96,23 +96,25 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
-  <span className="block">
+         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
+  {/* Line 1 mobile / part of line 1 desktop */}
+  <span className="block md:inline">
     Understand what
-  </span>
-
-  <span className="block">
+  </span>{' '}
+  {/* Line 2 mobile / rest of line 1 desktop */}
+  <span className="block md:inline">
     people
   </span>
-
+  {/* Force a line break only on desktop+ */}
+  <br className="hidden md:block" />
+  {/* Line 3 mobile / line 2 desktop (animated teal) */}
   <span
     ref={impactRef}
-    className="block text-realvo-charcoal dark:text-white animate-pulse-once"
+    className="block md:inline text-realvo-charcoal dark:text-white animate-pulse-once"
   >
     truly think and feel.
   </span>
 </h1>
-
 
           {/* Supporting Copy (desktop & mobile spacing) */}
           <p className="mt-6 text-xl md:text-[1.42rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-normal md:leading-snug">
