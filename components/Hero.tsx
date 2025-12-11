@@ -103,16 +103,16 @@ const Hero: React.FC = () => {
   </span>{' '}
   {/* Line 2 mobile / rest of line 1 desktop */}
   <span className="block md:inline">
-    people
+    people truly think
   </span>
-  {/* Force a line break only on desktop+ */}
+  {/* Desktop-only line break before the teal phrase */}
   <br className="hidden md:block" />
   {/* Line 3 mobile / line 2 desktop (animated teal) */}
   <span
     ref={impactRef}
     className="block md:inline text-realvo-charcoal dark:text-white animate-pulse-once"
   >
-    truly think and feel.
+    and feel.
   </span>
 </h1>
 
