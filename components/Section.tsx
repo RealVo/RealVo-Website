@@ -18,8 +18,8 @@ const Section: React.FC<SectionProps> = ({
   const bgStyles = {
     white: 'bg-white dark:bg-realvo-charcoal',
     light: 'bg-realvo-light dark:bg-[#232830]',
-    dark: 'bg-realvo-blue text-white'
-    teal: 'bg-realvo-teal/10 dark:bg-realvo-teal/20',
+    dark: 'bg-realvo-blue text-white',
+    teal: 'bg-realvo-teal/10 dark:bg-realvo-teal/20'
   };
 
   const paddingStyles = {
