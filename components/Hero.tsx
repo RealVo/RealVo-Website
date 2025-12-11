@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Re-trigger "truly think and feel." text animation whenever hero comes into view
+  // Re-trigger "truly think and feel." text animation (desktop) whenever hero comes into view
   useEffect(() => {
     const node = impactRef.current;
     if (!node) return;
@@ -44,13 +44,10 @@ const Hero: React.FC = () => {
           }
         });
       },
-      {
-        threshold: 0.6, // mostly in view to trigger
-      }
+      { threshold: 0.6 }
     );
 
     observer.observe(node);
-
     return () => observer.disconnect();
   }, []);
 
@@ -100,23 +97,35 @@ const Hero: React.FC = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
-            {/* Mobile: 3 lines */}
+            {/* Mobile: 3 lines
+                Understand what
+                people truly think
+                and feel.
+            */}
             <span className="block lg:hidden">Understand what</span>
-            <span className="block lg:hidden">people</span>
-            <span
-              className="block lg:hidden text-realvo-charcoal dark:text-white animate-pulse-once leading-tight"
-            >
-              truly think and feel.
+            <span className="block lg:hidden">
+              people{' '}
+              <span className="text-realvo-teal animate-pulse-once">
+                truly think
+              </span>
+            </span>
+            <span className="block lg:hidden leading-tight">
+              <span className="text-realvo-teal animate-pulse-once">
+                and feel.
+              </span>
             </span>
 
-            {/* Desktop: 2 lines */}
+            {/* Desktop: 2 lines
+                Understand what people
+                truly think and feel.
+            */}
             <span className="hidden lg:inline">
               Understand what people
             </span>
             <br className="hidden lg:block" />
             <span
               ref={impactRef}
-              className="hidden lg:inline text-realvo-charcoal dark:text-white animate-pulse-once"
+              className="hidden lg:inline text-realvo-teal animate-pulse-once"
             >
               truly think and feel.
             </span>
@@ -124,7 +133,10 @@ const Hero: React.FC = () => {
 
           {/* Supporting copy */}
           <p className="mt-6 text-2xl md:text-[1.7rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-            Through the power of video, RealVo uncovers real perspectives and lived experiences that matter most — delivering insight and authentic stories for communication, culture, and brand storytelling.
+            Through the power of video, RealVo uncovers real perspectives and
+            lived experiences that matter most — delivering insight and
+            authentic stories for communication, culture, and brand
+            storytelling.
           </p>
 
           {/* CTA */}
