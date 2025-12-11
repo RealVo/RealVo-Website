@@ -96,16 +96,23 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
-            <span className="block">Understand what</span>
-            <span className="block">people</span>
-            <span
-              ref={impactRef}
-              className="block text-realvo-charcoal dark:text-white animate-pulse-once"
-            >
-              truly think and feel.
-            </span>
-          </h1>
+         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
+  <span className="block">
+    Understand what
+  </span>
+
+  <span className="block">
+    people
+  </span>
+
+  <span
+    ref={impactRef}
+    className="block text-realvo-charcoal dark:text-white animate-pulse-once"
+  >
+    truly think and feel.
+  </span>
+</h1>
+
 
           {/* Supporting Copy (desktop & mobile spacing) */}
           <p className="mt-6 text-xl md:text-[1.42rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-normal md:leading-snug">
