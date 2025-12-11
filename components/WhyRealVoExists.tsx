@@ -15,7 +15,6 @@ const WhyRealVoExists: React.FC = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting && node) {
             node.classList.remove('animate-pulse-once');
-            // force reflow so browser treats it as a new animation
             void node.offsetWidth;
             node.classList.add('animate-pulse-once');
           }
@@ -80,12 +79,7 @@ const WhyRealVoExists: React.FC = () => {
 
         {/* TEXT – RIGHT COLUMN */}
         <div className="lg:col-span-6 order-2">
-          {/* Eyebrow */}
-          <p className="text-xs md:text-sm font-semibold tracking-[0.22em] uppercase text-realvo-blue mb-3">
-            Why RealVo Exists
-          </p>
-
-          {/* Heading */}
+          {/* Heading (eyebrow removed to avoid repetition) */}
           <h2 className="text-3xl md:text-4xl font-semibold text-realvo-charcoal dark:text-white leading-tight mb-4">
             Because numbers alone don’t tell the{' '}
             <span
