@@ -111,10 +111,10 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Supporting copy */}
-          <p className="mt-6 text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-  RealVo captures meaningful video reflections — real stories and lived 
-  experiences that reveal what people truly think, feel, and value. Use it 
-  to strengthen culture, elevate student or community voices, improve 
+          <p className="mt-6 text-2xl md:text-[1.7rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
+  RealVo captures meaningful video reflections — real stories and lived
+  experiences that reveal what people truly think, feel, and value. Use it
+  to strengthen culture, elevate student or community voices, improve
   programs, or create authentic content for campaigns and events.
 </p>
 
