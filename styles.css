@@ -1,20 +1,23 @@
 @keyframes pulse-once {
   0% {
-    color: #2A4D69;        /* Start on RealVo blue (matches your span class) */
+    color: #1A1E23;        /* Start on black/charcoal */
   }
-  45% {
-    color: #2AB8B0;        /* Pulse into teal */
+  35% {
+    color: #2A4D69;        /* Transition into RealVo Blue */
   }
-  75% {
-    color: #2AB8B0;        /* Hold teal briefly for emphasis */
+  60% {
+    color: #2AB8B0;        /* Pulse into Teal */
+  }
+  85% {
+    color: #2AB8B0;        /* Hold Teal for emphasis */
   }
   100% {
-    color: #2AB8B0;        /* End on teal as the final state */
+    color: #2AB8B0;        /* End on Teal */
   }
 }
 
 .animate-pulse-once {
-  animation: pulse-once 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s 1 forwards;
+  animation: pulse-once 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s 1 forwards;
 }
 
 /* Single pulse for light text on dark backgrounds (Industries section) */
