@@ -5,7 +5,7 @@ import Section from './Section';
 const WhyRealVoExists: React.FC = () => {
   const whyRef = useRef<HTMLSpanElement | null>(null);
 
-  // Re-trigger pulse animation when section comes into view
+  // Re-trigger pulse animation when "whole story." comes into view
   useEffect(() => {
     const node = whyRef.current;
     if (!node) return;
@@ -36,25 +36,40 @@ const WhyRealVoExists: React.FC = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* VISUAL – LEFT COLUMN */}
         <div className="lg:col-span-6 order-1">
-          <div className="relative rounded-3xl overflow-hidden bg-gray-900 shadow-[0_24px_70px_rgba(15,23,42,0.35)] border border-gray-900/10">
-            <div className="relative">
+          <div className="relative">
+            {/* Portrait image card */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700 bg-gray-900 aspect-[4/5]">
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
                 alt="Team reviewing video insights on laptops"
-                className="w-full h-full object-cover opacity-80"
+                className="w-full h-full object-cover opacity-85"
               />
-
               {/* Soft gradient overlay for depth */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-realvo-blue/25" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
             </div>
 
-            {/* Bottom overlay card */}
-            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
-              <div className="bg-white/90 backdrop-blur-md rounded-xl px-4 py-3 sm:px-5 sm:py-4 shadow-[0_18px_45px_rgba(15,23,42,0.4)] flex flex-col gap-1">
-                <p className="text-[11px] sm:text-xs tracking-[0.22em] font-semibold uppercase text-gray-500">
+            {/* Floating pill styled like the Hero "Insight Captured" pill */}
+            <div className="absolute -bottom-6 -left-2 sm:-left-4 bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 flex items-center gap-3 sm:gap-4 max-w-xs">
+              <div className="bg-green-100 dark:bg-green-900/30 p-1.5 sm:p-2 rounded-full text-green-600 dark:text-green-400">
+                <svg
+                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <p className="font-semibold text-xs sm:text-sm text-realvo-charcoal dark:text-white">
                   Why RealVo Exists
                 </p>
-                <p className="text-xs sm:text-sm text-gray-700 leading-snug">
+                <p className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-300">
                   Transforming lived experiences into insight leaders can see,
                   hear, and act on.
                 </p>
