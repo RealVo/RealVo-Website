@@ -1,9 +1,13 @@
 // src/components/WhyRealVoExists.tsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
 
 const WhyRealVoExists: React.FC = () => {
   const whyRef = useRef<HTMLSpanElement | null>(null);
+
+  // New: ref + state for fade-up animation on scroll
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [sectionInView, setSectionInView] = useState(false);
 
   // Re-trigger pulse animation when "whole story." comes into view
   useEffect(() => {
@@ -15,6 +19,7 @@ const WhyRealVoExists: React.FC = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting && node) {
             node.classList.remove('animate-pulse-once');
+            // force reflow so browser treats it as a new animation
             void node.offsetWidth;
             node.classList.add('animate-pulse-once');
           }
@@ -27,13 +32,41 @@ const WhyRealVoExists: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // New: fade-up for the whole section grid
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setSectionInView(true);
+            observer.disconnect(); // animate only once
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section
       id="why-realvo-exists"
       background="teal"
       className="overflow-hidden border-t border-gray-100"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div
+        ref={sectionRef}
+        className={`
+          max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center
+          transform transition-all duration-700 ease-out
+          ${sectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+        `}
+      >
         {/* VISUAL – LEFT COLUMN */}
         <div className="lg:col-span-6 order-1">
           <div className="relative">
@@ -80,7 +113,7 @@ const WhyRealVoExists: React.FC = () => {
 
         {/* TEXT – RIGHT COLUMN */}
         <div className="lg:col-span-6 order-2">
-          {/* Heading (eyebrow removed to avoid repetition) */}
+          {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-semibold text-realvo-charcoal dark:text-white leading-tight mb-4">
             Because numbers alone don’t tell the{' '}
             <span
@@ -91,8 +124,8 @@ const WhyRealVoExists: React.FC = () => {
             </span>
           </h2>
 
-          {/* Intro paragraph */}
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mb-6">
+          {/* Intro paragraph – slightly narrower max width */}
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg mb-6">
             Traditional tools capture metrics and surface comments. RealVo exists to
             help organizations truly understand lived experiences, so decisions about
             programs, culture, and communication are grounded in real human stories.
