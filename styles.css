@@ -3,13 +3,13 @@
     color: #1A1E23;        /* Start on black/charcoal */
   }
   35% {
-    color: #2A4D69;        /* Transition into RealVo Blue */
+    color: #2A4D69;        /* RealVo Blue */
   }
   60% {
-    color: #2AB8B0;        /* Pulse into Teal */
+    color: #2AB8B0;        /* Teal pulse */
   }
   85% {
-    color: #2AB8B0;        /* Hold Teal for emphasis */
+    color: #2AB8B0;        /* Hold Teal */
   }
   100% {
     color: #2AB8B0;        /* End on Teal */
@@ -17,7 +17,7 @@
 }
 
 .animate-pulse-once {
-  animation: pulse-once 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s 1 forwards;
+  animation: pulse-once 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s 1 forwards;
 }
 
 /* Single pulse for light text on dark backgrounds (Industries section) */
