@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement | null>(null);
   const impactRef = useRef<HTMLSpanElement | null>(null);
 
-  // Hero fade-in on first view
+  // Fade-in animation
   useEffect(() => {
     const node = heroRef.current;
     if (!node) return;
@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setInView(true);
-            observer.disconnect(); // animate only once
+            observer.disconnect();
           }
         });
       },
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Re-trigger "truly think and feel." text animation (desktop) whenever hero comes into view
+  // Re-trigger text animation
   useEffect(() => {
     const node = impactRef.current;
     if (!node) return;
@@ -38,7 +38,6 @@ const Hero: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && node) {
             node.classList.remove('animate-pulse-once');
-            // force reflow so the browser sees it as a "new" animation
             void node.offsetWidth;
             node.classList.add('animate-pulse-once');
           }
@@ -62,7 +61,7 @@ const Hero: React.FC = () => {
 
   return (
     <Section className="pt-16 pb-8 md:pt-28 md:pb-16 relative overflow-hidden">
-      {/* Background Abstract Shapes */}
+      {/* Background Shapes */}
       <div className="absolute top-0 right-0 -z-10 opacity-10 dark:opacity-5">
         <svg
           width="600"
@@ -86,6 +85,7 @@ const Hero: React.FC = () => {
       >
         {/* LEFT COLUMN */}
         <div className="lg:col-span-8 space-y-6 sm:space-y-8">
+
           {/* Eyebrow pill */}
           <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal mb-3 sm:mb-5">
             <span className="relative flex h-2 w-2">
@@ -96,45 +96,23 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
-            {/* Mobile: 3 lines
-                Understand what
-                people truly think
-                and feel.
-            */}
-            <span className="block lg:hidden">Understand what</span>
-            <span className="block lg:hidden">
-              people{' '}
-              <span className="text-realvo-teal animate-pulse-once">
-                truly think
-              </span>
-            </span>
-            <span className="block lg:hidden leading-tight">
-              <span className="text-realvo-teal animate-pulse-once">
-                and feel.
-              </span>
-            </span>
-
-            {/* Desktop: 2 lines
-                Understand what people
-                truly think and feel.
-            */}
-            <span className="hidden lg:inline">
-              Understand what people
-            </span>
-            <br className="hidden lg:block" />
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.15] text-realvo-charcoal dark:text-white">
+            <span className="block">Understand what</span>
+            <span className="block">people</span>
             <span
               ref={impactRef}
-              className="hidden lg:inline text-realvo-teal animate-pulse-once"
+              className="block text-realvo-charcoal dark:text-white animate-pulse-once"
             >
               truly think and feel.
             </span>
           </h1>
 
-          {/* Supporting copy */}
-          <p className="mt-6 text-2xl md:text-[1.7rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-snug">
-  Through the power of video, RealVo uncovers real perspectives and lived experiences that matter most — delivering insight and authentic stories for communication, culture, and brand storytelling.
-</p>
+          {/* Supporting Copy (desktop & mobile spacing) */}
+          <p className="mt-6 text-xl md:text-[1.42rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-normal md:leading-snug">
+            Through the power of video, RealVo uncovers real perspectives and lived
+            experiences that matter most — delivering insight and authentic stories
+            for communication, culture, and brand storytelling.
+          </p>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
@@ -156,6 +134,7 @@ const Hero: React.FC = () => {
               alt="Person recording a story"
               className="object-cover w-full h-full mix-blend-overlay opacity-90 hover:scale-105 transition-transform duration-700"
             />
+
             <div className="absolute inset-0 bg-gradient-to-t from-realvo-charcoal/80 to-transparent flex items-end p-8">
               <div className="bg-white/10 backdrop-blur-md p-4 sm:p-6 rounded-xl border border-white/20 w-full transform transition-all duration-500 translate-y-1 group-hover:translate-y-0">
                 <div className="flex items-center gap-2 mb-2 sm:gap-3 sm:mb-3">
@@ -185,7 +164,7 @@ const Hero: React.FC = () => {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M5 13l4 4L19 7"
-                ></path>
+                />
               </svg>
             </div>
             <div>
