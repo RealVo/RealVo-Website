@@ -3,28 +3,31 @@ import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 
 const WhyRealVoExists: React.FC = () => {
-  const headlineRef = useRef<HTMLSpanElement | null>(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const highlightRef = useRef<HTMLSpanElement | null>(null);
 
-  // Re-trigger pulse animation when section comes into view
+  // Re-trigger pulse animation when the section comes into view
   useEffect(() => {
-    const node = headlineRef.current;
-    if (!node) return;
+    const sectionNode = sectionRef.current;
+    const highlightNode = highlightRef.current;
+    if (!sectionNode || !highlightNode) return;
 
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && node) {
-            node.classList.remove('animate-pulse-once');
-            // force reflow so the browser treats the animation as “new”
-            void node.offsetWidth;
-            node.classList.add('animate-pulse-once');
+          if (entry.isIntersecting) {
+            // restart the animation each time it comes into view
+            highlightNode.classList.remove('animate-pulse-once');
+            // force reflow so the browser treats it as a new animation
+            void highlightNode.offsetWidth;
+            highlightNode.classList.add('animate-pulse-once');
           }
         });
       },
       { threshold: 0.45 }
     );
 
-    observer.observe(node);
+    observer.observe(sectionNode);
     return () => observer.disconnect();
   }, []);
 
@@ -33,8 +36,11 @@ const WhyRealVoExists: React.FC = () => {
       id="why-realvo-exists"
       className="border-t border-gray-100 bg-white"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* VISUAL – LEFT COLUMN (desktop) */}
+      <div
+        ref={sectionRef}
+        className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+      >
+        {/* VISUAL – LEFT COLUMN */}
         <div className="lg:col-span-5 order-1">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-900">
             <img
@@ -58,19 +64,19 @@ const WhyRealVoExists: React.FC = () => {
           </div>
         </div>
 
-        {/* TEXT – RIGHT COLUMN (desktop) */}
+        {/* TEXT – RIGHT COLUMN */}
         <div className="lg:col-span-7 order-2 space-y-6">
           {/* Eyebrow */}
           <p className="text-xs font-semibold tracking-[0.22em] uppercase text-realvo-blue mb-1">
             Why RealVo Exists
           </p>
 
-          {/* Heading + animated phrase */}
+          {/* Heading with animated phrase */}
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-realvo-charcoal dark:text-white leading-tight">
             Because numbers alone{' '}
             <span
-              ref={headlineRef}
-              className="text-realvo-blue dark:text-realvo-teal animate-pulse-once"
+              ref={highlightRef}
+              className="text-realvo-blue dark:text-realvo-teal"
             >
               don’t tell the whole story.
             </span>
