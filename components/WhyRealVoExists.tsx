@@ -30,7 +30,8 @@ const WhyRealVoExists: React.FC = () => {
   return (
     <Section
       id="why-realvo-exists"
-      className="overflow-hidden border-t border-gray-100 bg-gray-50"
+      background="muted"
+      className="overflow-hidden border-t border-gray-100"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* VISUAL – LEFT COLUMN */}
