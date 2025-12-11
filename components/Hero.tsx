@@ -5,19 +5,22 @@ import Section from './Section';
 const Hero: React.FC = () => {
   const [inView, setInView] = useState(false);
   const heroRef = useRef<HTMLDivElement | null>(null);
-  const impactRef = useRef<HTMLSpanElement | null>(null);
 
-  // Fade-in animation
+  // Separate refs for mobile + desktop animated text
+  const impactRefDesktop = useRef<HTMLSpanElement | null>(null);
+  const impactRefMobile = useRef<HTMLSpanElement | null>(null);
+
+  // Hero fade-in on first view
   useEffect(() => {
     const node = heroRef.current;
     if (!node) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             setInView(true);
-            observer.disconnect();
+            observer.disconnect(); // animate only once
           }
         });
       },
@@ -28,25 +31,32 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Re-trigger text animation
+  // Re-trigger animated text whenever hero comes into view
   useEffect(() => {
-    const node = impactRef.current;
-    if (!node) return;
+    const nodes: HTMLSpanElement[] = [];
+    if (impactRefDesktop.current) nodes.push(impactRefDesktop.current);
+    if (impactRefMobile.current) nodes.push(impactRefMobile.current);
+    if (!nodes.length) return;
+
+    const applyPulse = (el: HTMLSpanElement) => {
+      el.classList.remove('animate-pulse-once');
+      // force reflow so the browser sees it as a new animation
+      void el.offsetWidth;
+      el.classList.add('animate-pulse-once');
+    };
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && node) {
-            node.classList.remove('animate-pulse-once');
-            void node.offsetWidth;
-            node.classList.add('animate-pulse-once');
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.target instanceof HTMLElement) {
+            applyPulse(entry.target as HTMLSpanElement);
           }
         });
       },
       { threshold: 0.6 }
     );
 
-    observer.observe(node);
+    nodes.forEach(node => observer.observe(node));
     return () => observer.disconnect();
   }, []);
 
@@ -61,7 +71,7 @@ const Hero: React.FC = () => {
 
   return (
     <Section className="pt-16 pb-8 md:pt-28 md:pb-16 relative overflow-hidden">
-      {/* Background Shapes */}
+      {/* Background Abstract Shapes */}
       <div className="absolute top-0 right-0 -z-10 opacity-10 dark:opacity-5">
         <svg
           width="600"
@@ -85,7 +95,6 @@ const Hero: React.FC = () => {
       >
         {/* LEFT COLUMN */}
         <div className="lg:col-span-8 space-y-6 sm:space-y-8">
-
           {/* Eyebrow pill */}
           <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal mb-3 sm:mb-5">
             <span className="relative flex h-2 w-2">
@@ -96,31 +105,38 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
-  {/* Line 1 mobile / part of line 1 desktop */}
-  <span className="block md:inline">
-    Understand what
-  </span>{' '}
-  {/* Line 2 mobile / rest of line 1 desktop */}
-  <span className="block md:inline">
-    people truly think
-  </span>
-  {/* Desktop-only line break before the teal phrase */}
-  <br className="hidden md:block" />
-  {/* Line 3 mobile / line 2 desktop (animated teal) */}
-  <span
-    ref={impactRef}
-    className="block md:inline text-realvo-charcoal dark:text-white animate-pulse-once"
-  >
-    and feel.
-  </span>
-</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-realvo-charcoal dark:text-white">
+            {/* Mobile layout (3 lines) */}
+            <span className="block md:hidden">
+              <span className="block">Understand what</span>
+              <span
+                ref={impactRefMobile}
+                className="block text-realvo-charcoal dark:text-white animate-pulse-once"
+              >
+                people truly think
+                <br />
+                and feel.
+              </span>
+            </span>
 
-          {/* Supporting Copy (desktop & mobile spacing) */}
-          <p className="mt-6 text-xl md:text-[1.42rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-normal md:leading-snug">
-            Through the power of video, RealVo uncovers real perspectives and lived
-            experiences that matter most — delivering insight and authentic stories
-            for communication, culture, and brand storytelling.
+            {/* Desktop / tablet layout (2 lines) */}
+            <span className="hidden md:block">
+              <span className="block">Understand what people</span>
+              <span
+                ref={impactRefDesktop}
+                className="block text-realvo-charcoal dark:text-white animate-pulse-once"
+              >
+                truly think and feel.
+              </span>
+            </span>
+          </h1>
+
+          {/* Supporting copy */}
+          <p className="mt-4 md:mt-5 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-snug md:leading-relaxed">
+            Through the power of video, RealVo uncovers real perspectives and
+            lived experiences that matter most — delivering insight and
+            authentic stories for communication, culture, and brand
+            storytelling.
           </p>
 
           {/* CTA */}
@@ -143,7 +159,6 @@ const Hero: React.FC = () => {
               alt="Person recording a story"
               className="object-cover w-full h-full mix-blend-overlay opacity-90 hover:scale-105 transition-transform duration-700"
             />
-
             <div className="absolute inset-0 bg-gradient-to-t from-realvo-charcoal/80 to-transparent flex items-end p-8">
               <div className="bg-white/10 backdrop-blur-md p-4 sm:p-6 rounded-xl border border-white/20 w-full transform transition-all duration-500 translate-y-1 group-hover:translate-y-0">
                 <div className="flex items-center gap-2 mb-2 sm:gap-3 sm:mb-3">
@@ -173,7 +188,7 @@ const Hero: React.FC = () => {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M5 13l4 4L19 7"
-                />
+                ></path>
               </svg>
             </div>
             <div>
