@@ -1,4 +1,3 @@
-// src/components/WhyRealVoExists.tsx
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 
