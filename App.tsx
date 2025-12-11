@@ -10,6 +10,7 @@ import './styles.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustedBy from './components/TrustedBy';
+import WhyRealVoExists from './components/WhyRealVoExists';
 import WhatYouCanAchieve from './components/WhatYouCanAchieve';
 import HowItWorks from './components/HowItWorks';
 import CaptureOptions from './components/CaptureOptions';
