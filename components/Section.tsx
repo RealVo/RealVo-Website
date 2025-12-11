@@ -4,7 +4,7 @@ interface SectionProps {
   id?: string;
   className?: string;
   children: React.ReactNode;
-  background?: 'white' | 'light' | 'dark';
+  background?: 'white' | 'light' | 'dark' | 'teal';
   padding?: 'sm' | 'md' | 'lg';
 }
 
@@ -19,6 +19,7 @@ const Section: React.FC<SectionProps> = ({
     white: 'bg-white dark:bg-realvo-charcoal',
     light: 'bg-realvo-light dark:bg-[#232830]',
     dark: 'bg-realvo-blue text-white'
+    teal: 'bg-realvo-teal/10 dark:bg-realvo-teal/20',
   };
 
   const paddingStyles = {
