@@ -121,14 +121,18 @@ const HomePage: React.FC = () => {
       <Header />
 
       <main className="flex-grow">
-        {/* NEW ORDER */}
+        {/* HERO + SOCIAL PROOF */}
         <Hero />
         <TrustedBy />
+
+        {/* NEW: Why RealVo Exists section */}
+        <WhyRealVoExists />
+
         <WhatYouCanAchieve />
         <Industries />
         <CaptureOptions />
 
-        {/* NEW: Process & Platform overview */}
+        {/* Process & Platform overview */}
         <ImplementationProcess />
 
         {/* Participant workflow + platform */}
@@ -401,4 +405,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
