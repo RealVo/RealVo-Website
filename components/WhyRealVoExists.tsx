@@ -118,7 +118,7 @@ const WhyRealVoExists: React.FC = () => {
 
           {/* Heading + animated phrase */}
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-realvo-charcoal mb-4">
-            Because numbers alone{' '}
+            Test 123 - Because numbers alone{' '}
             <span
               ref={whyRef}
               className="text-realvo-blue animate-pulse-once"
