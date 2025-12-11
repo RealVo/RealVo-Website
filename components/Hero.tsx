@@ -103,11 +103,11 @@ const Hero: React.FC = () => {
             Understand what people
             <br />
             <span
-              ref={impactRef}
-              className="text-realvo-blue dark:text-realvo-slate animate-pulse-once"
-            >
-              truly think and feel.
-            </span>
+  ref={impactRef}
+  className="text-realvo-charcoal dark:text-white animate-pulse-once"
+>
+  truly think and feel.
+</span>
           </h1>
 
           {/* Supporting copy */}
