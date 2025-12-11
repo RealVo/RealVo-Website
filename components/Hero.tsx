@@ -99,21 +99,33 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
-            Understand what people
-            <br />
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-realvo-charcoal dark:text-white">
+            {/* Mobile: 3 lines */}
+            <span className="block lg:hidden">Understand what</span>
+            <span className="block lg:hidden">people</span>
             <span
-  ref={impactRef}
-  className="text-realvo-charcoal dark:text-white animate-pulse-once"
->
-  truly think and feel.
-</span>
+              className="block lg:hidden text-realvo-charcoal dark:text-white animate-pulse-once leading-tight"
+            >
+              truly think and feel.
+            </span>
+
+            {/* Desktop: 2 lines */}
+            <span className="hidden lg:inline">
+              Understand what people
+            </span>
+            <br className="hidden lg:block" />
+            <span
+              ref={impactRef}
+              className="hidden lg:inline text-realvo-charcoal dark:text-white animate-pulse-once"
+            >
+              truly think and feel.
+            </span>
           </h1>
 
           {/* Supporting copy */}
           <p className="mt-6 text-2xl md:text-[1.7rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-  Through the power of video, RealVo uncovers real perspectives and lived experiences that matter most — delivering insight and authentic stories for communication, culture, and brand storytelling.
-</p>
+            Through the power of video, RealVo uncovers real perspectives and lived experiences that matter most — delivering insight and authentic stories for communication, culture, and brand storytelling.
+          </p>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
