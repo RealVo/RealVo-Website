@@ -132,12 +132,9 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Supporting copy */}
-          <p className="mt-6 text-2xl md:text-[1.7rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-            Through the power of video, RealVo uncovers real perspectives and
-            lived experiences that matter most — delivering insight and
-            authentic stories for communication, culture, and brand
-            storytelling.
-          </p>
+          <p className="mt-6 text-2xl md:text-[1.7rem] text-gray-600 dark:text-gray-300 max-w-3xl leading-snug">
+  Through the power of video, RealVo uncovers real perspectives and lived experiences that matter most — delivering insight and authentic stories for communication, culture, and brand storytelling.
+</p>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
