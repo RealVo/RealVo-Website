@@ -170,8 +170,8 @@ const WhyRealVoExists: React.FC = () => {
               return (
                 <div key={index} className="flex items-start gap-3 md:gap-4">
                   {/* ICON – same visual style as Achieve circles */}
-                  <div className="mt-1 w-12 h-12 rounded-full bg-realvo-light dark:bg-gray-700 flex items-center justify-center text-realvo-blue dark:text-realvo-teal flex-shrink-0">
-                    <Icon size={22} strokeWidth={1.6} />
+                  <div className="mt-1 w-12 h-12 rounded-full bg-realvo-blue flex items-center justify-center text-white shadow-md">
+                    <Icon size={20} strokeWidth={2} />
                   </div>
 
                   <div>
