@@ -1,11 +1,45 @@
 // src/components/WhyRealVoExists.tsx
 import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
+import { BarChart3, Video, ShieldCheck, Users } from 'lucide-react';
+
+type Bullet = {
+  title: string;
+  description: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+
+const bullets: Bullet[] = [
+  {
+    title: 'Surveys miss the story.',
+    description:
+      'They’re good at tracking metrics, but not at capturing emotion, nuance, or the “why” behind how people feel and what they need.',
+    icon: BarChart3,
+  },
+  {
+    title: 'Interviews and filming don’t scale.',
+    description:
+      'Scheduling, crews, and cameras are resource-heavy — and often feel staged or intimidating for participants, limiting who you actually hear from.',
+    icon: Video,
+  },
+  {
+    title: 'People need a safe way to share.',
+    description:
+      'Many will open up when the experience feels guided, private, and on their own terms — not like a performance or a formal evaluation.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Leaders need real perspectives to act on.',
+    description:
+      'Decisions about culture, student or community experience, and communication are stronger when they’re shaped by real voices — not just dashboards and reports.',
+    icon: Users,
+  },
+];
 
 const WhyRealVoExists: React.FC = () => {
   const whyRef = useRef<HTMLSpanElement | null>(null);
 
-  // New: ref + state for fade-up animation on scroll
+  // Fade-up animation for the whole section grid
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [sectionInView, setSectionInView] = useState(false);
 
@@ -19,7 +53,6 @@ const WhyRealVoExists: React.FC = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting && node) {
             node.classList.remove('animate-pulse-once');
-            // force reflow so browser treats it as a new animation
             void node.offsetWidth;
             node.classList.add('animate-pulse-once');
           }
@@ -32,7 +65,7 @@ const WhyRealVoExists: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // New: fade-up for the whole section grid
+  // Fade-up on scroll
   useEffect(() => {
     const node = sectionRef.current;
     if (!node) return;
@@ -42,7 +75,7 @@ const WhyRealVoExists: React.FC = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setSectionInView(true);
-            observer.disconnect(); // animate only once
+            observer.disconnect(); // animate once
           }
         });
       },
@@ -113,67 +146,45 @@ const WhyRealVoExists: React.FC = () => {
 
         {/* TEXT – RIGHT COLUMN */}
         <div className="lg:col-span-6 order-2">
-          {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-semibold text-realvo-charcoal dark:text-white leading-tight mb-4">
+          {/* Heading – match hero / Achieve style */}
+          <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white leading-tight mb-4">
             Because numbers alone don’t tell the{' '}
             <span
               ref={whyRef}
-              className="text-realvo-charcoal dark:text-white animate-pulse-once"
+              className="text-realvo-blue animate-pulse-once"
             >
               whole story.
             </span>
           </h2>
 
-          {/* Intro paragraph – slightly narrower max width */}
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg mb-6">
+          {/* Intro paragraph – typography aligned with Achieve */}
+          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mb-6">
             Traditional tools capture metrics and surface comments. RealVo exists to
             help organizations truly understand lived experiences, so decisions about
             programs, culture, and communication are grounded in real human stories.
           </p>
 
-          {/* Problem bullets */}
+          {/* Problem bullets with icons */}
           <div className="space-y-5 text-sm md:text-base">
-            <div>
-              <h3 className="font-semibold text-realvo-charcoal dark:text-white">
-                Surveys miss the story.
-              </h3>
-              <p className="mt-1 text-gray-600 dark:text-gray-300 leading-relaxed">
-                They’re good at tracking metrics, but not at capturing emotion,
-                nuance, or the “why” behind how people feel and what they need.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-realvo-charcoal dark:text-white">
-                Interviews and filming don’t scale.
-              </h3>
-              <p className="mt-1 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Scheduling, crews, and cameras are resource-heavy — and often feel
-                staged or intimidating for participants, limiting who you actually
-                hear from.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-realvo-charcoal dark:text-white">
-                People need a safe way to share.
-              </h3>
-              <p className="mt-1 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Many will open up when the experience feels guided, private, and on
-                their own terms — not like a performance or a formal evaluation.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-realvo-charcoal dark:text-white">
-                Leaders need real perspectives to act on.
-              </h3>
-              <p className="mt-1 text-gray-600 dark:text-gray-300 leading-relaxed">
-                Decisions about culture, student or community experience, and
-                communication are stronger when they’re shaped by real voices — not
-                just dashboards and reports.
-              </p>
-            </div>
+            {bullets.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div key={index} className="flex items-start gap-3 md:gap-4">
+                  {/* Icon bubble – similar spirit to Achieve / VBPlatform */}
+                  <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-white/70 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-realvo-blue dark:text-realvo-teal shadow-sm">
+                    <Icon size={18} strokeWidth={1.7} />
+                  </div>
+                  <div>
+                    <h3 className="text-base md:text-lg font-bold text-realvo-charcoal dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
