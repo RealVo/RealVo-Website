@@ -36,27 +36,27 @@ const WhyRealVoExists: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
         {/* LEFT — IMAGE */}
-        <div className="lg:col-span-6 order-1">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-900">
-            <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
-              alt="Team reviewing video insights"
-              className="w-full h-full object-cover opacity-80"
-            />
+<div className="lg:col-span-6 order-1">
+  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-900 aspect-[4/5] max-w-xl mx-auto lg:mx-0">
+    <img
+      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+      alt="Team reviewing video insights"
+      className="w-full h-full object-cover opacity-80"
+    />
 
-            {/* Small caption card */}
-            <div className="absolute bottom-6 left-6">
-              <div className="bg-white/90 backdrop-blur-md rounded-xl px-5 py-4 shadow-lg">
-                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                  Why RealVo Exists
-                </p>
-                <p className="text-xs text-gray-700">
-                  Transforming lived experiences into insight leaders can see, hear, and act on.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+    {/* Small caption card */}
+    <div className="absolute bottom-6 left-6">
+      <div className="bg-white/90 backdrop-blur-md rounded-xl px-5 py-4 shadow-lg">
+        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+          Why RealVo Exists
+        </p>
+        <p className="text-xs text-gray-700">
+          Transforming lived experiences into insight leaders can see, hear, and act on.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* RIGHT — TEXT */}
         <div className="lg:col-span-6 order-2">
