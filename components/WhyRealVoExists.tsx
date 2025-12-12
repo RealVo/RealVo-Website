@@ -32,7 +32,7 @@ const WhyRealVoExists: React.FC = () => {
     <Section
       id="why-realvo-exists"
       background="light"
-      className="overflow-hidden border-t border-gray-100"
+      className="bg-white overflow-hidden border-t border-gray-100"
     >
       <div className="space-y-10 md:space-y-16">
         {/* Section heading */}
