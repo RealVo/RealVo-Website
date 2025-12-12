@@ -31,7 +31,7 @@ const WhyRealVoExists: React.FC = () => {
   return (
     <Section
       id="why-realvo-exists"
-      background="light"
+      background="white"
       className="bg-white overflow-hidden border-t border-gray-100"
     >
       <div className="space-y-10 md:space-y-16">
