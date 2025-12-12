@@ -68,9 +68,7 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* Intro copy */}
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Traditional tools capture metrics and surface comments. RealVo exists to help
-              organizations truly understand lived experiences, so decisions about programs,
-              culture, and communication are grounded in real human stories.
+              Traditional tools capture data, not meaning. RealVo reveals the lived experiences behind decisions.
             </p>
 
             {/* Bullets – organization challenges */}
