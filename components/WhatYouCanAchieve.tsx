@@ -53,7 +53,7 @@ const WhatYouCanAchieve: React.FC = () => {
   }, []);
 
   return (
-    <Section id="why-realvo">
+    <Section id="why-realvo" background="teal">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
           What You Can{' '}
@@ -72,8 +72,8 @@ const WhatYouCanAchieve: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map((feature, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-shadow duration-300 group"
           >
             <div className="w-14 h-14 bg-realvo-light dark:bg-gray-700 rounded-full flex items-center justify-center text-realvo-blue dark:text-realvo-teal mb-6 group-hover:bg-realvo-blue group-hover:text-white transition-colors duration-300">
