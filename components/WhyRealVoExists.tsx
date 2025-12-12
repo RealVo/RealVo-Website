@@ -37,16 +37,13 @@ const WhyRealVoExists: React.FC = () => {
       <div className="space-y-10 md:space-y-16">
         {/* Section heading */}
         <div className="text-center max-w-3xl mx-auto">
-          <p className="text-xs font-semibold tracking-[0.22em] uppercase text-realvo-blue mb-3">
-            Why RealVo Exists
-          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white leading-tight">
-            Because numbers alone don’t tell the{' '}
+            Why RealVo{' '}
             <span
               ref={whyRef}
               className="text-realvo-blue animate-pulse-once"
             >
-              whole story.
+              Exists
             </span>
           </h2>
         </div>
