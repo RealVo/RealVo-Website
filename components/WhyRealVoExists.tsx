@@ -82,15 +82,19 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* 1 — Surveys miss the story */}
             <div className="flex items-start gap-4">
-              <div className="
-                flex-none shrink-0
-                w-12 h-12
-                rounded-full
-                bg-[#2AB8B0]/50
-                flex items-center justify-center
-                text-white
-              ">
-                <BarChart3 size={22} strokeWidth={2} />
+              <div
+                className="
+                  flex-none shrink-0
+                  w-8 h-8
+                  rounded-full
+                  bg-[#2AB8B0]/50
+                  flex items-center justify-center
+                  text-white
+                  transition-colors duration-200
+                  hover:bg-realvo-blue
+                "
+              >
+                <BarChart3 size={16} strokeWidth={2} />
               </div>
 
               <div>
@@ -105,15 +109,19 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* 2 — Interviews and filming don’t scale */}
             <div className="flex items-start gap-4">
-              <div className="
-                flex-none shrink-0
-                w-12 h-12
-                rounded-full
-                bg-[#2AB8B0]/50
-                flex items-center justify-center
-                text-white
-              ">
-                <Video size={22} strokeWidth={2} />
+              <div
+                className="
+                  flex-none shrink-0
+                  w-8 h-8
+                  rounded-full
+                  bg-[#2AB8B0]/50
+                  flex items-center justify-center
+                  text-white
+                  transition-colors duration-200
+                  hover:bg-realvo-blue
+                "
+              >
+                <Video size={16} strokeWidth={2} />
               </div>
 
               <div>
@@ -128,15 +136,19 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* 3 — People need a safe way to share */}
             <div className="flex items-start gap-4">
-              <div className="
-                flex-none shrink-0
-                w-12 h-12
-                rounded-full
-                bg-[#2AB8B0]/50
-                flex items-center justify-center
-                text-white
-              ">
-                <Shield size={22} strokeWidth={2} />
+              <div
+                className="
+                  flex-none shrink-0
+                  w-8 h-8
+                  rounded-full
+                  bg-[#2AB8B0]/50
+                  flex items-center justify-center
+                  text-white
+                  transition-colors duration-200
+                  hover:bg-realvo-blue
+                "
+              >
+                <Shield size={16} strokeWidth={2} />
               </div>
 
               <div>
@@ -151,15 +163,19 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* 4 — Leaders need real perspectives */}
             <div className="flex items-start gap-4">
-              <div className="
-                flex-none shrink-0
-                w-12 h-12
-                rounded-full
-                bg-[#2AB8B0]/50
-                flex items-center justify-center
-                text-white
-              ">
-                <Users size={22} strokeWidth={2} />
+              <div
+                className="
+                  flex-none shrink-0
+                  w-8 h-8
+                  rounded-full
+                  bg-[#2AB8B0]/50
+                  flex items-center justify-center
+                  text-white
+                  transition-colors duration-200
+                  hover:bg-realvo-blue
+                "
+              >
+                <Users size={16} strokeWidth={2} />
               </div>
 
               <div>
