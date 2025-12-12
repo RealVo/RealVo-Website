@@ -168,14 +168,20 @@ const WhyRealVoExists: React.FC = () => {
             {bullets.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} className="flex items-start gap-3 md:gap-4">
-                  {/* ICON – forced circle, teal background, white icon */}
-                  <div
-                    className="mt-1 flex-none shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: '#2AB8B0' }}
-                  >
-                    <Icon size={18} strokeWidth={2} className="text-white" />
-                  </div>
+                <div className="flex items-start gap-4">
+  <div
+    className="
+      w-8 h-8 
+      flex items-center justify-center 
+      rounded-full flex-none
+      bg-[#2AB8B0]/20      /* soft teal tint */
+      text-white
+      transition-colors duration-200
+      hover:bg-realvo-blue /* hover to RealVo Blue */
+    "
+  >
+    <Icon size={14} strokeWidth={2} />
+  </div>
 
                   <div>
                     <h3 className="text-lg md:text-xl font-bold text-realvo-charcoal dark:text-white mb-1">
