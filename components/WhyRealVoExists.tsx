@@ -73,7 +73,7 @@ const WhyRealVoExists: React.FC = () => {
           </h2>
 
           {/* Intro Paragraph */}
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl">
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed max-w-xl">
             Traditional tools capture metrics and surface comments. RealVo exists to help organizations truly understand lived experiences, so decisions about programs, culture, and communication are grounded in real human stories.
           </p>
 
