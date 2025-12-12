@@ -83,8 +83,8 @@ const WhyRealVoExists: React.FC = () => {
                   Surveys miss the story.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  They’re good at tracking metrics, but not at capturing emotion, nuance, or the
-                  “why” behind how people feel and what they need.
+                  They’re good at tracking metrics, but not at capturing emotion, nuance, or
+                  the “why” behind how people feel and what they need.
                 </p>
               </div>
 
@@ -93,8 +93,8 @@ const WhyRealVoExists: React.FC = () => {
                   Interviews and filming don’t scale.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Scheduling, crews, and cameras are resource-heavy — and often feel staged or
-                  intimidating for participants, limiting who you actually hear from.
+                  Scheduling, crews, and cameras are resource-heavy — and often feel staged
+                  or intimidating for participants, limiting who you actually hear from.
                 </p>
               </div>
 
@@ -103,8 +103,8 @@ const WhyRealVoExists: React.FC = () => {
                   People need a way to share that feels right.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Many will open up when the experience feels guided, private, and on their own
-                  terms — not like a performance or a formal evaluation.
+                  Many will open up when the experience feels guided, private, and on their
+                  own terms — not like a performance or a formal evaluation.
                 </p>
               </div>
 
@@ -113,8 +113,9 @@ const WhyRealVoExists: React.FC = () => {
                   Leaders need real perspectives to act on.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Decisions about culture, student or community experience, and communication are
-                  stronger when they’re shaped by real voices — not just dashboards and reports.
+                  Decisions about culture, student or community experience, and
+                  communication are stronger when they’re shaped by real voices — not just
+                  dashboards and reports.
                 </p>
               </div>
             </div>
@@ -136,10 +137,10 @@ const WhyRealVoExists: React.FC = () => {
               For the People You Serve
             </p>
 
-            {/* User subline (A) */}
+            {/* User subline */}
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              People share more — and share honestly — when the experience feels natural, private,
-              and on their terms.
+              People share more — and share honestly — when the experience feels natural,
+              private, and on their terms.
             </p>
 
             {/* Bullets – why users embrace RealVo (explained for orgs) */}
@@ -149,8 +150,8 @@ const WhyRealVoExists: React.FC = () => {
                   People open up in private.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Without an interviewer, audience, or camera crew, people share what they wouldn’t
-                  say in a group setting or formal meeting.
+                  Without an interviewer, audience, or camera crew, people share what they
+                  wouldn’t say in a group setting or formal meeting.
                 </p>
               </div>
 
@@ -159,8 +160,8 @@ const WhyRealVoExists: React.FC = () => {
                   Guided prompts make expression easy.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Clear, thoughtful prompts help people articulate what they feel — even if they
-                  don’t usually know how to put it into words.
+                  Clear, thoughtful prompts help people articulate what they feel — even if
+                  they don’t usually know how to put it into words.
                 </p>
               </div>
 
@@ -169,8 +170,8 @@ const WhyRealVoExists: React.FC = () => {
                   The experience feels natural and familiar.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Speaking to a simple, intuitive interface removes pressure and replaces “performing
-                  on camera” with a comfortable moment of reflection.
+                  Speaking to a simple, intuitive interface removes pressure and replaces
+                  “performing on camera” with a comfortable moment of reflection.
                 </p>
               </div>
 
@@ -179,13 +180,19 @@ const WhyRealVoExists: React.FC = () => {
                   Authenticity comes through in their own words.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Real tone, emotion, and nuance emerge — giving you the depth that surveys and text
-                  responses can’t capture.
+                  Real tone, emotion, and nuance emerge — giving you the depth that surveys
+                  and text responses can’t capture.
                 </p>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Transition into "What You Can Achieve" */}
+        <p className="mt-6 md:mt-8 text-sm md:text-base text-gray-500 text-center max-w-2xl mx-auto">
+          When you remove those barriers and start hearing real voices, RealVo turns
+          that honesty into outcomes you can actually act on.
+        </p>
       </div>
     </Section>
   );
