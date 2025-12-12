@@ -170,9 +170,10 @@ const WhyRealVoExists: React.FC = () => {
               return (
                 <div key={index} className="flex items-start gap-3 md:gap-4">
                   {/* ICON – same visual style as Achieve circles */}
-                  <div className="mt-1 w-12 h-12 rounded-full bg-gradient-to-br from-realvo-blue to-realvo-teal flex items-center justify-center text-white shadow-md">
-                    <Icon size={20} strokeWidth={2} />
-                  </div>
+                  <div className="mt-1 w-10 h-10 rounded-full flex items-center justify-center"
+     style={{ backgroundColor: '#2AB8B0' }}>
+  <Icon size={18} strokeWidth={2} className="text-white" />
+</div>
 
                   <div>
                     {/* HEADLINE – matches card titles (size / weight / color) */}
