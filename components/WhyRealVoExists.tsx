@@ -174,7 +174,7 @@ const WhyRealVoExists: React.FC = () => {
       w-8 h-8 
       flex items-center justify-center 
       rounded-full flex-none
-      bg-[#2AB8B0]/20      /* soft teal tint */
+      bg-[#2AB8B0]/50      /* soft teal tint */
       text-white
       transition-colors duration-200
       hover:bg-realvo-blue /* hover to RealVo Blue */
