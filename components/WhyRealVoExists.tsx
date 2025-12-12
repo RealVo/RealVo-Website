@@ -62,7 +62,7 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* Label */}
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.22em] text-gray-500">
               For Organizations
             </p>
 
@@ -129,7 +129,7 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* Label */}
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-gray-500">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.22em] text-gray-500">
               For the People You Serve
             </p>
 
