@@ -113,7 +113,7 @@ const WhyRealVoExists: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
             </div>
 
-            {/* Floating pill (subline colors cleaned up) */}
+            {/* Floating pill */}
             <div className="absolute -bottom-6 -left-2 sm:-left-4 bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 flex items-center gap-3 sm:gap-4 max-w-xs">
               <div className="bg-green-100 dark:bg-green-900/30 p-1.5 sm:p-2 rounded-full text-green-600 dark:text-green-400">
                 <svg
@@ -145,7 +145,7 @@ const WhyRealVoExists: React.FC = () => {
 
         {/* TEXT – RIGHT COLUMN */}
         <div className="lg:col-span-6 order-2">
-          {/* Main heading – matches style of other sections */}
+          {/* Main heading */}
           <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white leading-tight mb-4">
             Because numbers alone don’t tell the{' '}
             <span
@@ -156,32 +156,31 @@ const WhyRealVoExists: React.FC = () => {
             </span>
           </h2>
 
-          {/* Intro paragraph – same scale/colors as Achieve intro */}
+          {/* Intro paragraph */}
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mb-6">
             Traditional tools capture metrics and surface comments. RealVo exists to
             help organizations truly understand lived experiences, so decisions about
             programs, culture, and communication are grounded in real human stories.
           </p>
 
-          {/* Bullets – icons + heading/body aligned with WhatYouCanAchieve */}
+          {/* Bullets */}
           <div className="space-y-5 text-sm md:text-base">
             {bullets.map((item, index) => {
               const Icon = item.icon;
               return (
                 <div key={index} className="flex items-start gap-3 md:gap-4">
-                  {/* ICON – same visual style as Achieve circles */}
-                  <div className="mt-1 w-10 h-10 rounded-full flex items-center justify-center"
-     style={{ backgroundColor: '#2AB8B0' }}>
-  <Icon size={18} strokeWidth={2} className="text-white" />
-</div>
+                  {/* ICON – forced circle, teal background, white icon */}
+                  <div
+                    className="mt-1 flex-none shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: '#2AB8B0' }}
+                  >
+                    <Icon size={18} strokeWidth={2} className="text-white" />
+                  </div>
 
                   <div>
-                    {/* HEADLINE – matches card titles (size / weight / color) */}
                     <h3 className="text-lg md:text-xl font-bold text-realvo-charcoal dark:text-white mb-1">
                       {item.title}
                     </h3>
-
-                    {/* BODY TEXT – matches card description colors */}
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                       {item.description}
                     </p>
