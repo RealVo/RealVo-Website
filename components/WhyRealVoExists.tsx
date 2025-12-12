@@ -34,7 +34,7 @@ const WhyRealVoExists: React.FC = () => {
       className="overflow-hidden border-t border-gray-100"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
+
         {/* LEFT — IMAGE */}
         <div className="lg:col-span-6 order-1">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-900">
@@ -58,9 +58,9 @@ const WhyRealVoExists: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT — TEXT & BULLETS */}
+        {/* RIGHT — TEXT */}
         <div className="lg:col-span-6 order-2">
-          
+
           {/* Heading */}
           <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-4 leading-tight">
             Because numbers alone don’t tell the{' '}
@@ -72,21 +72,29 @@ const WhyRealVoExists: React.FC = () => {
             </span>
           </h2>
 
-          {/* Intro paragraph */}
+          {/* Intro Paragraph */}
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed max-w-xl">
             Traditional tools capture metrics and surface comments. RealVo exists to help organizations truly understand lived experiences, so decisions about programs, culture, and communication are grounded in real human stories.
           </p>
 
           {/* BULLETS */}
-          <div className="space-y-6 text-gray-600 dark:text-gray-300">
+          <div className="space-y-6">
 
             {/* 1 — Surveys miss the story */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#2AB8B0]/50 flex items-center justify-center">
-                <BarChart3 size={22} className="text-white" />
+              <div className="
+                flex-none shrink-0
+                w-12 h-12
+                rounded-full
+                bg-[#2AB8B0]/50
+                flex items-center justify-center
+                text-white
+              ">
+                <BarChart3 size={22} strokeWidth={2} />
               </div>
+
               <div>
-                <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+                <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
                   Surveys miss the story.
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -97,11 +105,19 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* 2 — Interviews and filming don’t scale */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#2AB8B0]/50 flex items-center justify-center">
-                <Video size={22} className="text-white" />
+              <div className="
+                flex-none shrink-0
+                w-12 h-12
+                rounded-full
+                bg-[#2AB8B0]/50
+                flex items-center justify-center
+                text-white
+              ">
+                <Video size={22} strokeWidth={2} />
               </div>
+
               <div>
-                <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+                <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
                   Interviews and filming don’t scale.
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -112,11 +128,19 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* 3 — People need a safe way to share */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#2AB8B0]/50 flex items-center justify-center">
-                <Shield size={22} className="text-white" />
+              <div className="
+                flex-none shrink-0
+                w-12 h-12
+                rounded-full
+                bg-[#2AB8B0]/50
+                flex items-center justify-center
+                text-white
+              ">
+                <Shield size={22} strokeWidth={2} />
               </div>
+
               <div>
-                <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+                <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
                   People need a safe way to share.
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -127,14 +151,22 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* 4 — Leaders need real perspectives */}
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#2AB8B0]/50 flex items-center justify-center">
-                <Users size={22} className="text-white" />
+              <div className="
+                flex-none shrink-0
+                w-12 h-12
+                rounded-full
+                bg-[#2AB8B0]/50
+                flex items-center justify-center
+                text-white
+              ">
+                <Users size={22} strokeWidth={2} />
               </div>
+
               <div>
-                <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+                <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
                   Leaders need real perspectives to act on.
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
                   Decisions about culture, student or community experience, and communication are stronger when they’re shaped by real voices — not just dashboards and reports.
                 </p>
               </div>
