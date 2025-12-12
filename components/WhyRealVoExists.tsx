@@ -113,9 +113,8 @@ const WhyRealVoExists: React.FC = () => {
                   Leaders need real perspectives to act on.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Decisions about culture, student or community experience, and
-                  communication are stronger when they’re shaped by real voices — not just
-                  dashboards and reports.
+                  Decisions about culture, experience, and communication are stronger when
+                  they’re shaped by real voices — not just dashboards and reports.
                 </p>
               </div>
             </div>
@@ -189,7 +188,7 @@ const WhyRealVoExists: React.FC = () => {
         </div>
 
         {/* Transition into "What You Can Achieve" */}
-        <p className="mt-6 md:mt-8 text-sm md:text-base text-gray-500 text-center max-w-2xl mx-auto">
+        <p className="mt-6 md:mt-8 text-lg text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
           When you remove those barriers and start hearing real voices, RealVo turns
           that honesty into outcomes you can actually act on.
         </p>
