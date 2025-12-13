@@ -16,11 +16,15 @@ const Section: React.FC<SectionProps> = ({
   padding = 'lg'
 }) => {
   const bgStyles = {
-    white: 'bg-white dark:bg-realvo-charcoal',
-    light: 'bg-realvo-light dark:bg-[#232830]',
-    dark: 'bg-realvo-blue text-white',
-    teal: 'bg-realvo-teal/10 dark:bg-realvo-teal/20'
-  };
+  white: 'bg-white dark:bg-realvo-charcoal',
+  light: 'bg-realvo-light dark:bg-[#232830]',
+  dark: 'bg-realvo-blue text-white',
+  teal: 'bg-realvo-teal/10 dark:bg-realvo-teal/20',
+
+  // NEW COLORS
+  slate: 'bg-[#6A7F93] text-white',         // Soft Slate (section-friendly)
+  'light-blue': 'bg-[#EEF2F5]'             // Very soft calm background
+};
 
   const paddingStyles = {
     sm: 'py-8 md:py-10',
