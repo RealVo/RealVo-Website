@@ -6,7 +6,7 @@ import { Feature } from '../types';
 const features: Feature[] = [
   {
     title: "Understand people’s experiences",
-    description: "Hear tone, emotion, and nuance — the parts of communication that matter most.",
+    description: "Hear tone, emotion, and nuance — the parts of expression that matter most",
     icon: BarChart3,
   },
   {
