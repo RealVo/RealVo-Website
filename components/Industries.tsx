@@ -64,7 +64,7 @@ const Industries: React.FC = () => {
   return (
     <Section
       id="industries"
-      background="dark"
+      background="slate"
       className="relative overflow-hidden"
     >
       {/* Background Decoration */}
