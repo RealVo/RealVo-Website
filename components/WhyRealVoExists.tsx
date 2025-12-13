@@ -69,7 +69,7 @@ const WhyRealVoExists: React.FC = () => {
 
             {/* Intro copy */}
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Traditional tools capture data, not meaning. RealVo reveals the lived experiences behind decisions.
+              Traditional tools capture responses and metrics, while RealVo captures human communication in a way that drives attention, empathy, and action.
             </p>
 
             {/* Bullets – organization challenges */}
