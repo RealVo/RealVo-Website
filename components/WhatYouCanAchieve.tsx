@@ -37,9 +37,7 @@ const WhatYouCanAchieve: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && node) {
-            // restart the pulse animation each time it scrolls into view
             node.classList.remove('animate-pulse-once');
-            // force reflow so the browser treats it as a fresh animation
             void node.offsetWidth;
             node.classList.add('animate-pulse-once');
           }
@@ -74,14 +72,16 @@ const WhatYouCanAchieve: React.FC = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-shadow duration-300 group"
+            className="group transform bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
           >
             <div className="w-14 h-14 bg-realvo-light dark:bg-gray-700 rounded-full flex items-center justify-center text-realvo-blue dark:text-realvo-teal mb-6 group-hover:bg-realvo-blue group-hover:text-white transition-colors duration-300">
               <feature.icon size={28} strokeWidth={1.5} />
             </div>
+
             <h3 className="text-xl font-bold text-realvo-charcoal dark:text-white mb-3">
               {feature.title}
             </h3>
+
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
               {feature.description}
             </p>
