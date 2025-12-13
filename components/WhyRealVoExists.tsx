@@ -39,10 +39,7 @@ const WhyRealVoExists: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white leading-tight">
             Why RealVo{' '}
-            <span
-              ref={whyRef}
-              className="text-realvo-blue animate-pulse-once"
-            >
+            <span ref={whyRef} className="text-realvo-blue animate-pulse-once">
               Exists
             </span>
           </h2>
@@ -61,10 +58,14 @@ const WhyRealVoExists: React.FC = () => {
               />
             </div>
 
-            {/* Label */}
-            <p className="text-[13px] font-semibold uppercase tracking-[0.22em] text-gray-500">
-              For Organizations
-            </p>
+            {/* Eyebrow pill */}
+            <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
+              </span>
+              <span>For Organizations</span>
+            </div>
 
             {/* Intro copy */}
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -126,10 +127,14 @@ const WhyRealVoExists: React.FC = () => {
               />
             </div>
 
-            {/* Label */}
-            <p className="text-[13px] font-semibold uppercase tracking-[0.22em] text-gray-500">
-              For the People You Serve
-            </p>
+            {/* Eyebrow pill */}
+            <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
+              </span>
+              <span>For the People You Serve</span>
+            </div>
 
             {/* User subline */}
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
