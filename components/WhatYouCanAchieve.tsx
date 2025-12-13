@@ -5,8 +5,8 @@ import { Feature } from '../types';
 
 const features: Feature[] = [
   {
-    title: "Hear the real voices behind your data",
-    description: "Understand what people actually feel — not just what they select in a survey.",
+    title: "Understand what people are really experiencing",
+    description: "Hear tone, emotion, and nuance — the parts of communication that don’t fit into checkboxes, but matter most to people and communities.",
     icon: BarChart3,
   },
   {
