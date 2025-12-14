@@ -96,14 +96,13 @@ const FreeStandingKiosk: React.FC = () => {
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
             {/* Back link */}
-            <button
-              type="button"
-              className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
-              onClick={() => window.history.back()}
-            >
-              <span className="mr-1.5 text-base">←</span>
-              Back to Capture Options
-            </button>
+            <a
+  href="/#solutions"
+  className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
+>
+  <span className="mr-1.5 text-base">←</span>
+  Back to Capture Options
+</a>
 
             {/* Hero / Overview */}
 <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
