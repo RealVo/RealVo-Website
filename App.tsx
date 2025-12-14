@@ -23,6 +23,7 @@ import Section from './components/Section';
 import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
 import ImplementationProcess from './components/ImplementationProcess';
 import FreeStandingKiosk from './pages/FreeStandingKiosk';
+import DesktopTabletKiosk from './pages/DesktopTabletKiosk';
 
 // ------------------------
 // Home / Landing page
