@@ -94,20 +94,21 @@ const DesktopTabletKiosk: React.FC = () => {
            <a
   href="/#solutions"
   onClick={(e) => {
-    // Force an instant navigation to the Home page section (no smooth scroll)
     e.preventDefault();
 
+    // 1) Temporarily disable smooth scrolling
     const html = document.documentElement;
     const prev = html.style.scrollBehavior;
-
-    // Temporarily disable smooth scrolling (if enabled globally)
     html.style.scrollBehavior = 'auto';
 
-    // Hard navigate to the homepage hash (this will "snap")
-    window.location.href = '/#solutions';
+    // 2) Navigate to home without hash first (forces top)
+    window.location.href = '/';
 
-    // Restore (won't really matter because we're navigating, but safe)
-    html.style.scrollBehavior = prev;
+    // 3) After the route loads, set the hash and snap instantly
+    setTimeout(() => {
+      window.location.hash = 'solutions';
+      html.style.scrollBehavior = prev;
+    }, 0);
   }}
   className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
 >
