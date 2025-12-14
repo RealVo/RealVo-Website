@@ -391,13 +391,20 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+
         <Route
           path="/capture/private-enclosed-booth"
           element={<PrivateEnclosedBooth />}
         />
+
         <Route
           path="/capture/free-standing-kiosk"
           element={<FreeStandingKiosk />}
+        />
+
+        <Route
+          path="/capture/desktop-tablet-kiosk"
+          element={<DesktopTabletKiosk />}
         />
       </Routes>
     </Router>
