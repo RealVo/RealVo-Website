@@ -93,16 +93,6 @@ const DesktopTabletKiosk: React.FC = () => {
             {/* Back link */}
            <a
   href="/#solutions"
-  onClick={() => {
-    // Force snap scrolling for this navigation only
-    document.documentElement.style.scrollBehavior = 'auto';
-
-    // Allow browser to handle the anchor jump naturally
-    // (no preventDefault)
-    setTimeout(() => {
-      document.documentElement.style.scrollBehavior = '';
-    }, 0);
-  }}
   className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
 >
   <span className="mr-1.5 text-base">←</span>
