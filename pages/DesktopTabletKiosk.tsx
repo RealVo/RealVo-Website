@@ -93,21 +93,14 @@ const DesktopTabletKiosk: React.FC = () => {
             {/* Back link */}
            <a
   href="/#solutions"
-  onClick={(e) => {
-    e.preventDefault();
+  onClick={() => {
+    // Force snap scrolling for this navigation only
+    document.documentElement.style.scrollBehavior = 'auto';
 
-    // 1) Temporarily disable smooth scrolling
-    const html = document.documentElement;
-    const prev = html.style.scrollBehavior;
-    html.style.scrollBehavior = 'auto';
-
-    // 2) Navigate to home without hash first (forces top)
-    window.location.href = '/';
-
-    // 3) After the route loads, set the hash and snap instantly
+    // Allow browser to handle the anchor jump naturally
+    // (no preventDefault)
     setTimeout(() => {
-      window.location.hash = 'solutions';
-      html.style.scrollBehavior = prev;
+      document.documentElement.style.scrollBehavior = '';
     }, 0);
   }}
   className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
