@@ -17,19 +17,16 @@ const Header: React.FC = () => {
     const isHome =
       typeof window !== 'undefined' && window.location.pathname === '/';
 
-    // Always close mobile nav first
     setMobileOpen(false);
 
     if (isHome) {
       const el = document.getElementById(id);
       if (!el) return;
 
-      // Give the layout a moment to update, then scroll using scrollIntoView
       window.setTimeout(() => {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     } else {
-      // From a sub-page, go back to the homepage at the correct section
       window.location.href = `/#${id}`;
     }
   };
@@ -39,12 +36,17 @@ const Header: React.FC = () => {
 
     if (typeof window === 'undefined') return;
 
-    const { pathname } = window.location;
+    const { pathname, hash } = window.location;
     const isHome = pathname === '/';
 
     if (isHome) {
-      // Already on homepage: smooth scroll to top
+      // Smooth scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Clear hash so refresh loads the top of the page
+      if (hash) {
+        window.history.replaceState(null, '', '/');
+      }
     } else {
       // From any subpage: go to homepage root
       window.location.href = '/';
