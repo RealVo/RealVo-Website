@@ -93,6 +93,30 @@ const DesktopTabletKiosk: React.FC = () => {
             {/* Back link */}
            <a
   href="/#solutions"
+  onClick={(e) => {
+    // Snap (no smooth scroll) for this back link only
+    e.preventDefault();
+
+    const prefersReducedMotion =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const html = document.documentElement;
+
+    // Temporarily disable smooth scrolling (in case it's enabled globally)
+    const prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = prefersReducedMotion ? 'auto' : 'auto';
+
+    // Update the URL hash without triggering the default smooth scroll handler
+    window.history.pushState(null, '', '/#solutions');
+
+    // Snap instantly to the section
+    const el = document.getElementById('solutions');
+    if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    // Restore previous style
+    html.style.scrollBehavior = prev;
+  }}
   className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
 >
   <span className="mr-1.5 text-base">←</span>
