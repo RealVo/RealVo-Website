@@ -94,27 +94,19 @@ const DesktopTabletKiosk: React.FC = () => {
            <a
   href="/#solutions"
   onClick={(e) => {
-    // Snap (no smooth scroll) for this back link only
+    // Force an instant navigation to the Home page section (no smooth scroll)
     e.preventDefault();
 
-    const prefersReducedMotion =
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     const html = document.documentElement;
-
-    // Temporarily disable smooth scrolling (in case it's enabled globally)
     const prev = html.style.scrollBehavior;
-    html.style.scrollBehavior = prefersReducedMotion ? 'auto' : 'auto';
 
-    // Update the URL hash without triggering the default smooth scroll handler
-    window.history.pushState(null, '', '/#solutions');
+    // Temporarily disable smooth scrolling (if enabled globally)
+    html.style.scrollBehavior = 'auto';
 
-    // Snap instantly to the section
-    const el = document.getElementById('solutions');
-    if (el) el.scrollIntoView({ behavior: 'auto', block: 'start' });
+    // Hard navigate to the homepage hash (this will "snap")
+    window.location.href = '/#solutions';
 
-    // Restore previous style
+    // Restore (won't really matter because we're navigating, but safe)
     html.style.scrollBehavior = prev;
   }}
   className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
