@@ -133,7 +133,7 @@ const Hero: React.FC = () => {
 
           {/* Supporting copy */}
           <p className="mt-4 md:mt-5 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-snug md:leading-relaxed">
-            Through the power of video, RealVo uncovers real perspectives and
+            Through the power of video, uncover real perspectives and
             lived experiences that matter most — delivering insight and
             authentic stories for communication, culture, and brand
             storytelling.
