@@ -188,10 +188,7 @@ const WhyRealVoExists: React.FC = () => {
         </div>
 
         {/* Transition into "What You Can Achieve" */}
-        <p className="mt-6 md:mt-8 text-lg text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
-          When you remove those barriers and start hearing real voices, RealVo turns
-          that honesty into outcomes you can actually act on.
-        </p>
+                <p className="mt-6 md:mt-8 text-lg text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
       </div>
     </Section>
   );
