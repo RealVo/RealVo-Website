@@ -189,7 +189,7 @@ const WhyRealVoExists: React.FC = () => {
 
         {/* Transition into "What You Can Achieve" */}
 <p className="mt-8 text-3xl md:text-4xl font-normal leading-tight text-realvo-charcoal dark:text-white text-center max-w-4xl mx-auto">
-  Turn real human experiences into insight organizations can act on.
+  Capture real human experiences in a way that leads to action.
 </p>
       </div>
     </Section>
