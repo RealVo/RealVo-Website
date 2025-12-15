@@ -52,8 +52,8 @@ const WhyRealVoExists: React.FC = () => {
             {/* Image card for orgs */}
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-gray-900 aspect-[4/3]">
               <img
-                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
-                alt="Leaders reviewing charts and survey results in a boardroom"
+                src="/whyrealvo_fororganizations.jpg"
+                alt="Organizations gaining deeper insight through real human voices"
                 className="w-full h-full object-cover opacity-85"
               />
             </div>
@@ -121,8 +121,8 @@ const WhyRealVoExists: React.FC = () => {
             {/* Image card for users */}
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-gray-900 aspect-[4/3]">
               <img
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop"
-                alt="Person calmly recording a video message in a quiet space"
+                src="whyrealvo_peopleserved.jpg"
+                alt="People sharing their experiences in a calm, private recording space"
                 className="w-full h-full object-cover opacity-85"
               />
             </div>
