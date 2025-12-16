@@ -99,30 +99,28 @@ const DesktopTabletKiosk: React.FC = () => {
   Back to Capture Options
 </a>
 
-            {/* Hero / Overview */}
-<div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
-  {/* Image / hero visual */}
-  <div
+            {/* Image / hero visual */}
+<div className="
+    relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
+    shadow-sm border border-slate-200/70 dark:border-slate-800/80
+    flex items-center justify-center
+    px-3 sm:px-4
+    h-[320px] sm:h-[380px] lg:h-[430px]
+  "
+>
+  <img
+    src="/tablet_booth.png"
+    alt="RealVo Desktop Tablet Kiosk"
     className="
-      relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
-      shadow-sm border border-slate-200/70 dark:border-slate-800/80
-      flex items-center justify-center
-      px-3 sm:px-4
-      min-h-[320px] sm:min-h-[380px] lg:min-h-[430px]
+      max-w-full
+      max-h-full
+      w-auto
+      h-auto
+      object-contain
+      object-center
     "
-  >
-    <img
-      src="/tablet_booth.png"
-      alt="RealVo Desktop Tablet Kiosk"
-      className="
-        w-full
-        h-full
-        max-h-full
-        object-contain
-        object-center
-      "
-    />
-  </div>
+  />
+</div>
 
               {/* Text content */}
               <div className="space-y-5 sm:space-y-6">
