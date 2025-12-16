@@ -21,7 +21,7 @@ const features: Feature[] = [
   },
   {
     title: "Create content that carries meaning",
-    description: "Use real voices to inspire advocacy, build awareness, and support meaningful storytelling.",
+    description: "Use real voices to inspire advocacy, build awareness, and support authentic storytelling.",
     icon: Megaphone,
   },
 ];
