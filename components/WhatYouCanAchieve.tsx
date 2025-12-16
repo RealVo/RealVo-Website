@@ -20,8 +20,8 @@ const features: Feature[] = [
     icon: MessageSquare,
   },
   {
-    title: "Create content that amplifies your mission",
-    description: "Use real voices to fuel brand storytelling, inspire advocacy, and expand awareness.",
+    title: "Create content that carries meaning",
+    description: "Use real voices to inspire advocacy, build awareness, and support meaningful storytelling.",
     icon: Megaphone,
   },
 ];
@@ -62,9 +62,6 @@ const WhatYouCanAchieve: React.FC = () => {
             People Are Heard
           </span>{' '}
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
-          Capture real voices to deepen insights, improve communication, and drive engagement.
-        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
