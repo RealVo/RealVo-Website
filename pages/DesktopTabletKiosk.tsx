@@ -107,7 +107,7 @@ const DesktopTabletKiosk: React.FC = () => {
                   relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
                   shadow-sm border border-slate-200/70 dark:border-slate-800/80
                   flex items-center justify-center
-                  px-4 sm:px-6
+                  px-3 sm:px-4
                   min-h-[320px] sm:min-h-[380px] lg:min-h-[430px]
                 "
               >
@@ -115,9 +115,9 @@ const DesktopTabletKiosk: React.FC = () => {
                   src="/tablet_booth.png"
                   alt="RealVo Desktop Tablet Kiosk"
                   className="
-                    w-full sm:w-full lg:w-auto
+                    w-full
                     h-auto
-                    max-h-[320px] sm:max-h-[360px] lg:max-h-[415px]
+                    max-h-[380px] sm:max-h-[430px] lg:max-h-[520px]
                     object-contain object-center
                   "
                 />
