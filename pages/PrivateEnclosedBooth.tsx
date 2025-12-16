@@ -146,7 +146,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  The RealVo Private Enclosed Booth gives you a stand-out presence
+                  The Private Enclosed Booth gives you a stand-out presence
                   on-site. It invites participants to step away from the noise and
                   capture honest, high-quality messages — from feedback and
                   reflections to testimonials, well-wishes, and more.
