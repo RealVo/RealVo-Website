@@ -115,10 +115,9 @@ const DesktopTabletKiosk: React.FC = () => {
                   src="/tablet_booth.png"
                   alt="RealVo Desktop Tablet Kiosk"
                   className="
-                    max-w-full
-                    max-h-full
+                    h-full
                     w-auto
-                    h-auto
+                    max-w-full
                     object-contain
                     object-center
                   "
