@@ -99,8 +99,9 @@ const DesktopTabletKiosk: React.FC = () => {
   Back to Capture Options
 </a>
 
-            {/* Image / hero visual */}
-<div className="
+{/* Image / hero visual */}
+<div
+  className="
     relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
     shadow-sm border border-slate-200/70 dark:border-slate-800/80
     flex items-center justify-center
