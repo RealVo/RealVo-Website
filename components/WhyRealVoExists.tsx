@@ -11,8 +11,8 @@ const WhyRealVoExists: React.FC = () => {
     if (!node) return;
 
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting && node) {
             node.classList.remove('animate-pulse-once');
             // force reflow so the browser treats it as a new animation
@@ -43,6 +43,12 @@ const WhyRealVoExists: React.FC = () => {
               Real Voices
             </span>
           </h2>
+
+          {/* Subline */}
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+            Understanding comes from human communication — when people are given a
+            natural, private way to share in their own words.
+          </p>
         </div>
 
         {/* Two-column layout: Organizations (left) / Users (right) */}
@@ -67,11 +73,6 @@ const WhyRealVoExists: React.FC = () => {
               <span>For Organizations</span>
             </div>
 
-            {/* Intro copy */}
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Human communication drives understanding, empathy, and action — not just metrics.
-            </p>
-
             {/* Bullets – organization challenges */}
             <div className="space-y-4 text-sm md:text-base">
               <div>
@@ -79,8 +80,8 @@ const WhyRealVoExists: React.FC = () => {
                   Surveys miss the story.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  They’re good at tracking metrics, but not at capturing emotion, nuance, or
-                  the “why” behind how people feel and what they need.
+                  They’re good at tracking metrics, but not at capturing emotion, nuance,
+                  or the “why” behind how people feel and what they need.
                 </p>
               </div>
 
@@ -121,7 +122,7 @@ const WhyRealVoExists: React.FC = () => {
             {/* Image card for users */}
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-gray-900 aspect-[4/3]">
               <img
-                src="whyrealvo_peopleserved.jpg"
+                src="/whyrealvo_peopleserved.jpg"
                 alt="People sharing their experiences in a calm, private recording space"
                 className="w-full h-full object-cover opacity-85"
               />
@@ -136,13 +137,7 @@ const WhyRealVoExists: React.FC = () => {
               <span>For the People You Serve</span>
             </div>
 
-            {/* User subline */}
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              People share more — and share honestly — when the experience feels natural,
-              private, and on their terms.
-            </p>
-
-            {/* Bullets – why users embrace RealVo (explained for orgs) */}
+            {/* Bullets – why users embrace (explained for orgs) */}
             <div className="space-y-4 text-sm md:text-base">
               <div>
                 <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
@@ -188,9 +183,9 @@ const WhyRealVoExists: React.FC = () => {
         </div>
 
         {/* Transition into "What You Can Achieve" */}
-<p className="mt-10 text-2xl md:text-3xl text-gray-900 dark:text-white text-center max-w-5xl mx-auto leading-tight">
-  Capture real human experiences in a way that leads to action.
-</p>
+        <p className="mt-10 text-2xl md:text-3xl text-gray-900 dark:text-white text-center max-w-5xl mx-auto leading-tight">
+          Capture real human experiences in a way that leads to action.
+        </p>
       </div>
     </Section>
   );
