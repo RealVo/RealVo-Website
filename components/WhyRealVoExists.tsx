@@ -43,6 +43,10 @@ const WhyRealVoExists: React.FC = () => {
               Real Voices
             </span>
           </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+          Capture real human experiences in a way that leads to action.
+        </p>
+      </div>
         </div>
 
         {/* Two-column layout: Organizations (left) / Users (right) */}
