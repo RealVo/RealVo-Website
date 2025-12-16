@@ -38,9 +38,9 @@ const WhyRealVoExists: React.FC = () => {
         {/* Section heading */}
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white leading-tight">
-            Why RealVo{' '}
+            It Starts With{' '}
             <span ref={whyRef} className="text-realvo-blue animate-pulse-once">
-              Exists
+              Real Voices
             </span>
           </h2>
         </div>
