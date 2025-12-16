@@ -61,7 +61,6 @@ const WhatYouCanAchieve: React.FC = () => {
           >
             Achieve
           </span>{' '}
-          with RealVo
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
           Capture real voices to deepen insights, improve communication, and drive engagement.
