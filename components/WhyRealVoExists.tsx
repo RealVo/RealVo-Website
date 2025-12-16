@@ -47,7 +47,6 @@ const WhyRealVoExists: React.FC = () => {
           Capture real human experiences in a way that leads to action.
         </p>
       </div>
-        </div>
 
         {/* Two-column layout: Organizations (left) / Users (right) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
