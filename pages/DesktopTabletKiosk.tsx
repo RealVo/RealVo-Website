@@ -118,7 +118,7 @@ const DesktopTabletKiosk: React.FC = () => {
       w-auto
       object-contain
       object-center
-      scale-110
+      scale-125
     "
   />
 </div>
