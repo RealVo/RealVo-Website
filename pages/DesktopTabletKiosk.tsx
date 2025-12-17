@@ -261,30 +261,19 @@ const DesktopTabletKiosk: React.FC = () => {
 
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li className="pl-3 -indent-3">
-                    • <strong>Small, approachable presence</strong> that fits
-                    naturally on counters, desks, and reception areas.
+                    • <strong>Invites participation without instruction</strong>, using a clear, self-guided recording flow.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Always-available capture point</strong> for quick
-                    stories, check-ins, and feedback.
+                    • <strong>Supports both brief responses and deeper reflection</strong>, depending on the prompt and context.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Self-guided prompts</strong> support clear,
-                    structured content — from quick comments to deeper
-                    reflections.
+                    • <strong>Operates without active facilitation</strong>, allowing programs to run smoothly in the background.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Low-lift setup</strong> designed for ongoing
-                    programs, rotating locations, and shared spaces.
+                    • <strong>Brand-ready presentation</strong>, with on-screen UI and optional signage or skins based on placement.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Brand-ready presentation</strong> with on-screen UI
-                    and optional signage/skins depending on placement.
-                  </li>
-                  <li className="pl-3 -indent-3">
-                    • <strong>Integration with VideoBooth.tv</strong> – RealVo&apos;s
-                    online content management platform for uploads, approvals,
-                    and publishing.
+                    • <strong>Integrated with VideoBooth.tv</strong>, enabling centralized uploads, approvals, and publishing workflows.
                   </li>
                 </ul>
               </div>
