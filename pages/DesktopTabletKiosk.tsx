@@ -285,65 +285,68 @@ const DesktopTabletKiosk: React.FC = () => {
                 </h2>
                 <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 grid gap-y-3 sm:gap-y-4 sm:grid-cols-2 sm:gap-x-6">
                   <div>
+                    <p className="font-semibold">Tablet</p>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      Microsoft Surface
+                    </p>
                     <p className="font-semibold">Camera</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      High-definition capture (configurable per deployment).
+                      1080p full HD video (30 fps)
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Audio</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Integrated microphone (with optional external audio
+                      Dual far field studio microphones
                       support).
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Display &amp; interface</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Tablet-based touch interface with guided prompts.
+                      13" landscape touch display with branded UI and self-guided prompts
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Power</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Standard outlet (placement-friendly).
+                      Single standard 15A outlet (dedicated where possible)
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Internet</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Wi-Fi or Ethernet options with offline workflows.
+                      Wi-Fi with offline fallback workflows
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Storage</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Local storage + upload to VideoBooth.tv or export options.
+                      512GB Local SSD / USB export, VB.tv upload, or network transfer
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Footprint</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Countertop / desktop placement (no floor footprint
-                      required).
+                      Approx. 18"W x 10'D x 23"H
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Set up time</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Minutes to place and go live (program-dependent).
+                      ~.30 mins from arrival to first recording
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Branding surfaces</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      On-screen UI + optional signage and placement skins.
+                      Facia wrap and on-screen interface
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Support</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Client-managed or contracted RealVo support.
+                      Client-managed or contracted RealVo tech
                     </p>
                   </div>
                 </div>
