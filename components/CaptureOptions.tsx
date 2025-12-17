@@ -32,12 +32,12 @@ const options: CaptureOption[] = [
   {
     title: "Desktop Tablet Kiosk",
     description:
-      "Compact kiosk designed for flexible placement in offices, clinics, classrooms, and reception areas.",
+      "A compact capture point designed for desks, counters, and front-facing spaces where people naturally pause.",
     image: "/tablet_booth.png",
     features: [
-      "Countertop Friendly Size",
-      "Lightweight & Portable",
-      "Carry-on Friendly",
+      "Countertop-sized footprint",
+      "Quick to place and go live",
+      "Designed for ongoing use",
     ],
     href: "/capture/desktop-tablet-kiosk",
   },
