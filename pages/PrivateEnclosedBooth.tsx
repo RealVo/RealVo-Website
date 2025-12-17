@@ -280,9 +280,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                     means low client lift on-site.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Integration with VideoBooth.tv</strong> – RealVo&apos;s
-                    online content management platform for instant uploads,
-                    approvals, and publishing.
+                    • <strong>Integrated with VideoBooth.tv</strong>, enabling centralized uploads, approvals, and publishing workflows.
                   </li>
                 </ul>
               </div>
