@@ -35,7 +35,7 @@ const options: CaptureOption[] = [
       "A compact capture point designed for desks, counters, and front-facing spaces where people naturally pause.",
     image: "/tablet_booth.png",
     features: [
-      "Countertop-sized footprint",
+      "Fits naturally into everyday spaces",
       "Quick to place and go live",
       "Designed for ongoing use",
     ],
