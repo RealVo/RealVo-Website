@@ -305,7 +305,7 @@ const DesktopTabletKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Display &amp; interface</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      13" landscape touch display with branded UI and self-guided prompts
+                      13" landscape touch display
                     </p>
                   </div>
                   <div>
