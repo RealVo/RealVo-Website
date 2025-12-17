@@ -155,10 +155,7 @@ const DesktopTabletKiosk: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  Built for offices, clinics, classrooms, libraries, and front
-                  desks, the Desktop Tablet Kiosk makes it easy to capture quick
-                  stories, feedback, and reflections — without needing floor
-                  space or a full booth setup.
+                  Designed to support both short-term activations and ongoing initiatives, the Desktop Tablet Kiosk enables people to share perspectives and experiences through a simple, self-guided interaction.
                 </p>
 
                 {/* Primary CTA */}
