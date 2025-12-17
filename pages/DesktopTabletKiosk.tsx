@@ -290,6 +290,7 @@ const DesktopTabletKiosk: React.FC = () => {
                       Microsoft Surface
                     </p>
                   </div>
+                  <div>
                     <p className="font-semibold">Camera</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       1080p full HD video (30 fps)
@@ -299,7 +300,6 @@ const DesktopTabletKiosk: React.FC = () => {
                     <p className="font-semibold">Audio</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       Dual far field studio microphones
-                      support).
                     </p>
                   </div>
                   <div>
