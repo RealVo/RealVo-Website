@@ -284,7 +284,7 @@ const FreeStandingKiosk: React.FC = () => {
                     • <strong>Rapid setup + go-live</strong> (managed by client or contracted RealVo tech).
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Integration with VideoBooth.tv</strong> – RealVo's online content management platform for instant uploads, approvals, and publishing.
+                    • <strong>Integrated with VideoBooth.tv</strong>, enabling centralized uploads, approvals, and publishing workflows.
                   </li>
                 </ul>
               </div>
