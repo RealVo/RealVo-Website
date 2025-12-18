@@ -305,13 +305,13 @@ const DesktopTabletKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Display &amp; interface</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      13" landscape touch display
+                      13" landscape touch screen
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Power</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Single standard 15A outlet (dedicated where possible)
+                      Single standard 15A outlet
                     </p>
                   </div>
                   <div>
@@ -327,15 +327,13 @@ const DesktopTabletKiosk: React.FC = () => {
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold">Footprint</p>
-                    <p className="text-slate-600 dark:text-slate-300">
-                      Approx. 18"W x 10'D x 23"H
-                    </p>
-                  </div>
-                  <div>
                     <p className="font-semibold">Set up time</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       ~.30 mins from arrival to first recording
+                    </p>
+                    <p className="font-semibold">Footprint</p>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      Approx. 18"W x 10'D x 23"H
                     </p>
                   </div>
                   <div>
@@ -347,7 +345,7 @@ const DesktopTabletKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Support</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Client-managed or contracted RealVo tech
+                      Client-managed or contracted tech
                     </p>
                   </div>
                 </div>
