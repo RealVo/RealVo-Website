@@ -331,6 +331,8 @@ const DesktopTabletKiosk: React.FC = () => {
                     <p className="text-slate-600 dark:text-slate-300">
                       ~.30 mins from arrival to first recording
                     </p>
+                  </div>
+                  <div>
                     <p className="font-semibold">Footprint</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       Approx. 18"W x 10'D x 23"H
