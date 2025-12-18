@@ -344,12 +344,6 @@ const DesktopTabletKiosk: React.FC = () => {
                       Facia wrap and on-screen interface
                     </p>
                   </div>
-                  <div>
-                    <p className="font-semibold">Support</p>
-                    <p className="text-slate-600 dark:text-slate-300">
-                      Client-managed or contracted tech
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
