@@ -132,7 +132,7 @@ const DesktopTabletKiosk: React.FC = () => {
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                     Desktop Tablet Kiosk
                     <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-1">
-                      Built for programs that need a simple, always-available way to capture stories, feedback, and reflections — without floor space or a full booth setup.
+                      Built for programs that need a simple, always-on way to capture stories, feedback, and reflections — without floor space or a full booth setup.
                     </span>
                   </h1>
                 </div>
