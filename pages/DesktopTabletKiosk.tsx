@@ -140,7 +140,7 @@ const DesktopTabletKiosk: React.FC = () => {
                 {/* Tags / Feature Pills */}
                 <div className="flex flex-wrap gap-2">
                   {[
-                    'Always-on capture availability',
+                    'Set up in minutes',
                     'Self-guided recording UX',
                     'Lightweight & portable',
                     'Carry-on friendly',
