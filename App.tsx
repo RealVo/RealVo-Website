@@ -24,7 +24,6 @@ import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
 import ImplementationProcess from './components/ImplementationProcess';
 import FreeStandingKiosk from './pages/FreeStandingKiosk';
 import DesktopTabletKiosk from './pages/DesktopTabletKiosk';
-import VirtualVideoBooth from './pages/VirtualVideoBooth';
 
 // ------------------------
 // Home / Landing page
@@ -37,7 +36,7 @@ const HomePage: React.FC = () => {
   const [contactInView, setContactInView] = useState(false);
   const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
 
-  // Watch the URL hash and scroll to the matching section when needed
+  // 👇 Watch the URL hash and scroll to the matching section when needed
   const location = useLocation();
 
   useEffect(() => {
@@ -50,8 +49,9 @@ const HomePage: React.FC = () => {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
+    // small timeout to ensure layout is ready
     setTimeout(scrollToTarget, 0);
-  }, [location.hash]);
+  }, [location]);
 
   // Format as 555-123-4567 while typing
   const formatPhone = (value: string) => {
@@ -126,7 +126,7 @@ const HomePage: React.FC = () => {
         <Hero />
         <TrustedBy />
 
-        {/* Why RealVo Exists section */}
+        {/* NEW: Why RealVo Exists section */}
         <WhyRealVoExists />
 
         <WhatYouCanAchieve />
@@ -239,6 +239,7 @@ const HomePage: React.FC = () => {
                       </option>
                       <option value="Canada">Canada</option>
                       <option value="United States">United States</option>
+                      {/* …rest of your country options… */}
                     </select>
                   </div>
 
@@ -361,7 +362,9 @@ const HomePage: React.FC = () => {
                     Submit
                   </Button>
 
-                  <p className="mt-2 text-xs text-gray-400">* Required fields</p>
+                  <p className="mt-2 text-xs text-gray-400">
+                    * Required fields
+                  </p>
 
                   {submitted && (
                     <p className="mt-2 text-sm text-green-600">
@@ -403,11 +406,6 @@ const App: React.FC = () => {
         <Route
           path="/capture/desktop-tablet-kiosk"
           element={<DesktopTabletKiosk />}
-        />
-
-        <Route
-          path="/capture/virtual-video-booth"
-          element={<VirtualVideoBooth />}
         />
       </Routes>
     </Router>
