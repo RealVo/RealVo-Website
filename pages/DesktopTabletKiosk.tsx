@@ -261,19 +261,19 @@ const DesktopTabletKiosk: React.FC = () => {
 
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li className="pl-3 -indent-3">
-                    • <strong>Invites participation without instruction</strong>, using a clear, self-guided recording flow.
+                    • <strong>Invites participation without instruction</strong>, using a clear, self-guided recording flow
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Supports both brief responses and deeper reflection</strong>, depending on the prompt and context.
+                    • <strong>Supports both brief responses and deeper reflection</strong>, depending on the prompt and context
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Operates without active facilitation</strong>, allowing programs to run smoothly in the background.
+                    • <strong>Operates without active facilitation</strong>, allowing programs to run smoothly in the background
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Brand-ready presentation</strong>, with on-screen UI and optional signage or skins based on placement.
+                    • <strong>Brand-ready presentation</strong>, with on-screen UI and optional signage or skins based on placement
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Integrated with VideoBooth.tv</strong>, enabling centralized uploads, approvals, and publishing workflows.
+                    • <strong>Integrated with VideoBooth.tv</strong>, enabling centralized uploads, approvals, and publishing workflows
                   </li>
                 </ul>
               </div>
@@ -355,12 +355,12 @@ const DesktopTabletKiosk: React.FC = () => {
                   Ideal use cases
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-                  <li>Workplace onboarding, training, and pulse moments.</li>
-                  <li>Conference and trade show booths near product demo zones.</li>
-                  <li>Libraries, classrooms, and campus common areas.</li>
-                  <li>Waiting rooms, clinics, and healthcare staff break areas.</li>
-                  <li>Lobbies, corridors, and shared visitor spaces.</li>
-                  <li>Town halls, community events, and rotating pop-up placements.</li>
+                  <li>Workplace onboarding, training, and pulse moments</li>
+                  <li>Conference and trade show booths near product demo zones</li>
+                  <li>Libraries, classrooms, and campus common areas</li>
+                  <li>Waiting rooms, clinics, and healthcare staff break areas</li>
+                  <li>Lobbies, corridors, and shared visitor spaces</li>
+                  <li>Town halls, community events, and rotating pop-up placements</li>
                 </ul>
               </div>
               <div>
@@ -368,11 +368,11 @@ const DesktopTabletKiosk: React.FC = () => {
                   Customization options
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-                  <li>Audio, text, and photo capture support.</li>
-                  <li>Guided prompts tailored to your program goals.</li>
-                  <li>Branded on-screen interface (intros, outro, and overlays).</li>
-                  <li>Placement signage and optional skins depending on location.</li>
-                  <li>Instant upload to VideoBooth.tv &amp; flexible integrations.</li>
+                  <li>Audio, text, and photo capture support</li>
+                  <li>Guided prompts tailored to your program goals</li>
+                  <li>Branded on-screen interface (intros, outro, and overlays)</li>
+                  <li>Placement signage and optional skins depending on location./li>
+                  <li>Instant upload to VideoBooth.tv &amp; flexible integrations</li>
                 </ul>
               </div>
             </div>
