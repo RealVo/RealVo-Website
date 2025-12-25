@@ -355,11 +355,12 @@ const DesktopTabletKiosk: React.FC = () => {
                   Ideal use cases
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-                  <li>Reception areas and waiting rooms (ongoing feedback).</li>
-                  <li>Clinics and care settings (reflections and experiences).</li>
-                  <li>Campus hubs (student voice + program check-ins).</li>
-                  <li>Workplace onboarding, training, and pulse moments.</li>
-                  <li>Community programs and rotating pop-up placements.</li>
+                  <li>Office environments, onboarding areas, and internal feedback stations.</li>
+                  <li>Conference and trade show booths near product demo zones.</li>
+                  <li>Libraries, classrooms, and campus common areas.</li>
+                  <li>Waiting rooms, clinics, and healthcare staff break areas.</li>
+                  <li>Lobbies, corridors, and shared visitor spaces.</li>
+                  <li>Town halls, community events, and rotating pop-up placements.</li>
                 </ul>
               </div>
               <div>
