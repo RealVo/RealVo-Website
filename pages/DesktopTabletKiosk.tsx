@@ -141,6 +141,7 @@ const DesktopTabletKiosk: React.FC = () => {
                 <div className="flex flex-wrap gap-2">
                   {[
                     'Set up in minutes',
+                    'Adjustable height',
                     'Self-guided recording UX',
                     'Lightweight & portable',
                     'Carry-on friendly',
