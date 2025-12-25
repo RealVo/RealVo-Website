@@ -371,7 +371,7 @@ const DesktopTabletKiosk: React.FC = () => {
                   <li>Audio, text, and photo capture support</li>
                   <li>Guided prompts tailored to your program goals</li>
                   <li>Branded on-screen interface (intros, outro, and overlays)</li>
-                  <li>Placement signage and optional skins depending on location./li>
+                  <li>Placement signage and optional skins depending on location</li>
                   <li>Instant upload to VideoBooth.tv &amp; flexible integrations</li>
                 </ul>
               </div>
