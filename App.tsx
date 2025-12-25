@@ -408,6 +408,11 @@ const App: React.FC = () => {
           path="/capture/desktop-tablet-kiosk"
           element={<DesktopTabletKiosk />}
         />
+
+	<Route
+          path="/capture/private-enclosed-booth"
+          element={<VirtualVideoBooth />}
+        />
       </Routes>
     </Router>
   );
