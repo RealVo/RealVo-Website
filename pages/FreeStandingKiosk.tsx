@@ -298,7 +298,7 @@ const FreeStandingKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Camera</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      High-definition 1080p camera (30 fps)
+                      High-definition 1080p (30 fps)
                     </p>
                   </div>
                   <div>
