@@ -24,7 +24,6 @@ import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
 import ImplementationProcess from './components/ImplementationProcess';
 import FreeStandingKiosk from './pages/FreeStandingKiosk';
 import DesktopTabletKiosk from './pages/DesktopTabletKiosk';
-import DesktopTabletKiosk from './pages/VirtualVideoBooth';
 
 // ------------------------
 // Home / Landing page
