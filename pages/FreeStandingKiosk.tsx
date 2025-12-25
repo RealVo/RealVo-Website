@@ -281,7 +281,7 @@ const FreeStandingKiosk: React.FC = () => {
                     • <strong>Self-guided prompts</strong> support clear, structured content — from quick feedback to deeper reflections.
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Rapid setup + go-live</strong> (managed by client or contracted RealVo tech).
+                    • <strong>Rapid setup + go-live</strong> (managed by client or contracted tech).
                   </li>
                   <li className="pl-3 -indent-3">
                     • <strong>Integrated with VideoBooth.tv</strong>, enabling centralized uploads, approvals, and publishing workflows.
