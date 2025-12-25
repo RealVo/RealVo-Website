@@ -24,7 +24,6 @@ import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
 import ImplementationProcess from './components/ImplementationProcess';
 import FreeStandingKiosk from './pages/FreeStandingKiosk';
 import DesktopTabletKiosk from './pages/DesktopTabletKiosk';
-import VirtualVideoBooth from './pages/VirtualVideoBooth';
 
 // ------------------------
 // Home / Landing page
@@ -407,11 +406,6 @@ const App: React.FC = () => {
         <Route
           path="/capture/desktop-tablet-kiosk"
           element={<DesktopTabletKiosk />}
-        />
-
-		<Route
-          path="/capture/virtual-video-booth"
-          element={<VirtualVideoBooth />}
         />
       </Routes>
     </Router>
