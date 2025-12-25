@@ -36,7 +36,7 @@ const VirtualVideoBooth: React.FC = () => {
                 "
               >
                 <img
-                  src="/capture/virtual-video-booth/virtual-hero.jpg"
+                  src="/virtual_booth.png"
                   alt="RealVo Virtual Video Booth"
                   className="h-full w-auto object-contain object-center"
                 />
