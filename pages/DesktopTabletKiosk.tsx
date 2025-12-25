@@ -132,7 +132,7 @@ const DesktopTabletKiosk: React.FC = () => {
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                     Desktop Tablet Kiosk
                     <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-1">
-                      Designed for environments with limited space, the Desktop Tablet Kiosk supports flexible deployment on a desktop, wall-mounted, or within a custom enclosure.
+                      A compact, purpose-built solution for environments where space is limited or mobility is essential.
                     </span>
                   </h1>
                 </div>
@@ -155,7 +155,7 @@ const DesktopTabletKiosk: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  Designed to support both short-term activations and ongoing initiatives, the Desktop Tablet Kiosk enables people to share perspectives and experiences through a simple, self-guided interaction.
+                  The Desktop Tablet Kiosk supports flexible deployment on desktops, countertops, wall mounts, or within custom enclosures—making it ideal for trade show booths, lobbies, offices, libraries, and town halls.
                 </p>
 
                 {/* Primary CTA */}
