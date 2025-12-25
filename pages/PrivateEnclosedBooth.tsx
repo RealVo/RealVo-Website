@@ -306,20 +306,20 @@ const PrivateEnclosedBooth: React.FC = () => {
                    <div>
                     <p className="font-semibold">Lighting</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Studio soft lighting optimized for flattering skin tones
+                      Studio soft lighting optimized for flattering skin tones.
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Power</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Single standard 15A outlet (dedicated where possible)
+                      Single standard 15A outlet (dedicated where possible).
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Internet</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       10 Mbps up/down preferred (offline fallback options
-                      available)
+                      available).
                     </p>
                   </div>
                   <div>
@@ -331,25 +331,25 @@ const PrivateEnclosedBooth: React.FC = () => {
                   <div>
                     <p className="font-semibold">Footprint</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Approx. 8&apos;W x 8&apos;L x 8&apos;H (plus queue space)
+                      Approx. 8&apos;W x 8&apos;L x 8&apos;H (plus queue space).
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Set up time</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      ~1.5–2 hours from arrival to first recording
+                      ~1.5–2 hours from arrival to first recording.
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Branding surfaces</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Exterior wrap, interior backdrop, and screen interface
+                      Exterior wrap, interior backdrop, and screen interface.
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">On-site support</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      RealVo technician(s) or trained partner staff
+                      RealVo technician(s) or trained partner staff.
                     </p>
                   </div>
                 </div>
@@ -363,12 +363,12 @@ const PrivateEnclosedBooth: React.FC = () => {
                   Ideal use cases
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-                  <li>Employee &amp; leadership storytelling</li>
-                  <li>Customer or patient testimonials</li>
-                  <li>Student, alumni &amp; donor reflections</li>
-                  <li>Wellness &amp; community voice programs</li>
-                  <li>Conference insights &amp; speaker reactions</li>
-                  <li>Innovation feedback &amp; idea capture</li>
+                  <li>Employee &amp; leadership storytelling.</li>
+                  <li>Customer or patient testimonials.</li>
+                  <li>Student, alumni &amp; donor reflections.</li>
+                  <li>Wellness &amp; community voice programs.</li>
+                  <li>Conference insights &amp; speaker reactions.</li>
+                  <li>Innovation feedback &amp; idea capture.</li>
                 </ul>
               </div>
 
@@ -377,12 +377,12 @@ const PrivateEnclosedBooth: React.FC = () => {
                   Customization options
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-                  <li>Audio, text, and photo capture support</li>
-                  <li>Immersive branded interface (video intros + voice-over prompts)</li>
-                  <li>Full exterior + interior creative branding</li>
-                  <li>White-label activation ready</li>
-                  <li>External display options (live-feed, promo reel, or user content)</li>
-                  <li>Instant upload to VideoBooth.tv &amp; media integrations</li>
+                  <li>Audio, text, and photo capture support.</li>
+                  <li>Immersive branded interface (video intros + voice-over prompts).</li>
+                  <li>Full exterior + interior creative branding.</li>
+                  <li>White-label activation ready.</li>
+                  <li>External display options (live-feed, promo reel, or user content).</li>
+                  <li>Instant upload to VideoBooth.tv &amp; media integrations.</li>
                 </ul>
               </div>
             </div>
