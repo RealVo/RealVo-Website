@@ -269,22 +269,22 @@ const FreeStandingKiosk: React.FC = () => {
 
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li className="pl-3 -indent-3">
-                    • <strong>Sleek lines and inviting shapes</strong> ensure it will fit into any environment.
+                    • <strong>Sleek lines and inviting shapes</strong> ensure it will fit into any environment
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Compact footprint</strong> while still offering a strong branded presence.
+                    • <strong>Compact footprint</strong> while still offering a strong branded presence
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Open, standing-height design</strong> encourages spontaneous participation in high-traffic spaces.
+                    • <strong>Open, standing-height design</strong> encourages spontaneous participation in high-traffic spaces
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Self-guided prompts</strong> support clear, structured content — from quick feedback to deeper reflections.
+                    • <strong>Self-guided prompts</strong> support clear, structured content — from quick feedback to deeper reflections
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Rapid setup + go-live</strong> (managed by client or contracted tech).
+                    • <strong>Rapid setup + go-live</strong> (managed by client or contracted tech)
                   </li>
                   <li className="pl-3 -indent-3">
-                    • <strong>Integrated with VideoBooth.tv</strong>, enabling centralized uploads, approvals, and publishing workflows.
+                    • <strong>Integrated with VideoBooth.tv</strong>, enabling centralized uploads, approvals, and publishing workflows
                   </li>
                 </ul>
               </div>
@@ -298,63 +298,63 @@ const FreeStandingKiosk: React.FC = () => {
                   <div>
                     <p className="font-semibold">Camera</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      High-definition 1080p camera (30 fps).
+                      High-definition 1080p camera (30 fps)
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Audio</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Integrated directional microphone + external XLR connection.
+                      Integrated directional microphone + external XLR connection
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Display &amp; interface</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       19&quot; portrait touch display with branded UI and
-                      self-guided prompts.
+                      self-guided prompts
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Power</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Single standard 15A outlet (dedicated where possible).
+                      Single standard 15A outlet (dedicated where possible)
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Internet</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Ethernet and Wi-Fi options with offline fallback workflows.
+                      Ethernet and Wi-Fi options with offline fallback workflows
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Storage</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      970GB Local SSD / USB export, VB.tv upload, or network transfer.
+                      970GB Local SSD / USB export, VB.tv upload, or network transfer
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Footprint</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Approx. 6&apos;W x 6&apos;L x 8&apos;H (plus queue space).
+                      Approx. 6&apos;W x 6&apos;L x 8&apos;H (plus queue space)
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Set up time</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      ~.30–1 hour from arrival to first recording.
+                      ~.30–1 hour from arrival to first recording
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">Branding surfaces</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       Kiosk body wrap, on-screen interface, and optional floor
-                      decals.
+                      decals
                     </p>
                   </div>
                   <div>
                     <p className="font-semibold">On-site support</p>
                     <p className="text-slate-600 dark:text-slate-300">
-                      Client-managed or contracted tech.
+                      Client-managed or contracted tech
                     </p>
                   </div>
                 </div>
@@ -368,11 +368,11 @@ const FreeStandingKiosk: React.FC = () => {
                   Ideal use cases
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-                  <li>Event &amp; tradeshow engagement in open areas.</li>
-                  <li>Product feedback or launch reactions near demo zones.</li>
-                  <li>Customer or visitor testimonials in lobbies or corridors.</li>
-                  <li>Training or workshop reflections outside session rooms.</li>
-                  <li>Community or public program feedback in shared spaces.</li>
+                  <li>Event &amp; tradeshow engagement in open areas</li>
+                  <li>Product feedback or launch reactions near demo zones</li>
+                  <li>Customer or visitor testimonials in lobbies or corridors</li>
+                  <li>Training or workshop reflections outside session rooms</li>
+                  <li>Community or public program feedback in shared spaces</li>
                 </ul>
               </div>
               <div>
@@ -380,19 +380,19 @@ const FreeStandingKiosk: React.FC = () => {
                   Customization options
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-                  <li>Audio, text, and photo capture support.</li>
+                  <li>Audio, text, and photo capture support</li>
                   <li>
-                    Immersive branded interface (video intros + voice-over prompts).
+                    Immersive branded interface (video intros + voice-over prompts)
                   </li>
-                  <li>Full exterior kiosk wrap plus on-screen brand elements.</li>
-                  <li>White-label activation ready for agency or partner use.</li>
+                  <li>Full exterior kiosk wrap plus on-screen brand elements</li>
+                  <li>White-label activation ready for agency or partner use</li>
                   <li>
                     External display options (live-feed, promo reel, or user
-                    content).
+                    content)
                   </li>
                   <li>
                     Instant upload to VideoBooth.tv &amp; flexible media
-                    integrations.
+                    integrations
                   </li>
                 </ul>
               </div>
