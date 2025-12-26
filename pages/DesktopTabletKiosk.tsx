@@ -11,15 +11,15 @@ const BOOTH_ACTION_IMAGES = [
     alt: 'RealVo Desktop Tablet Kiosk – office activation',
   },
   {
-    src: '/capture/desktop-tablet-kiosk/dtvk-college-2.png',
+    src: '/capture/desktop-tablet-kiosk/dtvk-college-2.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – college activation 1',
   },
   {
-    src: '/capture/desktop-tablet-kiosk/dtvk-healthcare-2.png',
+    src: '/capture/desktop-tablet-kiosk/dtvk-healthcare-2.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – healthcare activation 1',
   },
   {
-    src: '/capture/desktop-tablet-kiosk/dtvk-community-3.png',
+    src: '/capture/desktop-tablet-kiosk/dtvk-community-3.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – community activation 1',
   },
   {
@@ -27,15 +27,15 @@ const BOOTH_ACTION_IMAGES = [
     alt: 'RealVo Desktop Tablet Kiosk – tradeshow activation',
   },
   {
-    src: '/capture/desktop-tablet-kiosk/dtvk-college-4.png',
+    src: '/capture/desktop-tablet-kiosk/dtvk-college-4.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – college activation 2',
   },
    {
-  src: '/capture/desktop-tablet-kiosk/dtvk-healthcare-1.png',
+  src: '/capture/desktop-tablet-kiosk/dtvk-healthcare-1.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – healthcare activation 2',
   },
   {
-    src: '/capture/desktop-tablet-kiosk/dtvk-community-6.png',
+    src: '/capture/desktop-tablet-kiosk/dtvk-community-6.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – community activation 2',
   },
   {
