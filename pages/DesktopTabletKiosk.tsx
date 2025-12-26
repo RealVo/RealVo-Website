@@ -11,7 +11,7 @@ const BOOTH_ACTION_IMAGES = [
     alt: 'RealVo Desktop Tablet Kiosk – office activation',
   },
   {
-    src: '/capture/desktop-tablet-kiosk/dtvk-college-4.png',
+    src: '/capture/desktop-tablet-kiosk/dtvk-college-2.png',
     alt: 'RealVo Desktop Tablet Kiosk – college activation 1',
   },
   {
@@ -43,8 +43,8 @@ const BOOTH_ACTION_IMAGES = [
     alt: 'RealVo Desktop Tablet Kiosk – auto show activation',
   },
   {
-  src: '/capture/desktop-tablet-kiosk/dtvk-healthcare-1.png',
-    alt: 'RealVo Desktop Tablet Kiosk – healthcare activation 2',
+  src: '/capture/desktop-tablet-kiosk/dtvk-150th.jpg',
+    alt: 'RealVo Desktop Tablet Kiosk – 150th activation',
   },
   {
   src: '/capture/desktop-tablet-kiosk/dtvk-product-launch.jpg',
