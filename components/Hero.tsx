@@ -131,13 +131,24 @@ const Hero: React.FC = () => {
             </span>
           </h1>
 
-          {/* Supporting copy */}
-          <p className="mt-4 md:mt-5 text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl leading-snug md:leading-relaxed">
-            Through the power of video, uncover real perspectives and
-            lived experiences that matter most — delivering insight and
-            authentic stories for communication, culture, and brand
-            storytelling.
-          </p>
+          {/* Updated supporting copy */}
+          <div className="space-y-4 md:space-y-5 max-w-3xl">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-snug md:leading-relaxed">
+              When people are given a natural, private way to speak in their own
+              words, understanding, trust, and meaningful insight follow.
+            </p>
+
+            {/* Turnkey supporting line (descriptor) */}
+            <div className="max-w-2xl">
+              <div className="h-px w-16 bg-gray-200 dark:bg-gray-700 mb-3" />
+              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 leading-snug">
+                <span className="italic">
+                  A fully managed video-capture program — from strategy and
+                  design to deployment, management, and insight.
+                </span>
+              </p>
+            </div>
+          </div>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
@@ -207,3 +218,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
