@@ -207,12 +207,14 @@ const WhyRealVoExists: React.FC = () => {
       </div>
     </div>
 
-    <p className="mt-4 text-2xl md:text-3xl font-semibold text-realvo-charcoal dark:text-white leading-snug">
-      When people are truly heard,
-      <span className="block mt-1 font-bold">
-        meaningful change follows.
-      </span>
-    </p>
+    <p className="mt-4 text-2xl md:text-3xl font-semibold leading-snug">
+  <span className="block text-gray-500 dark:text-gray-400">
+    When people are truly heard,
+  </span>
+  <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
+    meaningful change follows.
+  </span>
+</p>
   </div>
 </div>
 
