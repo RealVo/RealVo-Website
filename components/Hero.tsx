@@ -123,57 +123,45 @@ const Hero: React.FC = () => {
           </p>
 
           {/* CTA */}
-          <div className="pt-4">
-            <Button
-              size="lg"
-              variant="primary"
-              onClick={() => scrollToSection('contact')}
-            >
-              Request Pricing &amp; Availability
-            </Button>
-          </div>
-        </div>
+<div className="pt-4">
+  <Button
+    size="lg"
+    variant="primary"
+    onClick={() => scrollToSection('contact')}
+  >
+    Request Pricing &amp; Availability
+  </Button>
+</div>
+</div>
 
-        {/* RIGHT COLUMN — LANDSCAPE IMAGE */}
-        <div className="lg:col-span-5 relative">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
-            <img
-              src="/capture/hero/booth-user-3.png"
-              alt="RealVo video capture participant"
-              className="w-full h-full object-cover"
-            />
+{/* RIGHT COLUMN — LANDSCAPE IMAGE */}
+<div className="lg:col-span-5 relative">
+  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
+    <img
+      src="/capture/hero/booth-user-3.png"
+      alt="RealVo video capture participant"
+      className="w-full h-full object-cover"
+    />
+  </div>
 
-            {/* Recording Overlay */}
-            <div className="absolute bottom-6 left-6 right-6 bg-black/50 backdrop-blur-md text-white p-4 rounded-xl">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
-                <span className="text-xs uppercase tracking-wider font-semibold">
-                  Recording in progress
-                </span>
-              </div>
-              <p className="italic text-sm">
-                “This program really changed how I view leadership…”
-              </p>
-            </div>
-          </div>
-
-          {/* Insight Card */}
-          <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-3">
-            <div className="bg-green-100 p-2 rounded-full text-green-600">
-              ✓
-            </div>
-            <div>
-              <p className="font-semibold text-sm">Insight Captured</p>
-              <p className="text-xs text-gray-500">Ready for analysis</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
+  {/* Insight Card */}
+  <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-3">
+    <div className="bg-green-100 p-2 rounded-full text-green-600">
+      ✓
+    </div>
+    <div>
+      <p className="font-semibold text-sm">Insight Captured</p>
+      <p className="text-xs text-gray-500">Ready for analysis</p>
+    </div>
+  </div>
+</div>
+</div>
+</Section>
+);
 };
 
 export default Hero;
+
 
 
 
