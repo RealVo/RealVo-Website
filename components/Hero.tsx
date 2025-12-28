@@ -145,19 +145,23 @@ const Hero: React.FC = () => {
   </div>
 
   {/* Insight Card */}
-  <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-3">
-    <div className="bg-green-100 p-2 rounded-full text-green-600">
-      ✓
-    </div>
-    <div>
-      <p className="font-semibold text-sm">Insight Captured</p>
-      <p className="text-xs text-gray-500">Ready for analysis</p>
-    </div>
-  </div>
-</div>
-</div>
-</Section>
-);
+          <div className="absolute -bottom-5 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3">
+            <div className="bg-green-100 p-2 rounded-full text-green-600 flex items-center justify-center w-9 h-9">
+              ✓
+            </div>
+            <div className="leading-tight">
+              <p className="font-semibold text-sm text-realvo-charcoal">
+                Uploaded
+              </p>
+              <p className="text-xs text-gray-500">
+                Queued for review
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
 };
 
 export default Hero;
