@@ -175,21 +175,43 @@ const WhyRealVoExists: React.FC = () => {
         </div>
 
         {/* Transition Insight Card */}
-<div className="mt-20 mb-24 flex justify-center">
+<div className="mt-20 mb-28 flex justify-center">
   <div
     className="
+      relative
       bg-white dark:bg-gray-900
       border border-gray-200 dark:border-gray-800
       rounded-2xl
       px-10 py-8
-      shadow-sm
+      shadow-md
       max-w-3xl
       text-center
     "
   >
-    <p className="text-2xl md:text-3xl font-semibold text-realvo-charcoal dark:text-white leading-snug">
+    {/* Icon badge */}
+    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+      <div className="bg-realvo-light dark:bg-gray-800 p-3 rounded-full shadow-sm">
+        <svg
+          className="w-5 h-5 text-realvo-teal"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <p className="mt-4 text-2xl md:text-3xl font-semibold text-realvo-charcoal dark:text-white leading-snug">
       When people are truly heard,
-      <span className="block mt-1">meaningful change follows.</span>
+      <span className="block mt-1 font-bold">
+        meaningful change follows.
+      </span>
     </p>
   </div>
 </div>
