@@ -86,15 +86,15 @@ const ImplementationProcess: React.FC = () => {
     >
       <div className="rounded-3xl bg-realvo-teal/10 px-5 py-8 md:px-10 md:py-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-4">
-            Your Guided Path to a{' '}
-            <span
-              ref={headlineSpanRef}
-              className="text-realvo-blue animate-pulse-once"
-            >
-              Successful Program
-            </span>
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-4">
+  Your Guided Path to a{' '}
+  <span
+    ref={headlineSpanRef}
+    className="text-realvo-teal animate-pulse-once"
+  >
+    Successful Program
+  </span>
+</h2>
           <p className="text-lg text-gray-700">
             We partner with you from first idea to ongoing support, so your
             capture experience launches smoothly and keeps delivering value.
