@@ -153,20 +153,20 @@ const HomePage: React.FC = () => {
             {/* Left Column */}
             <div className="space-y-6">
               <h2
-                ref={contactHeadlineRef}
-                className="text-3xl md:text-4xl font-bold text-realvo-charcoal tracking-tight"
-              >
-                Ready to{' '}
-                <span
-                  className={
-                    contactInView
-                      ? 'text-realvo-blue animate-pulse-once'
-                      : 'text-realvo-blue'
-                  }
-                >
-                  hear real voices?
-                </span>
-              </h2>
+  ref={contactHeadlineRef}
+  className="text-3xl md:text-4xl font-bold text-realvo-charcoal tracking-tight"
+>
+  Ready to{' '}
+  <span
+    className={
+      contactInView
+        ? 'text-realvo-blue animate-pulse-once'
+        : 'text-realvo-blue'
+    }
+  >
+    hear real voices?
+  </span>
+</h2>
               <p className="text-lg text-gray-600">
                 Tell us a little about your program — goals, timing, and where
                 you’ll be capturing voices.
