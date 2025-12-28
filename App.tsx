@@ -154,7 +154,7 @@ const HomePage: React.FC = () => {
             <div className="space-y-6">
               <h2
   ref={contactHeadlineRef}
-  className="text-3xl md:text-4xl font-bold text-realvo-charcoal tracking-tight"
+  className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white"
 >
   Ready to{' '}
   <span
