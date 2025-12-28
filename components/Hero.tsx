@@ -143,6 +143,20 @@ const Hero: React.FC = () => {
               className="w-full h-full object-cover"
             />
 
+            {/* Recording Overlay */}
+            <div className="absolute bottom-6 left-6 right-6 bg-black/50 backdrop-blur-md text-white p-4 rounded-xl">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
+                <span className="text-xs uppercase tracking-wider font-semibold">
+                  Recording in progress
+                </span>
+              </div>
+              <p className="italic text-sm">
+                “This program really changed how I view leadership…”
+              </p>
+            </div>
+          </div>
+
           {/* Insight Card */}
           <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-3">
             <div className="bg-green-100 p-2 rounded-full text-green-600">
