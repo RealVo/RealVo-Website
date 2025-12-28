@@ -174,26 +174,31 @@ const WhyRealVoExists: React.FC = () => {
           </div>
         </div>
 
-        {/* Transition into "What You Can Achieve" */}
-<p
-  className="
-    mt-14
-    mb-20
-    text-center
-    text-xl md:text-2xl
-    font-medium
-    text-realvo-charcoal dark:text-white
-    max-w-4xl
-    mx-auto
-    leading-relaxed
-  "
->
-  When people are truly heard, meaningful change follows.
-</p>
-      </div>
-    </Section>
-  );
+        {/* Transition Insight Card */}
+<div className="mt-20 mb-24 flex justify-center">
+  <div
+    className="
+      bg-white dark:bg-gray-900
+      border border-gray-200 dark:border-gray-800
+      rounded-2xl
+      px-10 py-8
+      shadow-sm
+      max-w-3xl
+      text-center
+    "
+  >
+    <p className="text-2xl md:text-3xl font-semibold text-realvo-charcoal dark:text-white leading-snug">
+      When people are truly heard,
+      <span className="block mt-1">meaningful change follows.</span>
+    </p>
+  </div>
+</div>
+
+</div> {/* closes space-y-10 md:space-y-16 */}
+</Section>
+);
 };
 
 export default WhyRealVoExists;
+
 
