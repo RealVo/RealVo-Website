@@ -55,6 +55,15 @@ const WhyRealVoExists: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* LEFT COLUMN – ORGANIZATIONS */}
           <div className="space-y-5">
+            {/* ✅ Eyebrow pill (moved ABOVE image) */}
+            <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
+              </span>
+              <span>For Organizations</span>
+            </div>
+
             {/* Image card for orgs */}
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-gray-900 aspect-[4/3]">
               <img
@@ -62,15 +71,6 @@ const WhyRealVoExists: React.FC = () => {
                 alt="Organizations gaining deeper insight through real human voices"
                 className="w-full h-full object-cover opacity-85"
               />
-            </div>
-
-            {/* Eyebrow pill */}
-            <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
-              </span>
-              <span>For Organizations</span>
             </div>
 
             {/* Bullets – organization challenges */}
@@ -119,6 +119,15 @@ const WhyRealVoExists: React.FC = () => {
 
           {/* RIGHT COLUMN – USERS */}
           <div className="space-y-5">
+            {/* ✅ Eyebrow pill (moved ABOVE image) */}
+            <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
+              </span>
+              <span>For the People You Serve</span>
+            </div>
+
             {/* Image card for users */}
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-gray-900 aspect-[4/3]">
               <img
@@ -126,15 +135,6 @@ const WhyRealVoExists: React.FC = () => {
                 alt="People sharing their experiences in a calm, private recording space"
                 className="w-full h-full object-cover opacity-85"
               />
-            </div>
-
-            {/* Eyebrow pill */}
-            <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
-              </span>
-              <span>For the People You Serve</span>
             </div>
 
             {/* Bullets – why users embrace (explained for orgs) */}
@@ -192,3 +192,4 @@ const WhyRealVoExists: React.FC = () => {
 };
 
 export default WhyRealVoExists;
+
