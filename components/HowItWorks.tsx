@@ -72,15 +72,15 @@ const HowItWorks: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* LEFT: STEPS */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
-            How RealVo{' '}
-            <span
-              ref={worksRef}
-              className="text-realvo-blue animate-pulse-once"
-            >
-              Works
-            </span>
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
+  How RealVo{' '}
+  <span
+    ref={worksRef}
+    className="text-realvo-teal animate-pulse-once"
+  >
+    Works
+  </span>
+</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
             A simple, human-centered workflow for capturing meaningful stories — in person or
             online. We&apos;ve removed the friction so you can focus on the insight.
