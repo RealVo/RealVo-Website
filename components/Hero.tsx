@@ -125,31 +125,31 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
-            {/* Mobile */}
-            <span className="block md:hidden">
-              <span className="block">Understand what</span>
-              <span
-                ref={impactRefMobile}
-                className="block animate-pulse-once text-realvo-teal"
-              >
-                people truly think
-                <br />
-                and feel.
-              </span>
-            </span>
+<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
+  {/* Mobile */}
+  <span className="block md:hidden">
+    <span className="block">Understand what</span>
+    <span
+      ref={impactRefMobile}
+      className="block animate-pulse-once text-realvo-teal"
+    >
+      people truly think
+      <br />
+      and feel.
+    </span>
+  </span>
 
-            {/* Desktop */}
-            <span className="hidden md:block">
-              <span className="block">Understand what people</span>
-              <span
-                ref={impactRefDesktop}
-                className="block animate-pulse-once text-realvo-teal"
-              >
-                truly think and feel.
-              </span>
-            </span>
-          </h1>
+  {/* Desktop */}
+  <span className="hidden md:block">
+    <span className="block">Understand what people</span>
+    <span
+      ref={impactRefDesktop}
+      className="block animate-pulse-once text-realvo-teal"
+    >
+      truly think and feel.
+    </span>
+  </span>
+</h1>
 
           {/* Supporting copy */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
