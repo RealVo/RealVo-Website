@@ -6,16 +6,10 @@ const Hero: React.FC = () => {
   const [inView, setInView] = useState(false);
   const heroRef = useRef<HTMLDivElement | null>(null);
 
-  // Separate refs for mobile + desktop animated text
   const impactRefDesktop = useRef<HTMLSpanElement | null>(null);
   const impactRefMobile = useRef<HTMLSpanElement | null>(null);
 
-  // ✅ Placeholder hero image (LANDSCAPE 16:9)
-  // Put your first placeholder at: /public/images/hero-01.jpg
-  // Then this will work: /images/hero-01.jpg
-  const HERO_IMAGE_1 = '/images/hero-01.jpg';
-
-  // Hero fade-in on first view
+  // Fade-in hero once
   useEffect(() => {
     const node = heroRef.current;
     if (!node) return;
@@ -25,7 +19,7 @@ const Hero: React.FC = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setInView(true);
-            observer.disconnect(); // animate only once
+            observer.disconnect();
           }
         });
       },
@@ -36,11 +30,12 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Re-trigger animated text whenever hero comes into view
+  // Pulse animated text when in view
   useEffect(() => {
     const nodes: HTMLSpanElement[] = [];
     if (impactRefDesktop.current) nodes.push(impactRefDesktop.current);
     if (impactRefMobile.current) nodes.push(impactRefMobile.current);
+
     if (!nodes.length) return;
 
     const applyPulse = (el: HTMLSpanElement) => {
@@ -67,55 +62,37 @@ const Hero: React.FC = () => {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const rect = el.getBoundingClientRect();
     const yOffset = -80;
-    const targetY = window.scrollY + rect.top + yOffset;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
+    const y =
+      el.getBoundingClientRect().top + window.scrollY + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
   return (
-    <Section className="pt-16 pb-8 md:pt-28 md:pb-16 relative overflow-hidden">
-      {/* Background Abstract Shapes */}
-      <div className="absolute top-0 right-0 -z-10 opacity-10 dark:opacity-5">
-        <svg
-          width="600"
-          height="600"
-          viewBox="0 0 600 600"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="400" cy="200" r="200" fill="#2A4D69" />
-          <circle cx="100" cy="500" r="150" fill="#2AB8B0" />
-        </svg>
-      </div>
-
+    <Section className="pt-20 pb-12 md:pt-28 md:pb-20 relative overflow-hidden">
       <div
         ref={heroRef}
         className={`
-          grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start
-          transform transition-all duration-700 ease-out
+          grid grid-cols-1 lg:grid-cols-12 gap-12 items-center
+          transition-all duration-700 ease-out
           ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         `}
       >
         {/* LEFT COLUMN */}
-        <div className="lg:col-span-7 space-y-6 sm:space-y-8 pt-2">
-          {/* Eyebrow pill */}
-          <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal mb-3 sm:mb-5">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
-            </span>
-            <span>Enterprise Video Capture Platform</span>
+        <div className="lg:col-span-7 space-y-6">
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 bg-realvo-light px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue">
+            <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
+            Enterprise Video Capture Platform
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-realvo-charcoal dark:text-white">
-            {/* Mobile layout (3 lines) */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
             <span className="block md:hidden">
-              <span className="block">Understand what</span>
+              <span>Understand what</span>
               <span
                 ref={impactRefMobile}
-                className="block text-realvo-charcoal dark:text-white animate-pulse-once"
+                className="block animate-pulse-once"
               >
                 people truly think
                 <br />
@@ -123,12 +100,11 @@ const Hero: React.FC = () => {
               </span>
             </span>
 
-            {/* Desktop / tablet layout (2 lines) */}
             <span className="hidden md:block">
-              <span className="block">Understand what people</span>
+              <span>Understand what people</span>
               <span
                 ref={impactRefDesktop}
-                className="block text-realvo-charcoal dark:text-white animate-pulse-once"
+                className="block animate-pulse-once text-realvo-teal"
               >
                 truly think and feel.
               </span>
@@ -136,19 +112,18 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Supporting copy */}
-          <p className="mt-4 md:mt-5 text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl leading-snug md:leading-relaxed">
-            When people are given a natural, private way to speak in their own words,
-            understanding, trust, and meaningful insight follow.
+          <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+            When people are given a natural, private way to speak in their own
+            words, understanding, trust, and meaningful insight follow.
           </p>
 
-          {/* Secondary supporting line (optional / editable) */}
-          <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 italic max-w-3xl">
-            A fully managed video-capture program — from strategy and design to deployment,
-            management, and insight.
+          <p className="text-sm text-gray-500 italic max-w-xl">
+            A fully managed video-capture program — from strategy and design
+            to deployment, management, and insight.
           </p>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
+          <div className="pt-4">
             <Button
               size="lg"
               variant="primary"
@@ -159,78 +134,37 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN (Landscape “viewfinder”) */}
+        {/* RIGHT COLUMN — LANDSCAPE IMAGE */}
         <div className="lg:col-span-5 relative">
-          {/* 
-            ✅ LANDSCAPE FRAME (16:9)
-            - Tweak positioning by adjusting: mt-?, lg:mt-?, translate-y-?, etc.
-          */}
-          <div className="relative mt-2 lg:mt-6">
-            <div className="relative rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 shadow-2xl">
-              {/* Aspect-ratio locked to LANDSCAPE */}
-              <div className="aspect-video relative">
-                {/* Image as background-style fill */}
-                <img
-                  src={HERO_IMAGE_1}
-                  alt="RealVo capture moment"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
+            <img
+              src="/capture/hero/booth-user-3.png"
+              alt="RealVo video capture participant"
+              className="w-full h-full object-cover"
+            />
 
-                {/* Soft overlay to keep UI readable (tweak opacity as needed) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-realvo-charcoal/55 via-transparent to-transparent" />
-
-                {/* Optional subtle top haze to mimic your mockup (tweak or remove) */}
-                <div className="absolute inset-0 bg-white/10 dark:bg-black/10" />
+            {/* Recording Overlay */}
+            <div className="absolute bottom-6 left-6 right-6 bg-black/50 backdrop-blur-md text-white p-4 rounded-xl">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-2 w-2 bg-red-500 rounded-full animate-pulse" />
+                <span className="text-xs uppercase tracking-wider font-semibold">
+                  Recording in progress
+                </span>
               </div>
+              <p className="italic text-sm">
+                “This program really changed how I view leadership…”
+              </p>
             </div>
+          </div>
 
-            {/* 
-              ✅ RECORDING CARD (editable positioning)
-              - Move it by changing: bottom-?, left-?, right-?, translate-y-?
-              - If you want it centered: left-1/2 -translate-x-1/2
-            */}
-            <div className="absolute -bottom-4 left-6 right-6 sm:left-8 sm:right-10">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-xl px-4 py-4 sm:px-6 sm:py-5">
-                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <div className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-                  <span className="text-white text-[10px] sm:text-xs font-semibold uppercase tracking-wider">
-                    Recording in progress
-                  </span>
-                </div>
-                <p className="text-white text-sm sm:text-lg italic font-medium leading-snug">
-                  "This program really changed how I view leadership..."
-                </p>
-              </div>
+          {/* Insight Card */}
+          <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-3">
+            <div className="bg-green-100 p-2 rounded-full text-green-600">
+              ✓
             </div>
-
-            {/* 
-              ✅ FLOATING “INSIGHT CAPTURED” CHIP (editable positioning)
-              - Move it by changing: -bottom-?, left-?, translate-x/y
-            */}
-            <div className="absolute -bottom-12 left-4 sm:left-6 bg-white dark:bg-gray-800 p-3 sm:p-4 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 flex items-center gap-3 sm:gap-4 max-w-xs">
-              <div className="bg-green-100 dark:bg-green-900/30 p-1.5 sm:p-2 rounded-full text-green-600 dark:text-green-400">
-                <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <p className="font-semibold text-xs sm:text-sm dark:text-white">
-                  Insight Captured
-                </p>
-                <p className="text-[10px] sm:text-xs text-gray-500">
-                  Ready for analysis
-                </p>
-              </div>
+            <div>
+              <p className="font-semibold text-sm">Insight Captured</p>
+              <p className="text-xs text-gray-500">Ready for analysis</p>
             </div>
           </div>
         </div>
@@ -240,5 +174,6 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
 
 
