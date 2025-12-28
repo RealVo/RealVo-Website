@@ -37,12 +37,15 @@ const WhyRealVoExists: React.FC = () => {
       <div className="space-y-10 md:space-y-16">
         {/* Section heading */}
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white leading-tight">
-            It Starts With{' '}
-            <span ref={whyRef} className="text-realvo-blue animate-pulse-once">
-              Real Voices
-            </span>
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
+  It Starts With{' '}
+  <span
+    ref={whyRef}
+    className="text-realvo-teal animate-pulse-once"
+  >
+    Real Voices
+  </span>
+</h2>
 
           {/* Subline */}
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
