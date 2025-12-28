@@ -46,8 +46,7 @@ const WhyRealVoExists: React.FC = () => {
 
           {/* Subline */}
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
-            Understanding comes from human communication — when people are given a
-            natural, private way to share in their own words.
+            Understanding comes from human communication — when people are given a natural, private way to speak in their own words.
           </p>
         </div>
 
@@ -61,7 +60,7 @@ const WhyRealVoExists: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
               </span>
-              <span>For Organizations</span>
+              <span>Why Traditional Approaches Fall Short</span>
             </div>
 
             {/* Image card for orgs */}
@@ -77,11 +76,10 @@ const WhyRealVoExists: React.FC = () => {
             <div className="space-y-4 text-sm md:text-base">
               <div>
                 <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                  Surveys miss the story.
+                  Metrics capture data — not meaning.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  They’re good at tracking metrics, but not at capturing emotion, nuance,
-                  or the “why” behind how people feel and what they need.
+                  Dashboards and forms are effective for numbers, but they miss emotion, nuance, and the human context behind what people think, feel, and experience.
                 </p>
               </div>
 
@@ -90,24 +88,22 @@ const WhyRealVoExists: React.FC = () => {
                   Interviews and filming don’t scale.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Scheduling, crews, and cameras are resource-heavy — and often feel staged
-                  or intimidating for participants, limiting who you actually hear from.
+                  Scheduling, crews, and cameras are resource-heavy — and often feel staged or intimidating, limiting who participates and how honest they can be.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                  People need a way to share that feels right.
+                  Many voices go unheard.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Many will open up when the experience feels guided, private, and on their
-                  own terms — not like a performance or a formal evaluation.
+                  When participation feels formal, public, or performative, only a small subset of people are willing to speak — and critical perspectives are lost.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                  Leaders need real perspectives to act on.
+                  Organizations need human insight to act.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
                   Decisions about culture, experience, and communication are stronger when
@@ -125,7 +121,7 @@ const WhyRealVoExists: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
               </span>
-              <span>For the People You Serve</span>
+              <span>Why People Open Up</span>
             </div>
 
             {/* Image card for users */}
@@ -141,31 +137,28 @@ const WhyRealVoExists: React.FC = () => {
             <div className="space-y-4 text-sm md:text-base">
               <div>
                 <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                  People open up in private.
+                  People speak more freely in private.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Without an interviewer, audience, or camera crew, people share what they
-                  wouldn’t say in a group setting or formal meeting.
+                  Without an interviewer, audience, or camera crew, people share what they wouldn’t say in group settings, meetings, or public forums.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                  Guided prompts make expression easy.
+                  Guided prompts unlock expression.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Clear, thoughtful prompts help people articulate what they feel — even if
-                  they don’t usually know how to put it into words.
+                  Clear, thoughtful questions help people reflect and articulate what matters — in their own way.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                  The experience feels natural and familiar.
+                  The experience feels natural and pressure-free.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Speaking to a simple, intuitive interface removes pressure and replaces
-                  “performing on camera” with a comfortable moment of reflection.
+                  A simple, intuitive interface removes the pressure of “being recorded” and replaces it with a calm moment of personal reflection.
                 </p>
               </div>
 
@@ -174,8 +167,7 @@ const WhyRealVoExists: React.FC = () => {
                   Authenticity comes through in their own words.
                 </h3>
                 <p className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Real tone, emotion, and nuance emerge — giving you the depth that surveys
-                  and text responses can’t capture.
+                  Tone, emotion, pauses, and nuance emerge — revealing stories and perspectives that written responses can’t capture.
                 </p>
               </div>
             </div>
