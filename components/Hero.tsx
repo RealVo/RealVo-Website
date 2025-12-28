@@ -9,6 +9,20 @@ const Hero: React.FC = () => {
   const impactRefDesktop = useRef<HTMLSpanElement | null>(null);
   const impactRefMobile = useRef<HTMLSpanElement | null>(null);
 
+  // ✅ HERO IMAGE ROTATION (update filenames/paths as needed)
+  // Put these in: /public/capture/hero/
+  const HERO_IMAGES = [
+    '/capture/hero/booth-user-3.png',
+    '/capture/hero/fsk-user-2.png',
+    '/capture/hero/vvb-user-4.png',
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Crossfade timing
+  const HOLD_MS = 4500; // how long each image stays fully visible
+  const FADE_MS = 900;  // fade duration (should match Tailwind duration below)
+
   // Fade-in hero once
   useEffect(() => {
     const node = heroRef.current;
@@ -30,7 +44,7 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Pulse animated text when in view
+  // Pulse animated headline text
   useEffect(() => {
     const nodes: HTMLSpanElement[] = [];
     if (impactRefDesktop.current) nodes.push(impactRefDesktop.current);
@@ -59,12 +73,36 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Preload images (helps prevent a blank flash on first transition)
+  useEffect(() => {
+    HERO_IMAGES.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Rotate images (pause if user prefers reduced motion)
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) return;
+
+    const interval = window.setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % HERO_IMAGES.length);
+    }, HOLD_MS);
+
+    return () => window.clearInterval(interval);
+  }, [HERO_IMAGES.length]);
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
     const yOffset = -80;
-    const y =
-      el.getBoundingClientRect().top + window.scrollY + yOffset;
+    const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
@@ -88,11 +126,12 @@ const Hero: React.FC = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
+            {/* Mobile */}
             <span className="block md:hidden">
-              <span>Understand what</span>
+              <span className="block">Understand what</span>
               <span
                 ref={impactRefMobile}
-                className="block animate-pulse-once"
+                className="block animate-pulse-once text-realvo-teal"
               >
                 people truly think
                 <br />
@@ -100,8 +139,9 @@ const Hero: React.FC = () => {
               </span>
             </span>
 
+            {/* Desktop */}
             <span className="hidden md:block">
-              <span>Understand what people</span>
+              <span className="block">Understand what people</span>
               <span
                 ref={impactRefDesktop}
                 className="block animate-pulse-once text-realvo-teal"
@@ -118,33 +158,42 @@ const Hero: React.FC = () => {
           </p>
 
           <p className="text-sm text-gray-500 italic max-w-xl">
-            A fully managed video-capture program — from strategy and design
-            to deployment, management, and insight.
+            A fully managed video-capture program — from strategy and design to
+            deployment, management, and insight.
           </p>
 
           {/* CTA */}
-<div className="pt-4">
-  <Button
-    size="lg"
-    variant="primary"
-    onClick={() => scrollToSection('contact')}
-  >
-    Request Pricing &amp; Availability
-  </Button>
-</div>
-</div>
+          <div className="pt-4">
+            <Button
+              size="lg"
+              variant="primary"
+              onClick={() => scrollToSection('contact')}
+            >
+              Request Pricing &amp; Availability
+            </Button>
+          </div>
+        </div>
 
-{/* RIGHT COLUMN — LANDSCAPE IMAGE */}
-<div className="lg:col-span-5 relative">
-  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
-    <img
-      src="/capture/hero/booth-user-3.png"
-      alt="RealVo video capture participant"
-      className="w-full h-full object-cover"
-    />
-  </div>
+        {/* RIGHT COLUMN — LANDSCAPE IMAGE ROTATION */}
+        <div className="lg:col-span-5 relative">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
+            {/* Crossfade stack */}
+            {HERO_IMAGES.map((src, idx) => (
+              <img
+                key={src}
+                src={src}
+                alt="RealVo video capture example"
+                className={`
+                  absolute inset-0 w-full h-full object-cover
+                  transition-opacity ease-in-out
+                  duration-[${FADE_MS}ms]
+                  ${idx === activeIndex ? 'opacity-100' : 'opacity-0'}
+                `}
+              />
+            ))}
+          </div>
 
-  {/* Insight Card */}
+          {/* Insight Card — Uploaded / Queued */}
           <div className="absolute -bottom-5 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3">
             <div className="bg-green-100 p-2 rounded-full text-green-600 flex items-center justify-center w-9 h-9">
               ✓
@@ -153,9 +202,7 @@ const Hero: React.FC = () => {
               <p className="font-semibold text-sm text-realvo-charcoal">
                 Uploaded
               </p>
-              <p className="text-xs text-gray-500">
-                Queued for review
-              </p>
+              <p className="text-xs text-gray-500">Queued for review</p>
             </div>
           </div>
         </div>
