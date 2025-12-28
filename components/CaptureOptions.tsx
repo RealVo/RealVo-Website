@@ -82,9 +82,16 @@ const CaptureOptions: React.FC = () => {
   return (
     <Section id="solutions">
       <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-realvo-charcoal dark:text-white mb-6">
-          RealVo <span ref={fitsRef} className="text-realvo-blue animate-pulse-once">Fits Your Program</span> — On-Site or Online
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
+  RealVo{' '}
+  <span
+    ref={fitsRef}
+    className="text-realvo-teal animate-pulse-once"
+  >
+    Fits Your Program
+  </span>{' '}
+  — On-Site or Online
+</h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
           Purpose-built capture options that adapt to your environment and goals.
         </p>
