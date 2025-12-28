@@ -188,10 +188,7 @@ const WhyRealVoExists: React.FC = () => {
     leading-relaxed
   "
 >
-  When people are truly heard,{" "}
-  <span className="font-semibold underline underline-offset-4 decoration-black/20 dark:decoration-white/25">
-    meaningful change follows.
-  </span>
+  When people are truly heard, meaningful change follows.
 </p>
       </div>
     </Section>
