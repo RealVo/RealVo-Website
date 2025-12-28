@@ -33,7 +33,10 @@ const Pricing: React.FC = () => {
     <Section id="pricing" background="light">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-4">
-  Clear, Flexible Pricing
+  Clear, Flexible{' '}
+  <span className="text-realvo-teal animate-pulse-once">
+    Pricing
+  </span>
 </h2>
         <p className="text-gray-600 dark:text-gray-300">
           Solutions for organizations of any size. Contact us for a custom quote.
