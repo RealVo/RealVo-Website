@@ -207,7 +207,7 @@ const WhyRealVoExists: React.FC = () => {
       </div>
     </div>
 
-    <p className="mt-4 text-2xl md:text-3xl font-semibold leading-snug">
+    <p className="mt-4 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
   <span className="block text-gray-500 dark:text-gray-400">
     When people are truly heard,
   </span>
