@@ -17,15 +17,15 @@ const features: Feature[] = [
     icon: ShieldCheck,
   },
   {
-    title: "Strengthen your communication",
+    title: "Connect Voices to Meaning",
     description:
-      "Turn authentic experiences into clearer messages — for leaders, teams, and the people you serve.",
+      "Bring individual perspectives together around shared values, culture, and purpose — in a way leaders, teams, and communities can truly understand.",
     icon: MessageSquare,
   },
   {
-    title: "Create content that carries meaning",
+    title: "Create Content That Amplifies Meaning",
     description:
-      "Use real voices to inspire advocacy, build awareness, and support storytelling with credibility.",
+      "Use real voices to inspire advocacy, build awareness, and share stories with authenticity and credibility.",
     icon: Megaphone,
   },
 ];
