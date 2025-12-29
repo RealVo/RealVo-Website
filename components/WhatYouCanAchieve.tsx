@@ -5,15 +5,15 @@ import { Feature } from '../types';
 
 const features: Feature[] = [
   {
-    title: "Understand people’s experiences",
+    title: "Capture Lived Experiences",
     description:
-      "Hear tone, emotion, and nuance — the human context that forms and dashboards can’t capture.",
+      "What people share comes through as it’s expressed — with the tone, emotion, and perspective that give it meaning.",
     icon: BarChart3,
   },
   {
-    title: "Build trust by giving people a voice",
+    title: "Make Voices Matter",
     description:
-      "Create a safe, professional space for honest stories, perspectives, and reflection.",
+      "Give people a way to speak up knowing their input is being heard, considered, and taken seriously.",
     icon: ShieldCheck,
   },
   {
