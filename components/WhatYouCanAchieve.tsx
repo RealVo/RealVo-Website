@@ -7,25 +7,25 @@ const features: Feature[] = [
   {
     title: "Capture Lived Experiences",
     description:
-      "What people share comes through as it’s expressed — with the tone, emotion, and perspective that give it meaning.",
+      "What people share comes through as it’s expressed — with tone, emotion, and perspective intact, revealing meaning that structured inputs and summaries often miss.",
     icon: BarChart3,
   },
   {
     title: "Make Voices Matter",
     description:
-      "Give people a way to speak up knowing their input is being heard, considered, and taken seriously.",
+      "Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with the confidence that participation can lead to real change.",
     icon: ShieldCheck,
   },
   {
     title: "Connect Voices to Meaning",
     description:
-      "Bring individual perspectives together around shared values, culture, and purpose — in a way leaders, teams, and communities can truly understand.",
+      "Bring individual perspectives together around shared values, culture, and purpose — helping leaders, teams, and communities understand what truly matters most.",
     icon: MessageSquare,
   },
   {
     title: "Create Content That Amplifies Meaning",
     description:
-      "Use real voices to inspire advocacy, build awareness, and share stories with authenticity and credibility.",
+      "Use real voices to inspire advocacy, build awareness, and share perspectives with authenticity and credibility — extending impact beyond the moment.",
     icon: Megaphone,
   },
 ];
