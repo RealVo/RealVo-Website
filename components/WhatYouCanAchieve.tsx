@@ -59,11 +59,14 @@ const WhatYouCanAchieve: React.FC = () => {
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-14">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
-          What Changes When{' '}
-          <span ref={achieveRef} className="text-realvo-teal animate-pulse-once">
-            People Are Heard
-          </span>
-        </h2>
+  <span
+    ref={achieveRef}
+    className="text-realvo-teal animate-pulse-once"
+  >
+    What Changes
+  </span>{' '}
+  When People Are Heard
+</h2>
 
         {/* Optional subline (kept neutral, no “RealVo”) */}
         <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
