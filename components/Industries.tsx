@@ -1,5 +1,3 @@
-Industries.tsx
-
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import {
@@ -123,4 +121,5 @@ const Industries: React.FC = () => {
 };
 
 export default Industries;
+
 
