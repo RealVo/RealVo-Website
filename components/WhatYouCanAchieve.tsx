@@ -89,11 +89,11 @@ const WhatYouCanAchieve: React.FC = () => {
     w-14 h-14
     rounded-2xl
     flex items-center justify-center
-    bg-realvo-blue
-    text-white
+    bg-realvo-light dark:bg-gray-800
+    text-realvo-blue dark:text-realvo-teal
     transition-all duration-300
-    group-hover:bg-realvo-light dark:group-hover:bg-gray-800
-    group-hover:text-realvo-blue dark:group-hover:text-realvo-teal
+    group-hover:bg-realvo-blue
+    group-hover:text-white
     group-hover:-translate-y-0.5
     group-hover:scale-105
   "
