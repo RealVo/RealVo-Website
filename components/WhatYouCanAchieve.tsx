@@ -83,20 +83,23 @@ const WhatYouCanAchieve: React.FC = () => {
               hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
             "
           >
-            {/* Icon */}
-            <div
-              className="
-                w-14 h-14
-                rounded-2xl
-                bg-realvo-light dark:bg-gray-800
-                flex items-center justify-center
-                text-realvo-blue dark:text-realvo-teal
-                transition-transform duration-300
-                group-hover:-translate-y-0.5 group-hover:scale-105
-              "
-            >
-              <feature.icon size={26} strokeWidth={1.6} />
-            </div>
+           {/* Icon */}
+<div
+  className="
+    w-14 h-14
+    rounded-2xl
+    flex items-center justify-center
+    bg-realvo-blue
+    text-white
+    transition-all duration-300
+    group-hover:bg-realvo-light dark:group-hover:bg-gray-800
+    group-hover:text-realvo-blue dark:group-hover:text-realvo-teal
+    group-hover:-translate-y-0.5
+    group-hover:scale-105
+  "
+>
+  <feature.icon size={26} strokeWidth={1.8} />
+</div>
 
             {/* Title */}
             <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
