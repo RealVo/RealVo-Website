@@ -78,7 +78,8 @@ const WhatYouCanAchieve: React.FC = () => {
               p-8 rounded-2xl
               border border-gray-200 dark:border-gray-800
               shadow-sm
-              transition-all duration-300
+              transform-gpu will-change-transform
+              transition-transform duration-300
               hover:-translate-y-1 hover:shadow-xl
               hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
             "
