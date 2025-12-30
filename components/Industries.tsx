@@ -96,13 +96,18 @@ const Industries: React.FC = () => {
     rounded-2xl
     flex items-center justify-center
     bg-white text-realvo-blue
-    transition-all duration-200
+    transition-colors duration-200
     hover:bg-gray-100
     hover:ring-1 hover:ring-gray-300
+    transform-none
     flex-shrink-0
   "
 >
-  <industry.icon size={48} strokeWidth={1.8} />
+  <industry.icon
+    size={48}
+    strokeWidth={1.8}
+    className="transform-none"
+  />
 </div>
 
             {/* Text */}
