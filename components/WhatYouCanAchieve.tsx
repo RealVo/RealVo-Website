@@ -11,7 +11,8 @@ const features: Feature[] = [
     icon: BarChart3,
   },
   {
-    title: "Make Voices Matter",
+    // ✅ singular to match your desired display: “Make Voice / Matter”
+    title: "Make Voice Matter",
     description:
       "Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with the confidence that participation can lead to real change.",
     icon: ShieldCheck,
@@ -59,14 +60,11 @@ const WhatYouCanAchieve: React.FC = () => {
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-14">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
-  <span
-    ref={achieveRef}
-    className="text-realvo-teal animate-pulse-once"
-  >
-    What Changes
-  </span>{' '}
-  When People Are Heard
-</h2>
+          <span ref={achieveRef} className="text-realvo-teal animate-pulse-once">
+            What Changes
+          </span>{' '}
+          When People Are Heard
+        </h2>
 
         {/* Optional subline (kept neutral, no “RealVo”) */}
         <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
@@ -105,8 +103,15 @@ const WhatYouCanAchieve: React.FC = () => {
               <feature.icon size={26} strokeWidth={1.6} />
             </div>
 
-            <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white">
-              {feature.title}
+            {/* Title */}
+            <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
+              {feature.title === 'Make Voice Matter' ? (
+                <>
+                  Make Voice <span className="block">Matter</span>
+                </>
+              ) : (
+                feature.title
+              )}
             </h3>
 
             <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
@@ -120,3 +125,4 @@ const WhatYouCanAchieve: React.FC = () => {
 };
 
 export default WhatYouCanAchieve;
+
