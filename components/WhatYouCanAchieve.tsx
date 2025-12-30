@@ -79,25 +79,21 @@ const WhatYouCanAchieve: React.FC = () => {
         border border-gray-200 dark:border-gray-800
         shadow-sm
         antialiased
-        transform-gpu
-        translate-y-0
-        transition-all duration-300
-        hover:-translate-y-1 hover:shadow-xl
+        transition-shadow transition-colors duration-200
+        hover:shadow-lg
         hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
       `}
     >
-      {/* Icon */}
+      {/* Icon (REVERSED: static = light, hover = blue/white) */}
       <div
         className={`
           w-14 h-14
           rounded-2xl
           flex items-center justify-center
-          bg-realvo-blue text-white
-          transform-gpu translate-y-0 scale-100
-          transition-all duration-300
-          group-hover:bg-realvo-light group-hover:text-realvo-blue
-          dark:group-hover:bg-gray-800 dark:group-hover:text-realvo-teal
-          group-hover:-translate-y-0.5 group-hover:scale-105
+          bg-realvo-light text-realvo-blue
+          dark:bg-gray-800 dark:text-realvo-teal
+          transition-colors duration-200
+          group-hover:bg-realvo-blue group-hover:text-white
         `}
       >
         <feature.icon size={26} strokeWidth={1.8} />
