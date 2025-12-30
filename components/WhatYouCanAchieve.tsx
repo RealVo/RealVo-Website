@@ -14,20 +14,19 @@ const features: Feature[] = [
     // ✅ singular to match your desired display: “Make Voice / Matter”
     title: "Make Voice Matter",
     description:
-      "Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with the confidence that participation can lead to real change.",
+      "Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with confidence it can lead to real change.",
     icon: ShieldCheck,
   },
   {
     title: "Connect Voices to Meaning",
     description:
-      "Bring individual perspectives together around shared values, culture, and purpose — helping leaders, teams, and communities understand what truly matters most.",
+      "Bring individual perspectives together around shared values, culture, and purpose — so leaders, teams, and communities align on what matters most.",
     icon: MessageSquare,
   },
   {
     title: "Create Content That Amplifies Meaning",
     description:
-      "Use real voices to inspire advocacy, build awareness, and share perspectives with authenticity and credibility — extending impact beyond the moment.",
-    icon: Megaphone,
+      "Use real voices to inspire advocacy, build awareness, and share perspectives with credibility — extending impact well beyond the moment.",
   },
 ];
 
