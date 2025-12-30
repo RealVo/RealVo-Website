@@ -65,11 +65,6 @@ const WhatYouCanAchieve: React.FC = () => {
           </span>{' '}
           When People Are Heard
         </h2>
-
-        {/* Optional subline (kept neutral, no “RealVo”) */}
-        <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-          Capture authentic voices — then turn those experiences into insight, trust, and action.
-        </p>
       </div>
 
       {/* Cards (same plane) */}
