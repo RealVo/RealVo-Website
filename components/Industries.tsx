@@ -96,13 +96,14 @@ const Industries: React.FC = () => {
     rounded-2xl
     flex items-center justify-center
     bg-white text-realvo-blue
-    transition-colors duration-200
+    transition-all duration-200
     group-hover:bg-gray-100
+    group-hover:ring-1 group-hover:ring-white/25
     flex-shrink-0
   "
-            >
-              <industry.icon size={48} strokeWidth={1.8} />
-            </div>
+>
+  <industry.icon size={48} strokeWidth={1.8} />
+</div>
 
             {/* Text */}
             <div className="pt-2">
