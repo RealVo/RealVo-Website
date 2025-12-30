@@ -100,7 +100,7 @@ const WhatYouCanAchieve: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
+            <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white min-h-[3.25rem] leading-snug">
               {feature.title === 'Make Voice Matter' ? (
                 <>
                   Make Voice <span className="block">Matter</span>
@@ -110,7 +110,7 @@ const WhatYouCanAchieve: React.FC = () => {
               )}
             </h3>
 
-            <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+            <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm min-h-[7.5rem]">
               {feature.description}
             </p>
           </div>
