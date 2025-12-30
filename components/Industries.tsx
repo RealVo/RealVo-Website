@@ -87,40 +87,40 @@ const Industries: React.FC = () => {
         </p>
       </div>
 
-      {/* Icon-anchored layout (large square icons, text right) */}
-<div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-12">
-  {industries.map((industry, idx) => (
-    <div key={idx} className="flex items-start gap-6 group">
-      {/* Icon Tile — SAME STYLE as WhatYouCanAchieve, just larger */}
-      <div
-        className="
-          w-20 h-20 md:w-24 md:h-24
-          rounded-2xl
-          flex items-center justify-center
-          bg-realvo-light text-realvo-blue
-          transition-colors duration-200
-          group-hover:bg-realvo-blue group-hover:text-white
-          flex-shrink-0
-        "
-      >
-        {/* Larger icon filling the square */}
-        <industry.icon size={44} strokeWidth={1.8} />
-      </div>
+      {/* Icon-anchored layout */}
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+        {industries.map((industry, idx) => (
+          <div key={idx} className="flex items-start gap-6 group">
+            {/* Icon Anchor — square, large, same style as WhatYouCanAchieve */}
+            <div
+              className="
+                w-20 h-20 md:w-24 md:h-24
+                rounded-2xl
+                flex items-center justify-center
+                bg-realvo-light text-realvo-blue
+                transition-colors duration-200
+                group-hover:bg-realvo-blue group-hover:text-white
+                flex-shrink-0
+              "
+            >
+              <industry.icon size={44} strokeWidth={1.8} />
+            </div>
 
-      {/* Text block */}
-      <div className="pt-1">
-        <h3 className="text-xl font-semibold text-white leading-tight">
-          {industry.name}
-        </h3>
-        <p className="mt-2 text-white/70 leading-relaxed max-w-md">
-          {industry.description}
-        </p>
+            {/* Text */}
+            <div className="pt-1">
+              <h3 className="text-xl font-semibold text-white leading-tight mb-2">
+                {industry.name}
+              </h3>
+              <p className="text-white/70 leading-relaxed max-w-md">
+                {industry.description}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  ))}
-</div>
     </Section>
   );
 };
 
 export default Industries;
+
