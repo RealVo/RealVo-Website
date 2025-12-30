@@ -73,15 +73,18 @@ const WhatYouCanAchieve: React.FC = () => {
           <div
             key={index}
             className="
-              group
-              bg-white dark:bg-gray-900
-              p-8 rounded-2xl
-              border border-gray-200 dark:border-gray-800
-              shadow-sm
-              transition-all duration-300
-              hover:-translate-y-1 hover:shadow-xl
-              hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
-            "
+  group
+  bg-white dark:bg-gray-900
+  p-8 rounded-2xl
+  border border-gray-200 dark:border-gray-800
+  shadow-sm
+  antialiased
+  transform-gpu
+  translate-y-0
+  transition-all duration-300
+  hover:-translate-y-1 hover:shadow-xl
+  hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
+"
           >
            {/* Icon */}
 <div
@@ -91,6 +94,8 @@ const WhatYouCanAchieve: React.FC = () => {
     flex items-center justify-center
     bg-realvo-light dark:bg-gray-800
     text-realvo-blue dark:text-realvo-teal
+    transform-gpu
+    translate-y-0 scale-100
     transition-all duration-300
     group-hover:bg-realvo-blue
     group-hover:text-white
