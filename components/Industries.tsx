@@ -5,7 +5,6 @@ import {
   GraduationCap,
   HeartPulse,
   Users2,
-  ArrowRight,
 } from 'lucide-react';
 import { Industry } from '../types';
 
@@ -47,7 +46,6 @@ const Industries: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && node) {
-            // restart the light pulse animation
             node.classList.remove('animate-pulse-once-light');
             void node.offsetWidth; // force reflow
             node.classList.add('animate-pulse-once-light');
@@ -73,50 +71,48 @@ const Industries: React.FC = () => {
         <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 rounded-full bg-realvo-slate blur-3xl" />
       </div>
 
+      {/* Header */}
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white mb-4">
-  Who We{' '}
-  <span
-    ref={serveRef}
-    className="animate-pulse-once-light"
-  >
-    Serve
-  </span>
-</h2>
+          Who We{' '}
+          <span ref={serveRef} className="animate-pulse-once-light">
+            Serve
+          </span>
+        </h2>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           RealVo adapts to the unique needs of every sector we work with,
           providing specialized workflows for each environment.
         </p>
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {/* Icon-anchored layout */}
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
         {industries.map((industry, idx) => (
-          <div
-            key={idx}
-            className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-xl p-8 hover:bg-white/15 transition-colors group cursor-pointer"
-          >
-            <div className="flex items-start justify-between mb-4">
-              <div
-  className="
-    w-14 h-14
-    rounded-2xl
-    flex items-center justify-center
-    bg-realvo-light text-realvo-blue
-    transition-colors duration-200
-    group-hover:bg-realvo-blue group-hover:text-white
-  "
->
-  <industry.icon size={26} strokeWidth={1.8} />
-</div>
-              <ArrowRight className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" />
+          <div key={idx} className="flex items-start gap-6 group">
+            {/* Icon Anchor */}
+            <div
+              className="
+                w-14 h-14
+                rounded-2xl
+                flex items-center justify-center
+                bg-realvo-light text-realvo-blue
+                transition-colors duration-200
+                group-hover:bg-realvo-blue group-hover:text-white
+                flex-shrink-0
+              "
+            >
+              <industry.icon size={26} strokeWidth={1.8} />
             </div>
 
-            <h3 className="text-xl font-bold text-white mb-3">
-              {industry.name}
-            </h3>
-            <p className="text-white/70 leading-relaxed">
-              {industry.description}
-            </p>
+            {/* Text */}
+            <div>
+              <h3 className="text-xl font-semibold text-white leading-tight mb-2">
+                {industry.name}
+              </h3>
+              <p className="text-white/70 leading-relaxed max-w-md">
+                {industry.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -125,4 +121,3 @@ const Industries: React.FC = () => {
 };
 
 export default Industries;
-
