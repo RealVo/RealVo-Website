@@ -1,3 +1,5 @@
+Industries.tsx
+
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import {
@@ -88,35 +90,33 @@ const Industries: React.FC = () => {
       {/* Icon-anchored layout */}
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
         {industries.map((industry, idx) => (
-  <div key={idx} className="group">
-    {/* Title Row: icon + heading aligned */}
-    <div className="flex items-center gap-4">
-      {/* Icon Anchor (same band height as title) */}
-      <div
-        className="
-          w-10 h-10
-          rounded-2xl
-          flex items-center justify-center
-          bg-realvo-light text-realvo-blue
-          transition-colors duration-200
-          group-hover:bg-realvo-blue group-hover:text-white
-          flex-shrink-0
-        "
-      >
-        <industry.icon size={30} strokeWidth={2} />
-      </div>
+          <div key={idx} className="flex items-start gap-6 group">
+            {/* Icon Anchor */}
+            <div
+              className="
+                w-14 h-14
+                rounded-2xl
+                flex items-center justify-center
+                bg-realvo-light text-realvo-blue
+                transition-colors duration-200
+                group-hover:bg-realvo-blue group-hover:text-white
+                flex-shrink-0
+              "
+            >
+              <industry.icon size={26} strokeWidth={1.8} />
+            </div>
 
-      <h3 className="text-xl font-semibold text-white leading-none">
-        {industry.name}
-      </h3>
-    </div>
-
-    {/* Description lines up under heading, not under icon */}
-    <p className="mt-2 text-white/70 leading-relaxed max-w-md pl-14">
-      {industry.description}
-    </p>
-  </div>
-))}
+            {/* Text */}
+            <div>
+              <h3 className="text-xl font-semibold text-white leading-tight mb-2">
+                {industry.name}
+              </h3>
+              <p className="text-white/70 leading-relaxed max-w-md">
+                {industry.description}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </Section>
   );
