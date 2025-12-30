@@ -97,7 +97,7 @@ const Industries: React.FC = () => {
     flex items-center justify-center
     bg-white text-realvo-blue
     transition-colors duration-200
-    hover:bg-gray-200
+    hover:bg-gray-100
     hover:outline hover:outline-2 hover:outline-gray-300
     flex-shrink-0
   "
