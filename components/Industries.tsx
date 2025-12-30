@@ -91,17 +91,17 @@ const Industries: React.FC = () => {
           <div key={idx} className="flex items-start gap-6 group">
             {/* Icon Anchor — square, large, same style as WhatYouCanAchieve */}
             <div
-              className="
-                w-20 h-20 md:w-24 md:h-24
-                rounded-2xl
-                flex items-center justify-center
-                bg-realvo-light text-realvo-blue
-                transition-colors duration-200
-                group-hover:bg-realvo-blue group-hover:text-white
-                flex-shrink-0
-              "
+  className="
+    w-20 h-20 md:w-24 md:h-24
+    rounded-2xl
+    flex items-center justify-center
+    bg-white text-realvo-blue
+    transition-colors duration-200
+    group-hover:bg-gray-100
+    flex-shrink-0
+  "
             >
-              <industry.icon size={44} strokeWidth={1.8} />
+              <industry.icon size={48} strokeWidth={1.8} />
             </div>
 
             {/* Text */}
