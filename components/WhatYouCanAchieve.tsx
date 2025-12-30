@@ -14,19 +14,20 @@ const features: Feature[] = [
     // ✅ singular to match your desired display: “Make Voice / Matter”
     title: "Make Voice Matter",
     description:
-      "Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with confidence it can lead to real change.",
+      "Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with the confidence that participation can lead to real change.",
     icon: ShieldCheck,
   },
   {
     title: "Connect Voices to Meaning",
     description:
-      "Bring individual perspectives together around shared values, culture, and purpose — so leaders, teams, and communities align on what matters most.",
+      "Bring individual perspectives together around shared values, culture, and purpose — helping leaders, teams, and communities understand what truly matters most.",
     icon: MessageSquare,
   },
   {
     title: "Create Content That Amplifies Meaning",
     description:
-      "Use real voices to inspire advocacy, build awareness, and share perspectives with credibility — extending impact well beyond the moment.",
+      "Use real voices to inspire advocacy, build awareness, and share perspectives with authenticity and credibility — extending impact beyond the moment.",
+    icon: Megaphone,
   },
 ];
 
@@ -77,8 +78,7 @@ const WhatYouCanAchieve: React.FC = () => {
               p-8 rounded-2xl
               border border-gray-200 dark:border-gray-800
               shadow-sm
-              transform-gpu will-change-transform
-              transition-transform duration-300
+              transition-all duration-300
               hover:-translate-y-1 hover:shadow-xl
               hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
             "
@@ -99,7 +99,7 @@ const WhatYouCanAchieve: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white min-h-[3.25rem] leading-snug">
+            <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
               {feature.title === 'Make Voice Matter' ? (
                 <>
                   Make Voice <span className="block">Matter</span>
@@ -109,7 +109,7 @@ const WhatYouCanAchieve: React.FC = () => {
               )}
             </h3>
 
-            <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm min-h-[7.5rem]">
+            <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
               {feature.description}
             </p>
           </div>
