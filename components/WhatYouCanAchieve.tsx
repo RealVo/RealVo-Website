@@ -99,9 +99,16 @@ const WhatYouCanAchieve: React.FC = () => {
         <feature.icon size={26} strokeWidth={1.8} />
       </div>
 
-      <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white">
-        {feature.title}
-      </h3>
+      <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
+  {feature.title === 'Make Voices Matter' ? (
+    <>
+      Make Voices
+      <span className="block">Matter</span>
+    </>
+  ) : (
+    feature.title
+  )}
+</h3>
 
       <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
         {feature.description}
