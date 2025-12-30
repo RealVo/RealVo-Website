@@ -100,7 +100,7 @@ const WhatYouCanAchieve: React.FC = () => {
       </div>
 
       <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
-  {feature.title === 'Make Voices Matter' ? (
+  {index === 1 ? (
     <>
       Make Voices
       <span className="block">Matter</span>
