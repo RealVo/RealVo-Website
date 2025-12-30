@@ -68,61 +68,51 @@ const WhatYouCanAchieve: React.FC = () => {
       </div>
 
       {/* Cards (same plane) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map((feature, index) => (
-          <div
-            key={index}
-            className="
-  group
-  bg-white dark:bg-gray-900
-  p-8 rounded-2xl
-  border border-gray-200 dark:border-gray-800
-  shadow-sm
-  antialiased
-  transform-gpu
-  translate-y-0
-  transition-all duration-300
-  hover:-translate-y-1 hover:shadow-xl
-  hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
-"
-          >
-           {/* Icon */}
-<div
-  className="
-    w-14 h-14
-    rounded-2xl
-    flex items-center justify-center
-    bg-realvo-light dark:bg-gray-800
-    text-realvo-blue dark:text-realvo-teal
-    transform-gpu
-    translate-y-0 scale-100
-    transition-all duration-300
-    group-hover:bg-realvo-blue
-    group-hover:text-white
-    group-hover:-translate-y-0.5
-    group-hover:scale-105
-  "
->
-  <feature.icon size={26} strokeWidth={1.8} />
-</div>
-
-            {/* Title */}
-            <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
-              {feature.title === 'Make Voice Matter' ? (
-                <>
-                  Make Voice <span className="block">Matter</span>
-                </>
-              ) : (
-                feature.title
-              )}
-            </h3>
-
-            <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-              {feature.description}
-            </p>
-          </div>
-        ))}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  {features.map((feature, index) => (
+    <div
+      key={index}
+      className={`
+        group
+        bg-white dark:bg-gray-900
+        p-8 rounded-2xl
+        border border-gray-200 dark:border-gray-800
+        shadow-sm
+        antialiased
+        transform-gpu
+        translate-y-0
+        transition-all duration-300
+        hover:-translate-y-1 hover:shadow-xl
+        hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
+      `}
+    >
+      {/* Icon */}
+      <div
+        className={`
+          w-14 h-14
+          rounded-2xl
+          flex items-center justify-center
+          bg-realvo-blue text-white
+          transform-gpu translate-y-0 scale-100
+          transition-all duration-300
+          group-hover:bg-realvo-light group-hover:text-realvo-blue
+          dark:group-hover:bg-gray-800 dark:group-hover:text-realvo-teal
+          group-hover:-translate-y-0.5 group-hover:scale-105
+        `}
+      >
+        <feature.icon size={26} strokeWidth={1.8} />
       </div>
+
+      <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white">
+        {feature.title}
+      </h3>
+
+      <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+        {feature.description}
+      </p>
+    </div>
+  ))}
+</div>
     </Section>
   );
 };
