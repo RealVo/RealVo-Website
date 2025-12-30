@@ -105,7 +105,7 @@ const Industries: React.FC = () => {
             </div>
 
             {/* Text */}
-            <div className="pt-1">
+            <div className="pt-2">
               <h3 className="text-xl font-semibold text-white leading-tight mb-2">
                 {industry.name}
               </h3>
