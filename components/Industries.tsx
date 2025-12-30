@@ -96,9 +96,18 @@ const Industries: React.FC = () => {
             className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-xl p-8 hover:bg-white/15 transition-colors group cursor-pointer"
           >
             <div className="flex items-start justify-between mb-4">
-              <div className="p-3 bg-white/10 rounded-lg text-realvo-teal">
-                <industry.icon size={32} />
-              </div>
+              <div
+  className="
+    w-14 h-14
+    rounded-2xl
+    flex items-center justify-center
+    bg-realvo-light text-realvo-blue
+    transition-colors duration-200
+    group-hover:bg-realvo-blue group-hover:text-white
+  "
+>
+  <industry.icon size={26} strokeWidth={1.8} />
+</div>
               <ArrowRight className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" />
             </div>
 
