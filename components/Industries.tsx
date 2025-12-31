@@ -93,7 +93,7 @@ const Industries: React.FC = () => {
             {/* Icon Anchor — keep bounce, remove outline, glyph turns light blue on hover */}
             <div
               className="
-                w-[60px] h-[60px] md:w-[68px] md:h-[68px]
+                w-[60px] h-[60px] md:w-[64px] md:h-[64px]
                 rounded-2xl
                 flex items-center justify-center
                 bg-white text-realvo-blue
