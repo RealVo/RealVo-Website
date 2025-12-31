@@ -352,19 +352,6 @@ const HomePage: React.FC = () => {
                   />
                 </div>
 
-                {/* Schedule a Demo interest */}
-<div className="flex items-start gap-2">
-  <input
-    type="checkbox"
-    name="schedule_demo"
-    value="yes"
-    className="mt-1 rounded border-gray-300 text-realvo-blue focus:ring-realvo-blue"
-  />
-  <label className="text-sm text-gray-700">
-    I’d like to schedule a live demo and planning call.
-  </label>
-</div>
-
                 {/* Submit + required note + success message */}
                 <div className="pt-2">
                   <Button
