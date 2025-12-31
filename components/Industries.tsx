@@ -93,7 +93,7 @@ const Industries: React.FC = () => {
             {/* Icon Anchor — 25% smaller tile, glyph still fills nicely */}
             <div
               className="
-                w-[60px] h-[60px] md:w-[72px] md:h-[72px]
+                w-[60px] h-[60px] md:w-[68px] md:h-[68px]
                 rounded-2xl
                 flex items-center justify-center
                 bg-white text-realvo-blue
