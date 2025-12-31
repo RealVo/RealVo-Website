@@ -90,7 +90,7 @@ const Industries: React.FC = () => {
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
         {industries.map((industry, idx) => (
           <div key={idx} className="flex items-start gap-6 group">
-            {/* Icon Anchor — 25% smaller tile, glyph still fills nicely */}
+            {/* Icon Anchor — keep bounce, remove outline, glyph turns light blue on hover */}
             <div
               className="
                 w-[60px] h-[60px] md:w-[68px] md:h-[68px]
@@ -98,8 +98,10 @@ const Industries: React.FC = () => {
                 flex items-center justify-center
                 bg-white text-realvo-blue
                 transition-colors duration-200
+                transition-transform duration-200
                 group-hover:bg-gray-100
-                group-hover:outline group-hover:outline-2 group-hover:outline-gray-300
+                group-hover:text-realvo-teal
+                group-hover:scale-[1.06]
                 flex-shrink-0
               "
             >
@@ -123,3 +125,4 @@ const Industries: React.FC = () => {
 };
 
 export default Industries;
+
