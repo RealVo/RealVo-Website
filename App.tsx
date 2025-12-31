@@ -164,12 +164,11 @@ const HomePage: React.FC = () => {
         : 'text-realvo-blue'
     }
   >
-    hear real voices?
+    capture real voices?
   </span>
 </h2>
               <p className="text-lg text-gray-600">
-                Tell us a little about your program — goals, timing, and where
-                you’ll be capturing voices.
+                Tell us about your program — your goals, timing, and where voices will be shared.
               </p>
               <p className="text-sm text-gray-500">
                 A member of our team will be in touch within 24 hours.
