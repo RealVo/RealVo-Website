@@ -75,6 +75,7 @@ const Industries: React.FC = () => {
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white mb-4">
   Experience Across
+  <span className="hidden md:inline">{' '}</span>
   <br className="block md:hidden" />
   <span ref={serveRef} className="animate-pulse-once-light">
     Key Industries
