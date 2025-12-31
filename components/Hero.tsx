@@ -120,36 +120,37 @@ const Hero: React.FC = () => {
         <div className="lg:col-span-7 space-y-6">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 bg-realvo-light px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue">
-            <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
+            {/* was bg-realvo-teal */}
+            <span className="h-2 w-2 rounded-full bg-realvo-light-blue animate-pulse" />
             Enterprise Video Capture Platform
           </div>
 
           {/* Headline */}
-<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
-  {/* Mobile */}
-  <span className="block md:hidden">
-    <span className="block">Understand what</span>
-    <span
-      ref={impactRefMobile}
-      className="block animate-pulse-once text-realvo-teal"
-    >
-      people truly think
-      <br />
-      and feel.
-    </span>
-  </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
+            {/* Mobile */}
+            <span className="block md:hidden">
+              <span className="block">Understand what</span>
+              <span
+                ref={impactRefMobile}
+                className="block animate-pulse-once text-realvo-light-blue"
+              >
+                people truly think
+                <br />
+                and feel.
+              </span>
+            </span>
 
-  {/* Desktop */}
-  <span className="hidden md:block">
-    <span className="block">Understand what people</span>
-    <span
-      ref={impactRefDesktop}
-      className="block animate-pulse-once text-realvo-teal"
-    >
-      truly think and feel.
-    </span>
-  </span>
-</h1>
+            {/* Desktop */}
+            <span className="hidden md:block">
+              <span className="block">Understand what people</span>
+              <span
+                ref={impactRefDesktop}
+                className="block animate-pulse-once text-realvo-light-blue"
+              >
+                truly think and feel.
+              </span>
+            </span>
+          </h1>
 
           {/* Supporting copy */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
@@ -195,7 +196,8 @@ const Hero: React.FC = () => {
 
           {/* Insight Card — Uploaded / Queued */}
           <div className="absolute -bottom-5 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3">
-            <div className="bg-green-100 p-2 rounded-full text-green-600 flex items-center justify-center w-9 h-9">
+            {/* was green; now brand-consistent light blue */}
+            <div className="bg-realvo-light-blue/15 p-2 rounded-full text-realvo-light-blue flex items-center justify-center w-9 h-9">
               ✓
             </div>
             <div className="leading-tight">
@@ -212,6 +214,7 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
 
 
 
