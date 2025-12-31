@@ -6,13 +6,13 @@
     color: #2A4D69;        /* RealVo Blue */
   }
   60% {
-    color: #2AB8B0;        /* Teal pulse */
+    color: #4FB3E8;        /* Teal pulse */
   }
   85% {
-    color: #2AB8B0;        /* Hold Teal */
+    color: #4FB3E8;        /* Hold Teal */
   }
   100% {
-    color: #2AB8B0;        /* End on Teal */
+    color: #4FB3E8;        /* End on Teal */
   }
 }
 
@@ -29,7 +29,7 @@
     color: #2A4D69;   /* RealVo Blue */
   }
   100% {
-    color: #2AB8B0;   /* RealVo Teal */
+    color: #4FB3E8;   /* RealVo Teal */
   }
 }
 
