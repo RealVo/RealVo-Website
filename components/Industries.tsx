@@ -47,7 +47,7 @@ const Industries: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && node) {
             node.classList.remove('animate-pulse-once-light');
-            void node.offsetWidth; // force reflow
+            void node.offsetWidth;
             node.classList.add('animate-pulse-once-light');
           }
         });
@@ -74,40 +74,41 @@ const Industries: React.FC = () => {
       {/* Header */}
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white mb-4">
-  Experience Across{' '}
-  <span ref={serveRef} className="animate-pulse-once-light">
-    Key Industries
-  </span>
-</h2>
+          Experience Across{' '}
+          <span ref={serveRef} className="animate-pulse-once-light">
+            Key Industries
+          </span>
+        </h2>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-  Specializing in real-world organizational environments,
-  <br className="hidden sm:block" />
-  shaped by 20 years of experience.
-</p>
+          Specializing in real-world organizational environments,
+          <br className="hidden sm:block" />
+          shaped by 20 years of experience.
+        </p>
       </div>
 
       {/* Icon-anchored layout */}
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
         {industries.map((industry, idx) => (
           <div key={idx} className="flex items-start gap-6 group">
-            {/* Icon Anchor — square, large, same style as WhatYouCanAchieve */}
+            {/* Icon Anchor */}
             <div
-  className="
-    w-20 h-20 md:w-24 md:h-24
-    rounded-2xl
-    flex items-center justify-center
-    bg-white text-realvo-blue
-    transition-colors duration-200
-    hover:bg-gray-100
-    hover:outline hover:outline-2 hover:outline-gray-300
-    flex-shrink-0
-  "
->
-  <industry.icon size={48} strokeWidth={1.8} />
-</div>
+              className="
+                w-20 h-20 md:w-24 md:h-24
+                rounded-2xl
+                flex items-center justify-center
+                bg-white text-realvo-blue
+                transition-colors duration-200
+                hover:bg-gray-100
+                hover:outline hover:outline-2 hover:outline-gray-300
+                flex-shrink-0
+                mt-1
+              "
+            >
+              <industry.icon size={36} strokeWidth={1.8} />
+            </div>
 
             {/* Text */}
-            <div className="pt-2">
+            <div>
               <h3 className="text-xl font-semibold text-white leading-tight mb-2">
                 {industry.name}
               </h3>
