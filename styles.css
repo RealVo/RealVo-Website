@@ -20,16 +20,16 @@
   animation: pulse-once 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s 1 forwards;
 }
 
-/* Single pulse for light text on dark backgrounds (Industries section) */
+/* Single pulse for "Who We Serve" (white → blue → teal, then hold) */
 @keyframes pulse-once-light {
   0% {
     color: #ffffff;      /* start white */
   }
-  50% {
-    color: #2AB8B0;      /* RealVo teal */
+  45% {
+    color: #1E5EFF;      /* RealVo Blue (use your exact brand blue if different) */
   }
   100% {
-    color: #ffffff;      /* end back on white */
+    color: #2AB8B0;      /* RealVo Teal */
   }
 }
 
