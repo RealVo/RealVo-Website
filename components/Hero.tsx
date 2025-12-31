@@ -125,31 +125,31 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Headline */}
-<h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
-  {/* Mobile */}
-  <span className="block md:hidden">
-    <span className="block">Understand what</span>
-    <span
-      ref={impactRefMobile}
-      className="block animate-pulse-once text-realvo-teal"
-    >
-      people truly think
-      <br />
-      and feel.
-    </span>
-  </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
+            {/* Mobile */}
+            <span className="block md:hidden">
+              <span className="block">Understand what</span>
+              <span
+                ref={impactRefMobile}
+                className="block animate-pulse-once text-realvo-teal"
+              >
+                people truly think
+                <br />
+                and feel.
+              </span>
+            </span>
 
-  {/* Desktop */}
-  <span className="hidden md:block">
-    <span className="block">Understand what people</span>
-    <span
-      ref={impactRefDesktop}
-      className="block animate-pulse-once text-realvo-teal"
-    >
-      truly think and feel.
-    </span>
-  </span>
-</h1>
+            {/* Desktop */}
+            <span className="hidden md:block">
+              <span className="block">Understand what people</span>
+              <span
+                ref={impactRefDesktop}
+                className="block animate-pulse-once text-realvo-teal"
+              >
+                truly think and feel.
+              </span>
+            </span>
+          </h1>
 
           {/* Supporting copy */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
@@ -195,7 +195,8 @@ const Hero: React.FC = () => {
 
           {/* Insight Card — Uploaded / Queued */}
           <div className="absolute -bottom-5 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3">
-            <div className="bg-green-100 p-2 rounded-full text-green-600 flex items-center justify-center w-9 h-9">
+            {/* UPDATED: remove green, use RealVo light-blue (mapped via realvo-teal) */}
+            <div className="bg-realvo-teal/15 p-2 rounded-full text-realvo-teal flex items-center justify-center w-9 h-9">
               ✓
             </div>
             <div className="leading-tight">
@@ -212,3 +213,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
