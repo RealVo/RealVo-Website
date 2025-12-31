@@ -80,8 +80,10 @@ const Industries: React.FC = () => {
   </span>
 </h2>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Specializing in real-world organizational environments, shaped by 20 years of experience.
-        </p>
+  Specializing in real-world organizational environments,
+  <br className="hidden sm:block" />
+  shaped by 20 years of experience.
+</p>
       </div>
 
       {/* Icon-anchored layout */}
