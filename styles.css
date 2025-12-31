@@ -20,21 +20,21 @@
   animation: pulse-once 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s 1 forwards;
 }
 
-/* Single pulse for "Who We Serve" (white → blue → teal, then hold) */
+/* Single pulse for "Who We Serve" (white → RealVo blue → teal, then hold) */
 @keyframes pulse-once-light {
   0% {
-    color: #ffffff;      /* start white */
+    color: #ffffff; /* start white */
   }
   45% {
-    color: #1E5EFF;      /* RealVo Blue (use your exact brand blue if different) */
+    color: var(--realvo-blue); /* RealVo Blue */
   }
   100% {
-    color: #2AB8B0;      /* RealVo Teal */
+    color: #2AB8B0; /* RealVo Teal */
   }
 }
 
 .animate-pulse-once-light {
-  animation: pulse-once-light 1.8s ease-out 0.3s 1;
+  animation: pulse-once-light 1.8s ease-out 0.3s 1 forwards;
 }
 
 /* Client logo marquee (TrustedBy) */
