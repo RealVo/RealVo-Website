@@ -20,16 +20,16 @@
   animation: pulse-once 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s 1 forwards;
 }
 
-/* Single pulse for "Who We Serve" (white → RealVo blue → teal, then hold) */
+/* Industries: "Who We Serve" on dark background (white → RealVo Blue → Teal, hold) */
 @keyframes pulse-once-light {
   0% {
-    color: #ffffff; /* start white */
+    color: #ffffff;   /* start white */
   }
   45% {
-    color: var(--realvo-blue); /* RealVo Blue */
+    color: #2A4D69;   /* RealVo Blue */
   }
   100% {
-    color: #2AB8B0; /* RealVo Teal */
+    color: #2AB8B0;   /* RealVo Teal */
   }
 }
 
