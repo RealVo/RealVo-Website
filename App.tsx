@@ -18,13 +18,13 @@ import VBPlatform from './components/VBPlatform';
 import Industries from './components/Industries';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
-import Button from './components/Button';
 import Section from './components/Section';
 import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
 import ImplementationProcess from './components/ImplementationProcess';
 import FreeStandingKiosk from './pages/FreeStandingKiosk';
 import DesktopTabletKiosk from './pages/DesktopTabletKiosk';
 import VirtualVideoBooth from './pages/VirtualVideoBooth';
+import ContactForm from './components/ContactForm';
 
 // ------------------------
 // Home / Landing page
@@ -153,23 +153,25 @@ const HomePage: React.FC = () => {
             {/* Left Column */}
             <div className="space-y-6">
               <h2
-  ref={contactHeadlineRef}
-  className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-tight text-realvo-charcoal dark:text-white"
->
-  Ready to{' '}
-  <span
-    className={
-      contactInView
-        ? 'text-realvo-blue animate-pulse-once'
-        : 'text-realvo-blue'
-    }
-  >
-    capture real voices?
-  </span>
-</h2>
+                ref={contactHeadlineRef}
+                className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-tight text-realvo-charcoal dark:text-white"
+              >
+                Ready to{' '}
+                <span
+                  className={
+                    contactInView
+                      ? 'text-realvo-blue animate-pulse-once'
+                      : 'text-realvo-blue'
+                  }
+                >
+                  capture real voices?
+                </span>
+              </h2>
+
               <p className="text-lg text-gray-600">
                 Tell us about your program — your goals, timing, and where voices will be shared.
               </p>
+
               <p className="text-sm text-gray-500">
                 A member of our team will be in touch within 24 hours.
               </p>
@@ -177,203 +179,12 @@ const HomePage: React.FC = () => {
 
             {/* Contact Form */}
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-              <form
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-                className="space-y-5"
+              <ContactForm
                 onSubmit={handleSubmit}
-              >
-                {/* Required by Netlify + honeypot field */}
-                <input type="hidden" name="form-name" value="contact" />
-                <p className="hidden">
-                  <label>
-                    Don’t fill this out if you’re human:{' '}
-                    <input name="bot-field" />
-                  </label>
-                </p>
-
-                {/* Full Name */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name<span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="fullName"
-                    required
-                    className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                    placeholder="Jane Doe"
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Email<span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                    placeholder="you@company.com"
-                  />
-                </div>
-
-                {/* Country + Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Country */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Country<span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      name="country"
-                      required
-                      className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Select your country
-                      </option>
-                      <option value="Canada">Canada</option>
-                      <option value="United States">United States</option>
-                      {/* …rest of your country options… */}
-                    </select>
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Phone Number
-                    </label>
-                    <input
-                      name="phone"
-                      type="tel"
-                      inputMode="tel"
-                      value={phone}
-                      onChange={handlePhoneChange}
-                      className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                      placeholder="555-123-4567"
-                    />
-                  </div>
-                </div>
-
-                {/* Organization */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Organization<span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="organization"
-                    required
-                    className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                    placeholder="Company / University / Hospital / Community / Non-profit"
-                  />
-                </div>
-
-                {/* Role */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Role / Title
-                  </label>
-                  <input
-                    name="role"
-                    className="w-full h-11 rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                    placeholder="Director of Employee Experience"
-                  />
-                </div>
-
-                {/* Inquiry + Budget */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Nature */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Nature of Inquiry<span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      name="nature"
-                      required
-                      className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Select one
-                      </option>
-                      <option value="Purchase">Purchase</option>
-                      <option value="Rental - 1 week or less">
-                        Rental (1-week or less)
-                      </option>
-                      <option value="Rental - 1 month or less">
-                        Rental (1-month or less)
-                      </option>
-                      <option value="Rental - more than 1 month">
-                        Rental (more than 1-month)
-                      </option>
-                    </select>
-                  </div>
-
-                  {/* Budget */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Budget Range<span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      name="budget"
-                      required
-                      className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Select range
-                      </option>
-                      <option value="< 5000">Less than $5k</option>
-                      <option value="5000-10000">$5k – $10k</option>
-                      <option value="10000-15000">$10k – $15k</option>
-                      <option value="15000-25000">$15k – $25k</option>
-                      <option value="25000+">$25k+</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Activation Details */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Tell us about your activation<span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={3}
-                    required
-                    className="w-full rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-                    placeholder="Share timing, location, goals, outcomes"
-                  />
-                </div>
-
-                {/* Submit + required note + success message */}
-                <div className="pt-2">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    variant="primary"
-                    className="w-full sm:w-auto"
-                  >
-                    Submit
-                  </Button>
-
-                  <p className="mt-2 text-xs text-gray-400">
-  <span className="text-red-500">*</span> Required fields
-</p>
-
-                  {submitted && (
-                    <p className="mt-2 text-sm text-green-600">
-                      Thank you — your details have been submitted. We’ll be in
-                      touch shortly.
-                    </p>
-                  )}
-                </div>
-              </form>
+                submitted={submitted}
+                phone={phone}
+                onPhoneChange={handlePhoneChange}
+              />
             </div>
           </div>
         </Section>
@@ -418,3 +229,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
