@@ -158,7 +158,7 @@ const Hero: React.FC = () => {
           </p>
 
           <p className="text-sm text-gray-500 italic max-w-xl">
-            A fully managed video-capture program — from strategy and design to
+            A fully managed video-capture solution — from strategy and design to
             deployment, management, and insight.
           </p>
 
