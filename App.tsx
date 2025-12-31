@@ -172,7 +172,7 @@ const HomePage: React.FC = () => {
                 you’ll be capturing voices.
               </p>
               <p className="text-sm text-gray-500">
-                We typically respond within 1–2 business days.
+                A member of our team will be in touch within 24 hours.
               </p>
             </div>
 
@@ -352,6 +352,19 @@ const HomePage: React.FC = () => {
                   />
                 </div>
 
+                {/* Schedule a Demo interest */}
+<div className="flex items-start gap-2">
+  <input
+    type="checkbox"
+    name="schedule_demo"
+    value="yes"
+    className="mt-1 rounded border-gray-300 text-realvo-blue focus:ring-realvo-blue"
+  />
+  <label className="text-sm text-gray-700">
+    I’d like to schedule a live demo and planning call.
+  </label>
+</div>
+
                 {/* Submit + required note + success message */}
                 <div className="pt-2">
                   <Button
@@ -364,8 +377,8 @@ const HomePage: React.FC = () => {
                   </Button>
 
                   <p className="mt-2 text-xs text-gray-400">
-                    * Required fields
-                  </p>
+  <span className="text-red-500">*</span> Required fields
+</p>
 
                   {submitted && (
                     <p className="mt-2 text-sm text-green-600">
