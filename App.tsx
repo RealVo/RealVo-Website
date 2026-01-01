@@ -177,19 +177,19 @@ const HomePage: React.FC = () => {
               </p>
 
               {/* Contact image */}
-<div className="pt-6 w-full">
-  <img
-  src="/capture/contact-form/contact-form-naco.png"
-  alt="RealVo capture example"
-  loading="lazy"
-  decoding="async"
-  width={1200}
-  height={675}
-  className="w-full rounded-2xl shadow-lg object-cover opacity-0 transition-opacity duration-500"
-  onLoad={(e) => e.currentTarget.classList.remove('opacity-0')}
-/>
-</div>
-            </div>
+              <div className="pt-6">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100">
+                  <img
+                    src="/capture/contact-form/contact-form-naco.png"
+                    alt="RealVo participant sharing their story"
+                    loading="lazy"
+                    decoding="async"
+                    width={1200}
+                    height={675}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
 
             {/* Contact Form */}
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
