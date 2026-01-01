@@ -186,18 +186,15 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Contact image */}
-<div className="pt-6">
-  <img
-    src="/capture/contact-form/contact-form-naco.png"
-    alt="RealVo participant sharing their story"
-    className="
-      w-full
-      rounded-2xl
-      shadow-[0_20px_40px_rgba(0,0,0,0.18)]
-    "
-  />
-</div>
+            {/* Contact Form */}
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+              <ContactForm
+                onSubmit={handleSubmit}
+                submitted={submitted}
+                phone={phone}
+                onPhoneChange={handlePhoneChange}
+              />
+            </div>
           </div>
         </Section>
       </main>
