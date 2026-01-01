@@ -169,7 +169,7 @@ const Hero: React.FC = () => {
               variant="primary"
               onClick={() => scrollToSection('contact')}
             >
-              Request Pricing &amp; Availability
+              Start a Conversation
             </Button>
           </div>
         </div>
