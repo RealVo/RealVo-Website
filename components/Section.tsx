@@ -4,7 +4,7 @@ interface SectionProps {
   id?: string;
   className?: string;
   children: React.ReactNode;
-  background?: 'white' | 'light' | 'dark' | 'teal';
+  background?: 'white' | 'light' | 'dark' | 'teal' | 'slate' | 'light-blue';
   padding?: 'sm' | 'md' | 'lg';
 }
 
@@ -15,26 +15,26 @@ const Section: React.FC<SectionProps> = ({
   background = 'white',
   padding = 'lg'
 }) => {
-  const bgStyles = {
-  white: 'bg-white dark:bg-realvo-charcoal',
-  light: 'bg-realvo-light dark:bg-[#232830]',
-  dark: 'bg-realvo-blue text-white',
-  teal: 'bg-realvo-teal/10 dark:bg-realvo-teal/20',
+  const bgStyles: Record<NonNullable<SectionProps['background']>, string> = {
+    white: 'bg-white dark:bg-realvo-charcoal',
+    light: 'bg-realvo-light dark:bg-[#232830]',
+    dark: 'bg-realvo-blue text-white',
+    teal: 'bg-realvo-teal/10 dark:bg-realvo-teal/20',
 
-  // NEW COLORS
-  slate: 'bg-[#6A7F93] text-white',         // Soft Slate (section-friendly)
-  'light-blue': 'bg-[#EEF2F5]'             // Very soft calm background
-};
+    // NEW COLORS
+    slate: 'bg-[#6A7F93] text-white',
+    'light-blue': 'bg-[#EEF2F5]'
+  };
 
-  const paddingStyles = {
+  const paddingStyles: Record<NonNullable<SectionProps['padding']>, string> = {
     sm: 'py-8 md:py-10',
     md: 'py-12 md:py-16',
     lg: 'py-20 md:py-28'
   };
 
-  // Add scroll margin only for the contact section so it isn't hidden under the sticky header
+  // Smaller scroll margin so the section aligns nicely under the sticky header
   const scrollMarginClass =
-    id === 'contact' ? 'scroll-mt-24 md:scroll-mt-32' : '';
+    id === 'contact' ? 'scroll-mt-16 md:scroll-mt-20' : '';
 
   return (
     <section
@@ -49,3 +49,4 @@ const Section: React.FC<SectionProps> = ({
 };
 
 export default Section;
+
