@@ -176,14 +176,20 @@ const HomePage: React.FC = () => {
                 A member of our team will be in touch within 24 hours.
               </p>
 
-              {/* ✅ Contact image */}
-              <div className="pt-4">
-                <img
-                  src="/capture/contact-form/contact-form-naco.png"
-                  alt="RealVo participant sharing their story"
-                  className="w-full max-w-md rounded-2xl shadow-md"
-                />
-              </div>
+              {/* Contact image */}
+<div className="pt-6 w-full">
+  <img
+    src="/capture/contact-form/contact-form-naco.png"
+    alt="RealVo participant sharing their story"
+    className="
+      w-full
+      h-auto
+      block
+      rounded-2xl
+      shadow-[0_20px_40px_rgba(0,0,0,0.18)]
+    "
+  />
+</div>
             </div>
 
             {/* Contact Form */}
