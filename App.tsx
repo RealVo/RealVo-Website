@@ -185,7 +185,8 @@ const HomePage: React.FC = () => {
   decoding="async"
   width={1200}
   height={675}
-  className="w-full rounded-2xl shadow-lg object-cover"
+  className="w-full rounded-2xl shadow-lg object-cover opacity-0 transition-opacity duration-500"
+  onLoad={(e) => e.currentTarget.classList.remove('opacity-0')}
 />
 </div>
             </div>
