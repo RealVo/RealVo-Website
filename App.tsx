@@ -50,13 +50,12 @@ const HomePage: React.FC = () => {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    // small timeout to ensure layout is ready
     setTimeout(scrollToTarget, 0);
   }, [location]);
 
   // Format as 555-123-4567 while typing
   const formatPhone = (value: string) => {
-    const digits = value.replace(/\D/g, '').slice(0, 10); // max 10 digits
+    const digits = value.replace(/\D/g, '').slice(0, 10);
     const len = digits.length;
 
     if (len <= 3) return digits;
@@ -127,7 +126,7 @@ const HomePage: React.FC = () => {
         <Hero />
         <TrustedBy />
 
-        {/* NEW: Why RealVo Exists section */}
+        {/* Why RealVo Exists */}
         <WhyRealVoExists />
 
         <WhatYouCanAchieve />
@@ -142,7 +141,7 @@ const HomePage: React.FC = () => {
         <VBPlatform />
         <Pricing />
 
-        {/* CONTACT SECTION – note id="contact" */}
+        {/* CONTACT SECTION */}
         <Section
           id="contact"
           background="white"
@@ -176,22 +175,23 @@ const HomePage: React.FC = () => {
                 A member of our team will be in touch within 24 hours.
               </p>
 
-              {/* Contact image */}
-<div className="pt-6">
-  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100">
-    <img
-      src="/capture/contact-form/contact-form-naco.png"
-      alt="RealVo participant sharing their story"
-      loading="lazy"
-      decoding="async"
-      width={1200}
-      height={675}
-      className="w-full h-auto object-cover"
-    />
-  </div>
-</div>
+              {/* Contact image (matches Hero token) */}
+              <div className="pt-6">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100">
+                  <img
+                    src="/capture/contact-form/contact-form-naco.png"
+                    alt="Participant sharing their story"
+                    loading="lazy"
+                    decoding="async"
+                    width={1200}
+                    height={675}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
 
-            {/* Contact Form */}
+            {/* Right Column (Contact Form) */}
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
               <ContactForm
                 onSubmit={handleSubmit}
