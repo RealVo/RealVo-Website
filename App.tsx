@@ -175,6 +175,15 @@ const HomePage: React.FC = () => {
               <p className="text-sm text-gray-500">
                 A member of our team will be in touch within 24 hours.
               </p>
+
+              {/* ✅ Contact image */}
+              <div className="pt-4">
+                <img
+                  src="/capture/contact-form/contact-form-naco.png"
+                  alt="RealVo participant sharing their story"
+                  className="w-full max-w-md rounded-2xl shadow-md"
+                />
+              </div>
             </div>
 
             {/* Contact Form */}
@@ -229,4 +238,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
