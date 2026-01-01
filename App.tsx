@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
   const [contactInView, setContactInView] = useState(false);
   const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
 
-  // 👇 Watch the URL hash and scroll to the matching section when needed
+  // Watch the URL hash and scroll to the matching section when needed
   const location = useLocation();
 
   useEffect(() => {
@@ -64,8 +64,7 @@ const HomePage: React.FC = () => {
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formatted = formatPhone(e.target.value);
-    setPhone(formatted);
+    setPhone(formatPhone(e.target.value));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -75,14 +74,10 @@ const HomePage: React.FC = () => {
     const formData = new FormData(form);
 
     // Ensure Netlify sees a phone value (formatted)
-    if (!formData.get('phone')) {
-      formData.set('phone', phone);
-    }
+    if (!formData.get('phone')) formData.set('phone', phone);
 
     // Netlify requires form-name in the POST body
-    if (!formData.get('form-name')) {
-      formData.append('form-name', 'contact');
-    }
+    if (!formData.get('form-name')) formData.append('form-name', 'contact');
 
     try {
       await fetch('/', {
@@ -106,9 +101,7 @@ const HomePage: React.FC = () => {
 
     const observer = new IntersectionObserver(
       entries => {
-        entries.forEach(entry => {
-          setContactInView(entry.isIntersecting);
-        });
+        entries.forEach(entry => setContactInView(entry.isIntersecting));
       },
       { threshold: 0.6 }
     );
@@ -122,26 +115,21 @@ const HomePage: React.FC = () => {
       <Header />
 
       <main className="flex-grow">
-        {/* HERO + SOCIAL PROOF */}
         <Hero />
         <TrustedBy />
 
-        {/* Why RealVo Exists */}
         <WhyRealVoExists />
 
         <WhatYouCanAchieve />
         <Industries />
         <CaptureOptions />
 
-        {/* Process & Platform overview */}
         <ImplementationProcess />
 
-        {/* Participant workflow + platform */}
         <HowItWorks />
         <VBPlatform />
         <Pricing />
 
-        {/* CONTACT SECTION */}
         <Section
           id="contact"
           background="white"
@@ -175,23 +163,23 @@ const HomePage: React.FC = () => {
                 A member of our team will be in touch within 24 hours.
               </p>
 
-              {/* Contact image (matches Hero token) */}
-              <div className="pt-6">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100">
+              {/* Contact image (Hero shadow token + full width) */}
+              <div className="pt-4">
+                <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
                   <img
                     src="/capture/contact-form/contact-form-naco.png"
-                    alt="Participant sharing their story"
+                    alt="RealVo participant sharing their story"
                     loading="lazy"
                     decoding="async"
                     width={1200}
                     height={675}
-                    className="w-full h-auto object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Right Column (Contact Form) */}
+            {/* Contact Form */}
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
               <ContactForm
                 onSubmit={handleSubmit}
