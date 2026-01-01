@@ -189,6 +189,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <option value="10000-15000">$10k – $15k</option>
             <option value="15000-25000">$15k – $25k</option>
             <option value="25000+">$25k+</option>
+            <option value="unsure">Not sure yet / Exploring options</option>
           </select>
         </div>
       </div>
