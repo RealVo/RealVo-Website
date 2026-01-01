@@ -34,7 +34,7 @@ const Section: React.FC<SectionProps> = ({
 
   // Smaller scroll margin so the section aligns nicely under the sticky header
   const scrollMarginClass =
-    id === 'contact' ? 'scroll-mt-16 md:scroll-mt-20' : '';
+    id === 'contact' ? 'scroll-mt-16 md:scroll-mt-14' : '';
 
   return (
     <section
