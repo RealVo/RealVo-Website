@@ -179,16 +179,14 @@ const HomePage: React.FC = () => {
               {/* Contact image */}
 <div className="pt-6 w-full">
   <img
-    src="/capture/contact-form/contact-form-naco.png"
-    alt="RealVo participant sharing their story"
-    className="
-      w-full
-      h-auto
-      block
-      rounded-2xl
-      shadow-[0_20px_40px_rgba(0,0,0,0.18)]
-    "
-  />
+  src="/capture/contact-form/contact-form-naco.png"
+  alt="RealVo capture example"
+  loading="lazy"
+  decoding="async"
+  width={1200}
+  height={675}
+  className="w-full rounded-2xl shadow-lg object-cover"
+/>
 </div>
             </div>
 
