@@ -147,7 +147,7 @@ const HomePage: React.FC = () => {
           id="contact"
           background="white"
           padding="lg"
-          className="border-t border-gray-100"
+          className="border-t border-gray-100 !pt-10 md:!pt-20"
         >
           <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
             {/* Left Column */}
