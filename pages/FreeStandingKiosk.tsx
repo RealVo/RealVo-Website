@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -14,7 +14,7 @@ const BOOTH_ACTION_IMAGES = [
     src: '/capture/free-standing-kiosk/holiday-inn-collage.jpg',
     alt: 'RealVo activation - Holiday Inn event',
   },
-   {
+  {
     src: '/capture/free-standing-kiosk/scott-pilgram-collage.jpg',
     alt: 'RealVo free-standing kiosk activation – Scott Pilgram event',
   },
@@ -88,6 +88,32 @@ const FreeStandingKiosk: React.FC = () => {
     setDesktopStartIndex(prev => (prev - 1 + totalImages) % totalImages);
   };
 
+  /**
+   * CTA "matter" animation trigger:
+   * - animates when CTA comes into view
+   * - re-animates every time it re-enters
+   */
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const [ctaAnimKey, setCtaAnimKey] = useState(0);
+
+  useEffect(() => {
+    const el = ctaRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setCtaAnimKey(k => k + 1);
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
       <Header />
@@ -97,36 +123,36 @@ const FreeStandingKiosk: React.FC = () => {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
             {/* Back link */}
             <a
-  href="/#solutions"
-  className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
->
-  <span className="mr-1.5 text-base">←</span>
-  Back to Capture Options
-</a>
+              href="/#solutions"
+              className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
+            >
+              <span className="mr-1.5 text-base">←</span>
+              Back to Capture Options
+            </a>
 
             {/* Hero / Overview */}
-<div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
-  {/* Image / hero visual */}
-  <div
-    className="
-      relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
-      shadow-sm border border-slate-200/70 dark:border-slate-800/80
-      flex items-center justify-center
-      px-4 sm:px-6
-      min-h-[320px] sm:min-h-[380px] lg:min-h-[430px]
-    "
-  >
-    <img
-      src="/kiosk_booth.png"
-      alt="RealVo Free-standing Kiosk"
-      className="
-        w-full sm:w-full lg:w-auto
-        h-auto
-        max-h-[320px] sm:max-h-[360px] lg:max-h-[415px]
-        object-contain object-center
-      "
-    />
-  </div>
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
+              {/* Image / hero visual */}
+              <div
+                className="
+                  relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
+                  shadow-sm border border-slate-200/70 dark:border-slate-800/80
+                  flex items-center justify-center
+                  px-4 sm:px-6
+                  min-h-[320px] sm:min-h-[380px] lg:min-h-[430px]
+                "
+              >
+                <img
+                  src="/kiosk_booth.png"
+                  alt="RealVo Free-standing Kiosk"
+                  className="
+                    w-full sm:w-full lg:w-auto
+                    h-auto
+                    max-h-[320px] sm:max-h-[360px] lg:max-h-[415px]
+                    object-contain object-center
+                  "
+                />
+              </div>
 
               {/* Text content */}
               <div className="space-y-5 sm:space-y-6">
@@ -399,47 +425,52 @@ const FreeStandingKiosk: React.FC = () => {
             </div>
 
             {/* Capture option navigation – previous + next */}
-<div className="mt-10 sm:mt-14 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-  {/* Back to Booth */}
-  <a
-    href="/capture/private-enclosed-booth"
-    className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
-  >
-    <span className="mr-1 text-base">←</span>
-    Previous capture option: Private Enclosed Booth
-  </a>
+            <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <a
+                href="/capture/private-enclosed-booth"
+                className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
+              >
+                <span className="mr-1 text-base">←</span>
+                Previous capture option: Private Enclosed Booth
+              </a>
 
-  {/* Forward to Desktop */}
-  <a
-    href="/capture/desktop-tablet-kiosk"
-    className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
-  >
-    Next capture option: Desktop Tablet Kiosk
-    <span className="ml-1 text-base">→</span>
-  </a>
-</div>
+              <a
+                href="/capture/desktop-tablet-kiosk"
+                className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
+              >
+                Next capture option: Desktop Tablet Kiosk
+                <span className="ml-1 text-base">→</span>
+              </a>
+            </div>
 
-            {/* Final CTA band */}
-            <div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            {/* Final CTA band (IDENTICAL across all capture option pages) */}
+            <div
+              ref={ctaRef}
+              className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5"
+            >
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300 mb-2">
-                  Ready to activate RealVo
+                <p className="text-sm sm:text-base font-semibold tracking-wide text-slate-200/90 mb-2">
+                  Ready to activate RealVo?
                 </p>
+
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                  Place a visible capture point where people are already moving,
-                  waiting, and engaging.
+                  Make voices{' '}
+                  <span key={ctaAnimKey} className="text-realvo-teal animate-pulse-once-light">
+                    matter
+                  </span>
+                  .
                 </h2>
+
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Share your goals — we’ll help you configure the Free-standing
-                  Kiosk to maximize engagement and capture the content that
-                  matters most.
+                  Capture meaningful insight from the people you serve.
                 </p>
               </div>
+
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-white text-slate-900 hover:bg-slate-100 transition whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
               >
-                Talk to the RealVo team
+                Let&apos;s get started
               </a>
             </div>
           </div>
@@ -502,3 +533,4 @@ const FreeStandingKiosk: React.FC = () => {
 };
 
 export default FreeStandingKiosk;
+
