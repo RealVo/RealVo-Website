@@ -19,7 +19,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       name="contact"
       method="POST"
       data-netlify="true"
-      netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field"
       className="space-y-5"
       onSubmit={onSubmit}
     >
@@ -78,8 +78,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
             </option>
             <option value="Canada">Canada</option>
             <option value="United States">United States</option>
-
-            {/* A compact but useful remainder list */}
             <option value="United Kingdom">United Kingdom</option>
             <option value="Australia">Australia</option>
             <option value="New Zealand">New Zealand</option>
@@ -149,7 +147,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
       {/* Inquiry + Budget */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {/* Nature */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Nature of Inquiry<span className="text-red-500">*</span>
@@ -160,9 +157,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
             defaultValue=""
           >
-            <option value="" disabled>
-              Select one
-            </option>
+            <option value="" disabled>Select one</option>
             <option value="Purchase">Purchase</option>
             <option value="Rental - 1 week or less">Rental (1-week or less)</option>
             <option value="Rental - 1 month or less">Rental (1-month or less)</option>
@@ -170,7 +165,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
           </select>
         </div>
 
-        {/* Budget */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Budget Range<span className="text-red-500">*</span>
@@ -181,9 +175,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
             defaultValue=""
           >
-            <option value="" disabled>
-              Select range
-            </option>
+            <option value="" disabled>Select range</option>
             <option value="< 5000">Less than $5k</option>
             <option value="5000-10000">$5k – $10k</option>
             <option value="10000-15000">$10k – $15k</option>
@@ -208,14 +200,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </div>
 
-      {/* Submit + required note + success message */}
+      {/* Submit */}
       <div className="pt-2">
-        <Button
-          type="submit"
-          size="lg"
-          variant="primary"
-          className="w-full sm:w-auto"
-        >
+        <Button type="submit" size="lg" variant="primary" className="w-full sm:w-auto">
           Submit
         </Button>
 
@@ -234,4 +221,3 @@ const ContactForm: React.FC<ContactFormProps> = ({
 };
 
 export default ContactForm;
-
