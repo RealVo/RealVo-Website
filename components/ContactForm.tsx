@@ -162,6 +162,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <option value="Rental - 1 week or less">Rental (1-week or less)</option>
             <option value="Rental - 1 month or less">Rental (1-month or less)</option>
             <option value="Rental - more than 1 month">Rental (More than 1-month)</option>
+            <option value="Custom / Bespoke">Custom / Bespoke</option>
+            <option value="Other">Other</option>
           </select>
         </div>
 
