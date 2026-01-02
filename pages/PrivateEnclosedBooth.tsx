@@ -395,26 +395,28 @@ const PrivateEnclosedBooth: React.FC = () => {
             </div>
 
             {/* Final CTA band (IDENTICAL across all capture option pages) */}
-            <div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300 mb-2">
-                  READY TO ACTIVATE REALVO?
-                </p>
-                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                  Make voices matter.
-                </h2>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Capture meaningful insight from the people you serve.
-                </p>
-              </div>
+<div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+  <div>
+    <p className="text-xs font-semibold tracking-[0.22em] text-slate-300 mb-2">
+      Ready to activate RealVo?
+    </p>
 
-              <a
-                href="/#contact"
-                className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-white text-slate-900 hover:bg-slate-100 transition whitespace-nowrap"
-              >
-                Let&apos;s get started
-              </a>
-            </div>
+    <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
+      Make voices <span className="animate-pulse-once-light">matter</span>.
+    </h2>
+
+    <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
+      Capture meaningful insight from the people you serve.
+    </p>
+  </div>
+
+  <a
+    href="/#contact"
+    className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-white text-slate-900 hover:bg-slate-100 transition whitespace-nowrap md:px-7 md:py-3.5"
+  >
+    Let&apos;s get started
+  </a>
+</div>
           </div>
         </section>
       </main>
