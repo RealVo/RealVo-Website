@@ -84,12 +84,12 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    // Simple shared-secret guard (Netlify HTTP POST notification should include ?token=...)
-    const token = event.queryStringParameters?.token;
-    if (!token || token !== process.env.WEBHOOK_TOKEN) {
-      console.log("⛔ Unauthorized", { tokenPresent: !!token });
-      return { statusCode: 401, headers: corsHeaders, body: "Unauthorized" };
-    }
+    // // Simple shared-secret guard (TEMP DISABLED for testing)
+// // const token = event.queryStringParameters?.token;
+// // if (!token || token !== process.env.WEBHOOK_TOKEN) {
+// //   console.log("⛔ Unauthorized", { tokenPresent: !!token });
+// //   return { statusCode: 401, headers: corsHeaders, body: "Unauthorized" };
+// // }
 
     // Parse and log payload shape
     const payload = JSON.parse(event.body || "{}") as NetlifyFormPayload;
