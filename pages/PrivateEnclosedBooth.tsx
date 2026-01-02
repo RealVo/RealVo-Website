@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -84,6 +84,36 @@ const PrivateEnclosedBooth: React.FC = () => {
     if (!showDesktopArrows) return;
     setDesktopStartIndex(prev => (prev - 1 + totalImages) % totalImages);
   };
+
+  /**
+   * CTA "matter" animation trigger:
+   * - animates when CTA comes into view
+   * - resets when it leaves view
+   * - re-animates every time it re-enters
+   */
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const [ctaAnimKey, setCtaAnimKey] = useState(0);
+
+  useEffect(() => {
+    const el = ctaRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          // bump key to re-mount the animated span -> animation replays
+          setCtaAnimKey(k => k + 1);
+        }
+      },
+      {
+        threshold: 0.35, // ~35% visible triggers animation; feels natural
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
@@ -247,6 +277,7 @@ const PrivateEnclosedBooth: React.FC = () => {
               id="tech-specs"
               className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2"
             >
+              {/* Features with purpose / Benefits */}
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Features with purpose
@@ -284,6 +315,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </ul>
               </div>
 
+              {/* Tech specs */}
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Technical specifications
@@ -354,6 +386,7 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
+            {/* Use cases & customization */}
             <div className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2">
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
@@ -384,6 +417,7 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
+            {/* Next capture option – link to Free-standing Kiosk */}
             <div className="mt-10 sm:mt-14 flex justify-end">
               <a
                 href="/capture/free-standing-kiosk"
@@ -394,29 +428,36 @@ const PrivateEnclosedBooth: React.FC = () => {
               </a>
             </div>
 
-            {/* Final CTA band (IDENTICAL across all capture option pages) */}
-<div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-  <div>
-    <p className="text-xs font-semibold tracking-[0.22em] text-slate-300 mb-2">
-      Ready to activate RealVo?
-    </p>
+            {/* Final CTA band (make identical across all capture option pages) */}
+            <div
+              ref={ctaRef}
+              className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5"
+            >
+              <div>
+                <p className="text-sm sm:text-base font-semibold tracking-wide text-slate-200/90 mb-2">
+                  Ready to activate RealVo?
+                </p>
 
-    <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-      Make voices <span className="animate-pulse-once-light">matter</span>.
-    </h2>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
+                  Make voices{' '}
+                  <span key={ctaAnimKey} className="text-realvo-teal animate-pulse-once-light">
+                    matter
+                  </span>
+                  .
+                </h2>
 
-    <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-      Capture meaningful insight from the people you serve.
-    </p>
-  </div>
+                <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
+                  Capture meaningful insight from the people you serve.
+                </p>
+              </div>
 
-  <a
-    href="/#contact"
-    className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-white text-slate-900 hover:bg-slate-100 transition whitespace-nowrap md:px-7 md:py-3.5"
-  >
-    Let&apos;s get started
-  </a>
-</div>
+              <a
+                href="/#contact"
+                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
+              >
+                Let&apos;s get started
+              </a>
+            </div>
           </div>
         </section>
       </main>
@@ -434,6 +475,7 @@ const PrivateEnclosedBooth: React.FC = () => {
             className="relative max-w-4xl w-full"
             onClick={e => e.stopPropagation()}
           >
+            {/* Close button */}
             <button
               type="button"
               className="absolute -top-10 right-0 text-slate-200 hover:text-white text-sm sm:text-base"
@@ -442,6 +484,7 @@ const PrivateEnclosedBooth: React.FC = () => {
               Close ✕
             </button>
 
+            {/* Image */}
             <div className="relative w-full flex items-center justify-center bg-white p-2">
               <img
                 src={currentLightboxImage.src}
@@ -450,6 +493,7 @@ const PrivateEnclosedBooth: React.FC = () => {
               />
             </div>
 
+            {/* Nav arrows */}
             <button
               type="button"
               onClick={showPrev}
@@ -474,3 +518,4 @@ const PrivateEnclosedBooth: React.FC = () => {
 };
 
 export default PrivateEnclosedBooth;
+
