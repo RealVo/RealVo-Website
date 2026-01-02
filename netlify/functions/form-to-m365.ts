@@ -137,7 +137,8 @@ if (!token || token !== process.env.WEBHOOK_TOKEN) {
     `;
 
     const sendFrom = process.env.M365_SEND_FROM!; // e.g. dale@videobooth.ca
-    const notifyTo = process.env.NOTIFY_TO!; // e.g. dale@realvo.io
+    const notifyTo = process.env.NOTIFY_TO!; // primary recipient
+    const notifyToSecondary = process.env.NOTIFY_TO_SECONDARY; // optional fallback
 
     console.log("🔐 getting Graph token...");
     const accessToken = await getGraphToken();
@@ -152,16 +153,21 @@ if (!token || token !== process.env.WEBHOOK_TOKEN) {
     })`;
 
     const mail = {
-      message: {
-        subject,
-        body: { contentType: "HTML", content: html },
-        toRecipients: [{ emailAddress: { address: notifyTo } }],
-        replyTo: (data as any)?.email
-          ? [{ emailAddress: { address: String((data as any).email) } }]
-          : undefined,
-      },
-      saveToSentItems: "true",
-    };
+  message: {
+    subject,
+    body: { contentType: "HTML", content: html },
+    toRecipients: [
+      { emailAddress: { address: notifyTo } },
+      ...(process.env.NOTIFY_TO_SECONDARY
+        ? [{ emailAddress: { address: process.env.NOTIFY_TO_SECONDARY } }]
+        : []),
+    ],
+    replyTo: (data as any)?.email
+      ? [{ emailAddress: { address: String((data as any).email) } }]
+      : undefined,
+  },
+  saveToSentItems: "true",
+};
 
     console.log("📨 sending via Graph", { graphUrl, sendFrom, notifyTo, subject });
 
