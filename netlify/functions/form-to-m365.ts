@@ -50,16 +50,20 @@ function escapeHtml(s: string) {
     .replaceAll("'", "&#039;");
 }
 
-export const handler: Handler = async (event) => {
-  // 🔥 Always log invocation (proves whether Netlify is calling this function)
-  console.log("🔥 form-to-m365 invoked", {
-    method: event.httpMethod,
-    path: event.path,
-    headers: event.headers,
-    hasBody: !!event.body,
-    bodyLen: event.body ? event.body.length : 0,
-    query: event.queryStringParameters,
-  });
+// 🔥 Always log invocation (clean + traceable)
+const requestId =
+  event.headers["x-nf-request-id"] ||
+  (globalThis.crypto?.randomUUID
+    ? crypto.randomUUID()
+    : `req-${Date.now()}`);
+
+console.log("🔥 form-to-m365 invoked", {
+  requestId,
+  method: event.httpMethod,
+  path: event.path,
+  hasBody: !!event.body,
+  bodyLen: event.body ? event.body.length : 0,
+});
 
   // ✅ CORS preflight (browser sends this before POST)
   if (event.httpMethod === "OPTIONS") {
@@ -181,13 +185,18 @@ if (!token || token !== process.env.WEBHOOK_TOKEN) {
     });
 
     // Graph sendMail commonly returns 202 Accepted with empty body
-    const text = await res.text().catch(() => "");
-    console.log("📬 Graph response", {
-      ok: res.ok,
-      status: res.status,
-      statusText: res.statusText,
-      bodyPreview: text ? text.slice(0, 500) : "",
-    });
+const text = await res.text().catch(() => "");
+console.log("📬 Graph response", {
+  requestId,
+  ok: res.ok,
+  status: res.status,
+  statusText: res.statusText,
+  graphRequestId:
+    res.headers.get("request-id") ||
+    res.headers.get("x-ms-request-id"),
+  date: res.headers.get("date"),
+  bodyPreview: text ? text.slice(0, 500) : "",
+});
 
     if (!res.ok) {
       throw new Error(`Graph sendMail error: ${res.status} ${text}`);
