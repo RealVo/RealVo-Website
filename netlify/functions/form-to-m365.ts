@@ -7,12 +7,6 @@ type NetlifyFormPayload = {
   created_at?: string;
 };
 
-/**
- * CORS
- * - This allows you to test the function from the browser on https://realvo.io
- * - It does NOT affect Netlify server-to-server POST notifications (those don’t need CORS),
- *   but it fixes the preflight error you saw.
- */
 const corsHeaders: Record<string, string> = {
   "Access-Control-Allow-Origin": "https://realvo.io",
   "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
@@ -57,6 +51,16 @@ function escapeHtml(s: string) {
 }
 
 export const handler: Handler = async (event) => {
+  // 🔥 Always log invocation (proves whether Netlify is calling this function)
+  console.log("🔥 form-to-m365 invoked", {
+    method: event.httpMethod,
+    path: event.path,
+    headers: event.headers,
+    hasBody: !!event.body,
+    bodyLen: event.body ? event.body.length : 0,
+    query: event.queryStringParameters,
+  });
+
   // ✅ CORS preflight (browser sends this before POST)
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 204, headers: corsHeaders, body: "" };
@@ -80,13 +84,21 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    // Simple shared-secret guard
+    // Simple shared-secret guard (Netlify HTTP POST notification should include ?token=...)
     const token = event.queryStringParameters?.token;
     if (!token || token !== process.env.WEBHOOK_TOKEN) {
+      console.log("⛔ Unauthorized", { tokenPresent: !!token });
       return { statusCode: 401, headers: corsHeaders, body: "Unauthorized" };
     }
 
+    // Parse and log payload shape
     const payload = JSON.parse(event.body || "{}") as NetlifyFormPayload;
+    console.log("📦 parsed payload keys:", payload ? Object.keys(payload) : null);
+    console.log("🧾 form/data snapshot:", {
+      form_name: payload?.form_name,
+      created_at: payload?.created_at,
+      data_keys: payload?.data ? Object.keys(payload.data) : [],
+    });
 
     const formName = payload.form_name || "contact";
     const data = payload.data || {};
@@ -120,7 +132,9 @@ export const handler: Handler = async (event) => {
     const sendFrom = process.env.M365_SEND_FROM!; // e.g. dale@videobooth.ca
     const notifyTo = process.env.NOTIFY_TO!; // e.g. dale@realvo.io
 
+    console.log("🔐 getting Graph token...");
     const accessToken = await getGraphToken();
+    console.log("✅ got Graph token", { tokenLen: accessToken?.length || 0 });
 
     const graphUrl = `https://graph.microsoft.com/v1.0/users/${encodeURIComponent(
       sendFrom
@@ -142,6 +156,8 @@ export const handler: Handler = async (event) => {
       saveToSentItems: "true",
     };
 
+    console.log("📨 sending via Graph", { graphUrl, sendFrom, notifyTo, subject });
+
     const res = await fetch(graphUrl, {
       method: "POST",
       headers: {
@@ -151,14 +167,22 @@ export const handler: Handler = async (event) => {
       body: JSON.stringify(mail),
     });
 
+    // Graph sendMail commonly returns 202 Accepted with empty body
+    const text = await res.text().catch(() => "");
+    console.log("📬 Graph response", {
+      ok: res.ok,
+      status: res.status,
+      statusText: res.statusText,
+      bodyPreview: text ? text.slice(0, 500) : "",
+    });
+
     if (!res.ok) {
-      const txt = await res.text();
-      throw new Error(`Graph sendMail error: ${res.status} ${txt}`);
+      throw new Error(`Graph sendMail error: ${res.status} ${text}`);
     }
 
     return { statusCode: 200, headers: corsHeaders, body: "OK" };
   } catch (err: any) {
-    console.error(err);
+    console.error("💥 handler error:", err);
     return {
       statusCode: 500,
       headers: corsHeaders,
