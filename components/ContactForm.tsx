@@ -62,7 +62,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
       {/* Country + Phone */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {/* Country */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Country<span className="text-red-500">*</span>
@@ -73,37 +72,34 @@ const ContactForm: React.FC<ContactFormProps> = ({
             className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
             defaultValue=""
           >
-            <option value="" disabled>
-              Select your country
-            </option>
+            <option value="" disabled>Select your country</option>
             <option value="Canada">Canada</option>
             <option value="United States">United States</option>
-            <option value="United Kingdom">United Kingdom</option>
             <option value="Australia">Australia</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="Germany">Germany</option>
-            <option value="France">France</option>
-            <option value="Netherlands">Netherlands</option>
-            <option value="Ireland">Ireland</option>
-            <option value="Sweden">Sweden</option>
-            <option value="Norway">Norway</option>
-            <option value="Denmark">Denmark</option>
-            <option value="Spain">Spain</option>
-            <option value="Italy">Italy</option>
-            <option value="Switzerland">Switzerland</option>
             <option value="Belgium">Belgium</option>
-            <option value="Singapore">Singapore</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Denmark">Denmark</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
             <option value="Hong Kong">Hong Kong</option>
             <option value="India">India</option>
-            <option value="United Arab Emirates">United Arab Emirates</option>
-            <option value="South Africa">South Africa</option>
-            <option value="Brazil">Brazil</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Italy">Italy</option>
             <option value="Mexico">Mexico</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Norway">Norway</option>
+            <option value="Singapore">Singapore</option>
+            <option value="South Africa">South Africa</option>
+            <option value="Spain">Spain</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
+            <option value="United Kingdom">United Kingdom</option>
             <option value="Other">Other</option>
           </select>
         </div>
 
-        {/* Phone */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Phone Number
@@ -145,47 +141,66 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </div>
 
-      {/* Inquiry + Budget */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Nature of Inquiry<span className="text-red-500">*</span>
-          </label>
-          <select
-            name="nature"
-            required
-            className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-            defaultValue=""
-          >
-            <option value="" disabled>Select one</option>
-            <option value="Purchase">Purchase</option>
-            <option value="Rental - 1 week or less">Rental (1-week or less)</option>
-            <option value="Rental - 1 month or less">Rental (1-month or less)</option>
-            <option value="Rental - more than 1 month">Rental (More than 1-month)</option>
-            <option value="Custom / Bespoke">Custom / Bespoke</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
+      {/* Inquiry */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Nature of Inquiry<span className="text-red-500">*</span>
+        </label>
+        <select
+          name="nature"
+          required
+          className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
+          defaultValue=""
+        >
+          <option value="" disabled>Select one</option>
+          <option value="Purchase">Purchase</option>
+          <option value="Rental - 1 week or less">Rental (1-week or less)</option>
+          <option value="Rental - 1 month or less">Rental (1-month or less)</option>
+          <option value="Rental - more than 1 month">Rental (More than 1-month)</option>
+          <option value="Custom / Bespoke">Custom / Bespoke</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Budget Range<span className="text-red-500">*</span>
-          </label>
-          <select
-            name="budget"
-            required
-            className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-            defaultValue=""
-          >
-            <option value="" disabled>Select range</option>
-            <option value="< 5000">Less than $5k</option>
-            <option value="5000-10000">$5k – $10k</option>
-            <option value="10000-15000">$10k – $15k</option>
-            <option value="15000-25000">$15k – $25k</option>
-            <option value="25000+">$25k+</option>
-            <option value="unsure">Not sure yet / Exploring options</option>
-          </select>
-        </div>
+      {/* Capture Solution */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          CAPTURE SOLUTION<span className="text-red-500">*</span>
+        </label>
+        <select
+          name="captureSolution"
+          required
+          className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
+          defaultValue=""
+        >
+          <option value="" disabled>Select a solution</option>
+          <option value="Private Enclosed Booth">Private Enclosed Booth</option>
+          <option value="Free-standing Kiosk">Free-standing Kiosk</option>
+          <option value="Desktop Tablet Kiosk">Desktop Tablet Kiosk</option>
+          <option value="Virtual Video Booth">Virtual Video Booth</option>
+          <option value="Not sure yet / Exploring options">Not sure yet / Exploring options</option>
+        </select>
+      </div>
+
+      {/* Budget */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Budget Range<span className="text-red-500">*</span>
+        </label>
+        <select
+          name="budget"
+          required
+          className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
+          defaultValue=""
+        >
+          <option value="" disabled>Select range</option>
+          <option value="< 5000">Less than $5k</option>
+          <option value="5000-10000">$5k – $10k</option>
+          <option value="10000-15000">$10k – $15k</option>
+          <option value="15000-25000">$15k – $25k</option>
+          <option value="25000+">$25k+</option>
+          <option value="unsure">Not sure yet / Exploring options</option>
+        </select>
       </div>
 
       {/* Activation Details */}
@@ -223,3 +238,4 @@ const ContactForm: React.FC<ContactFormProps> = ({
 };
 
 export default ContactForm;
+
