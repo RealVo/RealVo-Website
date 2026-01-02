@@ -165,7 +165,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       {/* Capture Solution */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          CAPTURE SOLUTION<span className="text-red-500">*</span>
+          Capture Solution<span className="text-red-500">*</span>
         </label>
         <select
           name="captureSolution"
