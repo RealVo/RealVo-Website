@@ -94,12 +94,12 @@ const PrivateEnclosedBooth: React.FC = () => {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
             {/* Back link */}
             <a
-  href="/#solutions"
-  className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
->
-  <span className="mr-1.5 text-base">←</span>
-  Back to Capture Options
-</a>
+              href="/#solutions"
+              className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
+            >
+              <span className="mr-1.5 text-base">←</span>
+              Back to Capture Options
+            </a>
 
             {/* Hero / Overview */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
@@ -247,7 +247,6 @@ const PrivateEnclosedBooth: React.FC = () => {
               id="tech-specs"
               className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2"
             >
-              {/* Features with purpose / Benefits */}
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Features with purpose
@@ -285,13 +284,12 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Tech specs */}
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Technical specifications
                 </h2>
                 <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 grid gap-y-3 sm:gap-y-4 sm:grid-cols-2 sm:gap-x-6">
-                   <div>
+                  <div>
                     <p className="font-semibold">Camera &amp; audio</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       HD 1080p camera (30 fps) with directional microphone system
@@ -303,7 +301,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                       19" portrait touch display with branded UI and self-guided prompts
                     </p>
                   </div>
-                   <div>
+                  <div>
                     <p className="font-semibold">Lighting</p>
                     <p className="text-slate-600 dark:text-slate-300">
                       Studio soft lighting optimized for flattering skin tones
@@ -356,7 +354,6 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* Use cases & customization */}
             <div className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2">
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
@@ -387,7 +384,6 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* Next capture option – link to Free-standing Kiosk */}
             <div className="mt-10 sm:mt-14 flex justify-end">
               <a
                 href="/capture/free-standing-kiosk"
@@ -398,24 +394,25 @@ const PrivateEnclosedBooth: React.FC = () => {
               </a>
             </div>
 
-            {/* Final CTA band */}
+            {/* Final CTA band (IDENTICAL across all capture option pages) */}
             <div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300 mb-2">
-                  Ready to activate RealVo
+                  READY TO ACTIVATE REALVO?
                 </p>
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                  Create a private space where participants share more — and say what really matters.
+                  Make voices matter.
                 </h2>
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Share your goals — we’ll tailor the experience to maximize engagement and deliver measurable results.
+                  Capture meaningful insight from the people you serve.
                 </p>
               </div>
+
               <a
                 href="/#contact"
                 className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-white text-slate-900 hover:bg-slate-100 transition whitespace-nowrap"
               >
-                Talk to the RealVo team
+                Let&apos;s get started
               </a>
             </div>
           </div>
@@ -435,7 +432,6 @@ const PrivateEnclosedBooth: React.FC = () => {
             className="relative max-w-4xl w-full"
             onClick={e => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
               type="button"
               className="absolute -top-10 right-0 text-slate-200 hover:text-white text-sm sm:text-base"
@@ -444,7 +440,6 @@ const PrivateEnclosedBooth: React.FC = () => {
               Close ✕
             </button>
 
-            {/* Image */}
             <div className="relative w-full flex items-center justify-center bg-white p-2">
               <img
                 src={currentLightboxImage.src}
@@ -453,7 +448,6 @@ const PrivateEnclosedBooth: React.FC = () => {
               />
             </div>
 
-            {/* Nav arrows */}
             <button
               type="button"
               onClick={showPrev}
