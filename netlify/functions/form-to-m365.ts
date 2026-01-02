@@ -7,6 +7,18 @@ type NetlifyFormPayload = {
   created_at?: string;
 };
 
+/**
+ * CORS
+ * - This allows you to test the function from the browser on https://realvo.io
+ * - It does NOT affect Netlify server-to-server POST notifications (those don’t need CORS),
+ *   but it fixes the preflight error you saw.
+ */
+const corsHeaders: Record<string, string> = {
+  "Access-Control-Allow-Origin": "https://realvo.io",
+  "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+
 async function getGraphToken() {
   const tenantId = process.env.M365_TENANT_ID!;
   const clientId = process.env.M365_CLIENT_ID!;
@@ -45,24 +57,33 @@ function escapeHtml(s: string) {
 }
 
 export const handler: Handler = async (event) => {
+  // ✅ CORS preflight (browser sends this before POST)
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 204, headers: corsHeaders, body: "" };
+  }
+
   try {
     // ✅ Browser / health-check
     if (event.httpMethod === "GET") {
       return {
         statusCode: 200,
-        headers: { "Content-Type": "text/plain" },
+        headers: { ...corsHeaders, "Content-Type": "text/plain" },
         body: "form-to-m365 is alive ✅",
       };
     }
 
     if (event.httpMethod !== "POST") {
-      return { statusCode: 405, body: "Method Not Allowed" };
+      return {
+        statusCode: 405,
+        headers: corsHeaders,
+        body: "Method Not Allowed",
+      };
     }
 
     // Simple shared-secret guard
     const token = event.queryStringParameters?.token;
     if (!token || token !== process.env.WEBHOOK_TOKEN) {
-      return { statusCode: 401, body: "Unauthorized" };
+      return { statusCode: 401, headers: corsHeaders, body: "Unauthorized" };
     }
 
     const payload = JSON.parse(event.body || "{}") as NetlifyFormPayload;
@@ -74,8 +95,12 @@ export const handler: Handler = async (event) => {
 
     const rows = Object.entries(data).map(
       ([k, v]) => `<tr>
-        <td style="padding:6px 10px;border:1px solid #eee;"><b>${escapeHtml(k)}</b></td>
-        <td style="padding:6px 10px;border:1px solid #eee;">${escapeHtml(String(v ?? ""))}</td>
+        <td style="padding:6px 10px;border:1px solid #eee;"><b>${escapeHtml(
+          k
+        )}</b></td>
+        <td style="padding:6px 10px;border:1px solid #eee;">${escapeHtml(
+          String(v ?? "")
+        )}</td>
       </tr>`
     );
 
@@ -93,7 +118,7 @@ export const handler: Handler = async (event) => {
     `;
 
     const sendFrom = process.env.M365_SEND_FROM!; // e.g. dale@videobooth.ca
-    const notifyTo = process.env.NOTIFY_TO!;      // e.g. dale@realvo.io
+    const notifyTo = process.env.NOTIFY_TO!; // e.g. dale@realvo.io
 
     const accessToken = await getGraphToken();
 
@@ -101,15 +126,17 @@ export const handler: Handler = async (event) => {
       sendFrom
     )}/sendMail`;
 
-    const subject = `RealVo Inquiry – Website Contact Form (${data?.organization || "New"})`;
+    const subject = `RealVo Inquiry – Website Contact Form (${
+      (data as any)?.organization || "New"
+    })`;
 
     const mail = {
       message: {
         subject,
         body: { contentType: "HTML", content: html },
         toRecipients: [{ emailAddress: { address: notifyTo } }],
-        replyTo: data?.email
-          ? [{ emailAddress: { address: String(data.email) } }]
+        replyTo: (data as any)?.email
+          ? [{ emailAddress: { address: String((data as any).email) } }]
           : undefined,
       },
       saveToSentItems: "true",
@@ -129,9 +156,13 @@ export const handler: Handler = async (event) => {
       throw new Error(`Graph sendMail error: ${res.status} ${txt}`);
     }
 
-    return { statusCode: 200, body: "OK" };
+    return { statusCode: 200, headers: corsHeaders, body: "OK" };
   } catch (err: any) {
     console.error(err);
-    return { statusCode: 500, body: `Error: ${err.message || err}` };
+    return {
+      statusCode: 500,
+      headers: corsHeaders,
+      body: `Error: ${err?.message || err}`,
+    };
   }
 };
