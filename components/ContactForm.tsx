@@ -141,6 +141,26 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </div>
 
+      {/* Capture Solution */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Capture Solution<span className="text-red-500">*</span>
+        </label>
+        <select
+          name="captureSolution"
+          required
+          className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
+          defaultValue=""
+        >
+          <option value="" disabled>Select a solution</option>
+          <option value="Private Enclosed Booth">Private Enclosed Booth</option>
+          <option value="Free-standing Kiosk">Free-standing Kiosk</option>
+          <option value="Desktop Tablet Kiosk">Desktop Tablet Kiosk</option>
+          <option value="Virtual Video Booth">Virtual Video Booth</option>
+          <option value="Not sure yet / Exploring options">Not sure yet / Exploring options</option>
+        </select>
+      </div>
+
       {/* Inquiry */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -159,26 +179,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <option value="Rental - more than 1 month">Rental (More than 1-month)</option>
           <option value="Custom / Bespoke">Custom / Bespoke</option>
           <option value="Other">Other</option>
-        </select>
-      </div>
-
-      {/* Capture Solution */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          Capture Solution<span className="text-red-500">*</span>
-        </label>
-        <select
-          name="captureSolution"
-          required
-          className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-          defaultValue=""
-        >
-          <option value="" disabled>Select a solution</option>
-          <option value="Private Enclosed Booth">Private Enclosed Booth</option>
-          <option value="Free-standing Kiosk">Free-standing Kiosk</option>
-          <option value="Desktop Tablet Kiosk">Desktop Tablet Kiosk</option>
-          <option value="Virtual Video Booth">Virtual Video Booth</option>
-          <option value="Not sure yet / Exploring options">Not sure yet / Exploring options</option>
         </select>
       </div>
 
