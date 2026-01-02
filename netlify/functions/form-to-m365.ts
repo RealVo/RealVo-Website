@@ -50,20 +50,19 @@ function escapeHtml(s: string) {
     .replaceAll("'", "&#039;");
 }
 
-// 🔥 Always log invocation (clean + traceable)
-const requestId =
-  event.headers["x-nf-request-id"] ||
-  (globalThis.crypto?.randomUUID
-    ? crypto.randomUUID()
-    : `req-${Date.now()}`);
+export const handler: Handler = async (event) => {
+  // 🔥 Always log invocation (clean + traceable)
+  const requestId =
+    event.headers["x-nf-request-id"] ||
+    (globalThis.crypto?.randomUUID ? crypto.randomUUID() : `req-${Date.now()}`);
 
-console.log("🔥 form-to-m365 invoked", {
-  requestId,
-  method: event.httpMethod,
-  path: event.path,
-  hasBody: !!event.body,
-  bodyLen: event.body ? event.body.length : 0,
-});
+  console.log("🔥 form-to-m365 invoked", {
+    requestId,
+    method: event.httpMethod,
+    path: event.path,
+    hasBody: !!event.body,
+    bodyLen: event.body ? event.body.length : 0,
+  });
 
   // ✅ CORS preflight (browser sends this before POST)
   if (event.httpMethod === "OPTIONS") {
@@ -89,23 +88,25 @@ console.log("🔥 form-to-m365 invoked", {
     }
 
     // Simple shared-secret guard (Netlify HTTP POST notification includes ?token=...)
-const token = event.queryStringParameters?.token;
-if (!token || token !== process.env.WEBHOOK_TOKEN) {
-  console.log("⛔ Unauthorized webhook call", {
-    tokenPresent: !!token,
-    ip: event.headers["x-nf-client-connection-ip"],
-  });
-  return {
-    statusCode: 401,
-    headers: corsHeaders,
-    body: "Unauthorized",
-  };
-}
+    const token = event.queryStringParameters?.token;
+    if (!token || token !== process.env.WEBHOOK_TOKEN) {
+      console.log("⛔ Unauthorized webhook call", {
+        requestId,
+        tokenPresent: !!token,
+        ip: event.headers["x-nf-client-connection-ip"],
+      });
+      return {
+        statusCode: 401,
+        headers: corsHeaders,
+        body: "Unauthorized",
+      };
+    }
 
     // Parse and log payload shape
     const payload = JSON.parse(event.body || "{}") as NetlifyFormPayload;
     console.log("📦 parsed payload keys:", payload ? Object.keys(payload) : null);
     console.log("🧾 form/data snapshot:", {
+      requestId,
       form_name: payload?.form_name,
       created_at: payload?.created_at,
       data_keys: payload?.data ? Object.keys(payload.data) : [],
@@ -144,9 +145,9 @@ if (!token || token !== process.env.WEBHOOK_TOKEN) {
     const notifyTo = process.env.NOTIFY_TO!; // primary recipient
     const notifyToSecondary = process.env.NOTIFY_TO_SECONDARY; // optional fallback
 
-    console.log("🔐 getting Graph token...");
+    console.log("🔐 getting Graph token...", { requestId });
     const accessToken = await getGraphToken();
-    console.log("✅ got Graph token", { tokenLen: accessToken?.length || 0 });
+    console.log("✅ got Graph token", { requestId, tokenLen: accessToken?.length || 0 });
 
     const graphUrl = `https://graph.microsoft.com/v1.0/users/${encodeURIComponent(
       sendFrom
@@ -157,23 +158,30 @@ if (!token || token !== process.env.WEBHOOK_TOKEN) {
     })`;
 
     const mail = {
-  message: {
-    subject,
-    body: { contentType: "HTML", content: html },
-    toRecipients: [
-      { emailAddress: { address: notifyTo } },
-      ...(process.env.NOTIFY_TO_SECONDARY
-        ? [{ emailAddress: { address: process.env.NOTIFY_TO_SECONDARY } }]
-        : []),
-    ],
-    replyTo: (data as any)?.email
-      ? [{ emailAddress: { address: String((data as any).email) } }]
-      : undefined,
-  },
-  saveToSentItems: "true",
-};
+      message: {
+        subject,
+        body: { contentType: "HTML", content: html },
+        toRecipients: [
+          { emailAddress: { address: notifyTo } },
+          ...(notifyToSecondary
+            ? [{ emailAddress: { address: notifyToSecondary } }]
+            : []),
+        ],
+        replyTo: (data as any)?.email
+          ? [{ emailAddress: { address: String((data as any).email) } }]
+          : undefined,
+      },
+      saveToSentItems: "true",
+    };
 
-    console.log("📨 sending via Graph", { graphUrl, sendFrom, notifyTo, subject });
+    console.log("📨 sending via Graph", {
+      requestId,
+      graphUrl,
+      sendFrom,
+      notifyTo,
+      notifyToSecondary: notifyToSecondary ? "set" : "not-set",
+      subject,
+    });
 
     const res = await fetch(graphUrl, {
       method: "POST",
@@ -185,18 +193,16 @@ if (!token || token !== process.env.WEBHOOK_TOKEN) {
     });
 
     // Graph sendMail commonly returns 202 Accepted with empty body
-const text = await res.text().catch(() => "");
-console.log("📬 Graph response", {
-  requestId,
-  ok: res.ok,
-  status: res.status,
-  statusText: res.statusText,
-  graphRequestId:
-    res.headers.get("request-id") ||
-    res.headers.get("x-ms-request-id"),
-  date: res.headers.get("date"),
-  bodyPreview: text ? text.slice(0, 500) : "",
-});
+    const text = await res.text().catch(() => "");
+    console.log("📬 Graph response", {
+      requestId,
+      ok: res.ok,
+      status: res.status,
+      statusText: res.statusText,
+      graphRequestId: res.headers.get("request-id") || res.headers.get("x-ms-request-id"),
+      date: res.headers.get("date"),
+      bodyPreview: text ? text.slice(0, 500) : "",
+    });
 
     if (!res.ok) {
       throw new Error(`Graph sendMail error: ${res.status} ${text}`);
@@ -204,7 +210,7 @@ console.log("📬 Graph response", {
 
     return { statusCode: 200, headers: corsHeaders, body: "OK" };
   } catch (err: any) {
-    console.error("💥 handler error:", err);
+    console.error("💥 handler error:", { requestId, err });
     return {
       statusCode: 500,
       headers: corsHeaders,
@@ -212,3 +218,4 @@ console.log("📬 Graph response", {
     };
   }
 };
+
