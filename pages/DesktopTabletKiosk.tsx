@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -30,8 +30,8 @@ const BOOTH_ACTION_IMAGES = [
     src: '/capture/desktop-tablet-kiosk/dtvk-college-4.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – college activation 2',
   },
-   {
-  src: '/capture/desktop-tablet-kiosk/dtvk-healthcare-1.jpg',
+  {
+    src: '/capture/desktop-tablet-kiosk/dtvk-healthcare-1.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – healthcare activation 2',
   },
   {
@@ -43,11 +43,11 @@ const BOOTH_ACTION_IMAGES = [
     alt: 'RealVo Desktop Tablet Kiosk – auto show activation',
   },
   {
-  src: '/capture/desktop-tablet-kiosk/dtvk-150th.jpg',
+    src: '/capture/desktop-tablet-kiosk/dtvk-150th.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – 150th activation',
   },
   {
-  src: '/capture/desktop-tablet-kiosk/dtvk-product-launch.jpg',
+    src: '/capture/desktop-tablet-kiosk/dtvk-product-launch.jpg',
     alt: 'RealVo Desktop Tablet Kiosk – product launch activation',
   },
 ];
@@ -103,6 +103,32 @@ const DesktopTabletKiosk: React.FC = () => {
     setDesktopStartIndex(prev => (prev - 1 + totalImages) % totalImages);
   };
 
+  /**
+   * CTA "matter" animation trigger:
+   * - animates when CTA comes into view
+   * - re-animates every time it re-enters
+   */
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const [ctaAnimKey, setCtaAnimKey] = useState(0);
+
+  useEffect(() => {
+    const el = ctaRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setCtaAnimKey(k => k + 1);
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
       <Header />
@@ -123,25 +149,25 @@ const DesktopTabletKiosk: React.FC = () => {
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
               {/* Image / hero visual */}
               <div
-  className="
-    relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
-    shadow-sm border border-slate-200/70 dark:border-slate-800/80
-    flex items-center justify-center
-    h-[320px] sm:h-[380px] lg:h-[430px]
-  "
->
-  <img
-    src="/tablet_booth.png"
-    alt="RealVo Desktop Tablet Kiosk"
-    className="
-      h-full
-      w-auto
-      object-contain
-      object-center
-      scale-125
-    "
-  />
-</div>
+                className="
+                  relative rounded-3xl bg-white dark:bg-slate-900 overflow-hidden
+                  shadow-sm border border-slate-200/70 dark:border-slate-800/80
+                  flex items-center justify-center
+                  h-[320px] sm:h-[380px] lg:h-[430px]
+                "
+              >
+                <img
+                  src="/tablet_booth.png"
+                  alt="RealVo Desktop Tablet Kiosk"
+                  className="
+                    h-full
+                    w-auto
+                    object-contain
+                    object-center
+                    scale-125
+                  "
+                />
+              </div>
 
               {/* Text content */}
               <div className="space-y-5 sm:space-y-6">
@@ -152,7 +178,8 @@ const DesktopTabletKiosk: React.FC = () => {
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                     Desktop Tablet Kiosk
                     <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-1">
-                      A compact, purpose-built solution for environments where space is limited or mobility is essential.
+                      A compact, purpose-built solution for environments where
+                      space is limited or mobility is essential.
                     </span>
                   </h1>
                 </div>
@@ -176,7 +203,10 @@ const DesktopTabletKiosk: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  The Desktop Tablet Kiosk supports flexible deployment on desktops, countertops, wall mounts, or within custom enclosures—making it ideal for trade show booths, lobbies, offices, libraries, and town halls.
+                  The Desktop Tablet Kiosk supports flexible deployment on
+                  desktops, countertops, wall mounts, or within custom
+                  enclosures—making it ideal for trade show booths, lobbies,
+                  offices, libraries, and town halls.
                 </p>
 
                 {/* Primary CTA */}
@@ -400,7 +430,6 @@ const DesktopTabletKiosk: React.FC = () => {
 
             {/* Capture option navigation – previous + next */}
             <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              {/* Back to Free-standing */}
               <a
                 href="/capture/free-standing-kiosk"
                 className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
@@ -409,7 +438,6 @@ const DesktopTabletKiosk: React.FC = () => {
                 Previous capture option: Free-standing Kiosk
               </a>
 
-              {/* Forward to Virtual */}
               <a
                 href="/capture/virtual-video-booth"
                 className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
@@ -419,25 +447,34 @@ const DesktopTabletKiosk: React.FC = () => {
               </a>
             </div>
 
-            {/* Final CTA band */}
-            <div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            {/* Final CTA band (IDENTICAL across all capture option pages) */}
+            <div
+              ref={ctaRef}
+              className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5"
+            >
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300 mb-2">
-                  Ready to activate RealVo
+                <p className="text-sm sm:text-base font-semibold tracking-wide text-slate-200/90 mb-2">
+                  Ready to activate RealVo?
                 </p>
+
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                  Add a simple capture point where people naturally pause.
+                  Make voices{' '}
+                  <span key={ctaAnimKey} className="text-realvo-teal animate-pulse-once-light">
+                    matter
+                  </span>
+                  .
                 </h2>
+
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Share your goals — we’ll help you configure the Desktop Tablet
-                  Kiosk for your space and the stories you want to capture.
+                  Capture meaningful insight from the people you serve.
                 </p>
               </div>
+
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-white text-slate-900 hover:bg-slate-100 transition whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
               >
-                Talk to the RealVo team
+                Let&apos;s get started
               </a>
             </div>
           </div>
