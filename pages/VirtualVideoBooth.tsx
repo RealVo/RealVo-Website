@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -6,6 +6,32 @@ const VirtualVideoBooth: React.FC = () => {
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  /**
+   * CTA "matter" animation trigger:
+   * - animates when CTA comes into view
+   * - re-animates every time it re-enters
+   */
+  const ctaRef = useRef<HTMLDivElement | null>(null);
+  const [ctaAnimKey, setCtaAnimKey] = useState(0);
+
+  useEffect(() => {
+    const el = ctaRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setCtaAnimKey(k => k + 1);
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -75,8 +101,10 @@ const VirtualVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  The Virtual Video Booth enables participants to record authentic stories remotely using a simple link.
-                  It’s ideal for distributed teams, short pilots, and programs that need speed and reach without physical setup.
+                  The Virtual Video Booth enables participants to record authentic
+                  stories remotely using a simple link. It’s ideal for distributed
+                  teams, short pilots, and programs that need speed and reach
+                  without physical setup.
                 </p>
 
                 {/* Primary CTA */}
@@ -156,24 +184,34 @@ const VirtualVideoBooth: React.FC = () => {
               </a>
             </div>
 
-            {/* Final CTA band */}
-            <div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            {/* Final CTA band (IDENTICAL across all capture option pages) */}
+            <div
+              ref={ctaRef}
+              className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5"
+            >
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300 mb-2">
-                  Ready to activate RealVo
+                <p className="text-sm sm:text-base font-semibold tracking-wide text-slate-200/90 mb-2">
+                  Ready to activate RealVo?
                 </p>
+
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                  Capture voices beyond physical spaces.
+                  Make voices{' '}
+                  <span key={ctaAnimKey} className="text-realvo-teal animate-pulse-once-light">
+                    matter
+                  </span>
+                  .
                 </h2>
+
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Launch a Virtual Video Booth in minutes and start collecting meaningful stories from anywhere.
+                  Capture meaningful insight from the people you serve.
                 </p>
               </div>
+
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-white text-slate-900 hover:bg-slate-100 transition whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
               >
-                Talk to the RealVo team
+                Let&apos;s get started
               </a>
             </div>
           </div>
