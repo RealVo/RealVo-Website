@@ -124,33 +124,33 @@ const Industries: React.FC = () => {
       </div>
 
       {/* Use Cases Insight Card */}
-      <div className="relative z-10 mt-20 mb-28 flex justify-center">
-        <a
-          href="/use-cases"
-          className="
-            relative
-            bg-white dark:bg-gray-900
-            border border-gray-200 dark:border-gray-800
-            rounded-2xl
-            px-10 py-8
-            shadow-md
-            max-w-3xl
-            text-center
-            hover:shadow-lg
-            transition
-          "
-        >
-          <p className="mt-2 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
-            <span className="block text-gray-500 dark:text-gray-400">
-              Explore how voices are used
-            </span>
+<div className="relative z-10 mt-20 mb-28 flex justify-center">
+  <a
+    href="/use-cases"
+    className="
+      relative
+      bg-white dark:bg-gray-900
+      border border-gray-200 dark:border-gray-800
+      rounded-2xl
+      px-10 py-8
+      shadow-md
+      max-w-3xl
+      text-center
+      hover:shadow-lg
+      transition
+    "
+  >
+    <p className="mt-2 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
+      <span className="block text-gray-500 dark:text-gray-400">
+        Explore how voices are used
+      </span>
 
-            <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
-              across real-world use cases.
-            </span>
-          </p>
-        </a>
-      </div>
+      <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
+        across real-world use cases.
+      </span>
+    </p>
+  </a>
+</div>
     </Section>
   );
 };
