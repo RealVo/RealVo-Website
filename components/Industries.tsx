@@ -118,21 +118,28 @@ const Industries: React.FC = () => {
       {/* Use Cases CTA */}
       <div className="relative z-10 mt-12 flex justify-center">
         <Button
-          asChild
-          className="
-            bg-realvo-teal
-            text-white
-            hover:bg-realvo-teal/90
-            shadow-sm
-            hover:shadow-md
-            transition
-            px-6 py-3
-            text-sm sm:text-base
-            font-semibold
-          "
-        >
-          <a href="/use-cases">Explore how voices are used across real-world use cases</a>
-        </Button>
+  className="
+    bg-realvo-teal
+    text-white
+    hover:bg-realvo-teal/90
+    px-6 py-3
+    text-sm sm:text-base
+    font-semibold
+    shadow-sm
+    hover:shadow-md
+    transition
+    text-center
+    leading-tight
+  "
+>
+  <span className="block sm:inline">
+    Explore how voices are used
+  </span>
+  <br className="block sm:hidden" />
+  <span className="block sm:inline">
+    across real-world use cases
+  </span>
+</Button>
       </div>
     </Section>
   );
