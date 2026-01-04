@@ -1,12 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import { Button } from '../components/ui/button';
-import {
-  Building2,
-  GraduationCap,
-  HeartPulse,
-  Users2,
-} from 'lucide-react';
+import { Building2, GraduationCap, HeartPulse, Users2 } from 'lucide-react';
 import { Industry } from '../types';
 
 const industries: Industry[] = [
@@ -44,8 +39,8 @@ const Industries: React.FC = () => {
     if (!node) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting && node) {
             node.classList.remove('animate-pulse-once-light');
             void node.offsetWidth;
@@ -61,11 +56,7 @@ const Industries: React.FC = () => {
   }, []);
 
   return (
-    <Section
-      id="industries"
-      background="dark"
-      className="relative overflow-hidden"
-    >
+    <Section id="industries" background="dark" className="relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10 pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-96 h-96 rounded-full bg-realvo-teal blur-3xl" />
@@ -125,25 +116,24 @@ const Industries: React.FC = () => {
       </div>
 
       {/* Use Cases CTA */}
-<div className="relative z-10 mt-16 mb-24 flex justify-center">
-  <a href="/use-cases">
-    <Button
-      className="
-        bg-realvo-teal
-        text-white
-        hover:bg-realvo-teal/90
-        px-6 py-3
-        text-sm sm:text-base
-        font-semibold
-        shadow-sm
-        hover:shadow-md
-        transition
-      "
-    >
-      Explore how voices are used across real-world use cases
-    </Button>
-  </a>
-</div>
+      <div className="relative z-10 mt-16 mb-24 flex justify-center">
+        <Button
+          asChild
+          className="
+            bg-realvo-teal
+            text-white
+            hover:bg-realvo-teal/90
+            shadow-sm
+            hover:shadow-md
+            transition
+            px-6 py-3
+            text-sm sm:text-base
+            font-semibold
+          "
+        >
+          <a href="/use-cases">Explore how voices are used across real-world use cases</a>
+        </Button>
+      </div>
     </Section>
   );
 };
