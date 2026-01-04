@@ -74,13 +74,13 @@ const Industries: React.FC = () => {
       {/* Header */}
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white mb-4">
-  Experience Across
-  <span className="hidden md:inline">{' '}</span>
-  <br className="block md:hidden" />
-  <span ref={serveRef} className="animate-pulse-once-light">
-    Key Industries
-  </span>
-</h2>
+          Experience Across
+          <span className="hidden md:inline">{' '}</span>
+          <br className="block md:hidden" />
+          <span ref={serveRef} className="animate-pulse-once-light">
+            Key Industries
+          </span>
+        </h2>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
           Specializing in real-world organizational environments,
           <br className="hidden sm:block" />
@@ -92,7 +92,7 @@ const Industries: React.FC = () => {
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
         {industries.map((industry, idx) => (
           <div key={idx} className="flex items-start gap-6 group">
-            {/* Icon Anchor — keep bounce, remove outline, glyph turns light blue on hover */}
+            {/* Icon Anchor */}
             <div
               className="
                 w-[60px] h-[60px] md:w-[64px] md:h-[64px]
@@ -110,7 +110,7 @@ const Industries: React.FC = () => {
               <industry.icon size={40} strokeWidth={1.8} />
             </div>
 
-            {/* Text (top-aligned with icon tile) */}
+            {/* Text */}
             <div>
               <h3 className="text-xl font-semibold text-white leading-tight mb-2">
                 {industry.name}
@@ -122,9 +122,37 @@ const Industries: React.FC = () => {
           </div>
         ))}
       </div>
+
+      {/* Use Cases Insight Card */}
+      <div className="relative z-10 mt-20 mb-28 flex justify-center">
+        <a
+          href="/use-cases"
+          className="
+            relative
+            bg-white dark:bg-gray-900
+            border border-gray-200 dark:border-gray-800
+            rounded-2xl
+            px-10 py-8
+            shadow-md
+            max-w-3xl
+            text-center
+            hover:shadow-lg
+            transition
+          "
+        >
+          <p className="mt-2 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
+            <span className="block text-gray-500 dark:text-gray-400">
+              Explore how voices are used
+            </span>
+
+            <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
+              across real-world use cases.
+            </span>
+          </p>
+        </a>
+      </div>
     </Section>
   );
 };
 
 export default Industries;
-
