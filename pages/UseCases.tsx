@@ -8,7 +8,6 @@ type UseCaseBlock = {
   title: string;
   description: string;
   bullets: string[];
-  pillars: string[];
   image: {
     src: string;
     alt: string;
@@ -32,7 +31,6 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Community issues and lived experience',
       'Pulse feedback for quick insight',
     ],
-    pillars: PILLARS,
     image: {
       // Placeholder image — swap later (or replace with a diagram component)
       src: '/use-cases/listening.png',
@@ -53,7 +51,6 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Lived experiences that add depth and meaning',
       'Leadership or stakeholder perspectives',
     ],
-    pillars: PILLARS,
     image: {
       src: '/use-cases/validation.png',
       alt: 'Use case: Validation & Trust',
@@ -73,7 +70,6 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Conference reactions and speaker reflections',
       'Culture and belonging participation prompts',
     ],
-    pillars: PILLARS,
     image: {
       src: '/use-cases/engagement.png',
       alt: 'Use case: Engagement & Participation',
@@ -93,7 +89,6 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Program evolution and iteration',
       'Culture, policy, or service redesign input',
     ],
-    pillars: PILLARS,
     image: {
       src: '/use-cases/action.png',
       alt: 'Use case: Action & Change',
@@ -101,30 +96,6 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
     imageSide: 'left',
   },
 ];
-
-function PillRow({ labels }: { labels: string[] }) {
-  return (
-    <div className="flex flex-wrap gap-2 mt-4">
-      {labels.map(label => (
-        <span
-          key={label}
-          className="
-            inline-flex items-center
-            rounded-full
-            border border-slate-200 dark:border-slate-700
-            bg-slate-50 dark:bg-slate-900
-            px-3 py-1
-            text-[11px] sm:text-xs
-            font-medium
-            text-slate-700 dark:text-slate-200
-          "
-        >
-          {label}
-        </span>
-      ))}
-    </div>
-  );
-}
 
 function UseCaseRow({ block }: { block: UseCaseBlock }) {
   const isImageRight = block.imageSide === 'right';
@@ -152,15 +123,6 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
             <li key={i}>{b}</li>
           ))}
         </ul>
-
-        {/* Pillars */}
-        <div className="mt-5">
-          <p className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">
-            Pillars this maps to
-          </p>
-          <PillRow labels={block.pillars} />
-        </div>
-      </div>
 
       {/* Image */}
       <div className={isImageRight ? '' : 'lg:order-1'}>
