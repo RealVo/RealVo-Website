@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Button from './Button';
 
-const navLinks = [
+type NavLink =
+  | { label: string; targetId: string; href?: never }
+  | { label: string; href: string; targetId?: never };
+
+const navLinks: NavLink[] = [
   { label: 'Why RealVo', targetId: 'why-realvo' },
-  { label: 'Industries & Use Cases', targetId: 'industries' },
+  { label: 'Industries', targetId: 'industries' },
+  { label: 'Use Cases', href: '/use-cases' },
   { label: 'Solutions', targetId: 'solutions' },
   { label: 'Process & Platform', targetId: 'process-platform' },
   { label: 'Pricing', targetId: 'pricing' },
@@ -40,15 +45,12 @@ const Header: React.FC = () => {
     const isHome = pathname === '/';
 
     if (isHome) {
-      // Smooth scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Clear hash so refresh loads the top of the page
       if (hash) {
         window.history.replaceState(null, '', '/');
       }
     } else {
-      // From any subpage: go to homepage root
       window.location.href = '/';
     }
   };
@@ -68,15 +70,30 @@ const Header: React.FC = () => {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium text-gray-600">
-            {navLinks.map((link) => (
-              <a
-                key={link.targetId}
-                href={`/#${link.targetId}`}
-                className="relative transition-colors hover:text-realvo-blue"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              if ('href' in link) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="relative transition-colors hover:text-realvo-blue"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+
+              return (
+                <button
+                  key={link.targetId}
+                  type="button"
+                  onClick={() => scrollToSection(link.targetId)}
+                  className="relative transition-colors hover:text-realvo-blue"
+                >
+                  {link.label}
+                </button>
+              );
+            })}
           </nav>
 
           {/* Desktop Contact button */}
@@ -106,16 +123,31 @@ const Header: React.FC = () => {
       {mobileOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.targetId}
-                href={`/#${link.targetId}`}
-                onClick={() => setMobileOpen(false)}
-                className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              if ('href' in link) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+
+              return (
+                <button
+                  key={link.targetId}
+                  type="button"
+                  onClick={() => scrollToSection(link.targetId)}
+                  className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                >
+                  {link.label}
+                </button>
+              );
+            })}
 
             <Button
               size="sm"
