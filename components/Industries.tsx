@@ -124,31 +124,31 @@ const Industries: React.FC = () => {
       </div>
 
       {/* Use Cases CTA */}
-<div className="relative z-10 mt-16 mb-24 flex justify-center">
-  <a
-    href="/use-cases"
-    className="
-      inline-flex
-      items-center
-      justify-center
-      bg-realvo-teal
-      border border-realvo-teal/60
-      rounded-xl
-      px-8 py-4
-      shadow-sm
-      hover:shadow-md
-      hover:bg-realvo-teal/90
-      transition
-      text-sm sm:text-base
-      font-semibold
-      text-white
-    "
-  >
-    Explore how voices are used across real-world use cases
-  </a>
-</div>
+      <div className="relative z-10 mt-16 mb-24 flex justify-center">
+        <a
+          href="/use-cases"
+          className="
+            inline-flex
+            items-center
+            justify-center
+            rounded-full
+            bg-realvo-teal
+            px-6 py-3
+            text-sm sm:text-base
+            font-semibold
+            text-white
+            shadow-sm
+            hover:bg-realvo-teal/90
+            hover:shadow-md
+            transition
+          "
+        >
+          Explore how voices are used across real-world use cases
+        </a>
+      </div>
     </Section>
   );
 };
 
 export default Industries;
+
