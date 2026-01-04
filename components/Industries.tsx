@@ -123,21 +123,23 @@ const Industries: React.FC = () => {
     text-white
     hover:bg-realvo-teal/90
     px-6 py-3
-    text-sm sm:text-base
     font-semibold
     shadow-sm
     hover:shadow-md
     transition
-    text-center
-    leading-tight
   "
 >
-  <span className="block sm:inline">
-    Explore how voices are used
-  </span>
-  <br className="block sm:hidden" />
-  <span className="block sm:inline">
-    across real-world use cases
+  <span className="text-center leading-snug">
+    <span className="block sm:hidden text-sm">
+      Explore how voices are used
+    </span>
+    <span className="block sm:hidden text-sm">
+      across real-world use cases
+    </span>
+
+    <span className="hidden sm:block text-base">
+      Explore how voices are used across real-world use cases
+    </span>
   </span>
 </Button>
       </div>
