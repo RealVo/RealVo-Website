@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
+import { Button } from '../components/ui/button';
 import {
   Building2,
   GraduationCap,
@@ -124,28 +125,25 @@ const Industries: React.FC = () => {
       </div>
 
       {/* Use Cases CTA */}
-      <div className="relative z-10 mt-16 mb-24 flex justify-center">
-        <a
-          href="/use-cases"
-          className="
-            inline-flex
-            items-center
-            justify-center
-            rounded-full
-            bg-realvo-teal
-            px-6 py-3
-            text-sm sm:text-base
-            font-semibold
-            text-white
-            shadow-sm
-            hover:bg-realvo-teal/90
-            hover:shadow-md
-            transition
-          "
-        >
-          Explore how voices are used across real-world use cases
-        </a>
-      </div>
+<div className="relative z-10 mt-16 mb-24 flex justify-center">
+  <a href="/use-cases">
+    <Button
+      className="
+        bg-realvo-teal
+        text-white
+        hover:bg-realvo-teal/90
+        px-6 py-3
+        text-sm sm:text-base
+        font-semibold
+        shadow-sm
+        hover:shadow-md
+        transition
+      "
+    >
+      Explore how voices are used across real-world use cases
+    </Button>
+  </a>
+</div>
     </Section>
   );
 };
