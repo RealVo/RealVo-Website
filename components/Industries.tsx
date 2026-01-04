@@ -123,30 +123,27 @@ const Industries: React.FC = () => {
         ))}
       </div>
 
-      {/* Use Cases Insight Card */}
-<div className="relative z-10 mt-16 mb-24 flex justify-center md:justify-start md:pl-[88px]">
+      {/* Use Cases CTA */}
+<div className="relative z-10 mt-16 mb-24 flex justify-center">
   <a
     href="/use-cases"
     className="
-      w-full max-w-md
+      inline-flex
+      items-center
+      justify-center
       bg-white dark:bg-gray-900
       border border-gray-200 dark:border-gray-800
-      rounded-2xl
-      px-8 py-6
-      shadow-md
-      hover:shadow-lg
+      rounded-xl
+      px-8 py-4
+      shadow-sm
+      hover:shadow-md
       transition
-      text-left
+      text-sm sm:text-base
+      font-medium
+      text-realvo-charcoal dark:text-white
     "
   >
-    <p className="text-lg sm:text-xl font-semibold leading-snug tracking-tight">
-      <span className="block text-gray-500 dark:text-gray-400">
-        Explore how voices are used
-      </span>
-      <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
-        across real-world use cases.
-      </span>
-    </p>
+    Explore how voices are used across real-world use cases
   </a>
 </div>
     </Section>
