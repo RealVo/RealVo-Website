@@ -16,6 +16,7 @@ import HowItWorks from './components/HowItWorks';
 import CaptureOptions from './components/CaptureOptions';
 import VBPlatform from './components/VBPlatform';
 import Industries from './components/Industries';
+import UseCases from './pages/UseCases';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 import Section from './components/Section';
@@ -207,6 +208,11 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage />} />
 
         <Route
+          path="/use-cases"
+          element={<UseCases />}
+        />
+
+        <Route
           path="/capture/private-enclosed-booth"
           element={<PrivateEnclosedBooth />}
         />
@@ -231,3 +237,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
