@@ -116,7 +116,7 @@ const Industries: React.FC = () => {
       </div>
 
       {/* Use Cases CTA */}
-      <div className="relative z-10 mt-16 mb-24 flex justify-center">
+      <div className="relative z-10 mt-12 flex justify-center">
         <Button
           asChild
           className="
