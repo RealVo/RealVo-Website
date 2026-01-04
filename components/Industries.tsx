@@ -130,12 +130,12 @@ const Industries: React.FC = () => {
   "
 >
   <span className="text-center leading-snug">
-    <span className="block sm:hidden text-sm">
-      Explore how voices are used
-    </span>
-    <span className="block sm:hidden text-sm">
-      across real-world use cases
-    </span>
+    <span className="block sm:hidden text-base">
+  Explore how voices are used
+</span>
+<span className="block sm:hidden text-base">
+  across real-world use cases
+</span>
 
     <span className="hidden sm:block text-base">
       Explore how voices are used across real-world use cases
