@@ -133,9 +133,11 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
       {/* Text */}
       <div className={isImageRight ? '' : 'lg:order-2'}>
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
+        {/* Hero-style Eyebrow (replaces plain uppercase kicker) */}
+        <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-900 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-3">
+          <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
           {block.kicker}
-        </p>
+        </div>
 
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
           {block.title}
@@ -227,27 +229,7 @@ const UseCases: React.FC = () => {
               ))}
             </div>
 
-            {/* CTA band */}
-            <div className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-              <div>
-                <p className="text-sm sm:text-base font-semibold tracking-wide text-slate-200/90 mb-2">
-                  Ready to activate RealVo?
-                </p>
-                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                  Design the right prompts. Capture better insight.
-                </h2>
-                <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Tell us your goal and your audience — we’ll recommend the best use case flow and capture option.
-                </p>
-              </div>
-
-              <a
-                href="/#contact"
-                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
-              >
-                Let&apos;s get started
-              </a>
-            </div>
+            {/* CTA band removed (per request) */}
           </div>
         </section>
       </main>
