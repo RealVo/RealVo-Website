@@ -131,16 +131,17 @@ const Industries: React.FC = () => {
       inline-flex
       items-center
       justify-center
-      bg-white dark:bg-gray-900
-      border border-gray-200 dark:border-gray-800
+      bg-realvo-teal
+      border border-realvo-teal/60
       rounded-xl
       px-8 py-4
       shadow-sm
       hover:shadow-md
+      hover:bg-realvo-teal/90
       transition
       text-sm sm:text-base
-      font-medium
-      text-realvo-charcoal dark:text-white
+      font-semibold
+      text-white
     "
   >
     Explore how voices are used across real-world use cases
