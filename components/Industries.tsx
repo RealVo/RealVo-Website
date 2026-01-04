@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
-import { Button } from '../components/ui/button';
+import Button from './Button';
 import { Building2, GraduationCap, HeartPulse, Users2 } from 'lucide-react';
 import { Industry } from '../types';
 
