@@ -206,17 +206,20 @@ const UseCases: React.FC = () => {
             </a>
 
             {/* Hero */}
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
-                Use Cases
-              </p>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                Understand how voices are used across real-world programs.
-                <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
-                  Intent-based use cases help you design prompts, choose capture options, and publish the right stories in the right places.
-                </span>
-              </h1>
-            </div>
+<div className="max-w-3xl">
+  {/* Eyebrow */}
+  <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-900 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-4">
+    <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
+    Use Cases
+  </div>
+
+  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
+    Understand how voices are used across real-world programs.
+    <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
+      Intent-based use cases help you design prompts, choose capture options, and publish the right stories in the right places.
+    </span>
+  </h1>
+</div>
 
             {/* Use case rows */}
             <div className="mt-10 sm:mt-14 lg:mt-16 space-y-12 sm:space-y-14 lg:space-y-16">
