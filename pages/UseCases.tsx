@@ -15,8 +15,6 @@ type UseCaseBlock = {
   imageSide: 'right' | 'left';
 };
 
-const PILLARS = ['Corporate', 'Healthcare', 'Higher Education', 'Community'];
-
 const USE_CASE_BLOCKS: UseCaseBlock[] = [
   {
     id: 'listening',
@@ -32,7 +30,6 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Pulse feedback for quick insight',
     ],
     image: {
-      // Placeholder image — swap later (or replace with a diagram component)
       src: '/use-cases/listening.png',
       alt: 'Use case: Listening & Understanding',
     },
@@ -104,7 +101,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
       {/* Text */}
       <div className={isImageRight ? '' : 'lg:order-2'}>
-        {/* Hero-style Eyebrow (replaces plain uppercase kicker) */}
+        {/* Hero-style Eyebrow */}
         <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-900 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-3">
           <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
           {block.kicker}
@@ -123,6 +120,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
             <li key={i}>{b}</li>
           ))}
         </ul>
+      </div>
 
       {/* Image */}
       <div className={isImageRight ? '' : 'lg:order-1'}>
@@ -184,14 +182,12 @@ const UseCases: React.FC = () => {
 
             {/* Use case rows */}
             <div className="mt-10 sm:mt-14 lg:mt-16 space-y-12 sm:space-y-14 lg:space-y-16">
-              {USE_CASE_BLOCKS.map(block => (
+              {USE_CASE_BLOCKS.map((block) => (
                 <div key={block.id} id={block.id} className="scroll-mt-24">
                   <UseCaseRow block={block} />
                 </div>
               ))}
             </div>
-
-            {/* CTA band removed (per request) */}
           </div>
         </section>
       </main>
