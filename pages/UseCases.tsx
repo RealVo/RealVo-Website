@@ -15,6 +15,97 @@ type UseCaseBlock = {
   imageSide: 'right' | 'left';
 };
 
+/**
+ * Glyphs (Lucide-adjacent, simple monoline, rounded, on-brand)
+ * - Keep strokeWidth consistent with Industries icons (1.8)
+ * - Use currentColor so it inherits your RealVo blue
+ */
+const ListeningGlyph = () => (
+  <svg
+    width="72"
+    height="72"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    {/* Ear */}
+    <path d="M12 19a4 4 0 0 1-4-4v-5a4 4 0 1 1 8 0" />
+    <path d="M10 14a2 2 0 1 0 4 0" />
+    {/* Signal */}
+    <path d="M17 8h2" />
+    <path d="M17 11h3" />
+    <path d="M17 14h2" />
+  </svg>
+);
+
+const ValidationGlyph = () => (
+  <svg
+    width="72"
+    height="72"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    {/* Speech bubble */}
+    <path d="M20 14a4 4 0 0 1-4 4H9l-4 3v-3H4a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v6z" />
+    {/* Check */}
+    <path d="M8.5 11.5l2 2 4-4" />
+  </svg>
+);
+
+const EngagementGlyph = () => (
+  <svg
+    width="72"
+    height="72"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    {/* Primary bubble */}
+    <path d="M14 16H8l-4 3v-3H4a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4z" />
+    {/* Secondary bubble (participation) */}
+    <path d="M20 7h1a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3h-1v2l-3-2h-1" />
+    {/* Dots */}
+    <path d="M6.5 10.5h.01" />
+    <path d="M9.5 10.5h.01" />
+    <path d="M12.5 10.5h.01" />
+  </svg>
+);
+
+const ActionGlyph = () => (
+  <svg
+    width="72"
+    height="72"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    {/* Trend line */}
+    <path d="M4 15l5-5 4 4 7-7" />
+    {/* Arrow head */}
+    <path d="M20 7h-4" />
+    <path d="M20 7v4" />
+    {/* Base axis hint */}
+    <path d="M4 19h16" />
+  </svg>
+);
+
 const USE_CASE_BLOCKS: UseCaseBlock[] = [
   {
     id: 'listening',
@@ -94,6 +185,21 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
   },
 ];
 
+function UseCaseGlyph({ id }: { id: UseCaseBlock['id'] }) {
+  switch (id) {
+    case 'listening':
+      return <ListeningGlyph />;
+    case 'validation':
+      return <ValidationGlyph />;
+    case 'engagement':
+      return <EngagementGlyph />;
+    case 'action':
+      return <ActionGlyph />;
+    default:
+      return <ListeningGlyph />;
+  }
+}
+
 function UseCaseRow({ block }: { block: UseCaseBlock }) {
   const isImageRight = block.imageSide === 'right';
 
@@ -122,7 +228,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
         </ul>
       </div>
 
-      {/* Image */}
+      {/* Image (now: glyph card) */}
       <div className={isImageRight ? '' : 'lg:order-1'}>
         <div
           className="
@@ -133,13 +239,12 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
             h-[260px] sm:h-[320px] lg:h-[360px]
             flex items-center justify-center
           "
+          aria-label={block.image.alt}
         >
-          <img
-            src={block.image.src}
-            alt={block.image.alt}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          {/* Centered glyph, on-brand */}
+          <div className="text-realvo-blue dark:text-sky-400 scale-[1.35] sm:scale-[1.55]">
+            <UseCaseGlyph id={block.id} />
+          </div>
         </div>
       </div>
     </div>
@@ -175,7 +280,8 @@ const UseCases: React.FC = () => {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                 Understand how voices are used across real-world programs.
                 <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
-                  Intent-based use cases help you design prompts, choose capture options, and publish the right stories in the right places.
+                  Intent-based use cases help you design prompts, choose capture options, and publish
+                  the right stories in the right places.
                 </span>
               </h1>
             </div>
@@ -198,3 +304,4 @@ const UseCases: React.FC = () => {
 };
 
 export default UseCases;
+
