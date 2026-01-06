@@ -143,7 +143,7 @@ function ListeningVisual() {
       {/* Main bubble */}
       <div className="absolute inset-0 flex items-center justify-center">
         <img
-          src="/Speech_Bubble_light_blue.png"
+          src="/use_cases/Speech_Bubble_light_blue.png"
           alt="Listening & Understanding visual"
           className="
             w-[72%] max-w-[440px]
