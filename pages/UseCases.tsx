@@ -186,42 +186,49 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
         </ul>
       </div>
 
-      {/* Visual */}
+            {/* Image */}
       <div className={isImageRight ? '' : 'lg:order-1'}>
-        <div
-          className="
-            relative rounded-3xl overflow-hidden
-            shadow-sm
-            h-[260px] sm:h-[320px] lg:h-[360px]
-          "
-        >
-          {/* Listening gets the new branded panel */}
-          {isListening ? (
-            <ListeningVisual />
-          ) : (
-            <div
+        <div className="relative">
+          {/* Outer frame */}
+          <div
+            className="
+              relative overflow-hidden rounded-3xl
+              border border-slate-200/70 dark:border-slate-800/80
+              shadow-sm
+              h-[260px] sm:h-[320px] lg:h-[360px]
+              bg-slate-100 dark:bg-slate-900
+            "
+          >
+            {/* Photo */}
+            <img
+              src={block.image.src}
+              alt={block.image.alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+
+            {/* Subtle RealVo tint overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-realvo-teal/10 via-transparent to-realvo-blue/10 pointer-events-none" />
+
+            {/* Soft highlight edge (Snowflake-ish polish) */}
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/40 dark:ring-white/10 pointer-events-none" />
+
+            {/* Small bubble watermark (NOT huge) */}
+            <img
+              src="/use_cases/Speech_Bubble_light_blue.png"
+              alt=""
+              aria-hidden="true"
               className="
-                relative rounded-3xl overflow-hidden
-                bg-white dark:bg-slate-900
-                border border-slate-200/70 dark:border-slate-800/80
-                shadow-sm
-                h-full
-                flex items-center justify-center
+                absolute -right-6 -bottom-6
+                w-36 sm:w-40 lg:w-44
+                opacity-15
+                pointer-events-none
+                select-none
               "
-            >
-              <img
-                src={block.image.src}
-                alt={block.image.alt}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          )}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
 
 const UseCases: React.FC = () => {
   useEffect(() => {
