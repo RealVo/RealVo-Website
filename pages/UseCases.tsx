@@ -30,7 +30,7 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Pulse feedback for quick insight',
     ],
     image: {
-      src: '/use-cases/listening.png',
+      src: '/use_cases/listening.jpg',
       alt: 'Use case: Listening & Understanding',
     },
     imageSide: 'right',
@@ -49,7 +49,7 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Leadership or stakeholder perspectives',
     ],
     image: {
-      src: '/use-cases/validation.png',
+      src: '/use_cases/validation.jpg',
       alt: 'Use case: Validation & Trust',
     },
     imageSide: 'left',
@@ -68,7 +68,7 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Culture and belonging participation prompts',
     ],
     image: {
-      src: '/use-cases/engagement.png',
+      src: '/use_cases/engagement.jpg',
       alt: 'Use case: Engagement & Participation',
     },
     imageSide: 'right',
@@ -87,79 +87,15 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Culture, policy, or service redesign input',
     ],
     image: {
-      src: '/use-cases/action.png',
+      src: '/use_cases/action.jpg',
       alt: 'Use case: Action & Change',
     },
     imageSide: 'left',
   },
 ];
 
-/**
- * Listening & Understanding branded visual (prototype)
- * Uses RealVo light blue outline speech bubble as the hero element.
- */
-function ListeningVisual() {
-  return (
-    <div
-      className="
-        relative w-full h-full
-        rounded-3xl overflow-hidden
-        border border-slate-200/70 dark:border-slate-800/80
-        bg-white dark:bg-slate-900
-      "
-    >
-      {/* Base gradient wash */}
-      <div className="absolute inset-0 bg-gradient-to-br from-realvo-light via-white to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
-
-      {/* Soft corner glow (very Snowflake-ish, but RealVo colors) */}
-      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-realvo-teal/25 blur-3xl" />
-      <div className="absolute -bottom-28 -left-28 h-80 w-80 rounded-full bg-realvo-blue/10 blur-3xl" />
-
-      {/* Subtle dotted texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.20] dark:opacity-[0.12]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.18) 1px, transparent 0)',
-          backgroundSize: '14px 14px',
-        }}
-      />
-
-      {/* Bubble "echo" (depth layer) */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <img
-          src="/Speech_Bubble_light_blue.png"
-          alt=""
-          className="
-            w-[70%] max-w-[420px]
-            opacity-[0.16]
-            translate-x-10 -translate-y-8
-            select-none pointer-events-none
-          "
-          draggable={false}
-        />
-      </div>
-
-      {/* Main bubble */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <img
-          src="/use_cases/Speech_Bubble_light_blue.png"
-          alt="Listening & Understanding visual"
-          className="
-            w-[72%] max-w-[440px]
-            drop-shadow-sm
-            select-none pointer-events-none
-          "
-          draggable={false}
-        />
-      </div>
-    </div>
-  );
-}
-
 function UseCaseRow({ block }: { block: UseCaseBlock }) {
   const isImageRight = block.imageSide === 'right';
-  const isListening = block.id === 'listening';
 
   return (
     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
@@ -186,49 +122,49 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
         </ul>
       </div>
 
-            {/* Image */}
+      {/* Photo Feature Block (Level 1) */}
       <div className={isImageRight ? '' : 'lg:order-1'}>
-        <div className="relative">
-          {/* Outer frame */}
-          <div
+        <div
+          className="
+            relative overflow-hidden rounded-3xl
+            border border-slate-200/70 dark:border-slate-800/80
+            shadow-sm
+            h-[260px] sm:h-[320px] lg:h-[360px]
+            bg-slate-100 dark:bg-slate-900
+          "
+        >
+          {/* Photo */}
+          <img
+            src={block.image.src}
+            alt={block.image.alt}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+
+          {/* Subtle RealVo tint overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-realvo-teal/10 via-transparent to-realvo-blue/10 pointer-events-none" />
+
+          {/* Soft highlight edge (Snowflake-ish polish) */}
+          <div className="absolute inset-0 ring-1 ring-inset ring-white/40 dark:ring-white/10 pointer-events-none" />
+
+          {/* Tiny bubble watermark (brand hint, not the hero) */}
+          <img
+            src="/use_cases/Speech_Bubble_light_blue.png"
+            alt=""
+            aria-hidden="true"
             className="
-              relative overflow-hidden rounded-3xl
-              border border-slate-200/70 dark:border-slate-800/80
-              shadow-sm
-              h-[260px] sm:h-[320px] lg:h-[360px]
-              bg-slate-100 dark:bg-slate-900
+              absolute -right-8 -bottom-8
+              w-40 sm:w-44 lg:w-48
+              opacity-[0.12]
+              pointer-events-none select-none
             "
-          >
-            {/* Photo */}
-            <img
-              src={block.image.src}
-              alt={block.image.alt}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-
-            {/* Subtle RealVo tint overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-realvo-teal/10 via-transparent to-realvo-blue/10 pointer-events-none" />
-
-            {/* Soft highlight edge (Snowflake-ish polish) */}
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/40 dark:ring-white/10 pointer-events-none" />
-
-            {/* Small bubble watermark (NOT huge) */}
-            <img
-              src="/use_cases/Speech_Bubble_light_blue.png"
-              alt=""
-              aria-hidden="true"
-              className="
-                absolute -right-6 -bottom-6
-                w-36 sm:w-40 lg:w-44
-                opacity-15
-                pointer-events-none
-                select-none
-              "
-            />
-          </div>
+            draggable={false}
+          />
         </div>
       </div>
+    </div>
+  );
+}
 
 const UseCases: React.FC = () => {
   useEffect(() => {
@@ -259,7 +195,8 @@ const UseCases: React.FC = () => {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                 Understand how voices are used across real-world programs.
                 <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
-                  Intent-based use cases help you design prompts, choose capture options, and publish the right stories in the right places.
+                  Intent-based use cases help you design prompts, choose capture options, and publish
+                  the right stories in the right places.
                 </span>
               </h1>
             </div>
