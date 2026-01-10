@@ -30,7 +30,7 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Pulse feedback for quick insight',
     ],
     image: {
-      src: '/use_cases/listening.jpg',
+      src: '/use_cases/uc_listening_understanding.png',
       alt: 'Use case: Listening & Understanding',
     },
     imageSide: 'right',
