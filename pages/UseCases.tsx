@@ -135,7 +135,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
           <img
   src={block.image.src}
   alt={block.image.alt}
-  className="w-full h-full object-contain p-4"
+  className="w-full h-full object-contain"
   loading="lazy"
 />
         </div>
