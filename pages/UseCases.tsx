@@ -101,7 +101,6 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
       {/* Text */}
       <div className={isImageRight ? '' : 'lg:order-2'}>
-        {/* Hero-style Eyebrow */}
         <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-900 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-3">
           <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
           {block.kicker}
@@ -122,7 +121,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
         </ul>
       </div>
 
-      {/* Photo Feature Block (Level 1) */}
+      {/* Image */}
       <div className={isImageRight ? '' : 'lg:order-1'}>
         <div
           className="
@@ -133,32 +132,11 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
             bg-slate-100 dark:bg-slate-900
           "
         >
-          {/* Photo */}
           <img
             src={block.image.src}
             alt={block.image.alt}
             className="w-full h-full object-cover"
             loading="lazy"
-          />
-
-          {/* Subtle RealVo tint overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-realvo-teal/10 via-transparent to-realvo-blue/10 pointer-events-none" />
-
-          {/* Soft highlight edge (Snowflake-ish polish) */}
-          <div className="absolute inset-0 ring-1 ring-inset ring-white/40 dark:ring-white/10 pointer-events-none" />
-
-          {/* Tiny bubble watermark (brand hint, not the hero) */}
-          <img
-            src="/use_cases/Speech_Bubble_light_blue.png"
-            alt=""
-            aria-hidden="true"
-            className="
-              absolute -right-8 -bottom-8
-              w-40 sm:w-44 lg:w-48
-              opacity-[0.12]
-              pointer-events-none select-none
-            "
-            draggable={false}
           />
         </div>
       </div>
@@ -178,7 +156,6 @@ const UseCases: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
-            {/* Back link */}
             <a
               href="/#industries"
               className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
@@ -187,7 +164,6 @@ const UseCases: React.FC = () => {
               Back to Industries
             </a>
 
-            {/* Hero */}
             <div className="max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
                 Use Cases
@@ -201,7 +177,6 @@ const UseCases: React.FC = () => {
               </h1>
             </div>
 
-            {/* Use case rows */}
             <div className="mt-10 sm:mt-14 lg:mt-16 space-y-12 sm:space-y-14 lg:space-y-16">
               {USE_CASE_BLOCKS.map((block) => (
                 <div key={block.id} id={block.id} className="scroll-mt-24">
