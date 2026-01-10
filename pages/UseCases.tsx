@@ -121,25 +121,30 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
         </ul>
       </div>
 
-      {/* Image */}
-      <div className={isImageRight ? '' : 'lg:order-1'}>
-        <div
-          className="
-            relative overflow-hidden rounded-3xl
-            border border-slate-200/70 dark:border-slate-800/80
-            shadow-sm
-            h-[260px] sm:h-[320px] lg:h-[360px]
-            bg-slate-100 dark:bg-slate-900
-          "
-        >
-          <img
-  src={block.image.src}
-  alt={block.image.alt}
-  className="w-full h-full object-contain"
-  loading="lazy"
-/>
-        </div>
-      </div>
+      {/* Photo Feature Block — floating image (no container background) */}
+<div className={isImageRight ? '' : 'lg:order-1'}>
+  <div
+    className="
+      relative
+      h-[260px] sm:h-[320px] lg:h-[360px]
+      flex items-center justify-center
+    "
+  >
+    <img
+      src={block.image.src}
+      alt={block.image.alt}
+      className="
+        max-h-full
+        w-auto
+        object-contain
+        rounded-2xl
+        shadow-[0_20px_40px_rgba(15,23,42,0.12)]
+      "
+      loading="lazy"
+      draggable={false}
+    />
+  </div>
+</div>
     </div>
   );
 }
