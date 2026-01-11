@@ -169,11 +169,13 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
       >
         {/* ✅ Use the component for ALL use cases (same bubble system) */}
         <UseCaseSpeechBubble
-          photoSrc={assets.photo}
-          maskSrc={assets.mask}
-          bubbleSrc={assets.bubble}
-          alt={block.image.alt}
-        />
+  bubbleSrc={`/use_cases/uc_${block.id}_bubble.png`}
+  photoSrc={`/use_cases/uc_${block.id}_photo.png`}
+  maskSrc={`/use_cases/uc_${block.id}_mask.png`}
+  alt={block.image.alt}
+  shadowAlphaLight={LISTENING_SHADOW_ALPHA_LIGHT}
+  shadowAlphaDark={LISTENING_SHADOW_ALPHA_DARK}
+/>
       </div>
     </div>
   );
