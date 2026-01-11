@@ -126,57 +126,58 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
       </div>
 
       {/* Image */}
-<div className={isImageRight ? '' : 'lg:order-1'}>
-  {isListening ? (
-    // LISTENING: no visible container, no cropping, shadow applied to the image itself
-    <div
-      className="
-        h-full
-        min-h-[260px] sm:min-h-[320px] lg:min-h-[360px]
-        flex items-center justify-center
-        bg-transparent
-      "
-    >
-      <img
-        src={block.image.src}
-        alt={block.image.alt}
-        loading="lazy"
-        className="
-          object-contain
-          select-none
+      <div className={isImageRight ? '' : 'lg:order-1'}>
+        {isListening ? (
+          // LISTENING: floating PNG; shadow on image only; NO container bg/border/ring
+          <div
+            className="
+              h-full
+              min-h-[260px] sm:min-h-[320px] lg:min-h-[360px]
+              flex items-center justify-center
+              bg-transparent
+            "
+          >
+            <img
+              src={block.image.src}
+              alt={block.image.alt}
+              loading="lazy"
+              draggable={false}
+              className="
+                block
+                object-contain
+                select-none
 
-          /* ✅ control size (THIS is what you’re missing) */
-          w-auto h-auto
-          max-w-[420px] sm:max-w-[480px] lg:max-w-[520px]
-          max-h-[240px] sm:max-h-[300px] lg:max-h-[320px]
+                /* ✅ SIZE CONTROL (scale up/down here) */
+                w-auto h-auto
+                max-w-[380px] sm:max-w-[440px] lg:max-w-[480px]
+                max-h-[220px] sm:max-h-[280px] lg:max-h-[300px]
 
-          /* ✅ shadow on the image only */
-          [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
-          dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
-        "
-        draggable={false}
-      />
-    </div>
-  ) : (
-    // OTHER USE CASES: keep your standard photo card styling
-    <div
-      className="
-        relative overflow-hidden rounded-3xl
-        border border-slate-200/70 dark:border-slate-800/80
-        shadow-sm
-        h-[260px] sm:h-[320px] lg:h-[360px]
-        bg-slate-100 dark:bg-slate-900
-      "
-    >
-      <img
-        src={block.image.src}
-        alt={block.image.alt}
-        className="w-full h-full object-cover"
-        loading="lazy"
-      />
-    </div>
-  )}
-</div>
+                /* ✅ shadow applied to the PNG itself */
+                [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
+                dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
+              "
+            />
+          </div>
+        ) : (
+          // OTHER USE CASES: keep your standard photo card styling
+          <div
+            className="
+              relative overflow-hidden rounded-3xl
+              border border-slate-200/70 dark:border-slate-800/80
+              shadow-sm
+              h-[260px] sm:h-[320px] lg:h-[360px]
+              bg-slate-100 dark:bg-slate-900
+            "
+          >
+            <img
+              src={block.image.src}
+              alt={block.image.alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -234,3 +235,4 @@ const UseCases: React.FC = () => {
 };
 
 export default UseCases;
+
