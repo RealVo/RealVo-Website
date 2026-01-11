@@ -149,7 +149,7 @@ function ListeningComposite() {
             object-contain
             pointer-events-none
             select-none
-            [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
+            [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.22))]
             dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
           "
           loading="lazy"
