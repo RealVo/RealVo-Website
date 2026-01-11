@@ -3,50 +3,23 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import UseCaseSpeechBubble from '../components/UseCaseSpeechBubble';
 
+type UseCaseAssets = {
+  bubble: string;
+  photo: string;
+  mask: string;
+};
+
 type UseCaseBlock = {
   id: string;
   kicker: string;
   title: string;
   description: string;
   bullets: string[];
-  image: {
-    src: string;
-    alt: string;
-  };
+  assets: UseCaseAssets; // ✅ all rows use the 3-asset composite
   imageSide: 'right' | 'left';
 };
 
-/**
- * ✅ 3 assets per use case (photo + mask + bubble)
- * You said you created 12 images total and each use case may have a flipped bubble,
- * so we declare them explicitly per use case for clarity and zero surprises.
- */
-const USE_CASE_ASSETS: Record<
-  string,
-  { photo: string; mask: string; bubble: string }
-> = {
-  listening: {
-    bubble: '/use_cases/uc_listening_understanding_bubble.png',
-    photo: '/use_cases/uc_listening_understanding_photo.png',
-    mask: '/use_cases/uc_listening_understanding_mask.png',
-  },
-  validation: {
-    bubble: '/use_cases/uc_validation_trust_bubble.png',
-    photo: '/use_cases/uc_validation_trust_photo.png',
-    mask: '/use_cases/uc_validation_trust_mask.png',
-  },
-  engagement: {
-    bubble: '/use_cases/uc_engagement_participation_bubble.png',
-    photo: '/use_cases/uc_engagement_participation_photo.png',
-    mask: '/use_cases/uc_engagement_participation_mask.png',
-  },
-  action: {
-    bubble: '/use_cases/uc_action_change_bubble.png',
-    photo: '/use_cases/uc_action_change_photo.png',
-    mask: '/use_cases/uc_action_change_mask.png',
-  },
-};
-
+// ✅ Your exact filenames (from your repo screenshot)
 const USE_CASE_BLOCKS: UseCaseBlock[] = [
   {
     id: 'listening',
@@ -61,9 +34,10 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Community issues and lived experience',
       'Pulse feedback for quick insight',
     ],
-    image: {
-      src: USE_CASE_ASSETS.listening.photo,
-      alt: 'Use case: Listening & Understanding',
+    assets: {
+      bubble: '/use_cases/uc_listening_understanding_bubble.png',
+      photo: '/use_cases/uc_listening_understanding_photo.png',
+      mask: '/use_cases/uc_listening_understanding_mask.png',
     },
     imageSide: 'right',
   },
@@ -80,9 +54,10 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Lived experiences that add depth and meaning',
       'Leadership or stakeholder perspectives',
     ],
-    image: {
-      src: USE_CASE_ASSETS.validation.photo,
-      alt: 'Use case: Validation & Trust',
+    assets: {
+      bubble: '/use_cases/uc_validation_trust_bubble.png',
+      photo: '/use_cases/uc_validation_trust_photo.png',
+      mask: '/use_cases/uc_validation_trust_mask.png',
     },
     imageSide: 'left',
   },
@@ -99,9 +74,10 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Conference reactions and speaker reflections',
       'Culture and belonging participation prompts',
     ],
-    image: {
-      src: USE_CASE_ASSETS.engagement.photo,
-      alt: 'Use case: Engagement & Participation',
+    assets: {
+      bubble: '/use_cases/uc_engagement_participation_bubble.png',
+      photo: '/use_cases/uc_engagement_participation_photo.png',
+      mask: '/use_cases/uc_engagement_participation_mask.png',
     },
     imageSide: 'right',
   },
@@ -118,18 +94,21 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Program evolution and iteration',
       'Culture, policy, or service redesign input',
     ],
-    image: {
-      src: USE_CASE_ASSETS.action.photo,
-      alt: 'Use case: Action & Change',
+    assets: {
+      bubble: '/use_cases/uc_action_change_bubble.png',
+      photo: '/use_cases/uc_action_change_photo.png',
+      mask: '/use_cases/uc_action_change_mask.png',
     },
     imageSide: 'left',
   },
 ];
 
+// 🔧 adjust darkness here
+const SHADOW_ALPHA_LIGHT = 0.18;
+const SHADOW_ALPHA_DARK = 0.45;
+
 function UseCaseRow({ block }: { block: UseCaseBlock }) {
   const isImageRight = block.imageSide === 'right';
-
-  const assets = USE_CASE_ASSETS[block.id];
 
   return (
     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-stretch">
@@ -155,7 +134,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
         </ul>
       </div>
 
-      {/* Image */}
+      {/* Image (NO container card — just the floating composite) */}
       <div
         className={`
           ${isImageRight ? '' : 'lg:order-1'}
@@ -167,15 +146,14 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
           flex items-center justify-center
         `}
       >
-        {/* ✅ Use the component for ALL use cases (same bubble system) */}
         <UseCaseSpeechBubble
-  bubbleSrc={`/use_cases/uc_${block.id}_bubble.png`}
-  photoSrc={`/use_cases/uc_${block.id}_photo.png`}
-  maskSrc={`/use_cases/uc_${block.id}_mask.png`}
-  alt={block.image.alt}
-  shadowAlphaLight={LISTENING_SHADOW_ALPHA_LIGHT}
-  shadowAlphaDark={LISTENING_SHADOW_ALPHA_DARK}
-/>
+          bubbleSrc={block.assets.bubble}
+          photoSrc={block.assets.photo}
+          maskSrc={block.assets.mask}
+          alt={`Use case: ${block.kicker}`}
+          shadowAlphaLight={SHADOW_ALPHA_LIGHT}
+          shadowAlphaDark={SHADOW_ALPHA_DARK}
+        />
       </div>
     </div>
   );
@@ -185,9 +163,9 @@ const UseCases: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Preload all bubble assets (prevents “photo missing until refresh” on SPA nav)
-    Object.values(USE_CASE_ASSETS).forEach(({ bubble, photo, mask }) => {
-      [bubble, photo, mask].forEach((src) => {
+    // Preload all assets to prevent SPA route-change “mask not ready” flash
+    USE_CASE_BLOCKS.forEach((b) => {
+      [b.assets.bubble, b.assets.photo, b.assets.mask].forEach((src) => {
         const img = new Image();
         img.src = src;
       });
