@@ -46,13 +46,13 @@ export default function UseCaseSpeechBubble({
           WebkitMaskImage: `url("${maskSrc}")`,
           WebkitMaskRepeat: "no-repeat",
           WebkitMaskPosition: "center",
-          WebkitMaskSize: "102% 102%",
+          WebkitMaskSize: "98% 98%",
 
           // Firefox uses standard mask*
           maskImage: `url("${maskSrc}")`,
           maskRepeat: "no-repeat",
           maskPosition: "center",
-          maskSize: "102% 102%",
+          maskSize: "98% 98%",
         }}
       >
         <img
