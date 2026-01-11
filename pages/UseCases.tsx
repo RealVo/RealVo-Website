@@ -136,42 +136,47 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
   `}
 >
   {isListening ? (
-    // LISTENING: floating PNG; shadow on image only; NO container bg/border/ring/shadow
-    <div
+  <div
+    className="
+      h-full
+      min-h-[260px] sm:min-h-[320px] lg:min-h-[360px]
+      flex items-center justify-center
+      bg-transparent
+      overflow-visible
+    "
+  >
+    <img
+      src={block.image.src}
+      alt={block.image.alt}
+      loading="lazy"
+      draggable={false}
       className="
-        h-full
-        min-h-[260px] sm:min-h-[320px] lg:min-h-[360px]
-        flex items-center justify-center
-        bg-transparent !bg-transparent
-        shadow-none !shadow-none
-        border-0 !border-0
-        ring-0 !ring-0
-        overflow-visible
+        block
+        select-none
+        bg-transparent
+
+        w-auto h-auto
+        max-w-[340px] sm:max-w-[400px] lg:max-w-[440px]
+        max-h-[200px] sm:max-h-[260px] lg:max-h-[280px]
+
+        /* 🔒 HARD CLIP TO SPEECH BUBBLE */
+        [mask-image:url('/use_cases/uc_listening_understanding_mask.png')]
+        [mask-repeat:no-repeat]
+        [mask-position:center]
+        [mask-size:contain]
+
+        [-webkit-mask-image:url('/use_cases/uc_listening_understanding_mask.png')]
+        [-webkit-mask-repeat:no-repeat]
+        [-webkit-mask-position:center]
+        [-webkit-mask-size:contain]
+
+        /* shadow follows the masked shape */
+        drop-shadow-[0_18px_28px_rgba(15,23,42,0.14)]
+        dark:drop-shadow-[0_18px_28px_rgba(0,0,0,0.45)]
       "
-    >
-      <img
-        src={block.image.src}
-        alt={block.image.alt}
-        loading="lazy"
-        draggable={false}
-        className="
-          block
-          bg-transparent !bg-transparent
-          object-contain
-          select-none
-
-          /* ✅ SIZE CONTROL (scale up/down here) */
-          w-auto h-auto
-          max-w-[340px] sm:max-w-[400px] lg:max-w-[440px]
-          max-h-[200px] sm:max-h-[260px] lg:max-h-[280px]
-
-          /* ✅ shadow applied to the PNG itself */
-          [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
-          dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
-        "
-      />
-    </div>
-  ) : (
+    />
+  </div>
+) : (
     // OTHER USE CASES: keep your standard photo card styling
     <div
       className="
