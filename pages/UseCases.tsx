@@ -30,7 +30,6 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Pulse feedback for quick insight',
     ],
     image: {
-      // Your composite speech-bubble image (transparent PNG recommended)
       src: '/use_cases/uc_listening_understanding.png',
       alt: 'Use case: Listening & Understanding',
     },
@@ -100,11 +99,9 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
   const isListening = block.id === 'listening';
 
   return (
-    // Stretch so the image area can match the row height (your “green lines”)
     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-stretch">
       {/* Text */}
       <div className={isImageRight ? '' : 'lg:order-2'}>
-        {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-900 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-3">
           <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
           {block.kicker}
@@ -126,57 +123,56 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
       </div>
 
       {/* Image */}
-<div
-  className={`
-    ${isImageRight ? '' : 'lg:order-1'}
-    bg-transparent !bg-transparent
-    shadow-none !shadow-none
-    border-0 !border-0
-    ring-0 !ring-0
-  `}
->
-  {isListening ? (
-  <div className="contents">
-    <img
-      src={block.image.src}
-      alt={block.image.alt}
-      loading="lazy"
-      draggable={false}
-      className="
-        block
-        select-none
-        bg-transparent
+      <div className={`${isImageRight ? '' : 'lg:order-1'} flex items-center justify-center`}>
+        {isListening ? (
+          // ✅ LISTENING: force true "floating" by masking the rendered pixels to the bubble shape
+          <img
+            src={block.image.src}
+            alt={block.image.alt}
+            loading="lazy"
+            draggable={false}
+            className="
+              block select-none bg-transparent
 
-        w-auto h-auto
-        max-w-[360px] sm:max-w-[420px] lg:max-w-[460px]
+              w-auto h-auto
+              max-w-[360px] sm:max-w-[420px] lg:max-w-[460px]
 
-        /* shadow ON THE IMAGE ONLY */
-        [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
-        dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
-      "
-    />
-  </div>
-) : (
+              /* Mask: clip ANY baked-in canvas/box from the PNG */
+              [-webkit-mask-image:url('/use_cases/uc_listening_understanding_mask.png')]
+              [-webkit-mask-repeat:no-repeat]
+              [-webkit-mask-position:center]
+              [-webkit-mask-size:contain]
+              [mask-image:url('/use_cases/uc_listening_understanding_mask.png')]
+              [mask-repeat:no-repeat]
+              [mask-position:center]
+              [mask-size:contain]
 
-    // OTHER USE CASES: keep your standard photo card styling
-    <div
-      className="
-        relative overflow-hidden rounded-3xl
-        border border-slate-200/70 dark:border-slate-800/80
-        shadow-sm
-        h-[260px] sm:h-[320px] lg:h-[360px]
-        bg-slate-100 dark:bg-slate-900
-      "
-    >
-      <img
-        src={block.image.src}
-        alt={block.image.alt}
-        className="w-full h-full object-cover"
-        loading="lazy"
-      />
-    </div>
-  )}
-</div>
+              /* Shadow follows the masked silhouette */
+              [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
+              dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
+            "
+          />
+        ) : (
+          // OTHER USE CASES: standard photo card styling
+          <div
+            className="
+              relative overflow-hidden rounded-3xl
+              border border-slate-200/70 dark:border-slate-800/80
+              shadow-sm
+              h-[260px] sm:h-[320px] lg:h-[360px]
+              bg-slate-100 dark:bg-slate-900
+              w-full
+            "
+          >
+            <img
+              src={block.image.src}
+              alt={block.image.alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -193,7 +189,6 @@ const UseCases: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
-            {/* Back link */}
             <a
               href="/#industries"
               className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
@@ -202,7 +197,6 @@ const UseCases: React.FC = () => {
               Back to Industries
             </a>
 
-            {/* Hero */}
             <div className="max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
                 Use Cases
@@ -216,7 +210,6 @@ const UseCases: React.FC = () => {
               </h1>
             </div>
 
-            {/* Use case rows */}
             <div className="mt-10 sm:mt-14 lg:mt-16 space-y-12 sm:space-y-14 lg:space-y-16">
               {USE_CASE_BLOCKS.map((block) => (
                 <div key={block.id} id={block.id} className="scroll-mt-24">
@@ -234,4 +227,3 @@ const UseCases: React.FC = () => {
 };
 
 export default UseCases;
-
