@@ -30,7 +30,8 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Pulse feedback for quick insight',
     ],
     image: {
-      src: '/use_cases/uc_listening_understanding.png',
+      // Your composite speech-bubble image (transparent PNG recommended)
+      src: '/use_cases/listening.jpg',
       alt: 'Use case: Listening & Understanding',
     },
     imageSide: 'right',
@@ -96,11 +97,14 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
 
 function UseCaseRow({ block }: { block: UseCaseBlock }) {
   const isImageRight = block.imageSide === 'right';
+  const isListening = block.id === 'listening';
 
   return (
-    <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
+    // Stretch so the image area can match the row height (your “green lines”)
+    <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-stretch">
       {/* Text */}
       <div className={isImageRight ? '' : 'lg:order-2'}>
+        {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-900 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-3">
           <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
           {block.kicker}
@@ -121,30 +125,52 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
         </ul>
       </div>
 
-      {/* Photo Feature Block — floating image (no container background) */}
-<div className={isImageRight ? '' : 'lg:order-1'}>
-  <div
-    className="
-      relative
-      h-[260px] sm:h-[320px] lg:h-[360px]
-      flex items-center justify-center
-    "
-  >
-    <img
-      src={block.image.src}
-      alt={block.image.alt}
-      className="
-        max-h-full
-        w-auto
-        object-contain
-        rounded-2xl
-        shadow-[0_20px_40px_rgba(15,23,42,0.12)]
-      "
-      loading="lazy"
-      draggable={false}
-    />
-  </div>
-</div>
+      {/* Image */}
+      <div className={isImageRight ? '' : 'lg:order-1'}>
+        {isListening ? (
+          // LISTENING: no visible container, no cropping, shadow applied to the image itself
+          <div
+            className="
+              h-full
+              min-h-[260px] sm:min-h-[320px] lg:min-h-[360px]
+              flex items-center justify-center
+              bg-transparent
+            "
+          >
+            <img
+              src={block.image.src}
+              alt={block.image.alt}
+              loading="lazy"
+              className="
+                max-h-full max-w-full
+                object-contain
+                select-none
+                [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
+                dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
+              "
+              draggable={false}
+            />
+          </div>
+        ) : (
+          // OTHER USE CASES: keep your standard photo card styling (cropping is fine for photos)
+          <div
+            className="
+              relative overflow-hidden rounded-3xl
+              border border-slate-200/70 dark:border-slate-800/80
+              shadow-sm
+              h-[260px] sm:h-[320px] lg:h-[360px]
+              bg-slate-100 dark:bg-slate-900
+            "
+          >
+            <img
+              src={block.image.src}
+              alt={block.image.alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -161,6 +187,7 @@ const UseCases: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
+            {/* Back link */}
             <a
               href="/#industries"
               className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
@@ -169,6 +196,7 @@ const UseCases: React.FC = () => {
               Back to Industries
             </a>
 
+            {/* Hero */}
             <div className="max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
                 Use Cases
@@ -182,6 +210,7 @@ const UseCases: React.FC = () => {
               </h1>
             </div>
 
+            {/* Use case rows */}
             <div className="mt-10 sm:mt-14 lg:mt-16 space-y-12 sm:space-y-14 lg:space-y-16">
               {USE_CASE_BLOCKS.map((block) => (
                 <div key={block.id} id={block.id} className="scroll-mt-24">
