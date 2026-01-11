@@ -136,15 +136,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
   `}
 >
   {isListening ? (
-  <div
-    className="
-      h-full
-      min-h-[260px] sm:min-h-[320px] lg:min-h-[360px]
-      flex items-center justify-center
-      bg-transparent
-      overflow-visible
-    "
-  >
+  <div className="contents">
     <img
       src={block.image.src}
       alt={block.image.alt}
@@ -156,27 +148,16 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
         bg-transparent
 
         w-auto h-auto
-        max-w-[340px] sm:max-w-[400px] lg:max-w-[440px]
-        max-h-[200px] sm:max-h-[260px] lg:max-h-[280px]
+        max-w-[360px] sm:max-w-[420px] lg:max-w-[460px]
 
-        /* 🔒 HARD CLIP TO SPEECH BUBBLE */
-        [mask-image:url('/use_cases/uc_listening_understanding_mask.png')]
-        [mask-repeat:no-repeat]
-        [mask-position:center]
-        [mask-size:contain]
-
-        [-webkit-mask-image:url('/use_cases/uc_listening_understanding_mask.png')]
-        [-webkit-mask-repeat:no-repeat]
-        [-webkit-mask-position:center]
-        [-webkit-mask-size:contain]
-
-        /* shadow follows the masked shape */
-        drop-shadow-[0_18px_28px_rgba(15,23,42,0.14)]
-        dark:drop-shadow-[0_18px_28px_rgba(0,0,0,0.45)]
+        /* shadow ON THE IMAGE ONLY */
+        [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
+        dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
       "
     />
   </div>
 ) : (
+
     // OTHER USE CASES: keep your standard photo card styling
     <div
       className="
