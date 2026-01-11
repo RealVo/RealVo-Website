@@ -9,11 +9,16 @@ type UseCaseBlock = {
   description: string;
   bullets: string[];
   image: {
-    src: string;
+    src: string; // used for standard blocks (non-listening)
     alt: string;
   };
   imageSide: 'right' | 'left';
 };
+
+// ✅ Listening assets (UPDATE extensions if needed)
+const LISTENING_BUBBLE_SRC = '/use_cases/uc_listening_understanding_bubble.png';
+const LISTENING_PHOTO_SRC = '/use_cases/uc_listening_understanding_photo.png';
+const LISTENING_MASK_SRC = '/use_cases/uc_listening_understanding_mask.png';
 
 const USE_CASE_BLOCKS: UseCaseBlock[] = [
   {
@@ -30,7 +35,8 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Pulse feedback for quick insight',
     ],
     image: {
-      src: '/use_cases/uc_listening_understanding.png',
+      // not used for listening (we render a 3-layer composite instead)
+      src: LISTENING_BUBBLE_SRC,
       alt: 'Use case: Listening & Understanding',
     },
     imageSide: 'right',
@@ -94,6 +100,66 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
   },
 ];
 
+function ListeningComposite() {
+  return (
+    <div
+      className="
+        relative
+        w-full
+        flex items-center justify-center
+        bg-transparent
+        border-0
+        ring-0
+        shadow-none
+        overflow-visible
+      "
+    >
+      {/* Sizer (controls overall size) */}
+      <div className="relative w-[320px] sm:w-[400px] lg:w-[460px] aspect-square overflow-visible">
+        {/* PHOTO layer (masked) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            WebkitMaskImage: `url(${LISTENING_MASK_SRC})`,
+            maskImage: `url(${LISTENING_MASK_SRC})`,
+            WebkitMaskRepeat: 'no-repeat',
+            maskRepeat: 'no-repeat',
+            WebkitMaskPosition: 'center',
+            maskPosition: 'center',
+            WebkitMaskSize: 'contain',
+            maskSize: 'contain',
+          }}
+        >
+          <img
+            src={LISTENING_PHOTO_SRC}
+            alt="Listening & Understanding photo"
+            className="w-full h-full object-cover"
+            loading="lazy"
+            draggable={false}
+          />
+        </div>
+
+        {/* BUBBLE outline layer (on top) + shadow applied here ONLY */}
+        <img
+          src={LISTENING_BUBBLE_SRC}
+          alt="Speech bubble outline"
+          className="
+            absolute inset-0
+            w-full h-full
+            object-contain
+            pointer-events-none
+            select-none
+            [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
+            dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
+          "
+          loading="lazy"
+          draggable={false}
+        />
+      </div>
+    </div>
+  );
+}
+
 function UseCaseRow({ block }: { block: UseCaseBlock }) {
   const isImageRight = block.imageSide === 'right';
   const isListening = block.id === 'listening';
@@ -123,37 +189,18 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
       </div>
 
       {/* Image */}
-      <div className={`${isImageRight ? '' : 'lg:order-1'} flex items-center justify-center`}>
+      <div
+        className={`
+          ${isImageRight ? '' : 'lg:order-1'}
+          bg-transparent !bg-transparent
+          shadow-none !shadow-none
+          border-0 !border-0
+          ring-0 !ring-0
+        `}
+      >
         {isListening ? (
-          // ✅ LISTENING: force true "floating" by masking the rendered pixels to the bubble shape
-          <img
-            src={block.image.src}
-            alt={block.image.alt}
-            loading="lazy"
-            draggable={false}
-            className="
-              block select-none bg-transparent
-
-              w-auto h-auto
-              max-w-[360px] sm:max-w-[420px] lg:max-w-[460px]
-
-              /* Mask: clip ANY baked-in canvas/box from the PNG */
-              [-webkit-mask-image:url('/use_cases/uc_listening_understanding_mask.png')]
-              [-webkit-mask-repeat:no-repeat]
-              [-webkit-mask-position:center]
-              [-webkit-mask-size:contain]
-              [mask-image:url('/use_cases/uc_listening_understanding_mask.png')]
-              [mask-repeat:no-repeat]
-              [mask-position:center]
-              [mask-size:contain]
-
-              /* Shadow follows the masked silhouette */
-              [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.14))]
-              dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
-            "
-          />
+          <ListeningComposite />
         ) : (
-          // OTHER USE CASES: standard photo card styling
           <div
             className="
               relative overflow-hidden rounded-3xl
@@ -161,7 +208,6 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
               shadow-sm
               h-[260px] sm:h-[320px] lg:h-[360px]
               bg-slate-100 dark:bg-slate-900
-              w-full
             "
           >
             <img
@@ -227,3 +273,4 @@ const UseCases: React.FC = () => {
 };
 
 export default UseCases;
+
