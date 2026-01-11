@@ -9,16 +9,22 @@ type UseCaseBlock = {
   description: string;
   bullets: string[];
   image: {
-    src: string; // used for standard blocks (non-listening)
+    src: string;
     alt: string;
   };
   imageSide: 'right' | 'left';
 };
 
-// ✅ Listening assets (UPDATE extensions if needed)
-const LISTENING_BUBBLE_SRC = '/use_cases/uc_listening_understanding_bubble.png';
-const LISTENING_PHOTO_SRC = '/use_cases/uc_listening_understanding_photo.png';
-const LISTENING_MASK_SRC = '/use_cases/uc_listening_understanding_mask.png';
+// Listening composite assets (bubble + photo + mask)
+const LISTENING_ASSETS = {
+  bubble: '/use_cases/uc_listening_understanding_bubble.png',
+  photo: '/use_cases/uc_listening_understanding_photo.png',
+  mask: '/use_cases/uc_listening_understanding_mask.png',
+};
+
+// 🔧 Adjust this number to change shadow darkness (0.10–0.30 typical)
+const LISTENING_SHADOW_ALPHA_LIGHT = 0.18;
+const LISTENING_SHADOW_ALPHA_DARK = 0.45;
 
 const USE_CASE_BLOCKS: UseCaseBlock[] = [
   {
@@ -35,8 +41,8 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
       'Pulse feedback for quick insight',
     ],
     image: {
-      // not used for listening (we render a 3-layer composite instead)
-      src: LISTENING_BUBBLE_SRC,
+      // (Not used for listening; we use the 3-asset composite above)
+      src: '/use_cases/uc_listening_understanding_photo.png',
       alt: 'Use case: Listening & Understanding',
     },
     imageSide: 'right',
@@ -100,69 +106,13 @@ const USE_CASE_BLOCKS: UseCaseBlock[] = [
   },
 ];
 
-function ListeningComposite() {
-  return (
-    <div
-      className="
-        relative
-        w-full
-        flex items-center justify-center
-        bg-transparent
-        border-0
-        ring-0
-        shadow-none
-        overflow-visible
-      "
-    >
-      {/* Sizer (controls overall size) */}
-      <div className="relative w-[320px] sm:w-[400px] lg:w-[460px] aspect-square overflow-visible">
-        {/* PHOTO layer (masked) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            WebkitMaskImage: `url(${LISTENING_MASK_SRC})`,
-            maskImage: `url(${LISTENING_MASK_SRC})`,
-            WebkitMaskRepeat: 'no-repeat',
-            maskRepeat: 'no-repeat',
-            WebkitMaskPosition: 'center',
-            maskPosition: 'center',
-            WebkitMaskSize: 'contain',
-            maskSize: 'contain',
-          }}
-        >
-          <img
-            src={LISTENING_PHOTO_SRC}
-            alt="Listening & Understanding photo"
-            className="w-full h-full object-cover"
-            loading="lazy"
-            draggable={false}
-          />
-        </div>
-
-        {/* BUBBLE outline layer (on top) + shadow applied here ONLY */}
-        <img
-          src={LISTENING_BUBBLE_SRC}
-          alt="Speech bubble outline"
-          className="
-            absolute inset-0
-            w-full h-full
-            object-contain
-            pointer-events-none
-            select-none
-            [filter:drop-shadow(0px_18px_28px_rgba(15,23,42,0.22))]
-            dark:[filter:drop-shadow(0px_18px_28px_rgba(0,0,0,0.45))]
-          "
-          loading="lazy"
-          draggable={false}
-        />
-      </div>
-    </div>
-  );
-}
-
 function UseCaseRow({ block }: { block: UseCaseBlock }) {
   const isImageRight = block.imageSide === 'right';
   const isListening = block.id === 'listening';
+
+  // Build shadow filters with adjustable darkness
+  const lightShadow = `drop-shadow(0px 20px 32px rgba(15, 23, 42, ${LISTENING_SHADOW_ALPHA_LIGHT}))`;
+  const darkShadow = `drop-shadow(0px 20px 32px rgba(0, 0, 0, ${LISTENING_SHADOW_ALPHA_DARK}))`;
 
   return (
     <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-stretch">
@@ -196,11 +146,85 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
           shadow-none !shadow-none
           border-0 !border-0
           ring-0 !ring-0
+          overflow-visible
+          flex items-center justify-center
         `}
       >
         {isListening ? (
-          <ListeningComposite />
+          // LISTENING: bubble + masked photo + shadow on composite only (no container)
+          <div className="contents">
+            <div
+              className="
+                relative
+                bg-transparent
+                w-[360px] sm:w-[420px] lg:w-[460px]
+                aspect-square
+              "
+              style={{
+                filter: lightShadow,
+              }}
+            >
+              {/* Dark mode shadow override */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  filter: darkShadow,
+                  opacity: 0,
+                }}
+              />
+
+              {/* PHOTO (masked) */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  WebkitMaskImage: `url(${LISTENING_ASSETS.mask})`,
+                  maskImage: `url(${LISTENING_ASSETS.mask})`,
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                  WebkitMaskSize: '100% 100%',
+                  maskSize: '100% 100%',
+                }}
+              >
+                <img
+                  src={LISTENING_ASSETS.photo}
+                  alt={block.image.alt}
+                  className="w-full h-full object-cover select-none"
+                  draggable={false}
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+
+              {/* BUBBLE (on top) */}
+              <img
+                src={LISTENING_ASSETS.bubble}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full select-none pointer-events-none"
+                draggable={false}
+                loading="eager"
+                decoding="async"
+              />
+
+              {/* Dark-mode filter switch (pure CSS) */}
+              <style>{`
+                @media (prefers-color-scheme: dark) {
+                  [data-realvo-dark-shadow="1"] { filter: ${darkShadow} !important; }
+                }
+              `}</style>
+            </div>
+
+            {/* Apply dark shadow when your site is in dark mode class-based */}
+            <div className="hidden dark:block">
+              <style>{`
+                .dark .realvo-listening-shadow { filter: ${darkShadow} !important; }
+              `}</style>
+            </div>
+          </div>
         ) : (
+          // OTHER USE CASES: keep standard photo card styling
           <div
             className="
               relative overflow-hidden rounded-3xl
@@ -208,6 +232,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
               shadow-sm
               h-[260px] sm:h-[320px] lg:h-[360px]
               bg-slate-100 dark:bg-slate-900
+              w-full
             "
           >
             <img
@@ -215,6 +240,7 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
               alt={block.image.alt}
               className="w-full h-full object-cover"
               loading="lazy"
+              decoding="async"
             />
           </div>
         )}
@@ -226,6 +252,12 @@ function UseCaseRow({ block }: { block: UseCaseBlock }) {
 const UseCases: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Preload listening composite assets to prevent SPA route-change "empty mask" flash
+    [LISTENING_ASSETS.bubble, LISTENING_ASSETS.photo, LISTENING_ASSETS.mask].forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
   }, []);
 
   return (
@@ -273,4 +305,3 @@ const UseCases: React.FC = () => {
 };
 
 export default UseCases;
-
