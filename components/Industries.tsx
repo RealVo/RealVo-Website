@@ -58,7 +58,7 @@ const Industries: React.FC = () => {
   }, []);
 
   return (
-    <Section id="industries" className="relative overflow-hidden bg-[#2a4d69]">
+    <Section id="industries" className="relative overflow-hidden bg-[#2a4d69] isolate">
       {/* Base Background Color */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-[#2a4d69]" />
 
