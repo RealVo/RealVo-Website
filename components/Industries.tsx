@@ -59,20 +59,20 @@ const Industries: React.FC = () => {
 
   return (
     <Section id="industries" className="relative overflow-hidden bg-[#2a4d69]">
-  {/* Base Background Color */}
-  <div className="absolute inset-0 z-0 pointer-events-none bg-[#2a4d69]" />
+      {/* Base Background Color */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-[#2a4d69]" />
 
-  {/* Pattern Background */}
-  <div
-    className="absolute inset-0 z-0 pointer-events-none opacity-20"
-    style={{
-  backgroundImage: "url('/patterns/industries-pattern.png')",
-  backgroundRepeat: 'repeat',
-  backgroundSize: '1920px 1080px',
-  backgroundPosition: 'top left',
-}}
-  />
-      
+      {/* Pattern Background (TEMP: opacity removed for diagnosis) */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/patterns/industries-pattern.png')",
+          backgroundRepeat: 'repeat',
+          backgroundSize: '1920px 1080px',
+          backgroundPosition: 'top left',
+        }}
+      />
+
       {/* Header */}
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white mb-4">
@@ -126,31 +126,32 @@ const Industries: React.FC = () => {
       </div>
 
       {/* Use Cases CTA */}
-<div className="relative z-10 mt-12 flex justify-center">
-  <Button
-  size="lg"
-  variant="secondary"
-  pressedStyle="insetWhite"
-  onClick={() => navigate('/use-cases')}
->
-  <span className="text-center leading-snug">
-    <span className="block sm:hidden text-base">
-      Explore how voices are used
-    </span>
-    <span className="block sm:hidden text-base">
-      across real-world use cases
-    </span>
+      <div className="relative z-10 mt-12 flex justify-center">
+        <Button
+          size="lg"
+          variant="secondary"
+          pressedStyle="insetWhite"
+          onClick={() => navigate('/use-cases')}
+        >
+          <span className="text-center leading-snug">
+            <span className="block sm:hidden text-base">
+              Explore how voices are used
+            </span>
+            <span className="block sm:hidden text-base">
+              across real-world use cases
+            </span>
 
-    <span className="hidden sm:block text-base">
-      Explore how voices are used across real-world use cases
-    </span>
-  </span>
-</Button>
-</div>
+            <span className="hidden sm:block text-base">
+              Explore how voices are used across real-world use cases
+            </span>
+          </span>
+        </Button>
+      </div>
     </Section>
   );
 };
 
 export default Industries;
+
 
 
