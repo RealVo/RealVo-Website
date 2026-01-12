@@ -58,18 +58,17 @@ const Industries: React.FC = () => {
   }, []);
 
   return (
-  <Section id="industries" className="relative overflow-hidden bg-[#2a4d69] isolate">
-
-    {/* Pattern Background (still hidden for diagnosis) */}
-    <div
-      className="hidden absolute inset-0 z-0 pointer-events-none"
-      style={{
-        backgroundImage: "url('/patterns/industries-pattern.png')",
-        backgroundRepeat: 'repeat',
-        backgroundSize: '1920px 1080px',
-        backgroundPosition: 'top left',
-      }}
-    />
+    <Section id="industries" className="relative overflow-hidden bg-[#2a4d69] isolate">
+      {/* Pattern Background (ON) */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/patterns/industries-pattern.png')",
+          backgroundRepeat: 'repeat',
+          backgroundSize: '1920px 1080px',
+          backgroundPosition: 'top left',
+        }}
+      />
 
       {/* Header */}
       <div className="relative z-10 text-center mb-16">
@@ -126,12 +125,12 @@ const Industries: React.FC = () => {
       {/* Use Cases CTA */}
       <div className="relative z-10 mt-12 flex justify-center">
         <Button
-  size="lg"
-  variant="secondary"
-  pressedStyle="insetWhite"
-  onClick={() => navigate('/use-cases')}
-  className="shadow-none hover:shadow-none hover:-translate-y-0"
->
+          size="lg"
+          variant="secondary"
+          pressedStyle="insetWhite"
+          onClick={() => navigate('/use-cases')}
+          className="shadow-none hover:shadow-none hover:-translate-y-0"
+        >
           <span className="text-center leading-snug">
             <span className="block sm:hidden text-base">
               Explore how voices are used
@@ -151,6 +150,3 @@ const Industries: React.FC = () => {
 };
 
 export default Industries;
-
-
-
