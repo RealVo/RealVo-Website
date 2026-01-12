@@ -11,22 +11,20 @@ const steps = [
   { number: '7', title: 'Submit & Upload', desc: 'Secure transfer to your VB.tv dashboard.' },
 ];
 
-// Base kiosk (no step overlay)
 const KIOSK_BASE = '/how_it_works/hiw_wallmount_kiosk.png';
 
-// Only the two full kiosk step images you have so far
-const STEP_FULL_IMAGES = [
-  '/how_it_works/hiw_step_1.png',
-  '/how_it_works/hiw_step_2.png',
-];
-
 const AUTOPLAY_MS = 3500;
+const FADE_MS = 250;
 
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHoveringSteps, setIsHoveringSteps] = useState(false);
+
+  // Crossfade states
+  const [currentSrc, setCurrentSrc] = useState<string>(KIOSK_BASE);
+  const [prevSrc, setPrevSrc] = useState<string | null>(null);
 
   // Pulse animated headline text
   useEffect(() => {
@@ -50,6 +48,31 @@ const HowItWorks: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Map step -> image (for now: only steps 1 & 2 exist; others fall back to step 2)
+  const getKioskImageForStep = (index: number) => {
+    if (index === 0) return '/how_it_works/hiw_step_1.png';
+    if (index === 1) return '/how_it_works/hiw_step_2.png';
+    return '/how_it_works/hiw_step_2.png'; // fallback until steps 3–7 exist
+  };
+
+  // Drive crossfade whenever activeIndex changes
+  useEffect(() => {
+    const next = getKioskImageForStep(activeIndex);
+
+    // If unchanged, do nothing
+    if (next === currentSrc) return;
+
+    setPrevSrc(currentSrc);
+    setCurrentSrc(next);
+
+    const t = window.setTimeout(() => {
+      setPrevSrc(null);
+    }, FADE_MS);
+
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex]);
+
   // Auto-rotate steps unless user is hovering the list
   useEffect(() => {
     if (isHoveringSteps) return;
@@ -68,16 +91,6 @@ const HowItWorks: React.FC = () => {
 
   const handleStepsLeave = () => {
     setIsHoveringSteps(false);
-  };
-
-  // ✅ Display logic:
-  // step 1 -> hiw_step_1.png
-  // step 2 -> hiw_step_2.png
-  // step 3-7 -> fallback to step 2 (so you can test today)
-  const getKioskImageForStep = (index: number) => {
-    if (index === 0) return STEP_FULL_IMAGES[0];
-    if (index === 1) return STEP_FULL_IMAGES[1];
-    return STEP_FULL_IMAGES[1]; // fallback until you upload steps 3–7
   };
 
   return (
@@ -136,46 +149,57 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT: KIOSK IMAGE (FULL SWAP) */}
-<div className="relative flex justify-center">
-  <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-    <div className="w-[520px] h-[520px] rounded-full bg-realvo-teal/10 blur-3xl" />
-  </div>
+        {/* RIGHT: KIOSK PREVIEW (FULL IMAGE SWAP) */}
+        <div className="relative flex justify-center">
+          {/* subtle soft glow behind kiosk */}
+          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+            <div className="w-[520px] h-[520px] rounded-full bg-realvo-teal/10 blur-3xl" />
+          </div>
 
-  <div className="relative z-10 w-full max-w-[560px]">
-    {[
-      getKioskImageForStep(activeIndex),
-      // include base as a safety net if you want, optional:
-      // KIOSK_BASE,
-    ].map((src) => (
-      <img
-        key={src}
-        src={src}
-        alt="RealVo kiosk experience preview"
-        className="
-          absolute inset-0 w-full h-auto
-          select-none
-          drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
-          transition-opacity duration-300 ease-in-out
-        "
-        style={{ opacity: src === getKioskImageForStep(activeIndex) ? 1 : 0 }}
-        draggable={false}
-      />
-    ))}
+          <div className="relative w-full max-w-[560px]">
+            {/* Previous image (fades out) */}
+            {prevSrc && (
+              <img
+                src={prevSrc}
+                alt=""
+                aria-hidden="true"
+                className="
+                  absolute inset-0 w-full h-auto
+                  select-none
+                  drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
+                  opacity-0
+                "
+                style={{ transition: `opacity ${FADE_MS}ms ease-in-out`, opacity: 0 }}
+                draggable={false}
+              />
+            )}
 
-    {/* Spacer to preserve layout height (prevents collapse) */}
-    <img
-      src={KIOSK_BASE}
-      alt=""
-      aria-hidden="true"
-      className="w-full h-auto opacity-0 select-none"
-      draggable={false}
-    />
-  </div>
-</div>
+            {/* Current image (fades in) */}
+            <img
+              src={currentSrc}
+              alt="RealVo kiosk experience preview"
+              className="
+                absolute inset-0 w-full h-auto
+                select-none
+                drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
+              "
+              style={{ transition: `opacity ${FADE_MS}ms ease-in-out`, opacity: 1 }}
+              draggable={false}
+            />
+
+            {/* Spacer keeps layout height stable */}
+            <img
+              src={KIOSK_BASE}
+              alt=""
+              aria-hidden="true"
+              className="w-full h-auto opacity-0 select-none"
+              draggable={false}
+            />
+          </div>
+        </div>
+      </div>
     </Section>
   );
 };
 
 export default HowItWorks;
-
