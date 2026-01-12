@@ -11,23 +11,14 @@ const steps = [
   { number: '7', title: 'Submit & Upload', desc: 'Secure transfer to your VB.tv dashboard.' },
 ];
 
-// ✅ Your kiosk image in /public
-const KIOSK_IMAGE_SRC = '/how_it_works/hiw_wallmount_kiosk.png';
+// Base kiosk (no step overlay)
+const KIOSK_BASE = '/how_it_works/hiw_wallmount_kiosk.png';
 
-// ✅ ONLY the two images you uploaded so far:
-const STEP_SCREEN_IMAGES = [
+// Only the two full kiosk step images you have so far
+const STEP_FULL_IMAGES = [
   '/how_it_works/hiw_step_1.png',
   '/how_it_works/hiw_step_2.png',
 ];
-
-// Screen window position on the kiosk image (percent-based, responsive)
-// (This matches the earlier assumption; tweak later if needed.)
-const SCREEN_WINDOW = {
-  leftPct: 24.3,
-  topPct: 24.3,
-  widthPct: 51.0,
-  heightPct: 49.7,
-};
 
 const AUTOPLAY_MS = 3500;
 
@@ -59,7 +50,7 @@ const HowItWorks: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate screens unless user is hovering the step list
+  // Auto-rotate steps unless user is hovering the list
   useEffect(() => {
     if (isHoveringSteps) return;
 
@@ -70,15 +61,6 @@ const HowItWorks: React.FC = () => {
     return () => window.clearInterval(id);
   }, [isHoveringSteps]);
 
-  // ✅ fallback mapping:
-  // step 1 -> image 1
-  // step 2 -> image 2
-  // steps 3-7 -> fallback to image 2
-  const getDisplayImageSrc = (stepIndex: number) => {
-    if (stepIndex === 0) return STEP_SCREEN_IMAGES[0]; // step 1
-    return STEP_SCREEN_IMAGES[1]; // step 2 + fallback for 3-7
-  };
-
   const handleStepEnter = (index: number) => {
     setIsHoveringSteps(true);
     setActiveIndex(index);
@@ -86,6 +68,16 @@ const HowItWorks: React.FC = () => {
 
   const handleStepsLeave = () => {
     setIsHoveringSteps(false);
+  };
+
+  // ✅ Display logic:
+  // step 1 -> hiw_step_1.png
+  // step 2 -> hiw_step_2.png
+  // step 3-7 -> fallback to step 2 (so you can test today)
+  const getKioskImageForStep = (index: number) => {
+    if (index === 0) return STEP_FULL_IMAGES[0];
+    if (index === 1) return STEP_FULL_IMAGES[1];
+    return STEP_FULL_IMAGES[1]; // fallback until you upload steps 3–7
   };
 
   return (
@@ -144,46 +136,38 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT: FLOATING KIOSK + SCREEN OVERLAY */}
+        {/* RIGHT: KIOSK IMAGE (FULL SWAP) */}
         <div className="relative flex justify-center">
-          {/* Subtle soft glow behind kiosk */}
+          {/* subtle soft glow behind kiosk */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
             <div className="w-[520px] h-[520px] rounded-full bg-realvo-teal/10 blur-3xl" />
           </div>
 
-          <div className="relative z-10 w-full max-w-[560px]">
-            {/* Kiosk image */}
-            <img
-              src={KIOSK_IMAGE_SRC}
-              alt="RealVo kiosk head unit"
-              className="
-                w-full h-auto block select-none
-                drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
-              "
-              draggable={false}
-            />
+          {/* Base kiosk (optional — keeps layout stable if an image ever fails) */}
+          <img
+            src={KIOSK_BASE}
+            alt=""
+            aria-hidden="true"
+            className="
+              absolute inset-0 m-auto
+              w-full max-w-[560px] h-auto
+              opacity-0
+            "
+            draggable={false}
+          />
 
-            {/* Screen window overlay */}
-            <div
-              className="absolute z-20 overflow-hidden"
-              style={{
-                left: `${SCREEN_WINDOW.leftPct}%`,
-                top: `${SCREEN_WINDOW.topPct}%`,
-                width: `${SCREEN_WINDOW.widthPct}%`,
-                height: `${SCREEN_WINDOW.heightPct}%`,
-                borderRadius: '10px',
-              }}
-            >
-              {/* One image only (no stack needed while testing) */}
-              <img
-                src={getDisplayImageSrc(activeIndex)}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover"
-                draggable={false}
-              />
-            </div>
-          </div>
+          {/* Active step kiosk (full image from Photoshop) */}
+          <img
+            src={getKioskImageForStep(activeIndex)}
+            alt="RealVo kiosk experience preview"
+            className="
+              relative z-10
+              w-full max-w-[560px] h-auto
+              select-none
+              drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
+            "
+            draggable={false}
+          />
         </div>
       </div>
     </Section>
