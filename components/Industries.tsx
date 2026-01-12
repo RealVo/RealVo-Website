@@ -58,20 +58,18 @@ const Industries: React.FC = () => {
   }, []);
 
   return (
-    <Section id="industries" className="relative overflow-hidden bg-[#2a4d69] isolate">
-      {/* Base Background Color */}
-      <div className="absolute inset-0 z-0 pointer-events-none bg-[#2a4d69]" />
+  <Section id="industries" className="relative overflow-hidden bg-[#2a4d69] isolate">
 
-      {/* Pattern Background (TEMP: opacity removed for diagnosis) */}
-      <div
-  className="hidden absolute inset-0 z-0 pointer-events-none"
-  style={{
-    backgroundImage: "url('/patterns/industries-pattern.png')",
-    backgroundRepeat: 'repeat',
-    backgroundSize: '1920px 1080px',
-    backgroundPosition: 'top left',
-  }}
-/>
+    {/* Pattern Background (still hidden for diagnosis) */}
+    <div
+      className="hidden absolute inset-0 z-0 pointer-events-none"
+      style={{
+        backgroundImage: "url('/patterns/industries-pattern.png')",
+        backgroundRepeat: 'repeat',
+        backgroundSize: '1920px 1080px',
+        backgroundPosition: 'top left',
+      }}
+    />
 
       {/* Header */}
       <div className="relative z-10 text-center mb-16">
