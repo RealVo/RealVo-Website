@@ -23,7 +23,13 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const baseStyles =
     pressedStyle === 'insetWhite'
-      ? "inline-flex items-center justify-center font-medium rounded-brand transition-all duration-300 focus:outline-none focus:ring-0 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 focus:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.95)] active:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.95)]"
+      ? "relative inline-flex items-center justify-center font-medium rounded-brand transition-all duration-300 " +
+  "focus:outline-none focus-visible:outline-none " +
+  "focus:!shadow-none focus-visible:!shadow-none " +
+  "focus:!ring-0 focus-visible:!ring-0 focus:!ring-offset-0 focus-visible:!ring-offset-0 " +
+  "disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 " +
+  "after:content-[''] after:absolute after:inset-[3px] after:rounded-[inherit] after:border-2 after:border-white after:opacity-0 after:pointer-events-none " +
+  "focus:after:opacity-100 focus-visible:after:opacity-100 active:after:opacity-100"
       : "inline-flex items-center justify-center font-medium rounded-brand transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white disabled:opacity-50 disabled:cursor-not-allowed active:scale-95";
 
   const variants = {
