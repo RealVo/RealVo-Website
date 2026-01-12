@@ -11,38 +11,13 @@ const steps = [
   { number: '7', title: 'Submit & Upload', desc: 'Secure transfer to your VB.tv dashboard.' },
 ];
 
-// ✅ Your exact /public paths
+// ✅ Your kiosk image in /public
 const KIOSK_IMAGE_SRC = '/how_it_works/hiw_wallmount_kiosk.png';
-
-const STEP_SCREEN_IMAGES = [
-  '/how_it_works/hiw_step_1.png',
-  '/how_it_works/hiw_step_2.png',
-  '/how_it_works/hiw_step_3.png',
-  '/how_it_works/hiw_step_4.png',
-  '/how_it_works/hiw_step_5.png',
-  '/how_it_works/hiw_step_6.png',
-  '/how_it_works/hiw_step_7.png',
-];
-
-// Screen window position on the kiosk image (percent-based, responsive)
-// Based on your wallmount kiosk photo crop:
-// Feel free to tweak these 4 values later if needed.
-const SCREEN_WINDOW = {
-  leftPct: 24.3,
-  topPct: 24.3,
-  widthPct: 51.0,
-  heightPct: 49.7,
-};
-
-const AUTOPLAY_MS = 3500;
 
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
-
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isHoveringSteps, setIsHoveringSteps] = useState(false);
 
-  // Pulse animated headline text
   useEffect(() => {
     const node = worksRef.current;
     if (!node) return;
@@ -64,31 +39,11 @@ const HowItWorks: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate screens unless user is hovering the step list
-  useEffect(() => {
-    if (isHoveringSteps) return;
-
-    const id = window.setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % steps.length);
-    }, AUTOPLAY_MS);
-
-    return () => window.clearInterval(id);
-  }, [isHoveringSteps]);
-
-  const handleStepEnter = (index: number) => {
-    setIsHoveringSteps(true);
-    setActiveIndex(index);
-  };
-
-  const handleStepsLeave = () => {
-    setIsHoveringSteps(false);
-  };
-
   return (
     <Section id="how-it-works" background="light">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* LEFT: STEPS */}
-        <div onMouseLeave={handleStepsLeave}>
+        <div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
             How RealVo{' '}
             <span ref={worksRef} className="text-realvo-teal animate-pulse-once">
@@ -105,8 +60,8 @@ const HowItWorks: React.FC = () => {
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className={`flex group cursor-default ${i === activeIndex ? 'remembered' : ''}`}
-                onMouseEnter={() => handleStepEnter(i)}
+                className="flex group cursor-default"
+                onMouseEnter={() => setActiveIndex(i)}
               >
                 <div className="flex flex-col items-center mr-6">
                   {/* Circle buttons 1–7 with blue hover + white text */}
@@ -141,55 +96,25 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT: KIOSK HEAD UNIT + SCREEN SLIDESHOW */}
-        <div className="relative">
-          {/* Soft backdrop */}
-          <div className="absolute inset-0 bg-realvo-teal/10 rounded-2xl transform rotate-2" />
-
-          {/* Kiosk container */}
-          <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-2xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
-            <div className="relative w-full">
-              {/* Kiosk head image */}
-              <img
-                src={KIOSK_IMAGE_SRC}
-                alt="RealVo kiosk head unit"
-                className="w-full h-auto block select-none"
-                draggable={false}
-              />
-
-              {/* Screen window overlay */}
-              <div
-                className="absolute z-10 overflow-hidden"
-                style={{
-                  left: `${SCREEN_WINDOW.leftPct}%`,
-                  top: `${SCREEN_WINDOW.topPct}%`,
-                  width: `${SCREEN_WINDOW.widthPct}%`,
-                  height: `${SCREEN_WINDOW.heightPct}%`,
-                  borderRadius: '10px',
-                }}
-              >
-                {/* Crossfade stack */}
-                {STEP_SCREEN_IMAGES.map((src, idx) => (
-                  <img
-                    key={src}
-                    src={src}
-                    alt={`RealVo step ${idx + 1} screen`}
-                    className={`
-                      absolute inset-0 w-full h-full object-cover
-                      transition-opacity duration-700 ease-in-out
-                      ${idx === activeIndex ? 'opacity-100' : 'opacity-0'}
-                    `}
-                    draggable={false}
-                  />
-                ))}
-              </div>
-            </div>
+        {/* RIGHT: FLOATING KIOSK (NO WHITE CARD) */}
+        <div className="relative flex justify-center">
+          {/* Subtle soft glow behind kiosk (optional but very light) */}
+          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+            <div className="w-[520px] h-[520px] rounded-full bg-realvo-teal/10 blur-3xl" />
           </div>
 
-          {/* Tiny hint */}
-          <p className="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
-            Hover steps to preview each screen.
-          </p>
+          {/* Kiosk image with subtle drop shadow */}
+          <img
+            src={KIOSK_IMAGE_SRC}
+            alt="RealVo kiosk head unit"
+            className="
+              relative z-10
+              w-full max-w-[560px] h-auto
+              select-none
+              drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
+            "
+            draggable={false}
+          />
         </div>
       </div>
     </Section>
@@ -197,4 +122,3 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
-
