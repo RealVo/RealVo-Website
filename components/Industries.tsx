@@ -64,14 +64,14 @@ const Industries: React.FC = () => {
 
       {/* Pattern Background (TEMP: opacity removed for diagnosis) */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: "url('/patterns/industries-pattern.png')",
-          backgroundRepeat: 'repeat',
-          backgroundSize: '1920px 1080px',
-          backgroundPosition: 'top left',
-        }}
-      />
+  className="hidden absolute inset-0 z-0 pointer-events-none"
+  style={{
+    backgroundImage: "url('/patterns/industries-pattern.png')",
+    backgroundRepeat: 'repeat',
+    backgroundSize: '1920px 1080px',
+    backgroundPosition: 'top left',
+  }}
+/>
 
       {/* Header */}
       <div className="relative z-10 text-center mb-16">
