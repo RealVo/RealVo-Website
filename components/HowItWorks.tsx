@@ -11,22 +11,22 @@ const steps = [
   { number: '7', title: 'Submit & Upload', desc: 'Secure transfer to your VB.tv dashboard.' },
 ];
 
-// ✅ Update these paths to match what you upload into /public
-const KIOSK_IMAGE_SRC = '/how-it-works/kiosk-head.png';
+// ✅ Your exact /public paths
+const KIOSK_IMAGE_SRC = '/how_it_works/hiw_wallmount_kiosk.png';
 
 const STEP_SCREEN_IMAGES = [
-  '/how-it-works/steps/step-1.png',
-  '/how-it-works/steps/step-2.png',
-  '/how-it-works/steps/step-3.png',
-  '/how-it-works/steps/step-4.png',
-  '/how-it-works/steps/step-5.png',
-  '/how-it-works/steps/step-6.png',
-  '/how-it-works/steps/step-7.png',
+  '/how_it_works/hiw_step_1.png',
+  '/how_it_works/hiw_step_2.png',
+  '/how_it_works/hiw_step_3.png',
+  '/how_it_works/hiw_step_4.png',
+  '/how_it_works/hiw_step_5.png',
+  '/how_it_works/hiw_step_6.png',
+  '/how_it_works/hiw_step_7.png',
 ];
 
 // Screen window position on the kiosk image (percent-based, responsive)
-// Derived from your attached kiosk photo:
-// image ~ 880x1168; screen approx x=214..663, y=284..865
+// Based on your wallmount kiosk photo crop:
+// Feel free to tweak these 4 values later if needed.
 const SCREEN_WINDOW = {
   leftPct: 24.3,
   topPct: 24.3,
@@ -64,7 +64,7 @@ const HowItWorks: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate the screen images unless user is hovering the step list
+  // Auto-rotate screens unless user is hovering the step list
   useEffect(() => {
     if (isHoveringSteps) return;
 
@@ -105,9 +105,7 @@ const HowItWorks: React.FC = () => {
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className={`flex group cursor-default ${
-                  i === activeIndex ? 'opacity-100' : 'opacity-95'
-                }`}
+                className={`flex group cursor-default ${i === activeIndex ? 'remembered' : ''}`}
                 onMouseEnter={() => handleStepEnter(i)}
               >
                 <div className="flex flex-col items-center mr-6">
@@ -188,7 +186,7 @@ const HowItWorks: React.FC = () => {
             </div>
           </div>
 
-          {/* Optional tiny hint (kept subtle) */}
+          {/* Tiny hint */}
           <p className="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
             Hover steps to preview each screen.
           </p>
@@ -199,3 +197,4 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
+
