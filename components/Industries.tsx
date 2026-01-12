@@ -70,12 +70,6 @@ const Industries: React.FC = () => {
       }}
     />
       
-      {/* Background Decoration */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-96 h-96 rounded-full bg-realvo-teal blur-3xl" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 rounded-full bg-realvo-slate blur-3xl" />
-      </div>
-
       {/* Header */}
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white mb-4">
