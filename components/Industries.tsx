@@ -66,11 +66,11 @@ const Industries: React.FC = () => {
   <div
     className="absolute inset-0 z-0 pointer-events-none opacity-20"
     style={{
-      backgroundImage: "url('/patterns/industries-pattern.png')",
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100% 100%',
-      backgroundPosition: 'center',
-    }}
+  backgroundImage: "url('/patterns/industries-pattern.png')",
+  backgroundRepeat: 'repeat',
+  backgroundSize: '1920px 1080px',
+  backgroundPosition: 'top left',
+}}
   />
       
       {/* Header */}
