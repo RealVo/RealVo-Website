@@ -24,7 +24,10 @@ const Button: React.FC<ButtonProps> = ({
   const baseStyles =
     pressedStyle === 'insetWhite'
       ? // No outer ring; add inner white stroke on focus/active
-        "inline-flex items-center justify-center font-medium rounded-brand transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 focus:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.95)] active:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.95)]"
+        const baseStyles =
+  "inline-flex items-center justify-center font-medium rounded-brand transition-all duration-300 " +
+  "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white " +
+  "disabled:opacity-50 disabled:cursor-not-allowed active:scale-95";
       : // Current behavior (outer ring)
         "inline-flex items-center justify-center font-medium rounded-brand transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95";
 
