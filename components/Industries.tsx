@@ -3,6 +3,7 @@ import Section from './Section';
 import Button from './Button';
 import { Building2, GraduationCap, HeartPulse, Users2 } from 'lucide-react';
 import { Industry } from '../types';
+import { useNavigate } from 'react-router-dom';
 
 const industries: Industry[] = [
   {
@@ -33,6 +34,7 @@ const industries: Industry[] = [
 
 const Industries: React.FC = () => {
   const serveRef = useRef<HTMLSpanElement | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const node = serveRef.current;
@@ -118,34 +120,36 @@ const Industries: React.FC = () => {
       {/* Use Cases CTA */}
       <div className="relative z-10 mt-12 flex justify-center">
         <Button
-  className="
-    bg-realvo-teal
-    text-white
-    hover:bg-realvo-teal/90
-    px-6 py-3
-    font-semibold
-    shadow-sm
-    hover:shadow-md
-    transition
-  "
->
-  <span className="text-center leading-snug">
-    <span className="block sm:hidden text-base">
-  Explore how voices are used
-</span>
-<span className="block sm:hidden text-base">
-  across real-world use cases
-</span>
+          onClick={() => navigate('/use-cases')}
+          className="
+            bg-realvo-teal
+            text-white
+            hover:bg-realvo-teal/90
+            px-6 py-3
+            font-semibold
+            shadow-sm
+            hover:shadow-md
+            transition
+          "
+        >
+          <span className="text-center leading-snug">
+            <span className="block sm:hidden text-base">
+              Explore how voices are used
+            </span>
+            <span className="block sm:hidden text-base">
+              across real-world use cases
+            </span>
 
-    <span className="hidden sm:block text-base">
-      Explore how voices are used across real-world use cases
-    </span>
-  </span>
-</Button>
+            <span className="hidden sm:block text-base">
+              Explore how voices are used across real-world use cases
+            </span>
+          </span>
+        </Button>
       </div>
     </Section>
   );
 };
 
 export default Industries;
+
 
