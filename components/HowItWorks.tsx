@@ -14,10 +14,30 @@ const steps = [
 // ✅ Your kiosk image in /public
 const KIOSK_IMAGE_SRC = '/how_it_works/hiw_wallmount_kiosk.png';
 
+// ✅ ONLY the two images you uploaded so far:
+const STEP_SCREEN_IMAGES = [
+  '/how_it_works/hiw_step_1.png',
+  '/how_it_works/hiw_step_2.png',
+];
+
+// Screen window position on the kiosk image (percent-based, responsive)
+// (This matches the earlier assumption; tweak later if needed.)
+const SCREEN_WINDOW = {
+  leftPct: 24.3,
+  topPct: 24.3,
+  widthPct: 51.0,
+  heightPct: 49.7,
+};
+
+const AUTOPLAY_MS = 3500;
+
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHoveringSteps, setIsHoveringSteps] = useState(false);
+
+  // Pulse animated headline text
   useEffect(() => {
     const node = worksRef.current;
     if (!node) return;
@@ -39,11 +59,40 @@ const HowItWorks: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Auto-rotate screens unless user is hovering the step list
+  useEffect(() => {
+    if (isHoveringSteps) return;
+
+    const id = window.setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % steps.length);
+    }, AUTOPLAY_MS);
+
+    return () => window.clearInterval(id);
+  }, [isHoveringSteps]);
+
+  // ✅ fallback mapping:
+  // step 1 -> image 1
+  // step 2 -> image 2
+  // steps 3-7 -> fallback to image 2
+  const getDisplayImageSrc = (stepIndex: number) => {
+    if (stepIndex === 0) return STEP_SCREEN_IMAGES[0]; // step 1
+    return STEP_SCREEN_IMAGES[1]; // step 2 + fallback for 3-7
+  };
+
+  const handleStepEnter = (index: number) => {
+    setIsHoveringSteps(true);
+    setActiveIndex(index);
+  };
+
+  const handleStepsLeave = () => {
+    setIsHoveringSteps(false);
+  };
+
   return (
     <Section id="how-it-works" background="light">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* LEFT: STEPS */}
-        <div>
+        <div onMouseLeave={handleStepsLeave}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
             How RealVo{' '}
             <span ref={worksRef} className="text-realvo-teal animate-pulse-once">
@@ -61,10 +110,9 @@ const HowItWorks: React.FC = () => {
               <div
                 key={step.number}
                 className="flex group cursor-default"
-                onMouseEnter={() => setActiveIndex(i)}
+                onMouseEnter={() => handleStepEnter(i)}
               >
                 <div className="flex flex-col items-center mr-6">
-                  {/* Circle buttons 1–7 with blue hover + white text */}
                   <div
                     className={`
                       w-8 h-8 rounded-full border-2
@@ -96,25 +144,46 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT: FLOATING KIOSK (NO WHITE CARD) */}
+        {/* RIGHT: FLOATING KIOSK + SCREEN OVERLAY */}
         <div className="relative flex justify-center">
-          {/* Subtle soft glow behind kiosk (optional but very light) */}
+          {/* Subtle soft glow behind kiosk */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
             <div className="w-[520px] h-[520px] rounded-full bg-realvo-teal/10 blur-3xl" />
           </div>
 
-          {/* Kiosk image with subtle drop shadow */}
-          <img
-            src={KIOSK_IMAGE_SRC}
-            alt="RealVo kiosk head unit"
-            className="
-              relative z-10
-              w-full max-w-[560px] h-auto
-              select-none
-              drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
-            "
-            draggable={false}
-          />
+          <div className="relative z-10 w-full max-w-[560px]">
+            {/* Kiosk image */}
+            <img
+              src={KIOSK_IMAGE_SRC}
+              alt="RealVo kiosk head unit"
+              className="
+                w-full h-auto block select-none
+                drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
+              "
+              draggable={false}
+            />
+
+            {/* Screen window overlay */}
+            <div
+              className="absolute z-20 overflow-hidden"
+              style={{
+                left: `${SCREEN_WINDOW.leftPct}%`,
+                top: `${SCREEN_WINDOW.topPct}%`,
+                width: `${SCREEN_WINDOW.widthPct}%`,
+                height: `${SCREEN_WINDOW.heightPct}%`,
+                borderRadius: '10px',
+              }}
+            >
+              {/* One image only (no stack needed while testing) */}
+              <img
+                src={getDisplayImageSrc(activeIndex)}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover"
+                draggable={false}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </Section>
@@ -122,3 +191,4 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
+
