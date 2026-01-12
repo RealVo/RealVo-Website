@@ -68,7 +68,7 @@ const Industries: React.FC = () => {
     style={{
       backgroundImage: "url('/patterns/industries-pattern.png')",
       backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
+      backgroundSize: '100% 100%',
       backgroundPosition: 'center',
     }}
   />
