@@ -128,11 +128,12 @@ const Industries: React.FC = () => {
       {/* Use Cases CTA */}
       <div className="relative z-10 mt-12 flex justify-center">
         <Button
-          size="lg"
-          variant="secondary"
-          pressedStyle="insetWhite"
-          onClick={() => navigate('/use-cases')}
-        >
+  size="lg"
+  variant="secondary"
+  pressedStyle="insetWhite"
+  onClick={() => navigate('/use-cases')}
+  className="shadow-none hover:shadow-none hover:-translate-y-0"
+>
           <span className="text-center leading-snug">
             <span className="block sm:hidden text-base">
               Explore how voices are used
