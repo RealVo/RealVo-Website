@@ -137,39 +137,42 @@ const HowItWorks: React.FC = () => {
         </div>
 
         {/* RIGHT: KIOSK IMAGE (FULL SWAP) */}
-        <div className="relative flex justify-center">
-          {/* subtle soft glow behind kiosk */}
-          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-            <div className="w-[520px] h-[520px] rounded-full bg-realvo-teal/10 blur-3xl" />
-          </div>
+<div className="relative flex justify-center">
+  <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+    <div className="w-[520px] h-[520px] rounded-full bg-realvo-teal/10 blur-3xl" />
+  </div>
 
-          {/* Base kiosk (optional — keeps layout stable if an image ever fails) */}
-          <img
-            src={KIOSK_BASE}
-            alt=""
-            aria-hidden="true"
-            className="
-              absolute inset-0 m-auto
-              w-full max-w-[560px] h-auto
-              opacity-0
-            "
-            draggable={false}
-          />
+  <div className="relative z-10 w-full max-w-[560px]">
+    {[
+      getKioskImageForStep(activeIndex),
+      // include base as a safety net if you want, optional:
+      // KIOSK_BASE,
+    ].map((src) => (
+      <img
+        key={src}
+        src={src}
+        alt="RealVo kiosk experience preview"
+        className="
+          absolute inset-0 w-full h-auto
+          select-none
+          drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
+          transition-opacity duration-300 ease-in-out
+        "
+        style={{ opacity: src === getKioskImageForStep(activeIndex) ? 1 : 0 }}
+        draggable={false}
+      />
+    ))}
 
-          {/* Active step kiosk (full image from Photoshop) */}
-          <img
-            src={getKioskImageForStep(activeIndex)}
-            alt="RealVo kiosk experience preview"
-            className="
-              relative z-10
-              w-full max-w-[560px] h-auto
-              select-none
-              drop-shadow-[0_28px_70px_rgba(0,0,0,0.22)]
-            "
-            draggable={false}
-          />
-        </div>
-      </div>
+    {/* Spacer to preserve layout height (prevents collapse) */}
+    <img
+      src={KIOSK_BASE}
+      alt=""
+      aria-hidden="true"
+      className="w-full h-auto opacity-0 select-none"
+      draggable={false}
+    />
+  </div>
+</div>
     </Section>
   );
 };
