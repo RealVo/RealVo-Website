@@ -59,6 +59,17 @@ const Industries: React.FC = () => {
 
   return (
     <Section id="industries" background="dark" className="relative overflow-hidden">
+{/* Pattern Background */}
+    <div
+      className="absolute inset-0 z-0 pointer-events-none opacity-20"
+      style={{
+        backgroundImage: "url('/patterns/industries-pattern.png')",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    />
+      
       {/* Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10 pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-96 h-96 rounded-full bg-realvo-teal blur-3xl" />
