@@ -267,10 +267,10 @@ const HowItWorks: React.FC = () => {
   className="
     w-full max-w-[520px]
     h-auto
-    drop-shadow-[0_24px_50px_rgba(0,0,0,0.40)]
+    drop-shadow-none
+    md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
     transition-opacity duration-300 ease-out
   "
-  style={{ clipPath: 'inset(0 6px 0 6px)' }}
   draggable={false}
   onMouseEnter={handleKioskEnter}
   onMouseLeave={handleKioskLeave}
