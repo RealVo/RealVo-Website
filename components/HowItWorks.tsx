@@ -16,14 +16,12 @@ type InteractionMode = 'none' | 'hover' | 'click';
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
 
-  // Step image rotation
   const TOTAL_STEPS = 7;
-  const AUTO_MS = 2000; // you set this to 2000
+  const AUTO_MS = 2000;
 
   const [activeStep, setActiveStep] = useState<number>(1);
   const [mode, setMode] = useState<InteractionMode>('none');
 
-  // ✅ NEW: pause when hovering the kiosk image
   const [isHoveringKiosk, setIsHoveringKiosk] = useState(false);
 
   const stepsWrapRef = useRef<HTMLDivElement | null>(null);
@@ -32,17 +30,13 @@ const HowItWorks: React.FC = () => {
     return `/how_it_works/hiw_step_${activeStep}.png`;
   }, [activeStep]);
 
-  const goNext = () => {
-    setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
-  };
+  const goNext = () => setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
 
   const resumeAutoFromNext = () => {
-    // when hover-away or click-off, continue onto the NEXT step
     setMode('none');
     setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
   };
 
-  // Pulse animated headline text
   useEffect(() => {
     const node = worksRef.current;
     if (!node) return;
@@ -64,7 +58,6 @@ const HowItWorks: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Preload step images (prevents blank flash on first swap)
   useEffect(() => {
     for (let i = 1; i <= TOTAL_STEPS; i++) {
       const img = new Image();
@@ -72,7 +65,6 @@ const HowItWorks: React.FC = () => {
     }
   }, []);
 
-  // ✅ Auto-cycle when idle (NOT hovering steps, NOT click-locked, NOT hovering kiosk)
   useEffect(() => {
     if (mode !== 'none') return;
     if (isHoveringKiosk) return;
@@ -84,15 +76,11 @@ const HowItWorks: React.FC = () => {
 
     if (prefersReducedMotion) return;
 
-    const t = window.setInterval(() => {
-      goNext();
-    }, AUTO_MS);
-
+    const t = window.setInterval(goNext, AUTO_MS);
     return () => window.clearInterval(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, isHoveringKiosk]);
 
-  // Click-off to resume auto
   useEffect(() => {
     if (mode !== 'click') return;
 
@@ -111,7 +99,7 @@ const HowItWorks: React.FC = () => {
   }, [mode]);
 
   const handleHoverEnter = (n: number) => {
-    if (mode === 'click') return; // ignore hover while click-locked
+    if (mode === 'click') return;
     setMode('hover');
     setActiveStep(n);
   };
@@ -126,19 +114,15 @@ const HowItWorks: React.FC = () => {
     setActiveStep(n);
   };
 
-  // ✅ NEW: kiosk hover pause/resume (without changing the step)
   const handleKioskEnter = () => {
-    if (mode === 'click') return; // don't interfere with click-locked behavior
+    if (mode === 'click') return;
     setIsHoveringKiosk(true);
   };
 
   const handleKioskLeave = () => {
     if (mode === 'click') return;
     setIsHoveringKiosk(false);
-    // Resume and continue to the next step
-    if (mode === 'none') {
-      setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
-    }
+    if (mode === 'none') setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
   };
 
   return (
@@ -158,37 +142,29 @@ const HowItWorks: React.FC = () => {
             online. We&apos;ve removed the friction so you can focus on the insight.
           </p>
 
-          <div
-            ref={stepsWrapRef}
-            onMouseLeave={handleHoverLeave}
-            className="space-y-0"
-          >
+          <div ref={stepsWrapRef} onMouseLeave={handleHoverLeave} className="space-y-0">
             {steps.map((step, i) => {
               const isActive = activeStep === step.number;
 
               return (
-                <div
-                  key={step.number}
-                  className="flex group cursor-pointer select-none"
-                  onMouseEnter={() => handleHoverEnter(step.number)}
-                  onClick={() => handleClickStep(step.number)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') handleClickStep(step.number);
-                  }}
-                >
+                <div key={step.number} className="flex group select-none">
                   <div className="flex flex-col items-center mr-6">
-                    <div
+                    {/* ✅ Hover/click ONLY on the numbered pill */}
+                    <button
+                      type="button"
+                      onMouseEnter={() => handleHoverEnter(step.number)}
+                      onClick={() => handleClickStep(step.number)}
                       className={[
                         'w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-colors',
+                        'cursor-pointer',
                         isActive
                           ? 'border-realvo-blue bg-realvo-blue text-white'
-                          : 'border-realvo-slate/30 text-realvo-slate group-hover:border-realvo-blue group-hover:bg-realvo-blue group-hover:text-white',
+                          : 'border-realvo-slate/30 text-realvo-slate hover:border-realvo-blue hover:bg-realvo-blue hover:text-white',
                       ].join(' ')}
+                      aria-label={`Show step ${step.number}`}
                     >
                       {step.number}
-                    </div>
+                    </button>
 
                     {i !== steps.length - 1 && (
                       <div className="w-px h-full bg-gray-300 dark:bg-gray-700 my-2" />
@@ -196,9 +172,19 @@ const HowItWorks: React.FC = () => {
                   </div>
 
                   <div className="pb-8">
-                    <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
-                      {step.title}
-                    </h4>
+                    {/* ✅ Hover/click ONLY on the headline */}
+                    <button
+                      type="button"
+                      onMouseEnter={() => handleHoverEnter(step.number)}
+                      onClick={() => handleClickStep(step.number)}
+                      className="text-left cursor-pointer"
+                      aria-label={`Show step ${step.number}: ${step.title}`}
+                    >
+                      <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
+                        {step.title}
+                      </h4>
+                    </button>
+
                     <p className="text-sm text-gray-500 dark:text-gray-400">{step.desc}</p>
                   </div>
                 </div>
@@ -235,3 +221,4 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
+
