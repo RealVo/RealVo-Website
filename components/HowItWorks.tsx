@@ -26,6 +26,15 @@ const HowItWorks: React.FC = () => {
 
   const stepsWrapRef = useRef<HTMLDivElement | null>(null);
 
+  // ✅ NEW: hover-leave debounce so pill -> headline doesn't "resume" between them
+  const hoverLeaveTimerRef = useRef<number | null>(null);
+  const cancelHoverLeaveTimer = () => {
+    if (hoverLeaveTimerRef.current) {
+      window.clearTimeout(hoverLeaveTimerRef.current);
+      hoverLeaveTimerRef.current = null;
+    }
+  };
+
   const stepSrc = useMemo(() => {
     return `/how_it_works/hiw_step_${activeStep}.png`;
   }, [activeStep]);
@@ -37,6 +46,7 @@ const HowItWorks: React.FC = () => {
     setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
   };
 
+  // Pulse animated headline text
   useEffect(() => {
     const node = worksRef.current;
     if (!node) return;
@@ -58,6 +68,7 @@ const HowItWorks: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Preload step images
   useEffect(() => {
     for (let i = 1; i <= TOTAL_STEPS; i++) {
       const img = new Image();
@@ -65,6 +76,7 @@ const HowItWorks: React.FC = () => {
     }
   }, []);
 
+  // Auto-cycle when idle (NOT hovering steps, NOT click-locked, NOT hovering kiosk)
   useEffect(() => {
     if (mode !== 'none') return;
     if (isHoveringKiosk) return;
@@ -81,6 +93,7 @@ const HowItWorks: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, isHoveringKiosk]);
 
+  // Click-off to resume auto
   useEffect(() => {
     if (mode !== 'click') return;
 
@@ -100,20 +113,27 @@ const HowItWorks: React.FC = () => {
 
   const handleHoverEnter = (n: number) => {
     if (mode === 'click') return;
+    cancelHoverLeaveTimer();
     setMode('hover');
     setActiveStep(n);
   };
 
-  const handleHoverLeave = () => {
+  const handleHoverLeaveTight = () => {
+    // Only resume if we truly left pill/headline and didn't immediately enter another hover target
     if (mode !== 'hover') return;
-    resumeAutoFromNext();
+    cancelHoverLeaveTimer();
+    hoverLeaveTimerRef.current = window.setTimeout(() => {
+      resumeAutoFromNext();
+    }, 50);
   };
 
   const handleClickStep = (n: number) => {
+    cancelHoverLeaveTimer();
     setMode('click');
     setActiveStep(n);
   };
 
+  // Kiosk hover pause/resume
   const handleKioskEnter = () => {
     if (mode === 'click') return;
     setIsHoveringKiosk(true);
@@ -142,17 +162,19 @@ const HowItWorks: React.FC = () => {
             online. We&apos;ve removed the friction so you can focus on the insight.
           </p>
 
-          <div ref={stepsWrapRef} onMouseLeave={handleHoverLeave} className="space-y-0">
+          {/* ✅ NOTE: no wrapper onMouseLeave anymore */}
+          <div ref={stepsWrapRef} className="space-y-0">
             {steps.map((step, i) => {
               const isActive = activeStep === step.number;
 
               return (
                 <div key={step.number} className="flex group select-none">
                   <div className="flex flex-col items-center mr-6">
-                    {/* ✅ Hover/click ONLY on the numbered pill */}
+                    {/* Hover/click ONLY on the numbered pill */}
                     <button
                       type="button"
                       onMouseEnter={() => handleHoverEnter(step.number)}
+                      onMouseLeave={handleHoverLeaveTight}
                       onClick={() => handleClickStep(step.number)}
                       className={[
                         'w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-colors',
@@ -172,10 +194,11 @@ const HowItWorks: React.FC = () => {
                   </div>
 
                   <div className="pb-8">
-                    {/* ✅ Hover/click ONLY on the headline */}
+                    {/* Hover/click ONLY on the headline */}
                     <button
                       type="button"
                       onMouseEnter={() => handleHoverEnter(step.number)}
+                      onMouseLeave={handleHoverLeaveTight}
                       onClick={() => handleClickStep(step.number)}
                       className="text-left cursor-pointer"
                       aria-label={`Show step ${step.number}: ${step.title}`}
@@ -221,4 +244,3 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
-
