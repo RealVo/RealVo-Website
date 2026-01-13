@@ -224,7 +224,7 @@ const HowItWorks: React.FC = () => {
               online. We&apos;ve removed the friction so you can focus on the insight.
             </p>
 
-            <p className="text-xs text-gray-400 mt-4 text-center lg:hidden">
+            <p className="lg:hidden -mt-6 mb-6 pl-[56px] text-xs text-gray-400">
               Scroll down to see the kiosk in action
             </p>
 
