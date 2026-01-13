@@ -267,7 +267,7 @@ const HowItWorks: React.FC = () => {
                 className="
                   w-full max-w-[520px]
                   h-auto
-                  drop-shadow-[0_24px_50px_rgba(0,0,0,0.50)]
+                  drop-shadow-[0_24px_50px_rgba(0,0,0,0.40)]
                   transition-opacity duration-300 ease-out
                 "
                 draggable={false}
