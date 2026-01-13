@@ -259,23 +259,23 @@ const HowItWorks: React.FC = () => {
           </div>
 
           {/* RIGHT: KIOSK (pause on hover) */}
-          <div className="relative">
-            <div className="relative flex justify-center">
-              <img
-                src={stepSrc}
-                alt={`RealVo kiosk step ${activeStep}`}
-                className="
-                  w-full max-w-[520px]
-                  h-auto
-                  drop-shadow-[0_24px_50px_rgba(0,0,0,0.40)]
-                  transition-opacity duration-300 ease-out
-                "
-                draggable={false}
-                onMouseEnter={handleKioskEnter}
-                onMouseLeave={handleKioskLeave}
-              />
-            </div>
-          </div>
+<div className="relative">
+  <div className="relative flex justify-center overflow-hidden md:overflow-visible">
+    <img
+      src={stepSrc}
+      alt={`RealVo kiosk step ${activeStep}`}
+      className="
+        w-full max-w-[520px]
+        h-auto
+        drop-shadow-[0_24px_50px_rgba(0,0,0,0.40)]
+        transition-opacity duration-300 ease-out
+      "
+      draggable={false}
+      onMouseEnter={handleKioskEnter}
+      onMouseLeave={handleKioskLeave}
+    />
+  </div>
+</div>
         </div>
       </div>
     </Section>
