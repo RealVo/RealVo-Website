@@ -18,13 +18,15 @@ const HowItWorks: React.FC = () => {
 
   // Step image rotation
   const TOTAL_STEPS = 7;
-  const AUTO_MS = 2000;
+  const AUTO_MS = 2000; // you set this to 2000
 
   const [activeStep, setActiveStep] = useState<number>(1);
   const [mode, setMode] = useState<InteractionMode>('none');
 
+  // ✅ NEW: pause when hovering the kiosk image
+  const [isHoveringKiosk, setIsHoveringKiosk] = useState(false);
+
   const stepsWrapRef = useRef<HTMLDivElement | null>(null);
-  const lastManualStepRef = useRef<number>(1);
 
   const stepSrc = useMemo(() => {
     return `/how_it_works/hiw_step_${activeStep}.png`;
@@ -35,7 +37,7 @@ const HowItWorks: React.FC = () => {
   };
 
   const resumeAutoFromNext = () => {
-    // As requested: when hover-away or click-off, continue onto the NEXT step
+    // when hover-away or click-off, continue onto the NEXT step
     setMode('none');
     setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
   };
@@ -70,9 +72,10 @@ const HowItWorks: React.FC = () => {
     }
   }, []);
 
-  // Auto-cycle when idle
+  // ✅ Auto-cycle when idle (NOT hovering steps, NOT click-locked, NOT hovering kiosk)
   useEffect(() => {
     if (mode !== 'none') return;
+    if (isHoveringKiosk) return;
 
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
@@ -87,7 +90,7 @@ const HowItWorks: React.FC = () => {
 
     return () => window.clearInterval(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode]);
+  }, [mode, isHoveringKiosk]);
 
   // Click-off to resume auto
   useEffect(() => {
@@ -109,7 +112,6 @@ const HowItWorks: React.FC = () => {
 
   const handleHoverEnter = (n: number) => {
     if (mode === 'click') return; // ignore hover while click-locked
-    lastManualStepRef.current = n;
     setMode('hover');
     setActiveStep(n);
   };
@@ -120,9 +122,23 @@ const HowItWorks: React.FC = () => {
   };
 
   const handleClickStep = (n: number) => {
-    lastManualStepRef.current = n;
     setMode('click');
     setActiveStep(n);
+  };
+
+  // ✅ NEW: kiosk hover pause/resume (without changing the step)
+  const handleKioskEnter = () => {
+    if (mode === 'click') return; // don't interfere with click-locked behavior
+    setIsHoveringKiosk(true);
+  };
+
+  const handleKioskLeave = () => {
+    if (mode === 'click') return;
+    setIsHoveringKiosk(false);
+    // Resume and continue to the next step
+    if (mode === 'none') {
+      setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
+    }
   };
 
   return (
@@ -142,7 +158,6 @@ const HowItWorks: React.FC = () => {
             online. We&apos;ve removed the friction so you can focus on the insight.
           </p>
 
-          {/* Steps list (hover + click) */}
           <div
             ref={stepsWrapRef}
             onMouseLeave={handleHoverLeave}
@@ -164,7 +179,6 @@ const HowItWorks: React.FC = () => {
                   }}
                 >
                   <div className="flex flex-col items-center mr-6">
-                    {/* Circle buttons 1–7 */}
                     <div
                       className={[
                         'w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-colors',
@@ -182,12 +196,7 @@ const HowItWorks: React.FC = () => {
                   </div>
 
                   <div className="pb-8">
-                    <h4
-                      className={[
-                        'text-lg font-bold mb-1 transition-colors',
-                        isActive ? 'text-realvo-charcoal dark:text-white' : 'text-realvo-charcoal dark:text-white',
-                      ].join(' ')}
-                    >
+                    <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
                       {step.title}
                     </h4>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{step.desc}</p>
@@ -202,10 +211,9 @@ const HowItWorks: React.FC = () => {
           </p>
         </div>
 
-        {/* RIGHT: KIOSK (image swap) */}
+        {/* RIGHT: KIOSK (pause on hover) */}
         <div className="relative">
           <div className="relative flex justify-center">
-            {/* We keep the container simple: your PNG contains the kiosk + screen for each step */}
             <img
               src={stepSrc}
               alt={`RealVo kiosk step ${activeStep}`}
@@ -216,6 +224,8 @@ const HowItWorks: React.FC = () => {
                 transition-opacity duration-300 ease-out
               "
               draggable={false}
+              onMouseEnter={handleKioskEnter}
+              onMouseLeave={handleKioskLeave}
             />
           </div>
         </div>
@@ -225,4 +235,3 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
-
