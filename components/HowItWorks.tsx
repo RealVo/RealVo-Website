@@ -16,8 +16,8 @@ type InteractionMode = 'none' | 'hover' | 'click';
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
 
-  // ✅ detect when this section enters/leaves view
-  const sectionViewRef = useRef<HTMLDivElement | null>(null);
+  // ✅ NOW: detect when the KIOSK enters/leaves view (fixes mobile)
+  const kioskViewRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
 
   const TOTAL_STEPS = 7;
@@ -28,7 +28,7 @@ const HowItWorks: React.FC = () => {
 
   const [isHoveringKiosk, setIsHoveringKiosk] = useState(false);
 
-  // ✅ NEW: tap-to-pause on kiosk (mobile) — toggles pause/resume
+  // ✅ tap-to-pause on kiosk (mobile) — toggles pause/resume
   const [isKioskTapPaused, setIsKioskTapPaused] = useState(false);
 
   const stepsWrapRef = useRef<HTMLDivElement | null>(null);
@@ -83,9 +83,9 @@ const HowItWorks: React.FC = () => {
     }
   }, []);
 
-  // ✅ When section enters view, force Step 1 (every time)
+  // ✅ When KIOSK enters view, force Step 1 (every time)
   useEffect(() => {
-    const el = sectionViewRef.current;
+    const el = kioskViewRef.current;
     if (!el) return;
 
     const observer = new IntersectionObserver(
@@ -94,7 +94,7 @@ const HowItWorks: React.FC = () => {
           if (entry.isIntersecting) {
             setIsInView(true);
 
-            // Force Step 1 when the section comes into view
+            // Force Step 1 when the kiosk comes into view
             cancelHoverLeaveTimer();
             setMode('none');
             setIsHoveringKiosk(false);
@@ -106,6 +106,7 @@ const HowItWorks: React.FC = () => {
         });
       },
       {
+        // kiosk is "nicely in view"
         threshold: 0.35,
       }
     );
@@ -188,7 +189,7 @@ const HowItWorks: React.FC = () => {
     }
   };
 
-  // ✅ Kiosk tap toggle (mobile): tap = pause, tap again = resume
+  // Kiosk tap toggle (mobile): tap = pause, tap again = resume
   const handleKioskTapToggle = () => {
     // If the user is click-locked on a step, keep that behavior
     if (mode === 'click') return;
@@ -207,99 +208,97 @@ const HowItWorks: React.FC = () => {
 
   return (
     <Section id="how-it-works" background="light">
-      {/* view sentinel inside the section */}
-      <div ref={sectionViewRef}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* LEFT: STEPS */}
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
-              How RealVo{' '}
-              <span ref={worksRef} className="text-realvo-teal animate-pulse-once">
-                Works
-              </span>
-            </h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* LEFT: STEPS */}
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
+            How RealVo{' '}
+            <span ref={worksRef} className="text-realvo-teal animate-pulse-once">
+              Works
+            </span>
+          </h2>
 
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
-              A simple, human-centered workflow for capturing meaningful stories — in person or
-              online. We&apos;ve removed the friction so you can focus on the insight.
-            </p>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            A simple, human-centered workflow for capturing meaningful stories — in person or online.
+            We&apos;ve removed the friction so you can focus on the insight.
+          </p>
 
-            <p className="lg:hidden -mt-6 mb-6 pl-[56px] text-xs text-gray-400">
-              Scroll down to see the kiosk in action
-            </p>
+          {/* ✅ Mobile-only helper line: flush-left with the paragraph, nicely spaced above Step 1 */}
+          <p className="lg:hidden mt-4 mb-6 text-xs text-gray-400">
+            Scroll down to see the kiosk in action.
+          </p>
 
-            <div ref={stepsWrapRef} className="space-y-0">
-              {steps.map((step, i) => {
-                const isActive = activeStep === step.number;
+          <div ref={stepsWrapRef} className="space-y-0">
+            {steps.map((step, i) => {
+              const isActive = activeStep === step.number;
 
-                return (
-                  <div key={step.number} className="flex group select-none">
-                    <div className="flex flex-col items-center mr-6">
-                      {/* Hover/click ONLY on the numbered pill */}
-                      <button
-                        type="button"
-                        onMouseEnter={() => handleHoverEnter(step.number)}
-                        onMouseLeave={handleHoverLeaveTight}
-                        onClick={() => handleClickStep(step.number)}
-                        className={[
-                          'w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-colors',
-                          'cursor-pointer',
-                          isActive
-                            ? 'border-realvo-blue bg-realvo-blue text-white'
-                            : 'border-realvo-slate/30 text-realvo-slate hover:border-realvo-blue hover:bg-realvo-blue hover:text-white',
-                        ].join(' ')}
-                        aria-label={`Show step ${step.number}`}
-                      >
-                        {step.number}
-                      </button>
+              return (
+                <div key={step.number} className="flex group select-none">
+                  <div className="flex flex-col items-center mr-6">
+                    {/* Hover/click ONLY on the numbered pill */}
+                    <button
+                      type="button"
+                      onMouseEnter={() => handleHoverEnter(step.number)}
+                      onMouseLeave={handleHoverLeaveTight}
+                      onClick={() => handleClickStep(step.number)}
+                      className={[
+                        'w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-colors',
+                        'cursor-pointer',
+                        isActive
+                          ? 'border-realvo-blue bg-realvo-blue text-white'
+                          : 'border-realvo-slate/30 text-realvo-slate hover:border-realvo-blue hover:bg-realvo-blue hover:text-white',
+                      ].join(' ')}
+                      aria-label={`Show step ${step.number}`}
+                    >
+                      {step.number}
+                    </button>
 
-                      {i !== steps.length - 1 && (
-                        <div className="w-px h-full bg-gray-300 dark:bg-gray-700 my-2" />
-                      )}
-                    </div>
-
-                    <div className="pb-8">
-                      {/* Hover/click ONLY on the headline */}
-                      <button
-                        type="button"
-                        onMouseEnter={() => handleHoverEnter(step.number)}
-                        onMouseLeave={handleHoverLeaveTight}
-                        onClick={() => handleClickStep(step.number)}
-                        className="text-left cursor-pointer"
-                        aria-label={`Show step ${step.number}: ${step.title}`}
-                      >
-                        <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
-                          {step.title}
-                        </h4>
-                      </button>
-
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{step.desc}</p>
-                    </div>
+                    {i !== steps.length - 1 && (
+                      <div className="w-px h-full bg-gray-300 dark:bg-gray-700 my-2" />
+                    )}
                   </div>
-                );
-              })}
-            </div>
-          </div>
 
-          {/* RIGHT: KIOSK (pause on hover, tap to pause/resume on mobile) */}
-          <div className="relative">
-            <div className="relative flex justify-center overflow-hidden md:overflow-visible">
-              <img
-                src={stepSrc}
-                alt={`RealVo kiosk step ${activeStep}`}
-                className="
-                  w-full max-w-[520px]
-                  h-auto
-                  drop-shadow-none
-                  md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
-                  transition-opacity duration-300 ease-out
-                "
-                draggable={false}
-                onMouseEnter={handleKioskEnter}
-                onMouseLeave={handleKioskLeave}
-                onClick={handleKioskTapToggle}
-              />
-            </div>
+                  <div className="pb-8">
+                    {/* Hover/click ONLY on the headline */}
+                    <button
+                      type="button"
+                      onMouseEnter={() => handleHoverEnter(step.number)}
+                      onMouseLeave={handleHoverLeaveTight}
+                      onClick={() => handleClickStep(step.number)}
+                      className="text-left cursor-pointer"
+                      aria-label={`Show step ${step.number}: ${step.title}`}
+                    >
+                      <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white mb-1">
+                        {step.title}
+                      </h4>
+                    </button>
+
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{step.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* RIGHT: KIOSK (pause on hover, tap to pause/resume on mobile) */}
+        <div ref={kioskViewRef} className="relative">
+          <div className="relative flex justify-center overflow-hidden md:overflow-visible">
+            <img
+              src={stepSrc}
+              alt={`RealVo kiosk step ${activeStep}`}
+              className="
+                w-full max-w-[520px]
+                h-auto
+                drop-shadow-none
+                md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
+                transition-opacity duration-300 ease-out
+              "
+              draggable={false}
+              onMouseEnter={handleKioskEnter}
+              onMouseLeave={handleKioskLeave}
+              onClick={handleKioskTapToggle}
+            />
           </div>
         </div>
       </div>
@@ -308,3 +307,4 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
+
