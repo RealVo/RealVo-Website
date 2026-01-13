@@ -224,8 +224,8 @@ const HowItWorks: React.FC = () => {
               online. We&apos;ve removed the friction so you can focus on the insight.
             </p>
 
-            <p className="text-sm text-gray-400 mt-3 lg:hidden">
-              Scroll down to see the kiosk in action.
+            <p className="text-xs text-gray-400 mt-4 text-center lg:hidden">
+              Scroll down to see the kiosk in action
             </p>
 
             <div ref={stepsWrapRef} className="space-y-0">
