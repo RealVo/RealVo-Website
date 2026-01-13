@@ -16,7 +16,7 @@ type InteractionMode = 'none' | 'hover' | 'click';
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
 
-  // ✅ NEW: detect when this section enters/leaves view
+  // ✅ detect when this section enters/leaves view
   const sectionViewRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
 
@@ -27,6 +27,9 @@ const HowItWorks: React.FC = () => {
   const [mode, setMode] = useState<InteractionMode>('none');
 
   const [isHoveringKiosk, setIsHoveringKiosk] = useState(false);
+
+  // ✅ NEW: tap-to-pause on kiosk (mobile) — toggles pause/resume
+  const [isKioskTapPaused, setIsKioskTapPaused] = useState(false);
 
   const stepsWrapRef = useRef<HTMLDivElement | null>(null);
 
@@ -80,7 +83,7 @@ const HowItWorks: React.FC = () => {
     }
   }, []);
 
-  // ✅ NEW: When section enters view, force Step 1 (every time)
+  // ✅ When section enters view, force Step 1 (every time)
   useEffect(() => {
     const el = sectionViewRef.current;
     if (!el) return;
@@ -95,6 +98,7 @@ const HowItWorks: React.FC = () => {
             cancelHoverLeaveTimer();
             setMode('none');
             setIsHoveringKiosk(false);
+            setIsKioskTapPaused(false);
             setActiveStep(1);
           } else {
             setIsInView(false);
@@ -102,7 +106,6 @@ const HowItWorks: React.FC = () => {
         });
       },
       {
-        // "nicely in view" threshold
         threshold: 0.35,
       }
     );
@@ -112,11 +115,12 @@ const HowItWorks: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Auto-cycle when idle (only if section is in view, not hovering steps, not click-locked, not hovering kiosk)
+  // Auto-cycle when idle
   useEffect(() => {
     if (!isInView) return;
     if (mode !== 'none') return;
     if (isHoveringKiosk) return;
+    if (isKioskTapPaused) return;
 
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
@@ -128,9 +132,9 @@ const HowItWorks: React.FC = () => {
     const t = window.setInterval(goNext, AUTO_MS);
     return () => window.clearInterval(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInView, mode, isHoveringKiosk]);
+  }, [isInView, mode, isHoveringKiosk, isKioskTapPaused]);
 
-  // Click-off to resume auto
+  // Click-off to resume auto (only when click-locked)
   useEffect(() => {
     if (mode !== 'click') return;
 
@@ -170,7 +174,7 @@ const HowItWorks: React.FC = () => {
     setActiveStep(n);
   };
 
-  // Kiosk hover pause/resume
+  // Kiosk hover pause/resume (desktop)
   const handleKioskEnter = () => {
     if (mode === 'click') return;
     setIsHoveringKiosk(true);
@@ -179,12 +183,31 @@ const HowItWorks: React.FC = () => {
   const handleKioskLeave = () => {
     if (mode === 'click') return;
     setIsHoveringKiosk(false);
-    if (mode === 'none') setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
+    if (mode === 'none' && !isKioskTapPaused) {
+      setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
+    }
+  };
+
+  // ✅ Kiosk tap toggle (mobile): tap = pause, tap again = resume
+  const handleKioskTapToggle = () => {
+    // If the user is click-locked on a step, keep that behavior
+    if (mode === 'click') return;
+
+    setIsKioskTapPaused(prev => {
+      const next = !prev;
+
+      // If resuming, nudge to next step so it feels responsive
+      if (!next) {
+        setActiveStep(s => (s % TOTAL_STEPS) + 1);
+      }
+
+      return next;
+    });
   };
 
   return (
     <Section id="how-it-works" background="light">
-      {/* ✅ NEW: view sentinel inside the section */}
+      {/* view sentinel inside the section */}
       <div ref={sectionViewRef}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT: STEPS */}
@@ -258,25 +281,26 @@ const HowItWorks: React.FC = () => {
             </p>
           </div>
 
-          {/* RIGHT: KIOSK (pause on hover) */}
-<div className="relative">
-  <div className="relative flex justify-center overflow-hidden md:overflow-visible">
-    <img
-  src={stepSrc}
-  alt={`RealVo kiosk step ${activeStep}`}
-  className="
-    w-full max-w-[520px]
-    h-auto
-    drop-shadow-none
-    md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
-    transition-opacity duration-300 ease-out
-  "
-  draggable={false}
-  onMouseEnter={handleKioskEnter}
-  onMouseLeave={handleKioskLeave}
-/>
-  </div>
-</div>
+          {/* RIGHT: KIOSK (pause on hover, tap to pause/resume on mobile) */}
+          <div className="relative">
+            <div className="relative flex justify-center overflow-hidden md:overflow-visible">
+              <img
+                src={stepSrc}
+                alt={`RealVo kiosk step ${activeStep}`}
+                className="
+                  w-full max-w-[520px]
+                  h-auto
+                  drop-shadow-none
+                  md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
+                  transition-opacity duration-300 ease-out
+                "
+                draggable={false}
+                onMouseEnter={handleKioskEnter}
+                onMouseLeave={handleKioskLeave}
+                onClick={handleKioskTapToggle}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </Section>
@@ -284,4 +308,3 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
-
