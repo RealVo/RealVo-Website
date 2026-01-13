@@ -275,10 +275,6 @@ const HowItWorks: React.FC = () => {
                 );
               })}
             </div>
-
-            <p className="text-xs text-gray-400 mt-2">
-              Click a step to preview. Click anywhere off the list to resume.
-            </p>
           </div>
 
           {/* RIGHT: KIOSK (pause on hover, tap to pause/resume on mobile) */}
