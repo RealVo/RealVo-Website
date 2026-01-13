@@ -103,7 +103,7 @@ const HowItWorks: React.FC = () => {
       },
       {
         // "nicely in view" threshold
-        threshold: 0.30,
+        threshold: 0.35,
       }
     );
 
