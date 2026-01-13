@@ -18,7 +18,7 @@ const HowItWorks: React.FC = () => {
 
   // Step image rotation
   const TOTAL_STEPS = 7;
-  const AUTO_MS = 3500;
+  const AUTO_MS = 2800;
 
   const [activeStep, setActiveStep] = useState<number>(1);
   const [mode, setMode] = useState<InteractionMode>('none');
