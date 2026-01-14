@@ -41,10 +41,14 @@ const VBPlatform: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         {/* Content Side (mobile first) */}
         <div className="lg:col-span-5 order-1 lg:order-1">
-          <div className="inline-flex items-center space-x-2 bg-realvo-blue/10 dark:bg-realvo-blue/20 px-3 py-1 rounded-full text-sm font-medium text-realvo-blue dark:text-blue-300 mb-4">
-            <Lock size={14} />
-            <span>Enterprise Secure</span>
-          </div>
+          <div className="inline-flex items-center gap-2 bg-realvo-blue/10 dark:bg-realvo-blue/20 px-3 py-1 rounded-full text-sm font-medium text-realvo-blue dark:text-blue-300 mb-4">
+  <Lock
+    size={14}
+    className="text-realvo-teal animate-pulse"
+    aria-hidden="true"
+  />
+  <span>Enterprise Secure</span>
+</div>
 
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
             Manage Your Stories with{' '}
