@@ -224,7 +224,7 @@ const HowItWorks: React.FC = () => {
           </p>
 
           {/* ✅ Mobile-only helper line: flush-left with the paragraph, nicely spaced above Step 1 */}
-          <p className="lg:hidden mt-4 mb-6 text-xs text-gray-400">
+          <p className="lg:hidden mt-2 mb-8 pl-[56px] text-xs text-gray-400">
             Scroll down to see the kiosk in action.
           </p>
 
