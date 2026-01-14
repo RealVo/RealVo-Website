@@ -228,7 +228,7 @@ const HowItWorks: React.FC = () => {
             Scroll down to see the kiosk in action.
           </p>
 
-          <div ref={stepsWrapRef} className="space-y-0">
+          <div ref={stepsWrapRef} className="space-y-0 mt-6">
             {steps.map((step, i) => {
               const isActive = activeStep === step.number;
 
