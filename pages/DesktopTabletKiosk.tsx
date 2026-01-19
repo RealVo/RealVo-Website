@@ -442,7 +442,7 @@ const DesktopTabletKiosk: React.FC = () => {
                 href="/capture/virtual-video-booth"
                 className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
               >
-                Next capture option: Virtual Video Booth
+                Next capture option: Online Video Booth
                 <span className="ml-1 text-base">→</span>
               </a>
             </div>
