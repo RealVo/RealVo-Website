@@ -42,7 +42,7 @@ const options: CaptureOption[] = [
     href: "/capture/desktop-tablet-kiosk",
   },
   {
-    title: "Virtual Video Booth",
+    title: "Online Video Booth",
     description:
       "Web-based recording from any device. Capture voices from anywhere in the world.",
     image: "/virtual_booth.png",
