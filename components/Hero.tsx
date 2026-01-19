@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Pulse animated headline text
+  // Pulse animated headline text (match WhyRealVoExists behavior)
   useEffect(() => {
     const nodes: HTMLSpanElement[] = [];
     if (impactRefDesktop.current) nodes.push(impactRefDesktop.current);
@@ -125,31 +125,23 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
             {/* Mobile */}
             <span className="block md:hidden">
+              <span className="block">Real Voices.</span>
               <span
                 ref={impactRefMobile}
-                className="block animate-pulse-once"
+                className="block text-realvo-teal animate-pulse-once"
               >
-                <span className="block text-realvo-blue">
-                  Real Voices.
-                </span>
-                <span className="block bg-gradient-to-r from-realvo-blue to-realvo-teal bg-clip-text text-transparent">
-                  Real Impact.
-                </span>
+                Real Impact.
               </span>
             </span>
 
             {/* Desktop */}
             <span className="hidden md:block">
+              <span className="block">Real Voices.</span>
               <span
                 ref={impactRefDesktop}
-                className="block animate-pulse-once"
+                className="block text-realvo-teal animate-pulse-once"
               >
-                <span className="block text-realvo-blue">
-                  Real Voices.
-                </span>
-                <span className="block bg-gradient-to-r from-realvo-blue to-realvo-teal bg-clip-text text-transparent">
-                  Real Impact.
-                </span>
+                Real Impact.
               </span>
             </span>
           </h1>
@@ -214,3 +206,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
