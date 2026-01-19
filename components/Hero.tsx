@@ -9,8 +9,7 @@ const Hero: React.FC = () => {
   const impactRefDesktop = useRef<HTMLSpanElement | null>(null);
   const impactRefMobile = useRef<HTMLSpanElement | null>(null);
 
-  // ✅ HERO IMAGE ROTATION (update filenames/paths as needed)
-  // Put these in: /public/capture/hero/
+  // HERO IMAGE ROTATION
   const HERO_IMAGES = [
     '/capture/hero/booth-user-3.png',
     '/capture/hero/fsk-user-2.png',
@@ -19,9 +18,8 @@ const Hero: React.FC = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Crossfade timing
-  const HOLD_MS = 4500; // how long each image stays fully visible
-  const FADE_MS = 900;  // fade duration (should match Tailwind duration below)
+  const HOLD_MS = 4500;
+  const FADE_MS = 900;
 
   // Fade-in hero once
   useEffect(() => {
@@ -73,16 +71,15 @@ const Hero: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Preload images (helps prevent a blank flash on first transition)
+  // Preload images
   useEffect(() => {
     HERO_IMAGES.forEach(src => {
       const img = new Image();
       img.src = src;
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Rotate images (pause if user prefers reduced motion)
+  // Rotate images
   useEffect(() => {
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
@@ -121,45 +118,45 @@ const Hero: React.FC = () => {
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 bg-realvo-light px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue">
             <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
-            Enterprise Video Capture Platform
+            In-Person &amp; Online
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
             {/* Mobile */}
             <span className="block md:hidden">
-              <span className="block">Understand what</span>
               <span
                 ref={impactRefMobile}
                 className="block animate-pulse-once text-realvo-teal"
               >
-                people truly think
+                Real Voices.
                 <br />
-                and feel.
+                Real Impact.
               </span>
             </span>
 
             {/* Desktop */}
             <span className="hidden md:block">
-              <span className="block">Understand what people</span>
               <span
                 ref={impactRefDesktop}
                 className="block animate-pulse-once text-realvo-teal"
               >
-                truly think and feel.
+                Real Voices.
+                <br />
+                Real Impact.
               </span>
             </span>
           </h1>
 
           {/* Supporting copy */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            When people are given a natural, private way to speak in their own
-            words, understanding, trust, and meaningful insight follow.
+            A secure video platform for organizations that want to listen to lived
+            experience — and act with confidence.
           </p>
 
           <p className="text-sm text-gray-500 italic max-w-xl">
-            A fully managed video-capture solution — from strategy and design to
-            deployment, management, and insight.
+            From private capture to meaningful insight — across people, programs,
+            and places.
           </p>
 
           {/* CTA */}
@@ -174,10 +171,9 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN — LANDSCAPE IMAGE ROTATION */}
+        {/* RIGHT COLUMN — IMAGE ROTATION */}
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
-            {/* Crossfade stack */}
             {HERO_IMAGES.map((src, idx) => (
               <img
                 key={src}
@@ -193,9 +189,8 @@ const Hero: React.FC = () => {
             ))}
           </div>
 
-          {/* Insight Card — Uploaded / Queued */}
+          {/* Insight Card */}
           <div className="absolute -bottom-5 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3">
-            {/* UPDATED: remove green, use RealVo light-blue (mapped via realvo-teal) */}
             <div className="bg-realvo-teal/15 p-2 rounded-full text-realvo-teal flex items-center justify-center w-9 h-9">
               ✓
             </div>
@@ -213,4 +208,5 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
 
