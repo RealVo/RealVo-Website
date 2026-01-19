@@ -1,0 +1,228 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { MessageSquare, X, Send, Bot, Sparkles, User, Info } from 'lucide-react';
+import { GoogleGenAI } from "@google/genai";
+
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
+const PRICING_GUIDELINES = `
+RealVo Pricing Logic for AI Recommendation:
+1. Virtual Booth: $500 - $2,500 (Software-only or remote capture).
+2. Desktop Tablet Kiosk: $1,200 - $3,500 (Small footprint, rental/purchase).
+3. Free-standing Kiosk: $2,500 - $6,000 (High traffic, branded hardware).
+4. Private Enclosed Booth: $5,000 - $15,000+ (Premium, sound-dampened environment, high impact).
+Design Services: +$500 to $1,500 if the client lacks an in-house designer.
+Analytics (VB.tv): Included in base for most rentals, +$200/mo for long-term.
+`;
+
+const AIAssistant: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
+    { role: 'assistant', content: "Hi! I'm your RealVo Solutions Architect. I can help you find the perfect capture solution and provide an estimated cost range for your project. To get started, what kind of event or program are you planning?" }
+  ]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      scrollToBottom();
+    }
+  }, [messages, isOpen]);
+
+  const handleSendMessage = async () => {
+    if (!input.trim() || isLoading) return;
+
+    const userMessage = input.trim();
+    setInput('');
+    setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+    setIsLoading(true);
+
+    try {
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const chat = ai.chats.create({
+        model: 'gemini-3-flash-preview',
+        config: {
+          systemInstruction: `You are the RealVo Solutions Architect, a professional, helpful, and strategic expert in enterprise storytelling. 
+          Your goal is to qualify prospects by asking about their event/program needs.
+          
+          TECHNICAL SPECIFICATION: 
+          - Our Private Enclosed Booths are NOT sound-proof. 
+          - They ARE sound-dampened to provide a private, reflective environment while minimizing ambient noise.
+          - Never use the word "sound-proof" when describing our hardware.
+          
+          CRITICAL RULE: Always ask only ONE question at a time. Do not overwhelm the user with a list of questions.
+          
+          Guidelines:
+          1. Progressively ask about: capture needs (Emotional depth vs volume), event details (duration, traffic), and if they prefer rental or purchase.
+          2. Once you have sufficient context, recommend one of: Private Booth, Kiosk, Tablet, or Virtual.
+          3. Provide price estimates strictly using this logic: ${PRICING_GUIDELINES}.
+          4. Format final estimates clearly with bold text and bullet points.
+          5. Be concise, professional, and conversational.`,
+        }
+      });
+
+      const history = messages.map(m => `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`).join('\n');
+      const response = await chat.sendMessage({ 
+        message: `${history}\nUser: ${userMessage}` 
+      });
+
+      setMessages(prev => [...prev, { role: 'assistant', content: response.text || "I'm sorry, I encountered an error. Could you try that again?" }]);
+    } catch (error) {
+      console.error("AI Error:", error);
+      setMessages(prev => [...prev, { role: 'assistant', content: "I'm having trouble connecting to the brain right now. Please try again in a moment." }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
+  return (
+    <>
+      {/* Floating Button */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-6 right-6 z-[60] bg-realvo-blue hover:bg-realvo-teal text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 group flex items-center justify-center"
+          aria-label="Open AI Assistant"
+        >
+          <div className="relative">
+            <MessageSquare size={28} className="group-hover:rotate-12 transition-transform" />
+            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-realvo-teal"></span>
+            </span>
+          </div>
+        </button>
+      )}
+
+      {/* Side Panel Overlay Container */}
+      <div 
+        className={`fixed inset-0 z-[70] transition-all duration-500 ${isOpen ? 'visible' : 'invisible'}`}
+      >
+        {/* Backdrop */}
+        <div 
+          className={`absolute inset-0 bg-realvo-charcoal/40 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setIsOpen(false)}
+        />
+        
+        {/* Panel Content */}
+        <div 
+          className={`absolute top-0 right-0 h-full w-full max-w-md bg-white dark:bg-realvo-charcoal shadow-2xl transition-transform duration-500 ease-out transform flex flex-col ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Header */}
+          <div className="p-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between bg-realvo-blue text-white shadow-md">
+            <div className="flex items-center gap-3">
+              <div className="bg-white/20 p-2 rounded-lg border border-white/10">
+                <Bot size={24} />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg leading-tight tracking-tight">Solutions Architect</h3>
+                <div className="flex items-center gap-1.5 opacity-80 text-[10px] uppercase tracking-widest font-bold">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                  Active
+                </div>
+              </div>
+            </div>
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="p-2 hover:bg-white/10 rounded-full transition-colors active:scale-90"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          {/* Chat Messages */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-6 scroll-smooth">
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800/50 flex gap-3">
+              <Info className="text-realvo-blue dark:text-blue-400 shrink-0 mt-0.5" size={18} />
+              <p className="text-xs text-realvo-blue/80 dark:text-blue-300 leading-relaxed">
+                I'm here to build the perfect RealVo plan for you. I'll ask a few questions to understand your needs.
+              </p>
+            </div>
+
+            {messages.map((msg, i) => (
+              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`flex gap-3 max-w-[85%] ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+                  <div className={`w-8 h-8 rounded-full shrink-0 flex items-center justify-center shadow-sm ${msg.role === 'user' ? 'bg-realvo-teal text-white' : 'bg-realvo-blue text-white'}`}>
+                    {msg.role === 'user' ? <User size={16} /> : <Bot size={16} />}
+                  </div>
+                  <div 
+                    className={`p-4 rounded-2xl text-sm leading-relaxed shadow-sm border ${
+                      msg.role === 'user' 
+                        ? 'bg-realvo-teal border-realvo-teal text-white rounded-tr-none' 
+                        : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-gray-100 dark:border-gray-700 rounded-tl-none'
+                    }`}
+                  >
+                    <div className="whitespace-pre-wrap">{msg.content}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="flex gap-3 items-center">
+                  <div className="w-8 h-8 rounded-full bg-realvo-blue text-white flex items-center justify-center shadow-sm">
+                    <Sparkles size={16} className="animate-spin" />
+                  </div>
+                  <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl rounded-tl-none border border-gray-100 dark:border-gray-700">
+                    <div className="flex gap-1">
+                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
+                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div ref={messagesEndRef} className="h-2" />
+          </div>
+
+          {/* Input Area */}
+          <div className="p-6 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+            <div className="relative group">
+              <textarea
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type your message..."
+                rows={2}
+                className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl pt-4 pb-4 pl-5 pr-16 focus:outline-none focus:ring-2 focus:ring-realvo-blue transition-all dark:text-white placeholder:text-gray-400 shadow-inner text-sm md:text-base resize-none overflow-y-auto min-h-[60px] max-h-[160px]"
+              />
+              <button
+                onClick={handleSendMessage}
+                disabled={!input.trim() || isLoading}
+                className="absolute right-2 top-2 bottom-2 bg-realvo-blue text-white px-4 min-w-[50px] rounded-lg hover:bg-realvo-teal disabled:opacity-50 transition-all active:scale-95 flex items-center justify-center shadow-sm z-10"
+              >
+                <Send size={18} />
+              </button>
+            </div>
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1"></span>
+              <p className="text-[9px] text-gray-400 uppercase tracking-[0.2em] font-bold">
+                RealVo Intelligent Systems
+              </p>
+              <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default AIAssistant;
