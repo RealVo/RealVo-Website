@@ -127,11 +127,14 @@ const Hero: React.FC = () => {
             <span className="block md:hidden">
               <span
                 ref={impactRefMobile}
-                className="block animate-pulse-once text-realvo-teal"
+                className="block animate-pulse-once"
               >
-                Real Voices.
-                <br />
-                Real Impact.
+                <span className="block text-realvo-blue">
+                  Real Voices.
+                </span>
+                <span className="block bg-gradient-to-r from-realvo-blue to-realvo-teal bg-clip-text text-transparent">
+                  Real Impact.
+                </span>
               </span>
             </span>
 
@@ -139,11 +142,14 @@ const Hero: React.FC = () => {
             <span className="hidden md:block">
               <span
                 ref={impactRefDesktop}
-                className="block animate-pulse-once text-realvo-teal"
+                className="block animate-pulse-once"
               >
-                Real Voices.
-                <br />
-                Real Impact.
+                <span className="block text-realvo-blue">
+                  Real Voices.
+                </span>
+                <span className="block bg-gradient-to-r from-realvo-blue to-realvo-teal bg-clip-text text-transparent">
+                  Real Impact.
+                </span>
               </span>
             </span>
           </h1>
@@ -208,5 +214,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
-
