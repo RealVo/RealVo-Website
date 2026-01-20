@@ -37,7 +37,7 @@ const WhyRealVoExists: React.FC = () => {
         {/* Section heading */}
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
-            So Many{' '}
+            Why So Many{' '}
             <span ref={whyRef} className="text-realvo-teal animate-pulse-once">
               Voices Go Unheard
             </span>
@@ -59,7 +59,7 @@ const WhyRealVoExists: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal"></span>
               </span>
-              <span>Why Traditional Approaches Fall Short</span>
+              <span>Traditional Approaches Fall Short</span>
             </div>
 
             {/* Image card */}
