@@ -148,7 +148,7 @@ const Hero: React.FC = () => {
 
           {/* Supporting copy */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            A secure video capture platform for organizations that want to listen to lived
+            A secure enterprise video capture platform for organizations that want to listen to lived
             experience — and act with confidence.
           </p>
 
