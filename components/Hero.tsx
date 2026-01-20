@@ -6,9 +6,6 @@ const Hero: React.FC = () => {
   const [inView, setInView] = useState(false);
   const heroRef = useRef<HTMLDivElement | null>(null);
 
-  const impactRefDesktop = useRef<HTMLSpanElement | null>(null);
-  const impactRefMobile = useRef<HTMLSpanElement | null>(null);
-
   // HERO IMAGE ROTATION
   const HERO_IMAGES = [
     '/capture/hero/booth-user-3.png',
@@ -39,35 +36,6 @@ const Hero: React.FC = () => {
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  // Pulse animated headline text (match WhyRealVoExists behavior)
-  useEffect(() => {
-    const nodes: HTMLSpanElement[] = [];
-    if (impactRefDesktop.current) nodes.push(impactRefDesktop.current);
-    if (impactRefMobile.current) nodes.push(impactRefMobile.current);
-
-    if (!nodes.length) return;
-
-    const applyPulse = (el: HTMLSpanElement) => {
-      el.classList.remove('animate-pulse-once');
-      void el.offsetWidth;
-      el.classList.add('animate-pulse-once');
-    };
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.target instanceof HTMLElement) {
-            applyPulse(entry.target as HTMLSpanElement);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    nodes.forEach(node => observer.observe(node));
     return () => observer.disconnect();
   }, []);
 
@@ -123,38 +91,20 @@ const Hero: React.FC = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
-            {/* Mobile */}
-            <span className="block md:hidden">
-              <span className="block">Real Voices.</span>
-              <span
-                ref={impactRefMobile}
-                className="block text-realvo-teal animate-pulse-once"
-              >
-                Real Impact.
-              </span>
-            </span>
-
-            {/* Desktop */}
-            <span className="hidden md:block">
-              <span className="block">Real Voices.</span>
-              <span
-                ref={impactRefDesktop}
-                className="block text-realvo-teal animate-pulse-once"
-              >
-                Real Impact.
-              </span>
-            </span>
+            <span className="block">From Expression</span>
+            <span className="block text-realvo-teal">to Action.</span>
           </h1>
 
-          {/* Supporting copy */}
+          {/* Subline */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            A secure enterprise video capture platform for organizations that want to listen to lived
-            experience — and act with confidence.
+            A fully managed, enterprise video capture solution — supporting
+            storytelling, feedback, reflection, and change.
           </p>
 
+          {/* Supporting line */}
           <p className="text-sm text-gray-500 italic max-w-xl">
-            From private capture to meaningful insight — across people, programs,
-            and places.
+            Designed for moments that matter — from listening and learning to
+            trust-building and transformation.
           </p>
 
           {/* CTA */}
@@ -206,4 +156,5 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
 
