@@ -51,7 +51,8 @@ const WhyRealVoExists: React.FC = () => {
 
         {/* Content */}
         <div className="mx-auto max-w-6xl">
-          <div className="space-y-10 md:space-y-12 lg:space-y-16">
+          {/* Keep pill tight to grid; add extra gap only before insight */}
+          <div className="space-y-4 md:space-y-6">
             {/* Pill */}
             <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
               <span className="relative flex h-2 w-2">
@@ -61,7 +62,7 @@ const WhyRealVoExists: React.FC = () => {
               <span>Traditional Approaches Fall Short</span>
             </div>
 
-            {/* Two-column: image left, text right (equal height) */}
+            {/* Two-column: image left, text right (equal height driven by text) */}
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 xl:gap-14 items-stretch">
               {/* LEFT: Image */}
               <div className="lg:col-span-2 h-full min-h-0">
@@ -79,8 +80,7 @@ const WhyRealVoExists: React.FC = () => {
               {/* RIGHT: Text */}
               <div className="lg:col-span-3 min-w-0 h-full min-h-0">
                 <div className="h-full rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm">
-                  <div className="h-full p-7 md:p-8 flex flex-col">
-                    {/* Content */}
+                  <div className="h-full p-7 md:p-8">
                     <div className="space-y-6">
                       <div className="min-w-0">
                         <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
@@ -127,68 +127,72 @@ const WhyRealVoExists: React.FC = () => {
               </div>
             </div>
 
-            {/* ✅ Transition Insight Card (LOCKED) */}
-            <div className="mt-32 md:mt-40 lg:mt-48 flex justify-center">
-              <div
-                className="
-                  relative
-                  bg-white dark:bg-gray-900
-                  border border-gray-200 dark:border-gray-800
-                  rounded-2xl
-                  px-10 py-8
-                  shadow-md
-                  max-w-3xl
-                  w-full
-                  text-center
-                "
-              >
-                {/* Icon badge */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-                  <div
-                    className="
-                      bg-realvo-light dark:bg-gray-800
-                      p-4
-                      rounded-full
-                      shadow-md
-                      border border-gray-200 dark:border-gray-700
-                      flex items-center justify-center
-                    "
-                  >
-                    <svg
+            {/* Gap only between grid and insight */}
+            <div className="pt-10 md:pt-12 lg:pt-16">
+              {/* ✅ Transition Insight Card (LOCKED) */}
+              <div className="flex justify-center">
+                <div
+                  className="
+                    relative
+                    bg-white dark:bg-gray-900
+                    border border-gray-200 dark:border-gray-800
+                    rounded-2xl
+                    px-10 py-8
+                    shadow-md
+                    max-w-3xl
+                    w-full
+                    text-center
+                  "
+                >
+                  {/* Icon badge */}
+                  <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+                    <div
                       className="
-                        w-7 h-7
-                        text-realvo-teal
-                        drop-shadow-[0_3px_8px_rgba(80,180,170,0.45)]
+                        bg-realvo-light dark:bg-gray-800
+                        p-4
+                        rounded-full
+                        shadow-md
+                        border border-gray-200 dark:border-gray-700
+                        flex items-center justify-center
                       "
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
-                    </svg>
+                      <svg
+                        className="
+                          w-7 h-7
+                          text-realvo-teal
+                          drop-shadow-[0_3px_8px_rgba(80,180,170,0.45)]
+                        "
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                    </div>
                   </div>
+
+                  <p className="mt-4 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
+                    <span className="block text-gray-500 dark:text-gray-400">
+                      When people are truly heard
+                      <span className="hidden md:inline">,</span>
+                    </span>
+
+                    <span className="block md:hidden" />
+
+                    <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
+                      meaningful change becomes possible.
+                    </span>
+                  </p>
                 </div>
-
-                <p className="mt-4 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
-                  <span className="block text-gray-500 dark:text-gray-400">
-                    When people are truly heard
-                    <span className="hidden md:inline">,</span>
-                  </span>
-
-                  <span className="block md:hidden" />
-
-                  <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
-                    meaningful change becomes possible.
-                  </span>
-                </p>
               </div>
             </div>
+            {/* /Gap */}
           </div>
         </div>
       </div>
