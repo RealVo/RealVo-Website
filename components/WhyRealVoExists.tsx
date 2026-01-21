@@ -67,7 +67,7 @@ const WhyRealVoExists: React.FC = () => {
               <div className="lg:col-span-2 h-full min-h-0">
                 <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
                   <img
-                    src="/why_realvo_exists/lone_chair_ghost.png"
+                    src="/why_realvo_exists/lone_chair_ghost_original_cropped_v2.png"
                     alt="A quiet seat in the foreground with a conversation happening in the background"
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
