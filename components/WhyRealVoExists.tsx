@@ -51,7 +51,7 @@ const WhyRealVoExists: React.FC = () => {
 
         {/* Content */}
         <div className="mx-auto max-w-6xl">
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-10 md:space-y-12 lg:space-y-16">
             {/* Pill */}
             <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
               <span className="relative flex h-2 w-2">
