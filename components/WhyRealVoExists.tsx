@@ -63,9 +63,9 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* ✅ 1/3 image (left) | 2/3 text (right) */}
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14 items-stretch lg:h-[520px] xl:h-[580px]">
+<div className="grid grid-cols-1 lg:grid-cols-5 gap-10 xl:gap-14 items-stretch lg:h-[520px] xl:h-[580px]">
   {/* LEFT: Image (1/3) */}
-  <div className="lg:col-span-1 h-full">
+  <div className="lg:col-span-2 h-full">
     <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
       <img
         src="/why_realvo_exists/lone_chair_ghost.png"
@@ -76,7 +76,7 @@ const WhyRealVoExists: React.FC = () => {
   </div>
 
   {/* RIGHT: Text (2/3) */}
-  <div className="lg:col-span-2 min-w-0 h-full">
+  <div className="lg:col-span-3 min-w-0 h-full">
     <div className="h-full rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-7 md:p-8">
       <div className="grid grid-cols-1 gap-y-6 content-start">
         <div className="min-w-0">
