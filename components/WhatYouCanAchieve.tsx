@@ -19,7 +19,7 @@ const features: Feature[] = [
     icon: ShieldCheck,
   },
   {
-    title: 'Connect Voices to Meaning',
+    title: 'Connect Insight to Action',
     description:
       'Bring individual perspectives together around shared values, culture, and purpose — so leaders, teams, and communities align on what matters most.',
     icon: MessageSquare,
