@@ -122,14 +122,6 @@ const WhyRealVoExists: React.FC = () => {
                         </p>
                       </div>
                     </div>
-
-                    {/* Bottom fill */}
-                    <div className="mt-auto pt-6">
-                      <div className="h-px w-full bg-gray-100 dark:bg-gray-800" />
-                      <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-                        RealVo gives people a private, natural way to speak — and gives teams usable insight.
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>
