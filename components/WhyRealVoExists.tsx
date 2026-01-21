@@ -128,7 +128,7 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* ✅ Transition Insight Card (LOCKED) */}
-            <div className="mt-28 md:mt-32 flex justify-center">
+            <div className="mt-32 md:mt-40 flex justify-center">
               <div
                 className="
                   relative
@@ -143,7 +143,7 @@ const WhyRealVoExists: React.FC = () => {
                 "
               >
                 {/* Icon badge */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2">
                   <div
                     className="
                       bg-realvo-light dark:bg-gray-800
