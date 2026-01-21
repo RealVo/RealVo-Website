@@ -37,11 +37,14 @@ const WhyRealVoExists: React.FC = () => {
         {/* Section heading */}
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
-            Why So Many{' '}
-            <span ref={whyRef} className="text-realvo-teal animate-pulse-once">
-              Voices Go Unheard
-            </span>
-          </h2>
+  <span className="block md:inline">Why So Many </span>
+  <span
+    ref={whyRef}
+    className="block md:inline text-realvo-teal animate-pulse-once"
+  >
+    Voices Go Unheard
+  </span>
+</h2>
 
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
             Understanding comes from human communication — but it often breaks down when people
