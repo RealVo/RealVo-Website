@@ -62,7 +62,7 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* Two-column: image left, text right (equal height) */}
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 xl:gap-14 items-stretch lg:h-[520px] xl:h-[580px]">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 xl:gap-14 items-stretch">
               {/* LEFT: Image */}
               <div className="lg:col-span-2 h-full min-h-0">
                 <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
