@@ -1,3 +1,4 @@
+// src/components/WhatYouCanAchieve.tsx
 import React, { useEffect, useRef } from 'react';
 import { BarChart3, ShieldCheck, MessageSquare, Megaphone } from 'lucide-react';
 import Section from './Section';
@@ -43,7 +44,7 @@ const WhatYouCanAchieve: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             node.classList.remove('animate-pulse-once');
-            void node.offsetWidth;
+            void node.offsetWidth; // force reflow
             node.classList.add('animate-pulse-once');
           }
         });
@@ -67,73 +68,68 @@ const WhatYouCanAchieve: React.FC = () => {
         </h2>
       </div>
 
-      {/* Layout: Cards (left) + Image (right) — equal height on desktop */}
+      {/* Cards */}
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 xl:gap-14 items-stretch">
-          {/* LEFT: Cards */}
-          <div className="lg:col-span-3 min-w-0 h-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="
-                    group
-                    bg-white dark:bg-gray-900
-                    p-8 rounded-2xl
-                    border border-gray-200 dark:border-gray-800
-                    shadow-sm
-                    antialiased
-                    transition-shadow transition-colors duration-200
-                    hover:shadow-lg
-                    hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
-                  "
-                >
-                  {/* Icon (static = light, hover = LIGHT BLUE/white) */}
-                  <div
-                    className="
-                      w-14 h-14
-                      rounded-2xl
-                      flex items-center justify-center
-                      bg-realvo-light text-realvo-blue
-                      dark:bg-gray-800 dark:text-realvo-teal
-                      transition-colors duration-200
-                      group-hover:bg-realvo-teal group-hover:text-white
-                    "
-                  >
-                    <feature.icon size={26} strokeWidth={1.8} />
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="
+                group
+                bg-white dark:bg-gray-900
+                p-8 rounded-2xl
+                border border-gray-200 dark:border-gray-800
+                shadow-sm
+                antialiased
+                transition-shadow transition-colors duration-200
+                hover:shadow-lg
+                hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
+              "
+            >
+              {/* Icon (static = light, hover = LIGHT BLUE/white) */}
+              <div
+                className="
+                  w-14 h-14
+                  rounded-2xl
+                  flex items-center justify-center
+                  bg-realvo-light text-realvo-blue
+                  dark:bg-gray-800 dark:text-realvo-teal
+                  transition-colors duration-200
+                  group-hover:bg-realvo-teal group-hover:text-white
+                "
+              >
+                <feature.icon size={26} strokeWidth={1.8} />
+              </div>
 
-                  <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
-                    {index === 1 ? (
-                      <>
-                        Make Voices
-                        <span className="block">Matter</span>
-                      </>
-                    ) : (
-                      feature.title
-                    )}
-                  </h3>
+              <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
+                {index === 1 ? (
+                  <>
+                    Make Voices
+                    <span className="block">Matter</span>
+                  </>
+                ) : (
+                  feature.title
+                )}
+              </h3>
 
-                  <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
+              <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                {feature.description}
+              </p>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* RIGHT: Image */}
-<div className="lg:col-span-2 h-full min-h-0">
-  <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
-    <img
-      src="/whyrealvo_peopleserved.jpg"
-      alt="A participant recording a message in a private RealVo booth"
-      className="w-full h-full object-cover object-center"
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
-</div>
+        {/* Framed image below (gives the booth context without heavy cropping) */}
+        <div className="mt-12 md:mt-16 lg:mt-20">
+          <div className="relative h-[280px] md:h-[360px] lg:h-[420px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
+            <img
+              src="/whyrealvo_peopleserved.jpg"
+              alt="A participant recording a message in a private RealVo booth"
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </div>
     </Section>
