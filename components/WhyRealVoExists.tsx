@@ -97,7 +97,7 @@ const WhyRealVoExists: React.FC = () => {
 
                       <div className="min-w-0">
                         <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                          Interviews and filming don’t scale.
+                          Interviews and filming create barriers.
                         </h4>
                         <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
                           Scheduling, crews, and cameras are resource-heavy — and often feel staged or
