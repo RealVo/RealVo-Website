@@ -123,18 +123,17 @@ const WhatYouCanAchieve: React.FC = () => {
           </div>
 
           {/* RIGHT: Image */}
-          <div className="lg:col-span-2 h-full min-h-0">
-            <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
-              <img
-                <img
-  src="/whyrealvo_peopleserved.jpg"
-                alt="A participant recording a message in a private RealVo booth"
-                className="w-full h-full object-cover object-center"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
+<div className="lg:col-span-2 h-full min-h-0">
+  <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
+    <img
+      src="/whyrealvo_peopleserved.jpg"
+      alt="A participant recording a message in a private RealVo booth"
+      className="w-full h-full object-cover object-center"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+</div>
         </div>
       </div>
     </Section>
