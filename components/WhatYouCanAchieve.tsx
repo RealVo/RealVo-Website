@@ -102,15 +102,21 @@ const WhatYouCanAchieve: React.FC = () => {
               </div>
 
               <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
-                {index === 1 ? (
-  <span className="whitespace-nowrap">
-    Make Voices Matter
-  </span>
-) : (
-  feature.title
-)}
-              </h3>
+  {index === 1 ? (
+    <>
+      {/* Mobile: single line */}
+      <span className="md:hidden whitespace-nowrap">Make Voices Matter</span>
 
+      {/* Desktop: two lines */}
+      <span className="hidden md:inline">
+        Make Voices
+        <span className="block">Matter</span>
+      </span>
+    </>
+  ) : (
+    feature.title
+  )}
+</h3>
               <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                 {feature.description}
               </p>
