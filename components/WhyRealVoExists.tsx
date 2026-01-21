@@ -69,7 +69,7 @@ const WhyRealVoExists: React.FC = () => {
     <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
       <div className="aspect-[3/4] w-full">
         <img
-          src="/why_realvo_exists/lone_chair_ghost_centered.png"
+          src="/why_realvo_exists/lone_chair_ghost.png"
           alt="A quiet seat in the foreground with a conversation happening in the background"
           className="w-full h-full object-cover [object-position:50%_50%]"
         />
