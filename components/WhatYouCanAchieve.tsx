@@ -13,7 +13,7 @@ const features: Feature[] = [
   },
   {
     // ✅ singular to match your desired display: “Make Voice / Matter”
-    title: 'Make Voice Matter',
+    title: 'Make Voices Matter',
     description:
       'Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with confidence it can lead to real change.',
     icon: ShieldCheck,
