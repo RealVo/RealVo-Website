@@ -62,68 +62,85 @@ const WhyRealVoExists: React.FC = () => {
               <span>Traditional Approaches Fall Short</span>
             </div>
 
-            {/* ✅ 1/3 image (left) | 2/3 text (right) */}
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14 items-start">
-  {/* LEFT: Image (1/3) */}
-  <div className="lg:col-span-1">
-    <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
-      <div className="aspect-[3/4] w-full">
-        <img
-          src="/why_realvo_exists/lone_chair_ghost.png"
-          alt="A quiet seat in the foreground with a conversation happening in the background"
-          className="w-full h-full object-cover [object-position:50%_50%]"
-        />
-      </div>
+            {/* Content */}
+<div className="mx-auto max-w-6xl">
+  {/* D) tighten spacing */}
+  <div className="space-y-4 md:space-y-6">
+    {/* ✅ Pill (LOCKED) */}
+    <div className="inline-flex items-center space-x-2 bg-realvo-light dark:bg-gray-800 px-3 py-1.5 rounded-full text-base font-medium text-realvo-blue dark:text-realvo-teal">
+      <span className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75" />
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal" />
+      </span>
+      <span>Traditional Approaches Fall Short</span>
     </div>
-  </div>
 
-  {/* RIGHT: Text (2/3) */}
-  <div className="lg:col-span-2 min-w-0">
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
-      <div>
-        <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-          Metrics capture data — not meaning.
-        </h4>
-        <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
-          Dashboards and forms are effective for numbers, but they miss emotion, nuance, and
-          the human context behind what people think, feel, and experience.
-        </p>
+    {/* ✅ 1/3 image (left) | 2/3 text (right) */}
+    {/* A) center-align columns vertically */}
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14 items-center">
+      {/* LEFT: Image (1/3) */}
+      <div className="lg:col-span-1">
+        <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
+          <div className="aspect-[3/4] w-full">
+            <img
+              src="/why_realvo_exists/lone_chair_ghost.png"
+              alt="A quiet seat in the foreground with a conversation happening in the background"
+              className="w-full h-full object-cover [object-position:50%_50%]"
+            />
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-          Interviews and filming don’t scale.
-        </h4>
-        <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
-          Scheduling, crews, and cameras are resource-heavy — and often feel staged or
-          intimidating, limiting who participates and how honest they can be.
-        </p>
-      </div>
+      {/* RIGHT: Text (2/3) */}
+      <div className="lg:col-span-2 min-w-0">
+        {/* B) subtle panel to balance image weight */}
+        <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm p-8 md:p-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
+            <div>
+              <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+                Metrics capture data — not meaning.
+              </h4>
+              <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
+                Dashboards and forms are effective for numbers, but they miss emotion, nuance, and
+                the human context behind what people think, feel, and experience.
+              </p>
+            </div>
 
-      <div>
-        <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-          Participation favors the confident.
-        </h4>
-        <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
-          When participation feels formal, public, or performative, only a small subset of
-          people are willing to speak — and critical perspectives are lost.
-        </p>
-      </div>
+            <div>
+              <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+                Interviews and filming don’t scale.
+              </h4>
+              <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
+                Scheduling, crews, and cameras are resource-heavy — and often feel staged or
+                intimidating, limiting who participates and how honest they can be.
+              </p>
+            </div>
 
-      <div>
-        <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-          Organizations need human insight to act.
-        </h4>
-        <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
-          Decisions about culture, experience, and communication are stronger when they’re
-          shaped by real voices — not just dashboards and reports.
-        </p>
+            <div>
+              <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+                Participation favors the confident.
+              </h4>
+              <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
+                When participation feels formal, public, or performative, only a small subset of
+                people are willing to speak — and critical perspectives are lost.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+                Organizations need human insight to act.
+              </h4>
+              <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
+                Decisions about culture, experience, and communication are stronger when they’re
+                shaped by real voices — not just dashboards and reports.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-          </div>
-        </div>
 
         {/* ✅ Transition Insight Card (LOCKED) */}
         <div className="mt-16 mb-24 flex justify-center">
