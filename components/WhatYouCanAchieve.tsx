@@ -25,7 +25,7 @@ const features: Feature[] = [
     icon: MessageSquare,
   },
   {
-    title: 'Create Content That Amplifies Meaning',
+    title: 'Create Content That Amplifies',
     description:
       'Use real voices to inspire advocacy, build awareness, and share perspectives with credibility — extending impact well beyond the moment.',
     icon: Megaphone,
