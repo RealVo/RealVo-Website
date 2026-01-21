@@ -121,7 +121,7 @@ const WhatYouCanAchieve: React.FC = () => {
 
         {/* Framed image below (gives the booth context without heavy cropping) */}
         <div className="mt-12 md:mt-16 lg:mt-20">
-          <div className="relative h-[280px] md:h-[360px] lg:h-[420px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
+          <div className="relative h-[340px] md:h-[440px] lg:h-[520px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
             <img
               src="/whyrealvo_peopleserved.jpg"
               alt="A participant recording a message in a private RealVo booth"
