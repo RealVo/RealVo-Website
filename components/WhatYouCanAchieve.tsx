@@ -103,13 +103,12 @@ const WhatYouCanAchieve: React.FC = () => {
 
               <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
                 {index === 1 ? (
-                  <>
-                    Make Voices
-                    <span className="block">Matter</span>
-                  </>
-                ) : (
-                  feature.title
-                )}
+  <span className="whitespace-nowrap">
+    Make Voices Matter
+  </span>
+) : (
+  feature.title
+)}
               </h3>
 
               <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
