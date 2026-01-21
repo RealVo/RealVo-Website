@@ -78,7 +78,7 @@ const WhyRealVoExists: React.FC = () => {
   {/* RIGHT: Text (2/3) */}
   <div className="lg:col-span-2 min-w-0 h-full">
     <div className="h-full rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 md:p-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 auto-rows-fr gap-x-10 gap-y-10 h-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 content-start">
         <div className="min-w-0">
           <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
             Metrics capture data — not meaning.
