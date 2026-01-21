@@ -128,7 +128,7 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* ✅ Transition Insight Card (LOCKED) */}
-            <div className="mt-20 md:mt-24 flex justify-center">
+            <div className="mt-28 md:mt-32 flex justify-center">
               <div
                 className="
                   relative
