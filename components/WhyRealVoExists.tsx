@@ -63,68 +63,65 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* ✅ 1/3 image (left) | 2/3 text (right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14 items-stretch">
-              {/* LEFT: Image (1/3) */}
-              <div className="lg:col-span-1">
-                <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
-                  <div className="h-full w-full">
-                    <img
-  src="/why_realvo_exists/lone_chair_ghost.png"
-  alt="A quiet seat in the foreground with a conversation happening in the background"
-  className="w-full h-full object-cover object-center"
-/>
-                  </div>
-                </div>
-              </div>
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14 items-stretch lg:h-[520px] xl:h-[580px]">
+  {/* LEFT: Image (1/3) */}
+  <div className="lg:col-span-1 h-full">
+    <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
+      <img
+        src="/why_realvo_exists/lone_chair_ghost.png"
+        alt="A quiet seat in the foreground with a conversation happening in the background"
+        className="w-full h-full object-cover object-center"
+      />
+    </div>
+  </div>
 
-              {/* RIGHT: Text (2/3) */}
-              <div className="lg:col-span-2 min-w-0">
-                <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm p-8 md:p-10">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
-                    <div>
-                      <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                        Metrics capture data — not meaning.
-                      </h4>
-                      <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
-                        Dashboards and forms are effective for numbers, but they miss emotion,
-                        nuance, and the human context behind what people think, feel, and
-                        experience.
-                      </p>
-                    </div>
+  {/* RIGHT: Text (2/3) */}
+  <div className="lg:col-span-2 min-w-0 h-full">
+    <div className="h-full rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-8 md:p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 auto-rows-fr gap-x-10 gap-y-10 h-full">
+        <div className="min-w-0">
+          <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+            Metrics capture data — not meaning.
+          </h4>
+          <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
+            Dashboards and forms are effective for numbers, but they miss emotion, nuance, and
+            the human context behind what people think, feel, and experience.
+          </p>
+        </div>
 
-                    <div>
-                      <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                        Interviews and filming don’t scale.
-                      </h4>
-                      <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
-                        Scheduling, crews, and cameras are resource-heavy — and often feel staged
-                        or intimidating, limiting who participates and how honest they can be.
-                      </p>
-                    </div>
+        <div className="min-w-0">
+          <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+            Interviews and filming don’t scale.
+          </h4>
+          <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
+            Scheduling, crews, and cameras are resource-heavy — and often feel staged or
+            intimidating, limiting who participates and how honest they can be.
+          </p>
+        </div>
 
-                    <div>
-                      <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                        Participation favors the confident.
-                      </h4>
-                      <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
-                        When participation feels formal, public, or performative, only a small
-                        subset of people are willing to speak — and critical perspectives are lost.
-                      </p>
-                    </div>
+        <div className="min-w-0">
+          <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+            Participation favors the confident.
+          </h4>
+          <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
+            When participation feels formal, public, or performative, only a small subset of
+            people are willing to speak — and critical perspectives are lost.
+          </p>
+        </div>
 
-                    <div>
-                      <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                        Organizations need human insight to act.
-                      </h4>
-                      <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
-                        Decisions about culture, experience, and communication are stronger when
-                        they’re shaped by real voices — not just dashboards and reports.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="min-w-0">
+          <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
+            Organizations need human insight to act.
+          </h4>
+          <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
+            Decisions about culture, experience, and communication are stronger when they’re
+            shaped by real voices — not just dashboards and reports.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
           </div>
         </div>
 
