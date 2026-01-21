@@ -50,7 +50,7 @@ const WhyRealVoExists: React.FC = () => {
           </p>
         </div>
 
-        {/* ✅ Single-column layout (right column removed) */}
+        {/* ✅ Single-column layout */}
         <div className="mx-auto max-w-6xl">
           <div className="space-y-6 md:space-y-8">
             {/* ✅ Pill (LOCKED) */}
@@ -62,12 +62,12 @@ const WhyRealVoExists: React.FC = () => {
               <span>Traditional Approaches Fall Short</span>
             </div>
 
-            {/* Image card */}
-            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-gray-900 aspect-[16/9]">
+            {/* ✅ Image card (updated for square PNG) */}
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white aspect-square">
               <img
-                src="/whyrealvo_fororganizations.jpg"
-                alt="Organizations seeking deeper understanding through real human voices"
-                className="w-full h-full object-cover opacity-85"
+                src="/why_realvo_exists/lone_chair_ghost.png"
+                alt="An empty chair in the foreground with a blurred group conversation in the background, symbolizing voices that go unheard"
+                className="w-full h-full object-cover"
               />
             </div>
 
@@ -183,4 +183,5 @@ const WhyRealVoExists: React.FC = () => {
 };
 
 export default WhyRealVoExists;
+
 
