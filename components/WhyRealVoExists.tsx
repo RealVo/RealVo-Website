@@ -63,17 +63,16 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* ✅ 1/3 image (left) | 2/3 text (right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14 items-stretch">
               {/* LEFT: Image (1/3) */}
               <div className="lg:col-span-1">
-                <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
-                  <div className="aspect-[3/4] w-full">
+                <div className="h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
+                  <div className="h-full w-full">
                     <img
-                      src="/why_realvo_exists/lone_chair_ghost.png"
-                      alt="A quiet seat in the foreground with a conversation happening in the background"
-                      className="w-full h-full object-cover [object-position:50%_50%]"
-                      loading="lazy"
-                    />
+  src="/why_realvo_exists/lone_chair_ghost.png"
+  alt="A quiet seat in the foreground with a conversation happening in the background"
+  className="w-full h-full object-cover object-center"
+/>
                   </div>
                 </div>
               </div>
