@@ -97,8 +97,7 @@ const Hero: React.FC = () => {
 
           {/* Subline */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            A fully managed, enterprise video capture solution — supporting
-            storytelling, feedback, reflection, and change.
+            A fully managed, enterprise video capture solution for collecting authentic stories, feedback, and insight — and turning them into action.
           </p>
 
           {/* Supporting line */}
