@@ -119,10 +119,6 @@ const HomePage: React.FC = () => {
         <Hero />
         <TrustedBy />
 
-        <main className="flex-grow">
-          <Hero />
-          <TrustedBy />
-
           {/* Wrapper anchor: "Why RealVo" chapter (Why + What) */}
           <div id="why-realvo" />
 
