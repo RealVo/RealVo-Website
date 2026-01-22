@@ -76,7 +76,7 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
 </h2>
 
 <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-  From personal expression to shared understanding — RealVo supports many ways voices are captured, understood, and shared.
+  From personal stories to shared perspectives — real voices reveal understanding, connection, and trust.
 </p>
       </div>
 
