@@ -1,3 +1,4 @@
+// src/components/WhyWhatBridge.tsx
 import React from 'react';
 import WhyRealVoExists from './WhyRealVoExists';
 import WhatYouCanAchieve from './WhatYouCanAchieve';
@@ -26,9 +27,6 @@ const WhyWhatBridge: React.FC = () => {
   );
 };
 
-export default WhyWhatBridge;
-
-/** Your locked Insight Card styling, rebuilt for the seam overlap */
 function SeamInsightCard() {
   return (
     <div
