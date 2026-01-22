@@ -83,27 +83,27 @@ const Hero: React.FC = () => {
       >
         {/* LEFT COLUMN */}
         <div className="lg:col-span-7 space-y-6">
-          {/* Eyebrow */}
+          {/* Eyebrow / Pill */}
           <div className="inline-flex items-center gap-2 bg-realvo-light px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue">
             <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
-            In-Person &amp; Online
+            Built for Listening
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
-            <span className="block">From Expression</span>
-            <span className="block text-realvo-teal">to Action.</span>
+            <span className="block">Capture Real Voices,</span>
+            <span className="block text-realvo-teal">In Person or Online</span>
           </h1>
 
           {/* Subline */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            A fully managed, enterprise video capture solution for collecting authentic stories, feedback, and insight — and turning them into action.
+            A fully managed, enterprise-ready solution for capturing stories,
+            testimonials, and insight.
           </p>
 
           {/* Supporting line */}
           <p className="text-sm text-gray-500 italic max-w-xl">
-            Designed for moments that matter — from listening and learning to
-            trust-building and transformation.
+            Designed for moments that matter — from listening and learning to trust and change.
           </p>
 
           {/* CTA */}
@@ -155,5 +155,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
-
