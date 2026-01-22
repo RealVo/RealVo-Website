@@ -107,48 +107,49 @@ const Hero: React.FC = () => {
         `}
       >
         {/* LEFT COLUMN */}
-        <div className="lg:col-span-7 space-y-6">
-          {/* Eyebrow / Pill */}
-          <div className="inline-flex items-center gap-2 bg-realvo-light px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue">
-            <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
-            Built for Listening
-          </div>
+<div className="lg:col-span-7 space-y-6">
+  {/* Eyebrow / Pill */}
+  <div className="inline-flex items-center gap-2 bg-realvo-light px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue">
+    <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
+    Built for Expression
+  </div>
 
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
-  <span
-    ref={headlineRef}
-    className="block text-realvo-teal animate-pulse-once"
-  >
-    Capture Real Voices,
-  </span>
-  <span className="block">
-    In Person or Online
-  </span>
-</h1>
+  {/* Headline */}
+  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
+    <span className="block">
+      Capture{' '}
+      <span
+        ref={headlineRef}
+        className="text-realvo-teal animate-pulse-once"
+      >
+        Authentic Voices
+      </span>
+    </span>
+  </h1>
 
-          {/* Subline */}
-          <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-            A fully managed, enterprise-ready solution for capturing stories,
-            testimonials, and insight.
-          </p>
+  {/* Subline */}
+  <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+    A fully managed, enterprise-ready solution for capturing stories,
+    testimonials, and insights — in person and online.
+  </p>
 
-          {/* Supporting line */}
-          <p className="text-sm text-gray-500 italic max-w-xl">
-            Designed for moments that matter — from listening and learning to trust and change.
-          </p>
+  {/* Supporting line */}
+  <p className="text-sm text-gray-500 italic max-w-xl">
+    Designed for moments that matter — from listening and learning to
+    trust-building and change.
+  </p>
 
-          {/* CTA */}
-          <div className="pt-4">
-            <Button
-              size="lg"
-              variant="primary"
-              onClick={() => scrollToSection('contact')}
-            >
-              Start a Conversation
-            </Button>
-          </div>
-        </div>
+  {/* CTA */}
+  <div className="pt-4">
+    <Button
+      size="lg"
+      variant="primary"
+      onClick={() => scrollToSection('contact')}
+    >
+      Start a Conversation
+    </Button>
+  </div>
+</div>
 
         {/* RIGHT COLUMN — IMAGE ROTATION */}
         <div className="lg:col-span-5 relative">
