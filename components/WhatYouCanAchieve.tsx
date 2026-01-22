@@ -67,7 +67,7 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
     >
       {/* Heading */}
       {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto mt-16 md:mt-20 mb-14">
+      <div className="text-center max-w-3xl mx-auto mt-16 md:mt-14 lg:mt-12 mb-14">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
   <span ref={achieveRef} className="text-realvo-teal animate-pulse-once">
     What Real Voices
