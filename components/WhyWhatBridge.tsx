@@ -73,18 +73,9 @@ function SeamInsightCard() {
         </div>
       </div>
 
-      <p className="mt-4 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
-        <span className="block text-gray-500 dark:text-gray-400">
-          When people feel safe to speak,
-          <span className="hidden md:inline">,</span>
-        </span>
-
-        <span className="block md:hidden" />
-
-        <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
-          their voices carry meaning — not just words.
-        </span>
-      </p>
+      <p className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-realvo-charcoal dark:text-white">
+  What Real Voices Make Possible
+</p>
     </div>
   );
 }
