@@ -116,14 +116,16 @@ const Hero: React.FC = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
-            <span className="block">Capture Real Voices,</span>
-            <span
-              ref={headlineRef}
-              className="block text-realvo-teal animate-pulse-once"
-            >
-              In Person or Online
-            </span>
-          </h1>
+  <span
+    ref={headlineRef}
+    className="block text-realvo-teal animate-pulse-once"
+  >
+    Capture Real Voices,
+  </span>
+  <span className="block">
+    In Person or Online
+  </span>
+</h1>
 
           {/* Subline */}
           <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
