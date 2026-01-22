@@ -35,11 +35,9 @@ const HomePage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('');
 
-  // contact headline animation state
   const [contactInView, setContactInView] = useState(false);
   const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
 
-  // Watch the URL hash and scroll to the matching section when needed
   const location = useLocation();
 
   useEffect(() => {
@@ -55,7 +53,6 @@ const HomePage: React.FC = () => {
     setTimeout(scrollToTarget, 0);
   }, [location]);
 
-  // Format as 555-123-4567 while typing
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, '').slice(0, 10);
     const len = digits.length;
@@ -75,10 +72,7 @@ const HomePage: React.FC = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Ensure Netlify sees a phone value (formatted)
     if (!formData.get('phone')) formData.set('phone', phone);
-
-    // Netlify requires form-name in the POST body
     if (!formData.get('form-name')) formData.append('form-name', 'contact');
 
     try {
@@ -96,7 +90,6 @@ const HomePage: React.FC = () => {
     }
   };
 
-  // Observe the contact headline so the pulse can re-trigger on scroll
   useEffect(() => {
     const node = contactHeadlineRef.current;
     if (!node) return;
@@ -120,17 +113,15 @@ const HomePage: React.FC = () => {
         <Hero />
         <TrustedBy />
 
-          {/* Wrapper anchor: "Why RealVo" chapter (Why + What) */}
-          <div id="why-realvo" />
+        {/* Anchor for header nav */}
+        <div id="why-realvo" />
 
-          <WhyWhatBridge />
+        {/* WHY + WHAT chapter (Pattern 1 seam overlap) */}
+        <WhyWhatBridge />
 
-          <Industries />
-
+        <Industries />
         <CaptureOptions />
-
         <ImplementationProcess />
-
         <HowItWorks />
         <VBPlatform />
         <Pricing />
@@ -142,7 +133,6 @@ const HomePage: React.FC = () => {
           className="border-t border-gray-100 !pt-10 md:!pt-20"
         >
           <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
-            {/* Left Column */}
             <div className="space-y-6">
               <h2
                 ref={contactHeadlineRef}
@@ -168,7 +158,6 @@ const HomePage: React.FC = () => {
                 A member of our team will be in touch within 24 hours.
               </p>
 
-              {/* Contact image (Hero shadow token + full width) */}
               <div className="pt-4">
                 <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
                   <img
@@ -184,7 +173,6 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Contact Form */}
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
               <ContactForm
                 onSubmit={handleSubmit}
@@ -210,35 +198,14 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-
-        <Route
-          path="/use-cases"
-          element={<UseCases />}
-        />
-
-        <Route
-          path="/capture/private-enclosed-booth"
-          element={<PrivateEnclosedBooth />}
-        />
-
-        <Route
-          path="/capture/free-standing-kiosk"
-          element={<FreeStandingKiosk />}
-        />
-
-        <Route
-          path="/capture/desktop-tablet-kiosk"
-          element={<DesktopTabletKiosk />}
-        />
-
-        <Route
-          path="/capture/virtual-video-booth"
-          element={<VirtualVideoBooth />}
-        />
+        <Route path="/use-cases" element={<UseCases />} />
+        <Route path="/capture/private-enclosed-booth" element={<PrivateEnclosedBooth />} />
+        <Route path="/capture/free-standing-kiosk" element={<FreeStandingKiosk />} />
+        <Route path="/capture/desktop-tablet-kiosk" element={<DesktopTabletKiosk />} />
+        <Route path="/capture/virtual-video-booth" element={<VirtualVideoBooth />} />
       </Routes>
     </Router>
   );
 };
 
 export default App;
-
