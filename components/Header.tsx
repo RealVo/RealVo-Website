@@ -7,7 +7,7 @@ type NavLink =
   | { label: string; href: string; targetId?: never };
 
 const navLinks: NavLink[] = [
-  { label: 'Why RealVo', targetId: 'why-realvo' },
+  { label: 'Why RealVo', targetId: 'why-realvo-exists' },
   { label: 'Industries', targetId: 'industries' },
   { label: 'Use Cases', href: '/use-cases' },
   { label: 'Solutions', targetId: 'solutions' },
