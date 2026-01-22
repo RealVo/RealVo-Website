@@ -2,7 +2,11 @@
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 
-const WhyRealVoExists: React.FC = () => {
+type Props = {
+  showInsightCard?: boolean;
+};
+
+const WhyRealVoExists: React.FC<Props> = ({ showInsightCard = true }) => {
   const whyRef = useRef<HTMLSpanElement | null>(null);
 
   // Re-trigger pulse animation when the phrase scrolls into view
@@ -37,14 +41,14 @@ const WhyRealVoExists: React.FC = () => {
         {/* Section heading */}
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
-  <span className="block md:inline">Why So Many </span>
-  <span
-    ref={whyRef}
-    className="block md:inline text-realvo-teal animate-pulse-once"
-  >
-    Voices Go Unheard
-  </span>
-</h2>
+            <span className="block md:inline">Why So Many </span>
+            <span
+              ref={whyRef}
+              className="block md:inline text-realvo-teal animate-pulse-once"
+            >
+              Voices Go Unheard
+            </span>
+          </h2>
 
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
             Understanding comes from human communication — but it often breaks down when people
@@ -131,70 +135,72 @@ const WhyRealVoExists: React.FC = () => {
             </div>
 
             {/* Gap only between grid and insight */}
-            <div className="pt-10 md:pt-12 lg:pt-16">
-              {/* ✅ Transition Insight Card (LOCKED) */}
-              <div className="flex justify-center">
-                <div
-                  className="
-                    relative
-                    bg-white dark:bg-gray-900
-                    border border-gray-200 dark:border-gray-800
-                    rounded-2xl
-                    px-10 py-8
-                    shadow-md
-                    max-w-3xl
-                    w-full
-                    text-center
-                  "
-                >
-                  {/* Icon badge */}
-                  <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-                    <div
-                      className="
-                        bg-realvo-light dark:bg-gray-800
-                        p-4
-                        rounded-full
-                        shadow-md
-                        border border-gray-200 dark:border-gray-700
-                        flex items-center justify-center
-                      "
-                    >
-                      <svg
+            {showInsightCard && (
+              <div className="pt-10 md:pt-12 lg:pt-16">
+                {/* ✅ Transition Insight Card (LOCKED) */}
+                <div className="flex justify-center">
+                  <div
+                    className="
+                      relative
+                      bg-white dark:bg-gray-900
+                      border border-gray-200 dark:border-gray-800
+                      rounded-2xl
+                      px-10 py-8
+                      shadow-md
+                      max-w-3xl
+                      w-full
+                      text-center
+                    "
+                  >
+                    {/* Icon badge */}
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+                      <div
                         className="
-                          w-7 h-7
-                          text-realvo-teal
-                          drop-shadow-[0_3px_8px_rgba(80,180,170,0.45)]
+                          bg-realvo-light dark:bg-gray-800
+                          p-4
+                          rounded-full
+                          shadow-md
+                          border border-gray-200 dark:border-gray-700
+                          flex items-center justify-center
                         "
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.2"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
+                        <svg
+                          className="
+                            w-7 h-7
+                            text-realvo-teal
+                            drop-shadow-[0_3px_8px_rgba(80,180,170,0.45)]
+                          "
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          />
+                        </svg>
+                      </div>
                     </div>
+
+                    <p className="mt-4 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
+                      <span className="block text-gray-500 dark:text-gray-400">
+                        When people are truly heard
+                        <span className="hidden md:inline">,</span>
+                      </span>
+
+                      <span className="block md:hidden" />
+
+                      <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
+                        meaningful change becomes possible.
+                      </span>
+                    </p>
                   </div>
-
-                  <p className="mt-4 text-2xl md:text-3xl font-semibold leading-snug tracking-tight">
-                    <span className="block text-gray-500 dark:text-gray-400">
-                      When people are truly heard
-                      <span className="hidden md:inline">,</span>
-                    </span>
-
-                    <span className="block md:hidden" />
-
-                    <span className="block mt-1 text-realvo-charcoal dark:text-white font-bold">
-                      meaningful change becomes possible.
-                    </span>
-                  </p>
                 </div>
               </div>
-            </div>
+            )}
             {/* /Gap */}
           </div>
         </div>
