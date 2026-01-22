@@ -119,10 +119,18 @@ const HomePage: React.FC = () => {
         <Hero />
         <TrustedBy />
 
-        <WhyRealVoExists />
+        <main className="flex-grow">
+          <Hero />
+          <TrustedBy />
 
-        <WhatYouCanAchieve />
-        <Industries />
+          {/* Wrapper anchor: "Why RealVo" chapter (Why + What) */}
+          <div id="why-realvo" />
+
+          <WhyRealVoExists />
+          <WhatYouCanAchieve />
+
+          <Industries />
+
         <CaptureOptions />
 
         <ImplementationProcess />
