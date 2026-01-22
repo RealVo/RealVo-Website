@@ -11,7 +11,7 @@ const WhyWhatBridge: React.FC = () => {
   <WhyRealVoExists showInsightCard={false} />
 
         {/* Seam Insight Card overlaps down into the next section */}
-        <div className="absolute inset-x-0 -bottom-10 sm:-bottom-12 z-20">
+        <div className="absolute inset-x-0 top-full -translate-y-1/2 z-20">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mx-auto max-w-3xl">
               <SeamInsightCard />
