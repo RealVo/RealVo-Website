@@ -65,10 +65,12 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
       background="teal"
       className={topPad ? 'pt-24 sm:pt-28 md:pt-32' : ''}
     >
-
-<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-  From personal stories to shared perspectives — real voices reveal understanding, connection, and trust.
-</p>
+      {/* Optional subline preview (no headline) */}
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <p className="text-lg text-gray-600 dark:text-gray-300">
+          From personal stories to shared perspectives — real voices reveal understanding, connection,
+          and trust.
+        </p>
       </div>
 
       {/* Cards */}
@@ -146,4 +148,3 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
 };
 
 export default WhatYouCanAchieve;
-
