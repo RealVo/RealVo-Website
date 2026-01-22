@@ -6,6 +6,9 @@ const Hero: React.FC = () => {
   const [inView, setInView] = useState(false);
   const heroRef = useRef<HTMLDivElement | null>(null);
 
+  // ✅ Headline pulse ref (re-trigger on view)
+  const headlineRef = useRef<HTMLSpanElement | null>(null);
+
   // HERO IMAGE ROTATION
   const HERO_IMAGES = [
     '/capture/hero/booth-user-3.png',
@@ -33,6 +36,28 @@ const Hero: React.FC = () => {
         });
       },
       { threshold: 0.3 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  // ✅ Re-trigger headline pulse when hero scrolls into view
+  useEffect(() => {
+    const node = headlineRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            node.classList.remove('animate-pulse-once');
+            void node.offsetWidth; // force reflow
+            node.classList.add('animate-pulse-once');
+          }
+        });
+      },
+      { threshold: 0.35 }
     );
 
     observer.observe(node);
@@ -92,7 +117,12 @@ const Hero: React.FC = () => {
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
             <span className="block">Capture Real Voices,</span>
-            <span className="block text-realvo-teal">In Person or Online</span>
+            <span
+              ref={headlineRef}
+              className="block text-realvo-teal animate-pulse-once"
+            >
+              In Person or Online
+            </span>
           </h1>
 
           {/* Subline */}
