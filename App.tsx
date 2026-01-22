@@ -11,6 +11,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustedBy from './components/TrustedBy';
 import WhyRealVoExists from './components/WhyRealVoExists';
+import WhyWhatBridge from './components/WhyWhatBridge';
 import WhatYouCanAchieve from './components/WhatYouCanAchieve';
 import HowItWorks from './components/HowItWorks';
 import CaptureOptions from './components/CaptureOptions';
@@ -122,8 +123,7 @@ const HomePage: React.FC = () => {
           {/* Wrapper anchor: "Why RealVo" chapter (Why + What) */}
           <div id="why-realvo" />
 
-          <WhyRealVoExists />
-          <WhatYouCanAchieve />
+          <WhyWhatBridge />
 
           <Industries />
 
