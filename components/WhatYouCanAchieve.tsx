@@ -65,15 +65,6 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
       background="teal"
       className={topPad ? 'pt-24 sm:pt-28 md:pt-32' : ''}
     >
-      {/* Heading */}
-      {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto mt-16 md:mt-14 lg:mt-12 mb-14">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
-  <span ref={achieveRef} className="text-realvo-teal animate-pulse-once">
-    What Real Voices
-  </span>{' '}
-  Make Possible
-</h2>
 
 <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
   From personal stories to shared perspectives — real voices reveal understanding, connection, and trust.
