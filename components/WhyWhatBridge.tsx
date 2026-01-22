@@ -91,3 +91,5 @@ function SeamInsightCard() {
     </div>
   );
 }
+
+export default WhyWhatBridge;
