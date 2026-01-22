@@ -12,7 +12,6 @@ const features: Feature[] = [
     icon: BarChart3,
   },
   {
-    // ✅ singular to match your desired display: “Make Voice / Matter”
     title: 'Make Voices Matter',
     description:
       'Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with confidence it can lead to real change.',
@@ -32,7 +31,11 @@ const features: Feature[] = [
   },
 ];
 
-const WhatYouCanAchieve: React.FC = () => {
+type Props = {
+  topPad?: boolean;
+};
+
+const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
   const achieveRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
@@ -57,7 +60,11 @@ const WhatYouCanAchieve: React.FC = () => {
   }, []);
 
   return (
-    <Section id="why-realvo" background="teal">
+    <Section
+      id="why-realvo"
+      background="teal"
+      className={topPad ? 'pt-24 sm:pt-28 md:pt-32' : ''}
+    >
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-14">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white">
@@ -86,7 +93,7 @@ const WhatYouCanAchieve: React.FC = () => {
                 hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
               "
             >
-              {/* Icon (static = light, hover = LIGHT BLUE/white) */}
+              {/* Icon */}
               <div
                 className="
                   w-14 h-14
@@ -102,21 +109,22 @@ const WhatYouCanAchieve: React.FC = () => {
               </div>
 
               <h3 className="mt-6 text-lg font-bold text-realvo-charcoal dark:text-white leading-tight">
-  {index === 1 ? (
-    <>
-      {/* Mobile: single line */}
-      <span className="md:hidden whitespace-nowrap">Make Voices Matter</span>
+                {index === 1 ? (
+                  <>
+                    {/* Mobile: single line */}
+                    <span className="md:hidden whitespace-nowrap">Make Voices Matter</span>
 
-      {/* Desktop: two lines */}
-      <span className="hidden md:inline">
-        Make Voices
-        <span className="block">Matter</span>
-      </span>
-    </>
-  ) : (
-    feature.title
-  )}
-</h3>
+                    {/* Desktop: two lines */}
+                    <span className="hidden md:inline">
+                      Make Voices
+                      <span className="block">Matter</span>
+                    </span>
+                  </>
+                ) : (
+                  feature.title
+                )}
+              </h3>
+
               <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                 {feature.description}
               </p>
@@ -124,7 +132,7 @@ const WhatYouCanAchieve: React.FC = () => {
           ))}
         </div>
 
-        {/* Framed image below (gives the booth context without heavy cropping) */}
+        {/* Framed image below */}
         <div className="mt-12 md:mt-16 lg:mt-20">
           <div className="relative h-[340px] md:h-[440px] lg:h-[520px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800 bg-white">
             <img
@@ -142,3 +150,4 @@ const WhatYouCanAchieve: React.FC = () => {
 };
 
 export default WhatYouCanAchieve;
+
