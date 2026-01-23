@@ -123,28 +123,17 @@ const Industries: React.FC = () => {
       </div>
 
       {/* Use Cases CTA */}
-      <div className="relative z-10 mt-12 flex justify-center">
-        <Button
-          size="lg"
-          variant="secondary"
-          pressedStyle="insetWhite"
-          onClick={() => navigate('/use-cases')}
-          className="shadow-none hover:shadow-none hover:-translate-y-0"
-        >
-          <span className="text-center leading-snug">
-            <span className="block sm:hidden text-base">
-              Explore how voices are used
-            </span>
-            <span className="block sm:hidden text-base">
-              across real-world use cases
-            </span>
-
-            <span className="hidden sm:block text-base">
-              Explore how voices are used across real-world use cases
-            </span>
-          </span>
-        </Button>
-      </div>
+<div className="relative z-10 mt-12 flex justify-center">
+  <Button
+    size="lg"
+    variant="secondary"
+    pressedStyle="insetWhite"
+    onClick={() => navigate('/use-cases')}
+    className="shadow-none hover:shadow-none hover:-translate-y-0 tracking-wide"
+  >
+    EXPLORE REAL-WORLD USE CASES
+  </Button>
+</div>
     </Section>
   );
 };
