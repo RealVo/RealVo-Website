@@ -74,7 +74,7 @@ function SeamInsightCard() {
       </div>
 
       <p className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-realvo-charcoal dark:text-white">
-  What Real Voices Make Possible
+  What RealVo Delivers
 </p>
     </div>
   );
