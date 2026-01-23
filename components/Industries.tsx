@@ -9,7 +9,7 @@ const industries: Industry[] = [
   {
     name: 'Enterprises & Brands',
     description:
-      'Capture employee and customer voices that inspire trust, clarity, and connection. Use for DEI, HR, and major events.',
+      'For enterprise teams, brand leaders, and agencies capturing perspectives across internal programs, customer engagement, and brand initiatives.',
     icon: Building2,
   },
   {
