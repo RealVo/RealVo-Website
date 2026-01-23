@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const industries: Industry[] = [
   {
-    name: 'Corporate',
+    name: 'Enterprises & Brands',
     description:
       'Capture employee and customer voices that inspire trust, clarity, and connection. Use for DEI, HR, and major events.',
     icon: Building2,
