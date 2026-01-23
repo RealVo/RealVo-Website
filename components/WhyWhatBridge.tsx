@@ -37,7 +37,8 @@ const WhyWhatBridge: React.FC = () => {
         {/* Seam Insight Card overlaps down into the next section */}
         <div className="absolute inset-x-0 top-full -translate-y-1/2 z-20">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="mx-auto max-w-3xl">
+            {/* ✅ Reduce overall box width by lowering the max-width */}
+            <div className="mx-auto max-w-2xl">
               <SeamInsightCard deliversRef={deliversRef} />
             </div>
           </div>
@@ -68,8 +69,8 @@ function SeamInsightCard({ deliversRef }: SeamInsightCardProps) {
         text-center
       "
     >
-      {/* Icon badge */}
-      <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+      {/* ✅ Icon badge: move up so it visually centers on the top border */}
+      <div className="absolute -top-8 left-1/2 -translate-x-1/2">
         <div
           className="
             bg-realvo-light dark:bg-gray-800
@@ -101,8 +102,8 @@ function SeamInsightCard({ deliversRef }: SeamInsightCardProps) {
         </div>
       </div>
 
-      {/* Headline: "What RealVo" stays black; only "Delivers" animates */}
-      <h3 className="mt-2 text-2xl md:text-3xl font-bold tracking-tight">
+      {/* ✅ Match Why section heading scale */}
+      <h3 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
         <span className="text-realvo-charcoal dark:text-white">What RealVo </span>
         <span ref={deliversRef} className="text-realvo-teal animate-pulse-once">
           Delivers
@@ -113,4 +114,5 @@ function SeamInsightCard({ deliversRef }: SeamInsightCardProps) {
 }
 
 export default WhyWhatBridge;
+
 
