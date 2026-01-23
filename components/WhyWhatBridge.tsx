@@ -110,4 +110,3 @@ function SeamInsightCard({ deliversRef }: SeamInsightCardProps) {
 }
 
 export default WhyWhatBridge;
-
