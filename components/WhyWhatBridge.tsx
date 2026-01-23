@@ -14,9 +14,10 @@ const WhyWhatBridge: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            node.classList.remove('animate-pulse-once');
+            // ✅ Re-trigger the correct animation class
+            node.classList.remove('animate-pulse-once-to-white');
             void node.offsetWidth; // force reflow
-            node.classList.add('animate-pulse-once');
+            node.classList.add('animate-pulse-once-to-white');
           }
         });
       },
@@ -99,14 +100,14 @@ function SeamInsightCard({ deliversRef }: SeamInsightCardProps) {
       {/* Headline */}
       <h3 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
         <span className="text-realvo-charcoal">What RealVo </span>
-        <span ref={deliversRef} className="text-white animate-pulse-once-to-white">
-  Delivers
-</span>
+        {/* ✅ Don’t hardcode the animation class if you want the observer to trigger it cleanly */}
+        <span ref={deliversRef} className="text-white">
+          Delivers
+        </span>
       </h3>
     </div>
   );
 }
 
 export default WhyWhatBridge;
-
 
