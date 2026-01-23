@@ -15,7 +15,7 @@ const industries: Industry[] = [
   {
     name: 'Universities & Colleges',
     description:
-      'Empower students, faculty, alumni, and staff to share experiences that shape learning, culture, and campus life.',
+      'Empower students, faculty, alumni, and staff to share experiences that shape learning, culture, and campus life across the academic community.',
     icon: GraduationCap,
   },
   {
@@ -27,7 +27,7 @@ const industries: Industry[] = [
   {
     name: 'Community Organizations',
     description:
-      'Enable residents, members, and advocates to share stories that strengthen connection, transparency, and collective voice.',
+      'Enable residents, members, and advocates to share stories and perspectives that strengthen connection, transparency, and collective voice across their communities.',
     icon: Users2,
   },
 ];
