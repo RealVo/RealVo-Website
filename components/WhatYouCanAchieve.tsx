@@ -85,17 +85,19 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
               "
             >
               {/* Icon */}
-              <div
-                className="
-                  w-14 h-14
-                  rounded-2xl
-                  flex items-center justify-center
-                  bg-realvo-light text-realvo-blue
-                  dark:bg-gray-800 dark:text-realvo-teal
-                  transition-colors duration-200
-                  group-hover:bg-realvo-teal group-hover:text-white
-                "
-              >
+<div
+  className="
+    w-14 h-14
+    rounded-2xl
+    flex items-center justify-center
+
+    bg-realvo-teal text-realvo-blue
+    dark:bg-realvo-teal dark:text-realvo-blue
+
+    transition-colors duration-200
+    group-hover:bg-realvo-blue group-hover:text-white
+  "
+>
                 <feature.icon size={26} strokeWidth={1.8} />
               </div>
 
