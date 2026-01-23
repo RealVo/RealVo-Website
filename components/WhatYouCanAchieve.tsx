@@ -8,25 +8,25 @@ const features: Feature[] = [
   {
     title: 'Capture Lived Experiences',
     description:
-      'What people share comes through as it’s expressed — with tone, emotion, and perspective intact, revealing meaning that structured inputs and summaries often miss.',
+      'Capture stories as people tell them — in their own words, at their own pace — preserving context, nuance, and emotion that structured inputs often miss.',
     icon: BarChart3,
   },
   {
     title: 'Make Voices Matter',
     description:
-      'Give people a way to speak up knowing their input is being heard, considered, and taken seriously — with confidence it can lead to real change.',
+      'Give people a private, low-pressure way to speak honestly, knowing their input is collected with intent and treated as meaningful — not performative.',
     icon: ShieldCheck,
   },
   {
     title: 'Connect Insight to Action',
     description:
-      'Bring individual perspectives together around shared values, culture, and purpose — so leaders, teams, and communities align on what matters most.',
+      'Turn individual perspectives into usable insight by organizing, reviewing, and sharing voices in ways organizations can act on.',
     icon: MessageSquare,
   },
   {
     title: 'Create Content That Amplifies',
     description:
-      'Use real voices to inspire advocacy, build awareness, and share perspectives with credibility — extending impact well beyond the moment.',
+      'Extend the impact of real voices through curated sharing — from internal learning and alignment to external storytelling and brand communication.',
     icon: Megaphone,
   },
 ];
