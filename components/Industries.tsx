@@ -27,7 +27,7 @@ const industries: Industry[] = [
   {
     name: 'Community Organizations',
     description:
-      'Enable residents, members, and advocates to share stories and perspectives that strengthen connection, transparency, and collective voice across their communities.',
+      'Enable residents, members, and advocates to share stories and perspectives that strengthen connection, transparency, and collective voice.',
     icon: Users2,
   },
 ];
