@@ -19,7 +19,7 @@ const industries: Industry[] = [
     icon: GraduationCap,
   },
   {
-    name: 'Healthcare',
+    name: 'Healthcare & Life Sciences',
     description:
       'Capture meaningful experiences from patients, families, clinicians, and staff to improve care and culture.',
     icon: HeartPulse,
