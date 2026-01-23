@@ -21,7 +21,7 @@ const industries: Industry[] = [
   {
     name: 'Healthcare & Life Sciences',
     description:
-      'Capture meaningful experiences from patients, families, clinicians, and staff to improve care and culture.',
+      'For healthcare organizations and life sciences teams capturing perspectives from medical professionals and the patients, families, and caregivers they support.',
     icon: HeartPulse,
   },
   {
