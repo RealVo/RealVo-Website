@@ -91,8 +91,8 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
     rounded-2xl
     flex items-center justify-center
 
-    bg-realvo-teal text-realvo-blue
-    dark:bg-realvo-teal dark:text-realvo-blue
+    bg-realvo-teal text-white
+    dark:bg-realvo-teal dark:text-white
 
     transition-colors duration-200
     group-hover:bg-realvo-blue group-hover:text-white
