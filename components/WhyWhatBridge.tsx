@@ -7,7 +7,7 @@ const WhyWhatBridge: React.FC = () => {
   return (
     <div className="scroll-mt-24">
       {/* WHY (white) + seam overlap */}
-      <div className="relative pb-20 sm:pb-20 md:pb-24">
+      <div className="relative pb-14 sm:pb-16 md:pb-16 lg:pb-14">
   <WhyRealVoExists showInsightCard={false} />
 
         {/* Seam Insight Card overlaps down into the next section */}
