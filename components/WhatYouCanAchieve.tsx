@@ -63,7 +63,7 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
     <Section
       id="why-realvo"
       background="teal"
-      className={topPad ? 'pt-30 sm:pt-20 md:pt-24 lg:pt-30' : ''}
+      className={topPad ? 'pt-28 sm:pt-20 md:pt-24 lg:pt-32' : ''}
     >
       
       {/* Cards */}
