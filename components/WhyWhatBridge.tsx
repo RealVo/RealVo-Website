@@ -100,11 +100,11 @@ function SeamInsightCard({ deliversRef }: SeamInsightCardProps) {
       <h3 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
         <span className="text-realvo-charcoal">What RealVo </span>
         <span
-          ref={deliversRef}
-          className="text-white animate-pulse-once"
-        >
-          Delivers
-        </span>
+  ref={deliversRef}
+  className="text-white animate-pulse-once [animation-fill-mode:forwards]"
+>
+  Delivers
+</span>
       </h3>
     </div>
   );
