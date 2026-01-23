@@ -33,6 +33,23 @@
   }
 }
 
+/* Insight Card (teal background): dark → RealVo Blue → white (end) */
+@keyframes pulse-once-to-white {
+  0% {
+    color: #1A1E23;        /* charcoal/black */
+  }
+  40% {
+    color: #2A4D69;        /* RealVo Blue */
+  }
+  100% {
+    color: #ffffff;        /* End on white */
+  }
+}
+
+.animate-pulse-once-to-white {
+  animation: pulse-once-to-white 1.8s ease-out 0.1s 1 forwards;
+}
+
 .animate-pulse-once-light {
   animation: pulse-once-light 1.8s ease-out 0.3s 1 forwards;
 }
