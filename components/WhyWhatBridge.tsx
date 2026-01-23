@@ -2,6 +2,7 @@
 import React from 'react';
 import WhyRealVoExists from './WhyRealVoExists';
 import WhatYouCanAchieve from './WhatYouCanAchieve';
+import React, { useEffect, useRef } from 'react';
 
 const WhyWhatBridge: React.FC = () => {
   return (
@@ -25,6 +26,29 @@ const WhyWhatBridge: React.FC = () => {
     </div>
   );
 };
+
+const deliversRef = useRef<HTMLSpanElement | null>(null);
+
+useEffect(() => {
+  const node = deliversRef.current;
+  if (!node) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          node.classList.remove('animate-pulse-once');
+          void node.offsetWidth; // force reflow
+          node.classList.add('animate-pulse-once');
+        }
+      });
+    },
+    { threshold: 0.55 }
+  );
+
+  observer.observe(node);
+  return () => observer.disconnect();
+}, []);
 
 function SeamInsightCard() {
   return (
@@ -73,9 +97,15 @@ function SeamInsightCard() {
         </div>
       </div>
 
-      <p className="mt-2 text-2xl md:text-3xl font-bold tracking-tight text-realvo-charcoal dark:text-white">
-  What RealVo Delivers
-</p>
+      <h3 className="text-2xl md:text-3xl font-bold tracking-tight leading-snug text-center">
+  <span className="text-realvo-charcoal dark:text-white">What RealVo </span>
+  <span
+    ref={deliversRef}
+    className="text-realvo-teal animate-pulse-once"
+  >
+    Delivers
+  </span>
+</h3>
     </div>
   );
 }
