@@ -65,14 +65,7 @@ const WhatYouCanAchieve: React.FC<Props> = ({ topPad = false }) => {
       background="teal"
       className={topPad ? 'pt-24 sm:pt-28 md:pt-32' : ''}
     >
-      {/* Optional subline preview (no headline) */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          From personal stories to shared perspectives — real voices reveal understanding, connection,
-          and trust.
-        </p>
-      </div>
-
+      
       {/* Cards */}
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
