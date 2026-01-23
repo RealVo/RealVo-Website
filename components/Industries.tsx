@@ -9,25 +9,25 @@ const industries: Industry[] = [
   {
     name: 'Enterprises & Brands',
     description:
-      'For enterprise teams, brand leaders, and agencies capturing perspectives across internal programs, customer engagement, and brand initiatives.',
+      'Give employees, customers, and partners a voice that builds trust and authenticity — inside organizations and across brand experiences.',
     icon: Building2,
   },
   {
     name: 'Universities & Colleges',
     description:
-      'Hear the real experiences of students, alumni, faculty, and staff. Support recruitment and belonging initiatives.',
+      'Empower students, faculty, alumni, and staff to share experiences that shape learning, culture, and campus life.',
     icon: GraduationCap,
   },
   {
     name: 'Healthcare & Life Sciences',
     description:
-      'For healthcare organizations and life sciences teams capturing perspectives from medical professionals and the patients, families, and caregivers they support.',
+      'Create a space for medical professionals, patients, families, and caregivers to share experiences that build empathy, trust, and understanding.',
     icon: HeartPulse,
   },
   {
     name: 'Community Organizations',
     description:
-      'Give communities an accessible way to share their voices, needs, and stories for advocacy and impact.',
+      'Enable residents, members, and advocates to share stories that strengthen connection, transparency, and collective voice.',
     icon: Users2,
   },
 ];
