@@ -202,17 +202,9 @@ const UseCases: React.FC = () => {
 
             <div className="mt-10 sm:mt-14 lg:mt-16 space-y-12 sm:space-y-14 lg:space-y-16">
               {USE_CASE_BLOCKS.map((block) => (
-                <div
-  key={block.id}
-  id={block.id}
-  className="scroll-mt-24"
-  style={{
-    contentVisibility: 'auto',
-    containIntrinsicSize: '900px', // prevents jump while it’s “not rendered yet”
-  }}
->
-  <UseCaseRow block={block} />
-</div>
+                <div key={block.id} id={block.id} className="scroll-mt-24">
+                  <UseCaseRow block={block} />
+                </div>
               ))}
             </div>
           </div>
