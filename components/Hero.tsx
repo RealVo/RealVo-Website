@@ -127,11 +127,16 @@ const Hero: React.FC = () => {
     </span>
   </h1>
 
-  {/* Subline */}
-  <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-    A fully managed, enterprise-ready solution for capturing stories,
-    testimonials, and insights — in person and online.
-  </p>
+  {/* Subline — Desktop */}
+<p className="hidden sm:block mt-6 text-lg text-gray-600 max-w-3xl">
+  A fully managed, enterprise-ready solution for capturing stories,
+  testimonials, and insights — in person and online.
+</p>
+
+{/* Subline — Mobile (adds modality clarity) */}
+<p className="block sm:hidden mt-5 text-base text-gray-600">
+  A fully managed, enterprise-ready solution for capturing stories, testimonials, and insights through video, voice, and text — in person and online.
+</p>
 
   {/* Supporting line */}
   <p className="text-sm text-gray-500 italic max-w-xl">
