@@ -75,7 +75,7 @@ const VirtualVideoBooth: React.FC = () => {
                     Capture Option
                   </p>
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                    Virtual Video Booth
+                    Online Video Booth
                     <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-1">
                       A link-based video capture experience that works anywhere, on any device.
                     </span>
@@ -101,7 +101,7 @@ const VirtualVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  The Virtual Video Booth enables participants to record authentic
+                  The Online Video Booth enables participants to record authentic
                   stories remotely using a simple link. It’s ideal for distributed
                   teams, short pilots, and programs that need speed and reach
                   without physical setup.
