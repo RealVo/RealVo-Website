@@ -178,21 +178,57 @@ const HowItWorks: React.FC = () => {
     setIsPaused(false);
   }, [mode]);
 
-  // Mobile: tap toggles pause/resume (use click to avoid accidental toggles while scrolling)
-  const handleKioskTapToggle = useCallback(() => {
+  // ✅ Mobile tap detection (prevents scroll/drag from toggling)
+  const touchStartRef = useRef<{ x: number; y: number; t: number } | null>(null);
+  const TAP_MOVE_PX = 10;
+
+  const togglePause = useCallback(() => {
     if (mode === 'click') return;
 
     setIsPaused(prev => {
       const next = !prev;
 
-      // If resuming, nudge to next step so it feels responsive
-      if (!next) {
-        setActiveStep(s => (s % TOTAL_STEPS) + 1);
-      }
+      // If resuming, nudge forward to feel responsive
+      if (!next) setActiveStep(s => (s % TOTAL_STEPS) + 1);
 
       return next;
     });
   }, [mode]);
+
+  const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== 'touch') return;
+    touchStartRef.current = { x: e.clientX, y: e.clientY, t: Date.now() };
+  }, []);
+
+  const handlePointerUp = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (e.pointerType !== 'touch') return;
+
+      const start = touchStartRef.current;
+      touchStartRef.current = null;
+      if (!start) return;
+
+      const dx = Math.abs(e.clientX - start.x);
+      const dy = Math.abs(e.clientY - start.y);
+
+      // Only treat as a tap if finger didn't move (i.e., not scrolling)
+      if (dx <= TAP_MOVE_PX && dy <= TAP_MOVE_PX) {
+        togglePause();
+      }
+    },
+    [togglePause]
+  );
+
+  // Desktop click can also toggle (optional). Keep it touch-only by default.
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      // On desktop, we already have hover-to-pause; clicking shouldn’t fight it.
+      // If you ever want click-to-toggle on desktop too, remove this return.
+      if (window.matchMedia && window.matchMedia('(hover: hover)').matches) return;
+      togglePause();
+    },
+    [togglePause]
+  );
 
   return (
     <Section id="how-it-works" background="light">
@@ -211,7 +247,6 @@ const HowItWorks: React.FC = () => {
             We&apos;ve removed the friction so you can focus on the insight.
           </p>
 
-          {/* Mobile-only helper line */}
           <p className="lg:hidden mt-2 mb-8 pl-[56px] text-xs text-gray-400">
             Scroll down to see the kiosk in action.
           </p>
@@ -267,15 +302,16 @@ const HowItWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT: KIOSK (pause on hover, tap to pause/resume on mobile) */}
+        {/* RIGHT: KIOSK */}
         <div ref={kioskViewRef} className="relative">
-          {/* overflow-visible so shadow is not clipped on mobile */}
           <div className="relative flex justify-center overflow-visible">
             <div
               className="relative select-none"
               onMouseEnter={handleKioskEnter}
               onMouseLeave={handleKioskLeave}
-              onClick={handleKioskTapToggle}
+              onPointerDown={handlePointerDown}
+              onPointerUp={handlePointerUp}
+              onClick={handleClick}
               role="button"
               tabIndex={0}
               aria-label={
