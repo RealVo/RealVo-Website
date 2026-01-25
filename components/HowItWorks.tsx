@@ -16,7 +16,6 @@ type InteractionMode = 'none' | 'hover' | 'click';
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
 
-  // Detect when the KIOSK enters/leaves view
   const kioskViewRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
 
@@ -25,8 +24,6 @@ const HowItWorks: React.FC = () => {
 
   const [activeStep, setActiveStep] = useState<number>(1);
   const [mode, setMode] = useState<InteractionMode>('none');
-
-  // Pause controls for kiosk preview + pill
   const [isPaused, setIsPaused] = useState(false);
 
   const stepsWrapRef = useRef<HTMLDivElement | null>(null);
@@ -272,28 +269,21 @@ const HowItWorks: React.FC = () => {
                   : 'How it works preview playing. Tap to pause.'
               }
             >
-              {/* MOBILE: stable box-shadow wrapper (prevents iOS drop-shadow flash) */}
-              <div className="block lg:hidden w-full max-w-[520px] shadow-[0_18px_40px_rgba(0,0,0,0.30)]">
-                <img
-                  src={stepSrc}
-                  alt={`RealVo kiosk step ${activeStep}`}
-                  className="w-full h-auto block transition-opacity duration-300 ease-out"
-                  draggable={false}
-                />
-              </div>
-
-              {/* DESKTOP: PNG drop-shadow (best look on DT) */}
+              {/* ONE image: mobile uses box-shadow, desktop uses drop-shadow */}
               <img
                 src={stepSrc}
                 alt={`RealVo kiosk step ${activeStep}`}
                 className="
-                  hidden lg:block
                   w-full max-w-[520px]
-                  h-auto
-                  block
+                  h-auto block
                   transition-opacity duration-300 ease-out
+
+                  shadow-[0_18px_40px_rgba(0,0,0,0.30)]
+                  lg:shadow-none
+
+                  [filter:none]
+                  lg:[filter:drop-shadow(0px_18px_40px_rgba(0,0,0,0.30))]
                 "
-                style={{ filter: 'drop-shadow(0px 18px 40px rgba(0,0,0,0.30))' }}
                 draggable={false}
               />
 
@@ -315,4 +305,3 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
-
