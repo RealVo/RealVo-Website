@@ -98,12 +98,11 @@ const VBPlatform: React.FC = () => {
         <div className="lg:col-span-7 order-2 lg:order-2 relative">
           {/* Image Rotator Container */}
           <div
-            className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 transform lg:rotate-1 lg:hover:rotate-0 transition-transform duration-500
-                       rounded-xl border-[4px] border-[#4FB3E8]"
+            className="relative shadow-2xl bg-white dark:bg-gray-900 p-2
+                       rounded-xl border-[10px] border-[#4FB3E8]"
           >
             {/* Keep inner corners aligned with container radius */}
             <div className="relative overflow-hidden rounded-[inherit]">
-              {/* Aspect wrapper helps prevent layout jump; adjust if you prefer */}
               <div className="relative w-full">
                 {platformScreens.map((img, idx) => (
                   <img
@@ -129,3 +128,4 @@ const VBPlatform: React.FC = () => {
 };
 
 export default VBPlatform;
+
