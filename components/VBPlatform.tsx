@@ -95,32 +95,28 @@ const VBPlatform: React.FC = () => {
         </div>
 
         {/* Visual Side (mobile second) */}
-        <div className="lg:col-span-7 order-2 lg:order-2 relative">
-          {/* Image Rotator Container */}
-          <div
-            <div className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl">
-          >
-            {/* Keep inner corners aligned with container radius */}
-            <div className="relative overflow-hidden rounded-[inherit]">
-              <div className="relative w-full">
-                {platformScreens.map((img, idx) => (
-                  <img
-                    key={img.src}
-                    src={img.src}
-                    alt={img.alt}
-                    className={[
-                      'w-full h-auto block',
-                      'transition-opacity duration-700 ease-in-out',
-                      idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
-                    ].join(' ')}
-                    loading={idx === 0 ? 'eager' : 'lazy'}
-                    draggable={false}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+<div className="lg:col-span-7 order-2 lg:order-2 relative">
+  <div className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl">
+    <div className="relative overflow-hidden rounded-[inherit]">
+      <div className="relative w-full">
+        {platformScreens.map((img, idx) => (
+          <img
+            key={img.src}
+            src={img.src}
+            alt={img.alt}
+            className={[
+              'w-full h-auto block',
+              'transition-opacity duration-700 ease-in-out',
+              idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
+            ].join(' ')}
+            loading={idx === 0 ? 'eager' : 'lazy'}
+            draggable={false}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </Section>
   );
