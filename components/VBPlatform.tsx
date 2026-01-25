@@ -20,7 +20,7 @@ const platformScreens = [
 ];
 
 // ✅ Adjustable timing (start at 2s)
-const SLIDE_MS = 2000;
+const SLIDE_MS = 3000;
 
 const VBPlatform: React.FC = () => {
   const vbRef = useRef<HTMLSpanElement | null>(null);
@@ -98,8 +98,7 @@ const VBPlatform: React.FC = () => {
         <div className="lg:col-span-7 order-2 lg:order-2 relative">
           {/* Image Rotator Container */}
           <div
-            className="relative shadow-2xl bg-white dark:bg-gray-900 p-2
-                       rounded-xl border-[10px] border-[#4FB3E8]"
+            <div className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl">
           >
             {/* Keep inner corners aligned with container radius */}
             <div className="relative overflow-hidden rounded-[inherit]">
