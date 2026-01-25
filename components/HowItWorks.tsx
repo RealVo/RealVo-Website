@@ -258,8 +258,7 @@ const HowItWorks: React.FC = () => {
 
         {/* RIGHT: KIOSK */}
         <div ref={kioskViewRef} className="relative">
-          {/* ✅ overflow-visible so the PNG shadow is not clipped on mobile */}
-          <div className="relative flex justify-center overflow-visible md:overflow-visible">
+          <div className="relative flex justify-center overflow-visible">
             <div
               className="relative select-none"
               onMouseEnter={handleKioskEnter}
@@ -273,17 +272,27 @@ const HowItWorks: React.FC = () => {
                   : 'How it works preview playing. Tap to pause.'
               }
             >
-              {/* ✅ Shadow applied directly to the PNG (like your original intent) */}
+              {/* MOBILE: stable box-shadow wrapper (prevents iOS drop-shadow flash) */}
+              <div className="block lg:hidden w-full max-w-[520px] shadow-[0_18px_40px_rgba(0,0,0,0.30)]">
+                <img
+                  src={stepSrc}
+                  alt={`RealVo kiosk step ${activeStep}`}
+                  className="w-full h-auto block transition-opacity duration-300 ease-out"
+                  draggable={false}
+                />
+              </div>
+
+              {/* DESKTOP: PNG drop-shadow (best look on DT) */}
               <img
                 src={stepSrc}
                 alt={`RealVo kiosk step ${activeStep}`}
                 className="
-  w-full max-w-[520px]
-  h-auto
-  drop-shadow-none
-  md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
-  transition-opacity duration-300 ease-out
-"
+                  hidden lg:block
+                  w-full max-w-[520px]
+                  h-auto
+                  block
+                  transition-opacity duration-300 ease-out
+                "
                 style={{ filter: 'drop-shadow(0px 18px 40px rgba(0,0,0,0.30))' }}
                 draggable={false}
               />
@@ -306,3 +315,4 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
+
