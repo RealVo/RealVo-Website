@@ -278,11 +278,12 @@ const HowItWorks: React.FC = () => {
                 src={stepSrc}
                 alt={`RealVo kiosk step ${activeStep}`}
                 className="
-                  w-full max-w-[520px]
-                  h-auto
-                  block
-                  transition-opacity duration-300 ease-out
-                "
+  w-full max-w-[520px]
+  h-auto
+  drop-shadow-none
+  md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
+  transition-opacity duration-300 ease-out
+"
                 style={{ filter: 'drop-shadow(0px 18px 40px rgba(0,0,0,0.30))' }}
                 draggable={false}
               />
