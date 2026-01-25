@@ -16,7 +16,6 @@ type InteractionMode = 'none' | 'hover' | 'click';
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
 
-  // Detect when the KIOSK enters/leaves view (mobile-friendly)
   const kioskViewRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
 
@@ -26,12 +25,10 @@ const HowItWorks: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(1);
   const [mode, setMode] = useState<InteractionMode>('none');
 
-  // Pause controls (match VBPlatform behavior)
   const [isPaused, setIsPaused] = useState(false);
 
   const stepsWrapRef = useRef<HTMLDivElement | null>(null);
 
-  // Hover-leave debounce so pill -> headline doesn't "resume" between them
   const hoverLeaveTimerRef = useRef<number | null>(null);
   const cancelHoverLeaveTimer = () => {
     if (hoverLeaveTimerRef.current) {
@@ -81,7 +78,7 @@ const HowItWorks: React.FC = () => {
     }
   }, []);
 
-  // When kiosk enters view, force Step 1 (every time) + reset pause
+  // When kiosk enters view, force Step 1 + reset pause
   useEffect(() => {
     const el = kioskViewRef.current;
     if (!el) return;
@@ -178,8 +175,8 @@ const HowItWorks: React.FC = () => {
     setIsPaused(false);
   }, [mode]);
 
-  // ✅ Mobile tap detection (prevents scroll/drag from toggling)
-  const touchStartRef = useRef<{ x: number; y: number; t: number } | null>(null);
+  // ✅ iOS-safe tap detection (touchstart/move/end)
+  const touchRef = useRef<{ x: number; y: number; moved: boolean } | null>(null);
   const TAP_MOVE_PX = 10;
 
   const togglePause = useCallback(() => {
@@ -187,48 +184,41 @@ const HowItWorks: React.FC = () => {
 
     setIsPaused(prev => {
       const next = !prev;
-
-      // If resuming, nudge forward to feel responsive
-      if (!next) setActiveStep(s => (s % TOTAL_STEPS) + 1);
-
+      if (!next) setActiveStep(s => (s % TOTAL_STEPS) + 1); // nudge when resuming
       return next;
     });
   }, [mode]);
 
-  const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType !== 'touch') return;
-    touchStartRef.current = { x: e.clientX, y: e.clientY, t: Date.now() };
+  const onTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (mode === 'click') return;
+    const t = e.touches[0];
+    if (!t) return;
+    touchRef.current = { x: t.clientX, y: t.clientY, moved: false };
+  }, [mode]);
+
+  const onTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    const start = touchRef.current;
+    if (!start) return;
+    const t = e.touches[0];
+    if (!t) return;
+
+    const dx = Math.abs(t.clientX - start.x);
+    const dy = Math.abs(t.clientY - start.y);
+
+    if (dx > TAP_MOVE_PX || dy > TAP_MOVE_PX) {
+      start.moved = true; // user is scrolling/dragging, do not toggle
+    }
   }, []);
 
-  const handlePointerUp = useCallback(
-    (e: React.PointerEvent<HTMLDivElement>) => {
-      if (e.pointerType !== 'touch') return;
+  const onTouchEnd = useCallback(() => {
+    const start = touchRef.current;
+    touchRef.current = null;
+    if (!start) return;
 
-      const start = touchStartRef.current;
-      touchStartRef.current = null;
-      if (!start) return;
-
-      const dx = Math.abs(e.clientX - start.x);
-      const dy = Math.abs(e.clientY - start.y);
-
-      // Only treat as a tap if finger didn't move (i.e., not scrolling)
-      if (dx <= TAP_MOVE_PX && dy <= TAP_MOVE_PX) {
-        togglePause();
-      }
-    },
-    [togglePause]
-  );
-
-  // Desktop click can also toggle (optional). Keep it touch-only by default.
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      // On desktop, we already have hover-to-pause; clicking shouldn’t fight it.
-      // If you ever want click-to-toggle on desktop too, remove this return.
-      if (window.matchMedia && window.matchMedia('(hover: hover)').matches) return;
+    if (!start.moved) {
       togglePause();
-    },
-    [togglePause]
-  );
+    }
+  }, [togglePause]);
 
   return (
     <Section id="how-it-works" background="light">
@@ -306,12 +296,12 @@ const HowItWorks: React.FC = () => {
         <div ref={kioskViewRef} className="relative">
           <div className="relative flex justify-center overflow-visible">
             <div
-              className="relative select-none"
+              className="relative select-none touch-manipulation"
               onMouseEnter={handleKioskEnter}
               onMouseLeave={handleKioskLeave}
-              onPointerDown={handlePointerDown}
-              onPointerUp={handlePointerUp}
-              onClick={handleClick}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
               role="button"
               tabIndex={0}
               aria-label={
