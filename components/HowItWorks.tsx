@@ -109,7 +109,7 @@ const HowItWorks: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Auto-cycle when idle AND in view AND not paused (clean + predictable)
+  // Auto-cycle when idle AND in view AND not paused
   useEffect(() => {
     if (!isInView) return;
     if (mode !== 'none') return;
@@ -167,7 +167,7 @@ const HowItWorks: React.FC = () => {
     setActiveStep(n);
   };
 
-  // ✅ Desktop: pause on hover, resume on leave (same as VBPlatform)
+  // Desktop: pause on hover, resume on leave
   const handleKioskEnter = useCallback(() => {
     if (mode === 'click') return;
     setIsPaused(true);
@@ -178,10 +178,20 @@ const HowItWorks: React.FC = () => {
     setIsPaused(false);
   }, [mode]);
 
-  // ✅ Mobile: tap toggles pause/resume (same as VBPlatform)
-  const handleKioskTouchStart = useCallback(() => {
+  // Mobile: tap toggles pause/resume (use click to avoid accidental toggles while scrolling)
+  const handleKioskTapToggle = useCallback(() => {
     if (mode === 'click') return;
-    setIsPaused(prev => !prev);
+
+    setIsPaused(prev => {
+      const next = !prev;
+
+      // If resuming, nudge to next step so it feels responsive
+      if (!next) {
+        setActiveStep(s => (s % TOTAL_STEPS) + 1);
+      }
+
+      return next;
+    });
   }, [mode]);
 
   return (
@@ -259,33 +269,32 @@ const HowItWorks: React.FC = () => {
 
         {/* RIGHT: KIOSK (pause on hover, tap to pause/resume on mobile) */}
         <div ref={kioskViewRef} className="relative">
+          {/* overflow-visible so shadow is not clipped on mobile */}
           <div className="relative flex justify-center overflow-visible">
-            {/* Wrapper takes interaction handlers so mobile isn't "wonky" */}
             <div
               className="relative select-none"
               onMouseEnter={handleKioskEnter}
               onMouseLeave={handleKioskLeave}
               onClick={handleKioskTapToggle}
-              ...
-            >
-
               role="button"
-              aria-label={
-                isPaused ? 'How it works preview paused. Tap to resume.' : 'How it works preview playing. Tap to pause.'
-              }
               tabIndex={0}
+              aria-label={
+                isPaused
+                  ? 'How it works preview paused. Tap to resume.'
+                  : 'How it works preview playing. Tap to pause.'
+              }
             >
               <img
-  src={stepSrc}
-  alt={`RealVo kiosk step ${activeStep}`}
-  className="
-    w-full max-w-[520px]
-    h-auto
-    drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
-    transition-opacity duration-300 ease-out
-  "
-  draggable={false}
-/>
+                src={stepSrc}
+                alt={`RealVo kiosk step ${activeStep}`}
+                className="
+                  w-full max-w-[520px]
+                  h-auto
+                  drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
+                  transition-opacity duration-300 ease-out
+                "
+                draggable={false}
+              />
 
               {/* Desktop pill */}
               <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
@@ -305,4 +314,3 @@ const HowItWorks: React.FC = () => {
 };
 
 export default HowItWorks;
-
