@@ -13,53 +13,23 @@ const steps = [
 
 type InteractionMode = 'none' | 'hover' | 'click';
 
-const TOTAL_STEPS = 7;
-const AUTO_MS = 2000;
-
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
 
+  // Detect when the KIOSK enters/leaves view
   const kioskViewRef = useRef<HTMLDivElement | null>(null);
-  const stepsWrapRef = useRef<HTMLDivElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  const TOTAL_STEPS = 7;
+  const AUTO_MS = 2000;
 
   const [activeStep, setActiveStep] = useState<number>(1);
   const [mode, setMode] = useState<InteractionMode>('none');
 
-  // This is ONLY used for the pill text + accessibility
+  // Pause controls for kiosk preview + pill
   const [isPaused, setIsPaused] = useState(false);
 
-  // Hard timer control (prevents iOS state/timing weirdness)
-  const intervalRef = useRef<number | null>(null);
-
-  const clearTimer = useCallback(() => {
-    if (intervalRef.current) {
-      window.clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  }, []);
-
-  const goNext = useCallback(() => {
-    setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
-  }, []);
-
-  const startAuto = useCallback(() => {
-    clearTimer();
-
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReducedMotion) return;
-
-    intervalRef.current = window.setInterval(goNext, AUTO_MS);
-  }, [clearTimer, goNext]);
-
-  const stopAuto = useCallback(() => {
-    clearTimer();
-  }, [clearTimer]);
-
-  const stepSrc = useMemo(() => `/how_it_works/hiw_step_${activeStep}.png`, [activeStep]);
+  const stepsWrapRef = useRef<HTMLDivElement | null>(null);
 
   // Hover-leave debounce so pill -> headline doesn't "resume" between them
   const hoverLeaveTimerRef = useRef<number | null>(null);
@@ -69,6 +39,12 @@ const HowItWorks: React.FC = () => {
       hoverLeaveTimerRef.current = null;
     }
   };
+
+  const stepSrc = useMemo(() => `/how_it_works/hiw_step_${activeStep}.png`, [activeStep]);
+
+  const goNext = useCallback(() => {
+    setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
+  }, []);
 
   // Pulse animated headline text
   useEffect(() => {
@@ -100,7 +76,7 @@ const HowItWorks: React.FC = () => {
     }
   }, []);
 
-  // Start/stop based on kiosk visibility
+  // When kiosk enters view, force Step 1 and reset states
   useEffect(() => {
     const el = kioskViewRef.current;
     if (!el) return;
@@ -109,13 +85,13 @@ const HowItWorks: React.FC = () => {
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
+            setIsInView(true);
             cancelHoverLeaveTimer();
             setMode('none');
             setIsPaused(false);
             setActiveStep(1);
-            startAuto();
           } else {
-            stopAuto();
+            setIsInView(false);
           }
         });
       },
@@ -125,7 +101,24 @@ const HowItWorks: React.FC = () => {
     observer.observe(el);
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startAuto, stopAuto]);
+  }, []);
+
+  // Auto-cycle when idle AND in view AND not paused
+  useEffect(() => {
+    if (!isInView) return;
+    if (mode !== 'none') return;
+    if (isPaused) return;
+
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) return;
+
+    const t = window.setInterval(goNext, AUTO_MS);
+    return () => window.clearInterval(t);
+  }, [isInView, mode, isPaused, goNext]);
 
   // Click-off to resume auto (only when click-locked)
   useEffect(() => {
@@ -140,13 +133,12 @@ const HowItWorks: React.FC = () => {
         setMode('none');
         setIsPaused(false);
         setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
-        startAuto();
       }
     };
 
     document.addEventListener('mousedown', onDocMouseDown);
     return () => document.removeEventListener('mousedown', onDocMouseDown);
-  }, [mode, startAuto]);
+  }, [mode]);
 
   const handleHoverEnter = (n: number) => {
     if (mode === 'click') return;
@@ -161,54 +153,36 @@ const HowItWorks: React.FC = () => {
     hoverLeaveTimerRef.current = window.setTimeout(() => {
       setMode('none');
       setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
-      startAuto();
     }, 50);
   };
 
   const handleClickStep = (n: number) => {
     cancelHoverLeaveTimer();
     setMode('click');
-    stopAuto();
-    setIsPaused(true);
     setActiveStep(n);
   };
 
-  // Desktop: hover pause/resume
+  // Desktop: hover pauses/resumes kiosk animation
   const handleKioskEnter = useCallback(() => {
     if (mode === 'click') return;
-    stopAuto();
     setIsPaused(true);
-  }, [mode, stopAuto]);
+  }, [mode]);
 
   const handleKioskLeave = useCallback(() => {
     if (mode === 'click') return;
     setIsPaused(false);
-    startAuto();
-  }, [mode, startAuto]);
+  }, [mode]);
 
-  // Mobile: tap pause/resume (iOS-safe)
+  // Mobile: tap toggles pause/resume
   const handleKioskTapToggle = useCallback(() => {
     if (mode === 'click') return;
 
     setIsPaused(prev => {
       const next = !prev;
-
-      if (next) {
-        stopAuto();
-      } else {
-        // nudge forward so it feels responsive when resuming
-        setActiveStep(s => (s % TOTAL_STEPS) + 1);
-        startAuto();
-      }
-
+      if (!next) setActiveStep(s => (s % TOTAL_STEPS) + 1); // nudge on resume
       return next;
     });
-  }, [mode, startAuto, stopAuto]);
-
-  // Clean up timer on unmount
-  useEffect(() => {
-    return () => stopAuto();
-  }, [stopAuto]);
+  }, [mode]);
 
   return (
     <Section id="how-it-works" background="light">
@@ -284,7 +258,8 @@ const HowItWorks: React.FC = () => {
 
         {/* RIGHT: KIOSK */}
         <div ref={kioskViewRef} className="relative">
-          <div className="relative flex justify-center overflow-visible">
+          {/* ✅ overflow-visible so the PNG shadow is not clipped on mobile */}
+          <div className="relative flex justify-center overflow-visible md:overflow-visible">
             <div
               className="relative select-none"
               onMouseEnter={handleKioskEnter}
@@ -298,16 +273,19 @@ const HowItWorks: React.FC = () => {
                   : 'How it works preview playing. Tap to pause.'
               }
             >
-              <div className="w-full max-w-[520px] px-2">
-  <div className="shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
-    <img
-      src={stepSrc}
-      alt={`RealVo kiosk step ${activeStep}`}
-      className="w-full h-auto block transition-opacity duration-300 ease-out"
-      draggable={false}
-    />
-  </div>
-</div>
+              {/* ✅ Shadow applied directly to the PNG (like your original intent) */}
+              <img
+                src={stepSrc}
+                alt={`RealVo kiosk step ${activeStep}`}
+                className="
+                  w-full max-w-[520px]
+                  h-auto
+                  block
+                  transition-opacity duration-300 ease-out
+                "
+                style={{ filter: 'drop-shadow(0px 18px 40px rgba(0,0,0,0.30))' }}
+                draggable={false}
+              />
 
               {/* Desktop pill */}
               <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
