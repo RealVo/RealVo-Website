@@ -298,17 +298,15 @@ const HowItWorks: React.FC = () => {
                   : 'How it works preview playing. Tap to pause.'
               }
             >
-              <div className="w-full max-w-[520px] rounded-2xl shadow-2xl overflow-visible">
-  <img
-    src={stepSrc}
-    alt={`RealVo kiosk step ${activeStep}`}
-    className="
-      w-full h-auto block
-      rounded-2xl
-      transition-opacity duration-300 ease-out
-    "
-    draggable={false}
-  />
+              <div className="w-full max-w-[520px] px-2">
+  <div className="shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+    <img
+      src={stepSrc}
+      alt={`RealVo kiosk step ${activeStep}`}
+      className="w-full h-auto block transition-opacity duration-300 ease-out"
+      draggable={false}
+    />
+  </div>
 </div>
 
               {/* Desktop pill */}
