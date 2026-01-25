@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Section from './Section';
 import Button from './Button';
 import { Play, Lock, Search, Download, BarChart2, Users, FileText } from 'lucide-react';
@@ -12,7 +12,7 @@ const features = [
   { icon: BarChart2, label: 'Engagement Analytics' },
 ];
 
-// ✅ Images live in: public/vbplatform/
+// Images live in: public/vbplatform/
 const platformScreens = [
   { src: '/vbplatform/vbtv_screens_1.png', alt: 'VideoBooth.tv dashboard screenshot 1' },
   { src: '/vbplatform/vbtv_screens_2.png', alt: 'VideoBooth.tv dashboard screenshot 2' },
@@ -20,13 +20,16 @@ const platformScreens = [
 ];
 
 // ✅ Adjustable timing (start at 2s)
-const SLIDE_MS = 3000;
+const SLIDE_MS = 2000;
 
 const VBPlatform: React.FC = () => {
   const vbRef = useRef<HTMLSpanElement | null>(null);
 
   // Rotator state
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Pause / resume control
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const node = vbRef.current;
@@ -49,13 +52,25 @@ const VBPlatform: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-advance slides
+  // Auto-advance slides (stops when paused)
   useEffect(() => {
+    if (isPaused) return;
+
     const id = window.setInterval(() => {
       setActiveIndex(prev => (prev + 1) % platformScreens.length);
     }, SLIDE_MS);
 
     return () => window.clearInterval(id);
+  }, [isPaused]);
+
+  // Desktop: pause on hover, resume on leave
+  const handleMouseEnter = useCallback(() => setIsPaused(true), []);
+  const handleMouseLeave = useCallback(() => setIsPaused(false), []);
+
+  // Mobile: tap to toggle pause/resume
+  // (Prevents ghost clicks when dragging; keeps behavior simple.)
+  const handleTouchStart = useCallback(() => {
+    setIsPaused(prev => !prev);
   }, []);
 
   return (
@@ -95,32 +110,49 @@ const VBPlatform: React.FC = () => {
         </div>
 
         {/* Visual Side (mobile second) */}
-<div className="lg:col-span-7 order-2 lg:order-2 relative">
-  <div className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl">
-    <div className="relative overflow-hidden rounded-[inherit]">
-      <div className="relative w-full">
-        {platformScreens.map((img, idx) => (
-          <img
-            key={img.src}
-            src={img.src}
-            alt={img.alt}
-            className={[
-              'w-full h-auto block',
-              'transition-opacity duration-700 ease-in-out',
-              idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
-            ].join(' ')}
-            loading={idx === 0 ? 'eager' : 'lazy'}
-            draggable={false}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
+        <div className="lg:col-span-7 order-2 lg:order-2 relative">
+          <div
+            className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            role="button"
+            aria-label={isPaused ? 'Platform preview paused. Tap to resume.' : 'Platform preview playing. Tap to pause.'}
+            tabIndex={0}
+          >
+            <div className="relative overflow-hidden rounded-[inherit]">
+              <div className="relative w-full">
+                {platformScreens.map((img, idx) => (
+                  <img
+                    key={img.src}
+                    src={img.src}
+                    alt={img.alt}
+                    className={[
+                      'w-full h-auto block',
+                      'transition-opacity duration-700 ease-in-out',
+                      idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
+                    ].join(' ')}
+                    loading={idx === 0 ? 'eager' : 'lazy'}
+                    draggable={false}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Optional subtle hint (desktop only) */}
+            <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+              {isPaused ? 'Paused' : 'Hover to pause'}
+            </div>
+
+            {/* Optional subtle hint (mobile only) */}
+            <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+              Tap to {isPaused ? 'play' : 'pause'}
+            </div>
+          </div>
+        </div>
       </div>
     </Section>
   );
 };
 
 export default VBPlatform;
-
