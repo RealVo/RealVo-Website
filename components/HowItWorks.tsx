@@ -259,13 +259,16 @@ const HowItWorks: React.FC = () => {
 
         {/* RIGHT: KIOSK (pause on hover, tap to pause/resume on mobile) */}
         <div ref={kioskViewRef} className="relative">
-          <div className="relative flex justify-center overflow-hidden md:overflow-visible">
+          <div className="relative flex justify-center overflow-visible">
             {/* Wrapper takes interaction handlers so mobile isn't "wonky" */}
             <div
               className="relative select-none"
               onMouseEnter={handleKioskEnter}
               onMouseLeave={handleKioskLeave}
-              onTouchStart={handleKioskTouchStart}
+              onClick={handleKioskTapToggle}
+              ...
+            >
+
               role="button"
               aria-label={
                 isPaused ? 'How it works preview paused. Tap to resume.' : 'How it works preview playing. Tap to pause.'
