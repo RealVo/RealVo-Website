@@ -146,14 +146,13 @@ const VBPlatform: React.FC = () => {
           </div>
 
           <Button
-  size="lg"
+  size="md"
   variant="secondary"
   pressedStyle="insetWhite"
   className="shadow-none hover:shadow-none hover:-translate-y-0 tracking-wide"
 >
   EXPLORE PLATFORM FEATURES
 </Button>
-        </div>
 
         {/* Visual Side (mobile second) */}
         <div className="lg:col-span-7 order-2 lg:order-2 relative">
