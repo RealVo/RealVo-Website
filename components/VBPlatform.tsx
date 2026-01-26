@@ -52,6 +52,14 @@ const VBPlatform: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Preload platform images (prevents first-cycle flicker)
+  useEffect(() => {
+    platformScreens.forEach(s => {
+      const img = new Image();
+      img.src = s.src;
+    });
+  }, []);
+
   // Auto-advance slides (stops when paused)
   useEffect(() => {
     if (isPaused) return;
@@ -68,7 +76,6 @@ const VBPlatform: React.FC = () => {
   const handleMouseLeave = useCallback(() => setIsPaused(false), []);
 
   // Mobile: tap to toggle pause/resume
-  // (Prevents ghost clicks when dragging; keeps behavior simple.)
   const handleTouchStart = useCallback(() => {
     setIsPaused(prev => !prev);
   }, []);
@@ -117,7 +124,9 @@ const VBPlatform: React.FC = () => {
             onMouseLeave={handleMouseLeave}
             onTouchStart={handleTouchStart}
             role="button"
-            aria-label={isPaused ? 'Platform preview paused. Tap to resume.' : 'Platform preview playing. Tap to pause.'}
+            aria-label={
+              isPaused ? 'Platform preview paused. Tap to resume.' : 'Platform preview playing. Tap to pause.'
+            }
             tabIndex={0}
           >
             <div className="relative overflow-hidden rounded-[inherit]">
@@ -139,12 +148,12 @@ const VBPlatform: React.FC = () => {
               </div>
             </div>
 
-            {/* Optional subtle hint (desktop only) */}
+            {/* Desktop pill */}
             <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
               {isPaused ? 'Paused' : 'Hover to pause'}
             </div>
 
-            {/* Optional subtle hint (mobile only) */}
+            {/* Mobile pill */}
             <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
               Tap to {isPaused ? 'play' : 'pause'}
             </div>
@@ -156,3 +165,4 @@ const VBPlatform: React.FC = () => {
 };
 
 export default VBPlatform;
+
