@@ -19,13 +19,13 @@ const platformScreens = [
   { src: '/vbplatform/vbtv_screens_3.png', alt: 'VideoBooth.tv dashboard screenshot 3' },
 ];
 
-// ✅ Adjust animation timing here (start at 2s)
+// ✅ Adjustable timing (start at 2s)
 const SLIDE_MS = 2000;
 
 const VBPlatform: React.FC = () => {
   const vbRef = useRef<HTMLSpanElement | null>(null);
 
-  // ✅ NEW: detect when the image rotator enters/leaves view
+  // ✅ detect when the image rotator enters/leaves view
   const rotatorViewRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
 
@@ -35,6 +35,7 @@ const VBPlatform: React.FC = () => {
   // Pause / resume control
   const [isPaused, setIsPaused] = useState(false);
 
+  // Pulse animated headline text
   useEffect(() => {
     const node = vbRef.current;
     if (!node) return;
@@ -56,7 +57,7 @@ const VBPlatform: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Preload platform images (prevents first-cycle flicker)
+  // Preload platform images
   useEffect(() => {
     platformScreens.forEach(s => {
       const img = new Image();
@@ -64,7 +65,7 @@ const VBPlatform: React.FC = () => {
     });
   }, []);
 
-  // ✅ NEW: When the rotator comes into view, reset to the first image (like HowItWorks)
+  // ✅ reset to first image each time it re-enters view (matches HowItWorks behavior)
   useEffect(() => {
     const el = rotatorViewRef.current;
     if (!el) return;
@@ -74,9 +75,6 @@ const VBPlatform: React.FC = () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setIsInView(true);
-
-            // ✅ This is the feature you asked for:
-            // every time you scroll away and back, reset to image 1
             setIsPaused(false);
             setActiveIndex(0);
           } else {
@@ -146,13 +144,14 @@ const VBPlatform: React.FC = () => {
           </div>
 
           <Button
-  size="md"
-  variant="secondary"
-  pressedStyle="insetWhite"
-  className="shadow-none hover:shadow-none hover:-translate-y-0 tracking-wide"
->
-  EXPLORE PLATFORM FEATURES
-</Button>
+            size="md"
+            variant="secondary"
+            pressedStyle="insetWhite"
+            className="shadow-none hover:shadow-none hover:-translate-y-0 tracking-wide"
+          >
+            EXPLORE PLATFORM FEATURES
+          </Button>
+        </div>
 
         {/* Visual Side (mobile second) */}
         <div className="lg:col-span-7 order-2 lg:order-2 relative">
