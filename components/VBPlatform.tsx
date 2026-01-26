@@ -4,11 +4,11 @@ import Button from './Button';
 import { Play, Lock, Search, Download, BarChart2, Users, FileText } from 'lucide-react';
 
 const features = [
-  { icon: Play, label: 'View Submissions' },
-  { icon: FileText, label: 'Tag & Categorize' },
-  { icon: Search, label: 'Transcriptions' },
-  { icon: Download, label: 'Downloads & Exports' },
-  { icon: Users, label: 'Permissions Control' },
+  { icon: Lock, label: 'Permissions Control' },
+  { icon: Search, label: 'Search & Filter Results' },
+  { icon: FileText, label: 'Add Notes & Tags' },
+  { icon: Play, label: 'AI Transcription' },
+  { icon: Download, label: 'CRM-ready Data Exports' },
   { icon: BarChart2, label: 'Engagement Analytics' },
 ];
 
