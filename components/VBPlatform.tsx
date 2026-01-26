@@ -151,7 +151,7 @@ const VBPlatform: React.FC = () => {
   pressedStyle="insetWhite"
   className="shadow-none hover:shadow-none hover:-translate-y-0 tracking-wide"
 >
-  Explore Platform Features
+  EXPLORE PLATFORM FEATURES
 </Button>
         </div>
 
