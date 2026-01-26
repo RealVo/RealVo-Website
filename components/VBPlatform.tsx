@@ -145,7 +145,7 @@ const VBPlatform: React.FC = () => {
             ))}
           </div>
 
-          <Button variant="outline">Explore Platform Features</Button>
+          <Button variant="primary">EXPLORE PLATFORM FEATURES</Button>
         </div>
 
         {/* Visual Side (mobile second) */}
