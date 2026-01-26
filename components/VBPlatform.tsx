@@ -144,7 +144,7 @@ const VBPlatform: React.FC = () => {
           </div>
 
           <Button
-            size="md"
+            size="sm"
             variant="secondary"
             pressedStyle="insetWhite"
             className="shadow-none hover:shadow-none hover:-translate-y-0 tracking-wide"
