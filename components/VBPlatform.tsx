@@ -121,15 +121,14 @@ const VBPlatform: React.FC = () => {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
-            Manage Your Stories with{' '}
-            <span ref={vbRef} className="text-realvo-teal animate-pulse-once">
-              VideoBooth.tv
-            </span>
-          </h2>
+  <span ref={vbRef} className="text-realvo-teal animate-pulse-once">
+    VideoBooth.tv
+  </span>{' '}
+  Online Portal
+</h2>
 
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-            VB.tv is your secure private dashboard for reviewing, organizing, and managing RealVo
-            submissions. Turn raw video into actionable insights.
+            A private content management dashboard for reviewing, managing, and sharing content.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
