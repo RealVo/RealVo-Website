@@ -19,11 +19,15 @@ const platformScreens = [
   { src: '/vbplatform/vbtv_screens_3.png', alt: 'VideoBooth.tv dashboard screenshot 3' },
 ];
 
-// ✅ Adjustable timing (start at 2s)
+// ✅ Adjust animation timing here (start at 2s)
 const SLIDE_MS = 2000;
 
 const VBPlatform: React.FC = () => {
   const vbRef = useRef<HTMLSpanElement | null>(null);
+
+  // ✅ NEW: detect when the image rotator enters/leaves view
+  const rotatorViewRef = useRef<HTMLDivElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
 
   // Rotator state
   const [activeIndex, setActiveIndex] = useState(0);
@@ -60,8 +64,36 @@ const VBPlatform: React.FC = () => {
     });
   }, []);
 
-  // Auto-advance slides (stops when paused)
+  // ✅ NEW: When the rotator comes into view, reset to the first image (like HowItWorks)
   useEffect(() => {
+    const el = rotatorViewRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+
+            // ✅ This is the feature you asked for:
+            // every time you scroll away and back, reset to image 1
+            setIsPaused(false);
+            setActiveIndex(0);
+          } else {
+            setIsInView(false);
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-advance slides (stops when paused OR not in view)
+  useEffect(() => {
+    if (!isInView) return;
     if (isPaused) return;
 
     const id = window.setInterval(() => {
@@ -69,7 +101,7 @@ const VBPlatform: React.FC = () => {
     }, SLIDE_MS);
 
     return () => window.clearInterval(id);
-  }, [isPaused]);
+  }, [isInView, isPaused]);
 
   // Desktop: pause on hover, resume on leave
   const handleMouseEnter = useCallback(() => setIsPaused(true), []);
@@ -119,6 +151,7 @@ const VBPlatform: React.FC = () => {
         {/* Visual Side (mobile second) */}
         <div className="lg:col-span-7 order-2 lg:order-2 relative">
           <div
+            ref={rotatorViewRef}
             className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -165,4 +198,3 @@ const VBPlatform: React.FC = () => {
 };
 
 export default VBPlatform;
-
