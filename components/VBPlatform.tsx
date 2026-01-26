@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Section from './Section';
 import Button from './Button';
-import { Play, Lock, Search, Download, BarChart2, Users, FileText } from 'lucide-react';
+import { Play, Lock, Search, Download, BarChart2, FileText } from 'lucide-react';
 
 const features = [
   { icon: Lock, label: 'Permissions Control' },
@@ -21,6 +21,9 @@ const platformScreens = [
 
 // ✅ Adjustable timing (start at 2s)
 const SLIDE_MS = 2000;
+
+// ✅ Scale control (0.75 = 25% smaller). Tweak this number anytime.
+const PLATFORM_SCALE = 0.75;
 
 const VBPlatform: React.FC = () => {
   const vbRef = useRef<HTMLSpanElement | null>(null);
@@ -121,11 +124,11 @@ const VBPlatform: React.FC = () => {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
-  <span ref={vbRef} className="text-realvo-teal animate-pulse-once">
-    VideoBooth.tv
-  </span>{' '}
-  Online Portal
-</h2>
+            <span ref={vbRef} className="text-realvo-teal animate-pulse-once">
+              VideoBooth.tv
+            </span>{' '}
+            Online Portal
+          </h2>
 
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
             A private content management dashboard for reviewing, managing, and sharing content.
@@ -143,54 +146,61 @@ const VBPlatform: React.FC = () => {
           </div>
 
           <Button
-  variant="secondary"
-  className="text-xs px-3 py-1.5 shadow-none hover:shadow-none hover:-translate-y-0"
->
-  EXPLORE PLATFORM FEATURES
-</Button>
+            variant="secondary"
+            className="text-xs px-3 py-1.5 shadow-none hover:shadow-none hover:-translate-y-0"
+          >
+            EXPLORE PLATFORM FEATURES
+          </Button>
         </div>
 
         {/* Visual Side (mobile second) */}
         <div className="lg:col-span-7 order-2 lg:order-2 relative">
           <div
-            ref={rotatorViewRef}
-            className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            role="button"
-            aria-label={
-              isPaused ? 'Platform preview paused. Tap to resume.' : 'Platform preview playing. Tap to pause.'
-            }
-            tabIndex={0}
+            className="relative flex justify-end lg:justify-end"
+            style={{ transform: `scale(${PLATFORM_SCALE})`, transformOrigin: 'top right' }}
           >
-            <div className="relative overflow-hidden rounded-[inherit]">
-              <div className="relative w-full">
-                {platformScreens.map((img, idx) => (
-                  <img
-                    key={img.src}
-                    src={img.src}
-                    alt={img.alt}
-                    className={[
-                      'w-full h-auto block',
-                      'transition-opacity duration-700 ease-in-out',
-                      idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
-                    ].join(' ')}
-                    loading={idx === 0 ? 'eager' : 'lazy'}
-                    draggable={false}
-                  />
-                ))}
+            <div
+              ref={rotatorViewRef}
+              className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              role="button"
+              aria-label={
+                isPaused
+                  ? 'Platform preview paused. Tap to resume.'
+                  : 'Platform preview playing. Tap to pause.'
+              }
+              tabIndex={0}
+            >
+              <div className="relative overflow-hidden rounded-[inherit]">
+                <div className="relative w-full">
+                  {platformScreens.map((img, idx) => (
+                    <img
+                      key={img.src}
+                      src={img.src}
+                      alt={img.alt}
+                      className={[
+                        'w-full h-auto block',
+                        'transition-opacity duration-700 ease-in-out',
+                        idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
+                      ].join(' ')}
+                      loading={idx === 0 ? 'eager' : 'lazy'}
+                      draggable={false}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Desktop pill */}
-            <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
-              {isPaused ? 'Paused' : 'Hover to pause'}
-            </div>
+              {/* Desktop pill */}
+              <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+                {isPaused ? 'Paused' : 'Hover to pause'}
+              </div>
 
-            {/* Mobile pill */}
-            <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
-              Tap to {isPaused ? 'play' : 'pause'}
+              {/* Mobile pill */}
+              <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+                Tap to {isPaused ? 'play' : 'pause'}
+              </div>
             </div>
           </div>
         </div>
