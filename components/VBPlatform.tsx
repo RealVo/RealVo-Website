@@ -165,7 +165,7 @@ const VBPlatform: React.FC = () => {
           >
             <div
               ref={rotatorViewRef}
-              className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none"
+              className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none w-full max-w-[720px] mx-auto lg:mx-0"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               onTouchStart={handleTouchStart}
