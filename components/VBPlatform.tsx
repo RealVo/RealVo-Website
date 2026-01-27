@@ -159,20 +159,23 @@ const VBPlatform: React.FC = () => {
           <div
             ref={rotatorViewRef}
             className="
-              relative
-              shadow-2xl
-              bg-white dark:bg-gray-900
-              p-2
-              rounded-xl
-              select-none
-              w-screen
-              max-w-none
-              mx-[-1rem]
-              sm:mx-[-1.5rem]
-              lg:mx-0
-              lg:w-auto
-              lg:max-w-[720px]
-            "
+  relative
+  shadow-2xl
+  bg-white dark:bg-gray-900
+  p-2
+  rounded-xl
+  select-none
+  w-screen
+  max-w-none
+  px-3
+  mx-[-1rem]
+  sm:px-4
+  sm:mx-[-1.5rem]
+  lg:px-0
+  lg:mx-0
+  lg:w-auto
+  lg:max-w-[720px]
+"
             style={{
               transform: `scale(1)`,
               transformOrigin: 'top center',
