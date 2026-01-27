@@ -13,7 +13,7 @@ const Section: React.FC<SectionProps> = ({
   className = '',
   children,
   background = 'white',
-  padding = 'lg'
+  padding = 'md'
 }) => {
   const bgStyles: Record<NonNullable<SectionProps['background']>, string> = {
     white: 'bg-white dark:bg-realvo-charcoal',
