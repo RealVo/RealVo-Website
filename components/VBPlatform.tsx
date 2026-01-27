@@ -114,11 +114,7 @@ const VBPlatform: React.FC = () => {
   }, []);
 
   return (
-    <Section
-  id="vbtv"
-  padding="md"
-  className="overflow-hidden -mb-16 md:-mb-24"
->
+    <Section id="vbtv" padding="md" className="overflow-hidden -mb-16 md:-mb-24">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         {/* Content Side (mobile first) */}
         <div className="lg:col-span-5 order-1 lg:order-1">
@@ -159,12 +155,14 @@ const VBPlatform: React.FC = () => {
 
         {/* Visual Side (mobile second) */}
         <div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-start">
+          {/* ✅ wrapper that handles scaling + centering on mobile */}
           <div
-            className="relative flex justify-end lg:justify-end"
+            className="w-full flex justify-center lg:justify-end"
             style={{
-  transform: `scale(${PLATFORM_SCALE})`,
-  transformOrigin: 'top center'
-}}
+              transform: `scale(${PLATFORM_SCALE})`,
+              transformOrigin: 'top center', // ✅ centers on mobile
+            }}
+          >
             <div
               ref={rotatorViewRef}
               className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none w-full max-w-[720px] mx-auto lg:mx-0"
