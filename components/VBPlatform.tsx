@@ -22,7 +22,7 @@ const platformScreens = [
 // ✅ Adjustable timing (start at 2s)
 const SLIDE_MS = 2000;
 
-// ✅ Scale control (0.75 = 25% smaller). Tweak this number anytime.
+// ✅ Desktop scale control (0.75 = 25% smaller). Tweak this number anytime.
 const PLATFORM_SCALE = 0.75;
 
 const VBPlatform: React.FC = () => {
@@ -154,48 +154,68 @@ const VBPlatform: React.FC = () => {
         </div>
 
         {/* Visual Side (mobile second) */}
-        <div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-start">
-          {/* ✅ wrapper that handles scaling + centering on mobile */}
+        <div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-end">
+          {/* Mobile: full-bleed (edge-to-edge). Desktop: scaled + right-aligned */}
           <div
-  className="w-full flex justify-center lg:justify-end"
-  style={{
-    transform: `scale(1)`,
-  }}
->
+            ref={rotatorViewRef}
+            className="
+              relative
+              shadow-2xl
+              bg-white dark:bg-gray-900
+              p-2
+              rounded-xl
+              select-none
+              w-screen
+              max-w-none
+              mx-[-1rem]
+              sm:mx-[-1.5rem]
+              lg:mx-0
+              lg:w-auto
+              lg:max-w-[720px]
+            "
+            style={{
+              transform: `scale(1)`,
+              transformOrigin: 'top center',
+            }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            role="button"
+            aria-label={
+              isPaused ? 'Platform preview paused. Tap to resume.' : 'Platform preview playing. Tap to pause.'
+            }
+            tabIndex={0}
+          >
+            {/* Desktop-only scale wrapper (keeps mobile full width) */}
             <div
-              ref={rotatorViewRef}
-              <div
-  ref={rotatorViewRef}
-  className="
-    relative
-    shadow-2xl
-    bg-white dark:bg-gray-900
-    p-2
-    rounded-xl
-    select-none
-    w-screen
-    max-w-none
-    mx-[-1rem]
-    sm:mx-0
-    lg:w-full
-    lg:max-w-[720px]
-    lg:mx-0
-  "
-  style={{
-    transform: `scale(${PLATFORM_SCALE})`,
-    transformOrigin: 'top right',
-  }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onTouchStart={handleTouchStart}
-              role="button"
-              aria-label={
-                isPaused
-                  ? 'Platform preview paused. Tap to resume.'
-                  : 'Platform preview playing. Tap to pause.'
-              }
-              tabIndex={0}
+              className="hidden lg:block"
+              style={{
+                transform: `scale(${PLATFORM_SCALE})`,
+                transformOrigin: 'top right',
+              }}
             >
+              <div className="relative overflow-hidden rounded-[inherit]">
+                <div className="relative w-[720px]">
+                  {platformScreens.map((img, idx) => (
+                    <img
+                      key={img.src}
+                      src={img.src}
+                      alt={img.alt}
+                      className={[
+                        'w-full h-auto block',
+                        'transition-opacity duration-700 ease-in-out',
+                        idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
+                      ].join(' ')}
+                      loading={idx === 0 ? 'eager' : 'lazy'}
+                      draggable={false}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile render (no scale, full width) */}
+            <div className="lg:hidden">
               <div className="relative overflow-hidden rounded-[inherit]">
                 <div className="relative w-full">
                   {platformScreens.map((img, idx) => (
@@ -214,16 +234,16 @@ const VBPlatform: React.FC = () => {
                   ))}
                 </div>
               </div>
+            </div>
 
-              {/* Desktop pill */}
-              <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
-                {isPaused ? 'Paused' : 'Hover to pause'}
-              </div>
+            {/* Desktop pill */}
+            <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+              {isPaused ? 'Paused' : 'Hover to pause'}
+            </div>
 
-              {/* Mobile pill */}
-              <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
-                Tap to {isPaused ? 'play' : 'pause'}
-              </div>
+            {/* Mobile pill */}
+            <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+              Tap to {isPaused ? 'play' : 'pause'}
             </div>
           </div>
         </div>
