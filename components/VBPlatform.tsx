@@ -154,32 +154,39 @@ const VBPlatform: React.FC = () => {
         </div>
 
         {/* Visual Side (mobile second) */}
-        <div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-end">
-          {/* ✅ Desktop-only scale wrapper (mobile stays 1:1 and respects Section padding) */}
-          <div
-            className="w-full flex justify-center lg:justify-end"
-            style={{
-              transform: `scale(1)`,
-            }}
-          >
-            <div
-              ref={rotatorViewRef}
-              className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none w-full lg:w-auto lg:max-w-[720px]"
-              style={{
-                // ✅ Apply scale ONLY on desktop by switching at runtime via media query-like check is messy.
-                // So: keep transform on this element but neutralize it on mobile with scale(1) in CSS below:
-                transform: `scale(1)`,
-                transformOrigin: 'top center',
-              }}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onTouchStart={handleTouchStart}
-              role="button"
-              aria-label={
-                isPaused ? 'Platform preview paused. Tap to resume.' : 'Platform preview playing. Tap to pause.'
-              }
-              tabIndex={0}
-            >
+<div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-end">
+  <div
+    ref={rotatorViewRef}
+    className="
+      relative
+      shadow-2xl
+      bg-white dark:bg-gray-900
+      p-2
+      rounded-xl
+      select-none
+
+      /* MOBILE */
+      w-full
+      max-w-[94%]
+      mx-auto
+
+      /* DESKTOP */
+      lg:max-w-[720px]
+      lg:mx-0
+      lg:scale-[0.75]
+      lg:origin-top-right
+    "
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
+    onTouchStart={handleTouchStart}
+    role="button"
+    aria-label={
+      isPaused
+        ? 'Platform preview paused. Tap to resume.'
+        : 'Platform preview playing. Tap to pause.'
+    }
+    tabIndex={0}
+  >
               {/* ✅ Desktop transform applied via Tailwind “lg:” so mobile is untouched */}
               <div
                 className="w-full lg:w-auto lg:scale-[1]"
