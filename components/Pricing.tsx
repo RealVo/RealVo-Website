@@ -71,7 +71,7 @@ const Pricing: React.FC = () => {
   }, []);
 
   return (
-    <Section id="pricing" background="light">
+    <Section id="pricing" background="light" padding="md">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-4">
           Clear, Flexible{' '}
