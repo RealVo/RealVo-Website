@@ -165,16 +165,20 @@ const VBPlatform: React.FC = () => {
   p-2
   rounded-xl
   select-none
-  w-screen
-  max-w-none
-  px-3
-  mx-[-1rem]
-  sm:px-4
-  sm:mx-[-1.5rem]
+
+  /* ✅ MOBILE ONLY: near-full width with a little breathing room */
+  max-lg:w-screen
+  max-lg:max-w-none
+  max-lg:px-3
+  max-lg:mx-[-1rem]
+  max-lg:sm:px-4
+  max-lg:sm:mx-[-1.5rem]
+
+  /* ✅ DESKTOP: normal constrained layout */
+  lg:w-full
+  lg:max-w-[720px]
   lg:px-0
   lg:mx-0
-  lg:w-auto
-  lg:max-w-[720px]
 "
             style={{
               transform: `scale(1)`,
