@@ -161,8 +161,10 @@ const VBPlatform: React.FC = () => {
         <div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-start">
           <div
             className="relative flex justify-end lg:justify-end"
-            style={{ transform: `scale(${PLATFORM_SCALE})`, transformOrigin: 'top right' }}
-          >
+            style={{
+  transform: `scale(${PLATFORM_SCALE})`,
+  transformOrigin: 'top center'
+}}
             <div
               ref={rotatorViewRef}
               className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none w-full max-w-[720px] mx-auto lg:mx-0"
