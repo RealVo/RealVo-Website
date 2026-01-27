@@ -12,33 +12,23 @@ const features = [
   { icon: BarChart2, label: 'Engagement Analytics' },
 ];
 
-// Images live in: public/vbplatform/
 const platformScreens = [
   { src: '/vbplatform/vbtv_screens_1.png', alt: 'VideoBooth.tv dashboard screenshot 1' },
   { src: '/vbplatform/vbtv_screens_2.png', alt: 'VideoBooth.tv dashboard screenshot 2' },
   { src: '/vbplatform/vbtv_screens_3.png', alt: 'VideoBooth.tv dashboard screenshot 3' },
 ];
 
-// ✅ Adjustable timing (start at 2s)
 const SLIDE_MS = 2000;
-
-// ✅ Scale control (0.75 = 25% smaller). Desktop only.
-const PLATFORM_SCALE = 0.75;
 
 const VBPlatform: React.FC = () => {
   const vbRef = useRef<HTMLSpanElement | null>(null);
-
-  // ✅ detect when the image rotator enters/leaves view
   const rotatorViewRef = useRef<HTMLDivElement | null>(null);
+
   const [isInView, setIsInView] = useState(false);
-
-  // Rotator state
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Pause / resume control
   const [isPaused, setIsPaused] = useState(false);
 
-  // Pulse animated headline text
+  // Pulse animation
   useEffect(() => {
     const node = vbRef.current;
     if (!node) return;
@@ -46,7 +36,7 @@ const VBPlatform: React.FC = () => {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && node) {
+          if (entry.isIntersecting) {
             node.classList.remove('animate-pulse-once');
             void node.offsetWidth;
             node.classList.add('animate-pulse-once');
@@ -60,15 +50,7 @@ const VBPlatform: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Preload platform images
-  useEffect(() => {
-    platformScreens.forEach(s => {
-      const img = new Image();
-      img.src = s.src;
-    });
-  }, []);
-
-  // ✅ reset to first image each time it re-enters view (matches HowItWorks behavior)
+  // Reset slideshow on re-enter
   useEffect(() => {
     const el = rotatorViewRef.current;
     if (!el) return;
@@ -92,10 +74,9 @@ const VBPlatform: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-advance slides (stops when paused OR not in view)
+  // Slideshow timer
   useEffect(() => {
-    if (!isInView) return;
-    if (isPaused) return;
+    if (!isInView || isPaused) return;
 
     const id = window.setInterval(() => {
       setActiveIndex(prev => (prev + 1) % platformScreens.length);
@@ -104,43 +85,38 @@ const VBPlatform: React.FC = () => {
     return () => window.clearInterval(id);
   }, [isInView, isPaused]);
 
-  // Desktop: pause on hover, resume on leave
   const handleMouseEnter = useCallback(() => setIsPaused(true), []);
   const handleMouseLeave = useCallback(() => setIsPaused(false), []);
-
-  // Mobile: tap to toggle pause/resume
-  const handleTouchStart = useCallback(() => {
-    setIsPaused(prev => !prev);
-  }, []);
+  const handleTouchStart = useCallback(() => setIsPaused(p => !p), []);
 
   return (
     <Section id="vbtv" padding="md" className="overflow-hidden -mb-16 md:-mb-24">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-        {/* Content Side (mobile first) */}
-        <div className="lg:col-span-5 order-1 lg:order-1">
-          <div className="inline-flex items-center gap-2 bg-realvo-blue/10 dark:bg-realvo-blue/20 px-3 py-1 rounded-full text-sm font-medium text-realvo-blue dark:text-blue-300 mb-4">
-            <Lock size={14} className="text-realvo-teal animate-pulse" aria-hidden="true" />
+        {/* CONTENT */}
+        <div className="lg:col-span-5">
+          <div className="inline-flex items-center gap-2 bg-realvo-blue/10 px-3 py-1 rounded-full text-sm font-medium text-realvo-blue mb-4">
+            <Lock size={14} className="text-realvo-teal animate-pulse" />
             <span>Enterprise Secure</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-6">
             <span ref={vbRef} className="text-realvo-teal animate-pulse-once">
               VideoBooth.tv
             </span>{' '}
             Online Portal
           </h2>
 
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-600 mb-8">
             A private content management dashboard for reviewing, managing, and sharing content.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {features.map((feat, i) => (
-              <div key={i} className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
-                <div className="w-8 h-8 rounded-lg bg-realvo-light dark:bg-gray-700 flex items-center justify-center text-realvo-blue dark:text-realvo-teal">
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-realvo-light flex items-center justify-center text-realvo-blue">
                   <feat.icon size={16} />
                 </div>
-                <span className="font-medium text-sm">{feat.label}</span>
+                <span className="text-sm font-medium">{feat.label}</span>
               </div>
             ))}
           </div>
@@ -153,89 +129,53 @@ const VBPlatform: React.FC = () => {
           </Button>
         </div>
 
-        {/* Visual Side (mobile second) */}
-<div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-end">
-  <div
-    ref={rotatorViewRef}
-    className="
-      relative
-      shadow-2xl
-      bg-white dark:bg-gray-900
-      p-2
-      rounded-xl
-      select-none
+        {/* VISUAL */}
+        <div className="lg:col-span-7 flex justify-center lg:justify-end">
+          <div
+            ref={rotatorViewRef}
+            className="
+              relative
+              bg-white
+              p-2
+              rounded-xl
+              shadow-2xl
+              select-none
 
-      /* MOBILE */
-      w-full
-      max-w-[94%]
-      mx-auto
+              w-full
+              px-3
+              sm:px-4
+              max-w-none
 
-      /* DESKTOP */
-      lg:max-w-[720px]
-      lg:mx-0
-      lg:scale-[0.75]
-      lg:origin-top-right
-    "
-    onMouseEnter={handleMouseEnter}
-    onMouseLeave={handleMouseLeave}
-    onTouchStart={handleTouchStart}
-    role="button"
-    aria-label={
-      isPaused
-        ? 'Platform preview paused. Tap to resume.'
-        : 'Platform preview playing. Tap to pause.'
-    }
-    tabIndex={0}
-  >
-              {/* ✅ Desktop transform applied via Tailwind “lg:” so mobile is untouched */}
-              <div
-                className="w-full lg:w-auto lg:scale-[1]"
-                style={{
-                  // this wrapper is just here so we can apply the desktop scale cleanly:
-                  transform: undefined,
-                }}
-              />
+              lg:px-0
+              lg:max-w-[720px]
+              lg:scale-[0.75]
+              lg:origin-top-right
+            "
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+          >
+            <div className="relative overflow-hidden rounded-[inherit]">
+              {platformScreens.map((img, idx) => (
+                <img
+                  key={img.src}
+                  src={img.src}
+                  alt={img.alt}
+                  className={[
+                    'w-full h-auto transition-opacity duration-700',
+                    idx === activeIndex ? 'opacity-100' : 'opacity-0 absolute inset-0',
+                  ].join(' ')}
+                  loading={idx === 0 ? 'eager' : 'lazy'}
+                />
+              ))}
+            </div>
 
-              {/* ✅ ACTUAL IMAGE ROTATOR CARD */}
-              <div
-                className="relative"
-                style={{
-                  // Desktop scaling only:
-                  transform: window?.matchMedia?.('(min-width: 1024px)')?.matches
-                    ? `scale(${PLATFORM_SCALE})`
-                    : 'scale(1)',
-                  transformOrigin: window?.matchMedia?.('(min-width: 1024px)')?.matches ? 'top right' : 'top center',
-                }}
-              >
-                <div className="relative overflow-hidden rounded-[inherit]">
-                  <div className="relative w-full">
-                    {platformScreens.map((img, idx) => (
-                      <img
-                        key={img.src}
-                        src={img.src}
-                        alt={img.alt}
-                        className={[
-                          'w-full h-auto block',
-                          'transition-opacity duration-700 ease-in-out',
-                          idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
-                        ].join(' ')}
-                        loading={idx === 0 ? 'eager' : 'lazy'}
-                        draggable={false}
-                      />
-                    ))}
-                  </div>
-                </div>
+            <div className="hidden lg:block absolute bottom-3 right-3 text-[11px] bg-white/70 px-2 py-1 rounded-md">
+              {isPaused ? 'Paused' : 'Hover to pause'}
+            </div>
 
-                {/* Desktop pill */}
-                <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
-                  {isPaused ? 'Paused' : 'Hover to pause'}
-                </div>
-
-                {/* Mobile pill */}
-                <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
-                  Tap to {isPaused ? 'play' : 'pause'}
-                </div>
-              </div>
+            <div className="lg:hidden absolute bottom-3 right-3 text-[11px] bg-white/70 px-2 py-1 rounded-md">
+              Tap to {isPaused ? 'play' : 'pause'}
             </div>
           </div>
         </div>
@@ -245,3 +185,4 @@ const VBPlatform: React.FC = () => {
 };
 
 export default VBPlatform;
+
