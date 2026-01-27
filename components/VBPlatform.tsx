@@ -158,7 +158,7 @@ const VBPlatform: React.FC = () => {
         </div>
 
         {/* Visual Side (mobile second) */}
-        <div className="lg:col-span-7 order-2 lg:order-2 relative">
+        <div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-start">
           <div
             className="relative flex justify-end lg:justify-end"
             style={{ transform: `scale(${PLATFORM_SCALE})`, transformOrigin: 'top right' }}
