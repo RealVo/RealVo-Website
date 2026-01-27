@@ -157,15 +157,34 @@ const VBPlatform: React.FC = () => {
         <div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-start">
           {/* ✅ wrapper that handles scaling + centering on mobile */}
           <div
-            className="w-full flex justify-center lg:justify-end"
-            style={{
-              transform: `scale(${PLATFORM_SCALE})`,
-              transformOrigin: 'top center', // ✅ centers on mobile
-            }}
-          >
+  className="w-full flex justify-center lg:justify-end"
+  style={{
+    transform: `scale(1)`,
+  }}
+>
             <div
               ref={rotatorViewRef}
-              className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none w-full max-w-[720px] mx-auto lg:mx-0"
+              <div
+  ref={rotatorViewRef}
+  className="
+    relative
+    shadow-2xl
+    bg-white dark:bg-gray-900
+    p-2
+    rounded-xl
+    select-none
+    w-screen
+    max-w-none
+    mx-[-1rem]
+    sm:mx-0
+    lg:w-full
+    lg:max-w-[720px]
+    lg:mx-0
+  "
+  style={{
+    transform: `scale(${PLATFORM_SCALE})`,
+    transformOrigin: 'top right',
+  }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               onTouchStart={handleTouchStart}
