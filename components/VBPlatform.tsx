@@ -22,7 +22,7 @@ const platformScreens = [
 // ✅ Adjustable timing (start at 2s)
 const SLIDE_MS = 2000;
 
-// ✅ Desktop scale control (0.75 = 25% smaller). Tweak this number anytime.
+// ✅ Scale control (0.75 = 25% smaller). Desktop only.
 const PLATFORM_SCALE = 0.75;
 
 const VBPlatform: React.FC = () => {
@@ -155,102 +155,80 @@ const VBPlatform: React.FC = () => {
 
         {/* Visual Side (mobile second) */}
         <div className="lg:col-span-7 order-2 lg:order-2 relative flex justify-center lg:justify-end">
-          {/* Mobile: full-bleed (edge-to-edge). Desktop: scaled + right-aligned */}
+          {/* ✅ Desktop-only scale wrapper (mobile stays 1:1 and respects Section padding) */}
           <div
-            ref={rotatorViewRef}
-            className="
-  relative
-  shadow-2xl
-  bg-white dark:bg-gray-900
-  p-2
-  rounded-xl
-  select-none
-
-  /* ✅ MOBILE ONLY: near-full width with a little breathing room */
-  max-lg:w-screen
-  max-lg:max-w-none
-  max-lg:px-3
-  max-lg:mx-[-1rem]
-  max-lg:sm:px-4
-  max-lg:sm:mx-[-1.5rem]
-
-  /* ✅ DESKTOP: normal constrained layout */
-  lg:w-full
-  lg:max-w-[720px]
-  lg:px-0
-  lg:mx-0
-"
+            className="w-full flex justify-center lg:justify-end"
             style={{
               transform: `scale(1)`,
-              transformOrigin: 'top center',
             }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            role="button"
-            aria-label={
-              isPaused ? 'Platform preview paused. Tap to resume.' : 'Platform preview playing. Tap to pause.'
-            }
-            tabIndex={0}
           >
-            {/* Desktop-only scale wrapper (keeps mobile full width) */}
             <div
-              className="hidden lg:block"
+              ref={rotatorViewRef}
+              className="relative shadow-2xl bg-white dark:bg-gray-900 p-2 rounded-xl select-none w-full lg:w-auto lg:max-w-[720px]"
               style={{
-                transform: `scale(${PLATFORM_SCALE})`,
-                transformOrigin: 'top right',
+                // ✅ Apply scale ONLY on desktop by switching at runtime via media query-like check is messy.
+                // So: keep transform on this element but neutralize it on mobile with scale(1) in CSS below:
+                transform: `scale(1)`,
+                transformOrigin: 'top center',
               }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              role="button"
+              aria-label={
+                isPaused ? 'Platform preview paused. Tap to resume.' : 'Platform preview playing. Tap to pause.'
+              }
+              tabIndex={0}
             >
-              <div className="relative overflow-hidden rounded-[inherit]">
-                <div className="relative w-[720px]">
-                  {platformScreens.map((img, idx) => (
-                    <img
-                      key={img.src}
-                      src={img.src}
-                      alt={img.alt}
-                      className={[
-                        'w-full h-auto block',
-                        'transition-opacity duration-700 ease-in-out',
-                        idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
-                      ].join(' ')}
-                      loading={idx === 0 ? 'eager' : 'lazy'}
-                      draggable={false}
-                    />
-                  ))}
+              {/* ✅ Desktop transform applied via Tailwind “lg:” so mobile is untouched */}
+              <div
+                className="w-full lg:w-auto lg:scale-[1]"
+                style={{
+                  // this wrapper is just here so we can apply the desktop scale cleanly:
+                  transform: undefined,
+                }}
+              />
+
+              {/* ✅ ACTUAL IMAGE ROTATOR CARD */}
+              <div
+                className="relative"
+                style={{
+                  // Desktop scaling only:
+                  transform: window?.matchMedia?.('(min-width: 1024px)')?.matches
+                    ? `scale(${PLATFORM_SCALE})`
+                    : 'scale(1)',
+                  transformOrigin: window?.matchMedia?.('(min-width: 1024px)')?.matches ? 'top right' : 'top center',
+                }}
+              >
+                <div className="relative overflow-hidden rounded-[inherit]">
+                  <div className="relative w-full">
+                    {platformScreens.map((img, idx) => (
+                      <img
+                        key={img.src}
+                        src={img.src}
+                        alt={img.alt}
+                        className={[
+                          'w-full h-auto block',
+                          'transition-opacity duration-700 ease-in-out',
+                          idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
+                        ].join(' ')}
+                        loading={idx === 0 ? 'eager' : 'lazy'}
+                        draggable={false}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Desktop pill */}
+                <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+                  {isPaused ? 'Paused' : 'Hover to pause'}
+                </div>
+
+                {/* Mobile pill */}
+                <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+                  Tap to {isPaused ? 'play' : 'pause'}
                 </div>
               </div>
-            </div>
-
-            {/* Mobile render (no scale, full width) */}
-            <div className="lg:hidden">
-              <div className="relative overflow-hidden rounded-[inherit]">
-                <div className="relative w-full">
-                  {platformScreens.map((img, idx) => (
-                    <img
-                      key={img.src}
-                      src={img.src}
-                      alt={img.alt}
-                      className={[
-                        'w-full h-auto block',
-                        'transition-opacity duration-700 ease-in-out',
-                        idx === activeIndex ? 'opacity-100 relative' : 'opacity-0 absolute inset-0',
-                      ].join(' ')}
-                      loading={idx === 0 ? 'eager' : 'lazy'}
-                      draggable={false}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Desktop pill */}
-            <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
-              {isPaused ? 'Paused' : 'Hover to pause'}
-            </div>
-
-            {/* Mobile pill */}
-            <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
-              Tap to {isPaused ? 'play' : 'pause'}
             </div>
           </div>
         </div>
