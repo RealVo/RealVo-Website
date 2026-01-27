@@ -116,7 +116,8 @@ const VBPlatform: React.FC = () => {
   return (
     <Section
   id="vbtv"
-  className="overflow-hidden pb-8 lg:pb-12"
+  padding="md"
+  className="overflow-hidden"
 >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         {/* Content Side (mobile first) */}
