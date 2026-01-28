@@ -185,9 +185,18 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
       </div>
 
       <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-start gap-3">
-        <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-realvo-light dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800/80 text-realvo-blue dark:text-sky-400">
-          <Icon size={18} />
-        </span>
+        <span
+  className="
+    mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center
+    rounded-xl
+    bg-realvo-teal text-white
+    dark:bg-realvo-teal dark:text-white
+    transition-colors duration-200
+    group-hover:bg-realvo-blue group-hover:text-white
+  "
+>
+  <Icon size={18} />
+</span>
         <span>{block.title}</span>
       </h2>
 
@@ -241,7 +250,7 @@ const VBPlatform_More: React.FC = () => {
 
             {/* Feature cards (2-column on desktop) */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
-              <div className="rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/50 p-4 sm:p-6 lg:p-8">
+              <div className="group rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/50 p-4 sm:p-6 lg:p-8">
                 <div className="mb-5 sm:mb-7">
   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
     Platform features
