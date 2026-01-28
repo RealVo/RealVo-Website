@@ -9,13 +9,8 @@ import {
   Play,
   Download,
   BarChart2,
-  ShieldCheck,
   CheckCircle2,
-  Share2,
-  SlidersHorizontal,
-  Users,
   Layers,
-  LayoutGrid,
   Globe,
 } from 'lucide-react';
 
@@ -28,25 +23,13 @@ type FeatureBlock = {
   image?: { src: string; alt: string };
   icon: React.ElementType;
   imageSide: 'left' | 'right';
-  // Optional “extra content” slot for things like pills/icons grids
-  extra?: React.ReactNode;
 };
 
-const HERO_PILLS = [
-  'Permissions Control',
-  'Search & Filter Results',
-  'Add Notes & Tags',
-  'AI Transcription',
-  'CRM-ready Data Exports',
-  'Engagement Analytics',
-];
-
-// ✅ One place to tune image size globally (this is your “reduce images ~50%” control)
-// - before: max-w-[720px]
-// - now: max-w-[420px] (≈ 42% smaller), and centered in its column
+// ✅ Global image size control (smaller visuals)
 const IMAGE_MAX_W = 'max-w-[420px]';
 
 const FEATURE_BLOCKS: FeatureBlock[] = [
+  // 1) RIGHT
   {
     id: 'library',
     kicker: 'Content Management',
@@ -63,6 +46,8 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: Layers,
     imageSide: 'right',
   },
+
+  // 2) LEFT
   {
     id: 'search',
     kicker: 'Search & Filters',
@@ -79,6 +64,8 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: Search,
     imageSide: 'left',
   },
+
+  // 3) RIGHT
   {
     id: 'notes-tags',
     kicker: 'Notes & Tags',
@@ -96,64 +83,7 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     imageSide: 'right',
   },
 
-  // ✅ This row “absorbs” your pills + icon grid content (so Hero stays clean)
-  {
-    id: 'at-a-glance',
-    kicker: 'At-a-glance capabilities',
-    title: 'Everything teams need to review, govern, and deliver.',
-    description:
-      'These tools help you scale review and publishing workflows across stakeholders, programs, and campaigns.',
-    bullets: [
-      'Built for multi-stakeholder review',
-      'Campaign-level organization',
-      'Governed access and controls',
-      'Private or public sharing workflows',
-    ],
-    icon: ShieldCheck,
-    imageSide: 'left',
-    extra: (
-      <div className="mt-6 space-y-4">
-        {/* Security pill */}
-        <div className="inline-flex items-center gap-2 bg-realvo-blue/10 dark:bg-realvo-blue/20 px-3 py-1 rounded-full text-sm font-medium text-realvo-blue dark:text-blue-300">
-          <ShieldCheck size={14} className="text-realvo-teal" aria-hidden="true" />
-          <span>Enterprise Secure</span>
-        </div>
-
-        {/* Pills */}
-        <div className="flex flex-wrap gap-2">
-          {HERO_PILLS.map((tag) => (
-            <span
-              key={tag}
-              className="inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-1 text-[11px] sm:text-xs font-medium text-slate-700 dark:text-slate-200"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Icon grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-          {[
-            { icon: Users, label: 'Built for multi-stakeholder review' },
-            { icon: SlidersHorizontal, label: 'Campaign-level organization' },
-            { icon: Share2, label: 'Private or public sharing workflows' },
-            { icon: Lock, label: 'Governed access and controls' },
-          ].map((item) => {
-            const I = item.icon;
-            return (
-              <div key={item.label} className="flex items-center gap-3 text-slate-700 dark:text-slate-200">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-realvo-light dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800/80 text-realvo-blue dark:text-sky-400">
-                  <I size={18} />
-                </span>
-                <span className="text-sm font-medium">{item.label}</span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    ),
-  },
-
+  // 4) LEFT
   {
     id: 'governance',
     kicker: 'Governance & Permissions',
@@ -168,8 +98,10 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     ],
     image: { src: '/vbplatform/vbtv_screens_1.png', alt: 'VideoBooth.tv permissions' },
     icon: Lock,
-    imageSide: 'right',
+    imageSide: 'left',
   },
+
+  // 5) RIGHT
   {
     id: 'moderation',
     kicker: 'Moderation & Approvals',
@@ -184,8 +116,10 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     ],
     image: { src: '/vbplatform/vbtv_screens_2.png', alt: 'VideoBooth.tv moderation workflow' },
     icon: CheckCircle2,
-    imageSide: 'left',
+    imageSide: 'right',
   },
+
+  // 6) LEFT
   {
     id: 'transcription',
     kicker: 'AI Transcription',
@@ -200,8 +134,10 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     ],
     image: { src: '/vbplatform/vbtv_screens_3.png', alt: 'VideoBooth.tv transcription' },
     icon: Play,
-    imageSide: 'right',
+    imageSide: 'left',
   },
+
+  // 7) RIGHT
   {
     id: 'analytics',
     kicker: 'Engagement & Reporting',
@@ -216,8 +152,10 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     ],
     image: { src: '/vbplatform/vbtv_screens_1.png', alt: 'VideoBooth.tv analytics view' },
     icon: BarChart2,
-    imageSide: 'left',
+    imageSide: 'right',
   },
+
+  // 8) LEFT
   {
     id: 'exports',
     kicker: 'Exports & Delivery',
@@ -232,10 +170,10 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     ],
     image: { src: '/vbplatform/vbtv_screens_2.png', alt: 'VideoBooth.tv exports view' },
     icon: Download,
-    imageSide: 'right',
+    imageSide: 'left',
   },
 
-  // ✅ Online Sharing as ONE additional feature section (per your request)
+  // 9) RIGHT (Online Sharing as a single additional feature row)
   {
     id: 'online-sharing',
     kicker: 'Online Sharing Service',
@@ -250,7 +188,7 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     ],
     image: { src: '/vbplatform/vbtv_screens_3.png', alt: 'VideoBooth.tv online sharing workflows' },
     icon: Globe,
-    imageSide: 'left',
+    imageSide: 'right',
   },
 ];
 
@@ -283,8 +221,6 @@ function FeatureRow({ block }: { block: FeatureBlock }) {
             <li key={i}>{b}</li>
           ))}
         </ul>
-
-        {block.extra ? <div className="max-w-xl">{block.extra}</div> : null}
       </div>
 
       {/* Image (smaller, centered) */}
@@ -308,7 +244,6 @@ function FeatureRow({ block }: { block: FeatureBlock }) {
             />
           </div>
         ) : (
-          // For rows without an image, keep the grid balanced
           <div className="w-full" />
         )}
       </div>
@@ -345,7 +280,7 @@ const VBPlatform_More: React.FC = () => {
               Back to Platform
             </Link>
 
-            {/* ✅ HERO matches UseCases layout exactly (no image, no pills, no icon grid) */}
+            {/* HERO (matches UseCases layout) */}
             <div className="max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
                 Platform
@@ -354,7 +289,8 @@ const VBPlatform_More: React.FC = () => {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                 Manage, review, and publish RealVo content at scale.
                 <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
-                  VideoBooth.tv is your secure portal for organizing recordings, governing access, speeding up review, and delivering content in the right formats.
+                  VideoBooth.tv is your secure portal for organizing recordings, governing access, speeding up review,
+                  and delivering content in the right formats.
                 </span>
               </h1>
             </div>
