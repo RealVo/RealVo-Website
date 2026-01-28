@@ -176,27 +176,28 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
   const Icon = block.icon;
 
   return (
-    <div className="rounded-3xl bg-white/90 dark:bg-slate-900/70 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-shadow p-6 sm:p-7">
-      {/* subtle brand accent */}
-
+    <div className="group rounded-3xl bg-white/90 dark:bg-slate-900/70 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-shadow p-6 sm:p-7">
+      {/* Kicker pill (leave as-is) */}
       <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-950 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-4">
         <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
         {block.kicker}
       </div>
 
       <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-start gap-3">
+        {/* Feature Icon (locked size + card-only hover) */}
         <span
-  className="
-    mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center
-    rounded-xl
-    bg-realvo-teal text-white
-    dark:bg-realvo-teal dark:text-white
-    transition-colors duration-200
-    group-hover:bg-realvo-blue group-hover:text-white
-  "
->
-  <Icon size={18} />
-</span>
+          className="
+            mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center
+            rounded-xl
+            bg-realvo-teal text-white
+            dark:bg-realvo-teal dark:text-white
+            transition-colors duration-200
+            group-hover:bg-realvo-blue group-hover:text-white
+          "
+        >
+          <Icon size={18} />
+        </span>
+
         <span>{block.title}</span>
       </h2>
 
@@ -243,19 +244,20 @@ const VBPlatform_More: React.FC = () => {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                 VideoBooth.tv Online Portal
                 <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
-  Everything teams need to manage, review, and deliver content at scale.
-</span>
+                  Everything teams need to manage, review, and deliver content at scale.
+                </span>
               </h1>
             </div>
 
             {/* Feature cards (2-column on desktop) */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
-              <div className="group rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/50 p-4 sm:p-6 lg:p-8">
+              {/* NOTE: no "group" here */}
+              <div className="rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/50 p-4 sm:p-6 lg:p-8">
                 <div className="mb-5 sm:mb-7">
-  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-    Platform features
-  </p>
-</div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                    Platform features
+                  </p>
+                </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
                   {FEATURE_BLOCKS.map((block) => (
@@ -295,3 +297,4 @@ const VBPlatform_More: React.FC = () => {
 };
 
 export default VBPlatform_More;
+
