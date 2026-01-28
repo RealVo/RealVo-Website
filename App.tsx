@@ -27,6 +27,7 @@ import FreeStandingKiosk from './pages/FreeStandingKiosk';
 import DesktopTabletKiosk from './pages/DesktopTabletKiosk';
 import VirtualVideoBooth from './pages/VirtualVideoBooth';
 import ContactForm from './components/ContactForm';
+import VBPlatform_More from './pages/VBPlatform_More';
 
 // ------------------------
 // Home / Landing page
@@ -203,6 +204,7 @@ const App: React.FC = () => {
         <Route path="/capture/free-standing-kiosk" element={<FreeStandingKiosk />} />
         <Route path="/capture/desktop-tablet-kiosk" element={<DesktopTabletKiosk />} />
         <Route path="/capture/virtual-video-booth" element={<VirtualVideoBooth />} />
+        <Route path="/vbplatform-more" element={<VBPlatform_More />} />
       </Routes>
     </Router>
   );
