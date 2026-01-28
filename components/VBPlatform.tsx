@@ -122,11 +122,12 @@ const VBPlatform: React.FC = () => {
           </div>
 
           <Button
-            variant="secondary"
-            className="text-xs px-3 py-1.5 shadow-none hover:shadow-none hover:-translate-y-0"
-          >
-            EXPLORE PLATFORM FEATURES
-          </Button>
+  variant="secondary"
+  href="/vbplatform-more"
+  className="text-xs px-3 py-1.5 shadow-none hover:shadow-none hover:-translate-y-0"
+>
+  EXPLORE PLATFORM FEATURES
+</Button>
         </div>
 
         {/* VISUAL */}
