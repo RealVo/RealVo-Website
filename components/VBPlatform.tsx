@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Section from './Section';
 import Button from './Button';
 import { Play, Lock, Search, Download, BarChart2, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const features = [
   { icon: Lock, label: 'Permissions Control' },
@@ -121,13 +122,14 @@ const VBPlatform: React.FC = () => {
             ))}
           </div>
 
-          <Button
-  variant="secondary"
-  href="/vbplatform-more"
-  className="text-xs px-3 py-1.5 shadow-none hover:shadow-none hover:-translate-y-0"
->
-  EXPLORE PLATFORM FEATURES
-</Button>
+          <Link to="/vbplatform-more">
+  <Button
+    variant="secondary"
+    className="text-xs px-3 py-1.5 shadow-none hover:shadow-none hover:-translate-y-0"
+  >
+    EXPLORE PLATFORM FEATURES
+  </Button>
+</Link>
         </div>
 
         {/* VISUAL */}
