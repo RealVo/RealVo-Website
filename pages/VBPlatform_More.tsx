@@ -1,383 +1,238 @@
-// pages/VBPlatform_More.tsx
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import {
-  Lock,
-  Search,
-  FileText,
-  Play,
-  Download,
-  BarChart2,
-  ShieldCheck,
-  CheckCircle2,
-  Share2,
-  SlidersHorizontal,
-  Users,
-  Layers,
-  FolderKanban,
-  Globe,
-} from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-type FeatureBlock = {
-  id: string;
+type FeatureSectionProps = {
   kicker: string;
   title: string;
   description: string;
-  bullets: string[];
-  icon: React.ElementType;
-  visualSide: 'left' | 'right'; // controls the alternating pattern
-  pills?: string[]; // optional “pills” slot inside the row (not in hero)
-  note?: string; // optional small line under bullets
+  bullets?: string[];
+  outcomes?: string[];
+  align?: "left" | "right";
+  accent?: React.ReactNode; // optional: screenshot, diagram, stat card, etc.
 };
 
-const CORE_PILLS = [
-  'Permissions Control',
-  'Search & Filter Results',
-  'Add Notes & Tags',
-  'AI Transcription',
-  'CRM-ready Data Exports',
-  'Engagement Analytics',
-];
-
-const FEATURE_BLOCKS: FeatureBlock[] = [
-  {
-    id: 'core',
-    kicker: 'Core platform capabilities',
-    title: 'Everything teams need to review, govern, and deliver.',
-    description:
-      'VideoBooth.tv keeps content organized and accessible across stakeholders, programs, and campaigns — without chasing files.',
-    bullets: [
-      'Built for multi-stakeholder review workflows',
-      'Campaign-level organization for large programs',
-      'Governed access and controls',
-      'Built for repeatable, real-world delivery',
-    ],
-    pills: CORE_PILLS,
-    icon: ShieldCheck,
-    visualSide: 'right',
-  },
-  {
-    id: 'library',
-    kicker: 'Library & Organization',
-    title: 'A centralized content library for every recording.',
-    description:
-      'Keep campaigns, groups, and sessions structured — so teams can review, shortlist, and publish with confidence.',
-    bullets: [
-      'Campaign + group structure for large programs',
-      'Fast browsing with thumbnails + playback',
-      'Designed for high-volume capture',
-      'Reduce duplication and scattered file storage',
-    ],
-    icon: FolderKanban,
-    visualSide: 'left',
-  },
-  {
-    id: 'search',
-    kicker: 'Search & Filters',
-    title: 'Find what you need in seconds.',
-    description:
-      'Search and filter across sessions to quickly isolate the moments that matter — by campaign, date ranges, and more.',
-    bullets: [
-      'Search across groups and sessions',
-      'Filters to narrow large result sets',
-      'Quickly shortlist usable clips',
-      'Designed for repeatable review workflows',
-    ],
-    icon: Search,
-    visualSide: 'right',
-  },
-  {
-    id: 'notes-tags',
-    kicker: 'Notes & Tags',
-    title: 'Add context that teams can act on.',
-    description:
-      'Annotate content with notes and tags to capture themes, outcomes, or next steps — without changing the original recordings.',
-    bullets: [
-      'Notes per video/session',
-      'Tag content by theme or category',
-      'Organize clips for comms and reporting',
-      'Support internal review consistency',
-    ],
-    icon: FileText,
-    visualSide: 'left',
-  },
-  {
-    id: 'governance',
-    kicker: 'Governance & Permissions',
-    title: 'Control who can access what.',
-    description:
-      'Give teams and stakeholders secure access to content — with permission controls that support enterprise workflows.',
-    bullets: [
-      'Permission-based access',
-      'Secure stakeholder review',
-      'Reduce file-sharing and duplication',
-      'Built for professional programs',
-    ],
-    icon: Lock,
-    visualSide: 'right',
-    note: 'Enterprise Secure (GDPR-ready / workflow-friendly controls).',
-  },
-  {
-    id: 'moderation',
-    kicker: 'Moderation & Approvals',
-    title: 'Keep publishing under control.',
-    description:
-      'Review content before it goes live. Maintain brand and program standards with moderation-friendly workflows.',
-    bullets: [
-      'Approve or decline sessions before publishing',
-      'Keep internal content private',
-      'Support brand-safe publishing',
-      'Clear review flow for teams',
-    ],
-    icon: CheckCircle2,
-    visualSide: 'left',
-  },
-  {
-    id: 'transcription',
-    kicker: 'AI Transcription',
-    title: 'Turn video into searchable text.',
-    description:
-      'Add transcription to make content easier to scan, review, and reuse — especially at scale.',
-    bullets: [
-      'Transcribe recordings for quick review',
-      'Improve searchability and accessibility',
-      'Support faster insight extraction',
-      'Reduce manual admin time',
-    ],
-    icon: Play,
-    visualSide: 'right',
-  },
-  {
-    id: 'analytics',
-    kicker: 'Engagement & Reporting',
-    title: 'Understand performance across campaigns.',
-    description:
-      'Track activity and engagement to understand what’s working — and what content is resonating most.',
-    bullets: [
-      'Engagement analytics at a glance',
-      'Activity snapshots by time range',
-      'Identify trending sessions',
-      'Support post-activation reporting',
-    ],
-    icon: BarChart2,
-    visualSide: 'left',
-  },
-  {
-    id: 'exports',
-    kicker: 'Exports & Delivery',
-    title: 'Export content and data in CRM-ready formats.',
-    description:
-      'Move content into the rest of your workflow — from internal archives to stakeholder reporting and CRM-ready exports.',
-    bullets: [
-      'Download videos and assets',
-      'Export structured metadata',
-      'CRM-ready outputs',
-      'Designed for real-world delivery needs',
-    ],
-    icon: Download,
-    visualSide: 'right',
-  },
-  {
-    id: 'sharing',
-    kicker: 'Online Sharing Service',
-    title: 'Extend reach with branded sharing and galleries.',
-    description:
-      'Publish content externally with branded microsites and sharing workflows — ideal for campaigns that need public visibility.',
-    bullets: [
-      'Branded viewing via microsites and galleries',
-      'Curated collections for campaigns and programs',
-      'Moderation-ready external publishing',
-      'Engagement tracking across viewing experiences',
-    ],
-    icon: Globe,
-    visualSide: 'left',
-    note: 'Add-on service (positioned as a platform extension).',
-  },
-];
-
-function FeatureRow({ block }: { block: FeatureBlock }) {
-  const isRight = block.visualSide === 'right';
-  const Icon = block.icon;
+function FeatureSection({
+  kicker,
+  title,
+  description,
+  bullets,
+  outcomes,
+  align = "left",
+  accent,
+}: FeatureSectionProps) {
+  const isLeft = align === "left";
 
   return (
-    <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-start">
-      {/* Text */}
-      <div className={isRight ? '' : 'lg:order-2'}>
-        <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-900 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-3">
-          <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
-          {block.kicker}
-        </div>
+    <section className="py-12 sm:py-14">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Text */}
+          <div className={`lg:col-span-7 ${isLeft ? "lg:order-1" : "lg:order-2"}`}>
+            <p className="text-sm font-semibold tracking-wide text-slate-500 dark:text-slate-400">
+              {kicker}
+            </p>
+            <h2 className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+              {title}
+            </h2>
 
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
-          {block.title}
-        </h2>
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+              {description}
+            </p>
 
-        <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-          {block.description}
-        </p>
+            {bullets?.length ? (
+              <ul className="mt-6 space-y-3 text-slate-700 dark:text-slate-300">
+                {bullets.map((b, idx) => (
+                  <li key={idx} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
 
-        {block.pills && block.pills.length > 0 && (
-          <div className="mt-5 flex flex-wrap gap-2">
-            {block.pills.map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-1 text-[11px] sm:text-xs font-medium text-slate-700 dark:text-slate-200"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <ul className="mt-5 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-          {block.bullets.map((b, i) => (
-            <li key={i}>{b}</li>
-          ))}
-        </ul>
-
-        {block.note && (
-          <p className="mt-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            {block.note}
-          </p>
-        )}
-      </div>
-
-      {/* Visual Accent (no screenshots) */}
-      <div className={`${isRight ? '' : 'lg:order-1'} flex items-start justify-center`}>
-        <div className="w-full max-w-[520px] rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-white dark:bg-slate-900 shadow-sm p-6">
-          <div className="flex items-start gap-4">
-            <div className="shrink-0 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-realvo-blue/10 dark:bg-sky-500/10 text-realvo-blue dark:text-sky-400">
-              <Icon size={20} />
-            </div>
-
-            <div>
-              <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                {block.kicker}
-              </p>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-                {block.description}
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {block.bullets.slice(0, 4).map((b) => (
-              <div
-                key={b}
-                className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 flex items-start gap-2"
-              >
-                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-realvo-teal" />
-                <span>{b}</span>
+            {outcomes?.length ? (
+              <div className="mt-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5">
+                <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                  What this enables
+                </p>
+                <ul className="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                  {outcomes.map((o, idx) => (
+                    <li key={idx} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-400 dark:bg-slate-500" />
+                      <span>{o}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
+            ) : null}
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            {[
-              { icon: Users, label: 'Multi-stakeholder' },
-              { icon: SlidersHorizontal, label: 'Campaign-ready' },
-              { icon: Share2, label: 'Delivery workflows' },
-              { icon: Layers, label: 'Organized library' },
-            ].map((item) => {
-              const I = item.icon;
-              return (
-                <span
-                  key={item.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-1 text-[11px] sm:text-xs font-medium text-slate-700 dark:text-slate-200"
-                >
-                  <I size={14} className="text-realvo-blue dark:text-sky-400" />
-                  {item.label}
-                </span>
-              );
-            })}
-          </div>
-
-          <div className="mt-5">
-            <Link
-              to="/#vbtv"
-              className="inline-flex items-center text-xs font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
-            >
-              See the rotating preview on the Platform section <span className="ml-1 text-base">→</span>
-            </Link>
+          {/* Optional Accent */}
+          <div className={`lg:col-span-5 ${isLeft ? "lg:order-2" : "lg:order-1"}`}>
+            {accent ? (
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-sm overflow-hidden">
+                <div className="p-4 sm:p-5">{accent}</div>
+              </div>
+            ) : (
+              // If you want absolutely no visual block, delete this entire fallback.
+              <div className="hidden lg:block rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 p-6">
+                <p className="text-sm text-slate-500 dark:text-slate-400">
+                  Optional visual accent area (leave empty or add a screenshot later).
+                </p>
+              </div>
+            )}
           </div>
         </div>
+
+        <div className="mt-12 h-px w-full bg-slate-200 dark:bg-slate-800" />
       </div>
-    </div>
+    </section>
   );
 }
 
-const VBPlatform_More: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+export default function VBPlatform_More() {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50">
-      <Header />
+    <main className="bg-white dark:bg-slate-950">
+      {/* Hero (matches UseCases.tsx style: kicker + headline + subline) */}
+      <section className="pt-16 sm:pt-20 pb-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="text-sm font-semibold tracking-wide text-slate-500 dark:text-slate-400">
+            VBPlatform
+          </p>
 
-      <main className="flex-grow">
-        <section className="w-full">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
-            {/* Back link */}
-            <a
-              href="/#vbtv"
-              className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
+          <h1 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            A platform built to capture voices—and make them usable.
+          </h1>
+
+          <p className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+            RealVo combines structured capture, review-ready output, and organization-first controls so
+            stories can be collected consistently—and shared responsibly across teams, channels, and stakeholders.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold
+                         bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
             >
-              <span className="mr-1.5 text-base">←</span>
-              Back to Platform
+              Back to homepage
+            </Link>
+            <a
+              href="#features"
+              className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold
+                         border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white
+                         hover:bg-slate-50 dark:hover:bg-slate-900"
+            >
+              Explore features
             </a>
+          </div>
+        </div>
+      </section>
 
-            {/* HERO (match UseCases.tsx structure) */}
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
-                Platform
-              </p>
+      {/* Feature sections */}
+      <div id="features" />
 
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                VideoBooth.tv platform features for review, governance, and delivery.
-                <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
-                  A secure portal for organizing content, managing approvals, and delivering recordings at scale —
-                  built for real-world programs and multi-stakeholder workflows.
-                </span>
-              </h1>
-            </div>
+      <FeatureSection
+        kicker="Capture experience"
+        title="Guided workflows that produce consistent, usable stories."
+        description="Collect video, audio, or text through prompts that keep people focused and comfortable—while ensuring every submission is structured for review, curation, and publishing."
+        bullets={[
+          "Prompt-led capture that reduces rambling and improves clarity.",
+          "Supports repeatable formats: testimonials, insights, reflections, feedback, and more.",
+          "Designed for in-person and distributed environments.",
+        ]}
+        outcomes={[
+          "Higher completion rates and stronger story quality.",
+          "Comparable submissions you can actually analyze and curate.",
+          "A repeatable capture format you can deploy across programs.",
+        ]}
+        align="left"
+        // accent: optional (add later). Example:
+        // accent={<img src="/platform/screenshot_01.png" alt="Capture flow" className="w-full rounded-xl" />}
+      />
 
-            {/* Feature rows */}
-            <div className="mt-10 sm:mt-14 lg:mt-16 space-y-12 sm:space-y-14 lg:space-y-16">
-              {FEATURE_BLOCKS.map((block) => (
-                <div key={block.id} id={block.id} className="scroll-mt-24">
-                  <FeatureRow block={block} />
-                </div>
-              ))}
-            </div>
+      <FeatureSection
+        kicker="Quality and control"
+        title="Built for review, approvals, and governance."
+        description="Every submission can move through a structured review flow—so what gets shared reflects the right standards, context, and permissions."
+        bullets={[
+          "Moderation-ready: review before publish.",
+          "Clear separation between capture and distribution.",
+          "Supports internal-only and public-facing publishing patterns.",
+        ]}
+        outcomes={[
+          "Safer publishing for sensitive environments.",
+          "Less manual back-and-forth when content must be approved.",
+          "A reliable system of record for collected stories.",
+        ]}
+        align="right"
+      />
 
-            {/* Bottom nav */}
-            <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              <a
-                href="/#vbtv"
-                className="inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
+      <FeatureSection
+        kicker="Organize at scale"
+        title="Find, sort, and reuse content without losing context."
+        description="Stories only become valuable when you can retrieve them. VBPlatform is designed for structured organization—so teams can browse by program, theme, audience, or outcome."
+        bullets={[
+          "Organize submissions into programs or collections.",
+          "Tagging and consistent metadata patterns.",
+          "Reuse content across campaigns and reporting cycles.",
+        ]}
+        outcomes={[
+          "Faster content turnaround for comms and storytelling.",
+          "Better institutional memory and knowledge capture.",
+          "A library that grows more valuable over time.",
+        ]}
+        align="left"
+      />
+
+      <FeatureSection
+        kicker="Online Sharing Service"
+        title="Share stories responsibly—with the right experience for viewers."
+        description="Make it easy for audiences to explore stories without turning your program into a content management burden. Publish collections that feel intentional, curated, and trustworthy."
+        bullets={[
+          "Viewer-friendly galleries and curated collections.",
+          "Share links internally or externally based on your needs.",
+          "Designed to support ongoing programs—not one-off posts.",
+        ]}
+        outcomes={[
+          "Stronger trust with audiences and stakeholders.",
+          "A consistent way to publish and update story libraries.",
+          "Less friction between collecting stories and using them.",
+        ]}
+        align="right"
+      />
+
+      {/* Final CTA */}
+      <section className="py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 sm:p-10">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+              Want to see how this fits your use case?
+            </h2>
+            <p className="mt-4 max-w-3xl text-base sm:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+              VBPlatform is designed to support repeatable programs—listening initiatives, testimonials,
+              engagement campaigns, internal learning, and community storytelling.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
+                to="/use-cases"
+                className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold
+                           bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
               >
-                <span className="mr-1.5 text-base">←</span>
-                Back to Platform section
-              </a>
-
-              <a
-                href="/#contact"
-                className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
+                Explore use cases
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold
+                           border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white
+                           hover:bg-white/60 dark:hover:bg-slate-950"
               >
-                Talk to us about your workflow
-                <span className="ml-1 text-base">→</span>
-              </a>
+                Talk to RealVo
+              </Link>
             </div>
           </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+        </div>
+      </section>
+    </main>
   );
-};
-
-export default VBPlatform_More;
+}
