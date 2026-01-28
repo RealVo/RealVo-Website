@@ -20,16 +20,12 @@ type FeatureBlock = {
   title: string;
   description: string;
   bullets: string[];
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string }; // kept for now (ignored)
   icon: React.ElementType;
-  imageSide: 'left' | 'right';
+  imageSide: 'left' | 'right'; // kept for now (ignored)
 };
 
-// ✅ Global image size control (smaller visuals)
-const IMAGE_MAX_W = 'max-w-[420px]';
-
 const FEATURE_BLOCKS: FeatureBlock[] = [
-  // 1) RIGHT
   {
     id: 'library',
     kicker: 'Content Management',
@@ -46,8 +42,6 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: Layers,
     imageSide: 'right',
   },
-
-  // 2) LEFT
   {
     id: 'search',
     kicker: 'Search & Filters',
@@ -64,8 +58,6 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: Search,
     imageSide: 'left',
   },
-
-  // 3) RIGHT
   {
     id: 'notes-tags',
     kicker: 'Notes & Tags',
@@ -82,8 +74,6 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: FileText,
     imageSide: 'right',
   },
-
-  // 4) LEFT
   {
     id: 'governance',
     kicker: 'Governance & Permissions',
@@ -100,8 +90,6 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: Lock,
     imageSide: 'left',
   },
-
-  // 5) RIGHT
   {
     id: 'moderation',
     kicker: 'Moderation & Approvals',
@@ -118,8 +106,6 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: CheckCircle2,
     imageSide: 'right',
   },
-
-  // 6) LEFT
   {
     id: 'transcription',
     kicker: 'AI Transcription',
@@ -136,8 +122,6 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: Play,
     imageSide: 'left',
   },
-
-  // 7) RIGHT
   {
     id: 'analytics',
     kicker: 'Engagement & Reporting',
@@ -154,8 +138,6 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: BarChart2,
     imageSide: 'right',
   },
-
-  // 8) LEFT
   {
     id: 'exports',
     kicker: 'Exports & Delivery',
@@ -172,8 +154,6 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
     icon: Download,
     imageSide: 'left',
   },
-
-  // 9) RIGHT (Online Sharing as a single additional feature row)
   {
     id: 'online-sharing',
     kicker: 'Online Sharing Service',
@@ -192,61 +172,32 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
   },
 ];
 
-function FeatureRow({ block }: { block: FeatureBlock }) {
-  const isImageRight = block.imageSide === 'right';
+function FeatureCard({ block }: { block: FeatureBlock }) {
   const Icon = block.icon;
 
   return (
-    <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-start">
-      {/* Text */}
-      <div className={isImageRight ? '' : 'lg:order-2'}>
-        <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-900 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-3">
-          <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
-          {block.kicker}
-        </div>
-
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-start gap-3">
-          <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-realvo-light dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800/80 text-realvo-blue dark:text-sky-400">
-            <Icon size={18} />
-          </span>
-          <span>{block.title}</span>
-        </h2>
-
-        <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-          {block.description}
-        </p>
-
-        <ul className="mt-5 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-          {block.bullets.map((b, i) => (
-            <li key={i}>{b}</li>
-          ))}
-        </ul>
+    <div className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800/80 shadow-sm p-6 sm:p-7">
+      <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-950 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-4">
+        <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
+        {block.kicker}
       </div>
 
-      {/* Image (smaller, centered) */}
-      <div className={`${isImageRight ? '' : 'lg:order-1'} flex items-start justify-center`}>
-        {block.image ? (
-          <div
-            className={[
-              'w-full',
-              IMAGE_MAX_W,
-              'rounded-3xl bg-white dark:bg-slate-900',
-              'border border-slate-200/70 dark:border-slate-800/80',
-              'shadow-xl overflow-hidden',
-              'mx-auto',
-            ].join(' ')}
-          >
-            <img
-              src={block.image.src}
-              alt={block.image.alt}
-              className="w-full h-auto block"
-              loading="lazy"
-            />
-          </div>
-        ) : (
-          <div className="w-full" />
-        )}
-      </div>
+      <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-start gap-3">
+        <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-realvo-light dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800/80 text-realvo-blue dark:text-sky-400">
+          <Icon size={18} />
+        </span>
+        <span>{block.title}</span>
+      </h2>
+
+      <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300">
+        {block.description}
+      </p>
+
+      <ul className="mt-5 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
+        {block.bullets.map((b, i) => (
+          <li key={i}>{b}</li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -254,14 +205,6 @@ function FeatureRow({ block }: { block: FeatureBlock }) {
 const VBPlatform_More: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    // Preload screenshots for smoother transitions
-    const preload = new Set<string>();
-    FEATURE_BLOCKS.forEach((b) => b.image && preload.add(b.image.src));
-    preload.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
   }, []);
 
   return (
@@ -280,14 +223,14 @@ const VBPlatform_More: React.FC = () => {
               Back to Platform
             </Link>
 
-            {/* HERO (matches UseCases layout) */}
+            {/* HERO */}
             <div className="max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
                 Platform
               </p>
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                Manage, review, and publish RealVo content at scale.
+                VideoBooth.tv Online Portal
                 <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
                   VideoBooth.tv is your secure portal for organizing recordings, governing access, speeding up review,
                   and delivering content in the right formats.
@@ -295,11 +238,11 @@ const VBPlatform_More: React.FC = () => {
               </h1>
             </div>
 
-            {/* Feature rows */}
-            <div className="mt-10 sm:mt-14 lg:mt-16 space-y-12 sm:space-y-14 lg:space-y-16">
+            {/* Feature cards (2-column on desktop) */}
+            <div className="mt-10 sm:mt-14 lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
               {FEATURE_BLOCKS.map((block) => (
                 <div key={block.id} id={block.id} className="scroll-mt-24">
-                  <FeatureRow block={block} />
+                  <FeatureCard block={block} />
                 </div>
               ))}
             </div>
@@ -332,3 +275,4 @@ const VBPlatform_More: React.FC = () => {
 };
 
 export default VBPlatform_More;
+
