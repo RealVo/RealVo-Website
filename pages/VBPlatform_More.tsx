@@ -176,26 +176,13 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
   const Icon = block.icon;
 
   return (
-    <div className="group rounded-3xl bg-white/90 dark:bg-slate-900/70 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-shadow p-6 sm:p-7">
+    <div className="rounded-3xl bg-white/90 dark:bg-slate-900/70 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-shadow p-6 sm:p-7">
       {/* subtle brand accent */}
 
-      <div
-  className="
-    inline-flex items-center gap-2
-    h-8 px-3
-    rounded-full
-    text-xs font-semibold tracking-wide
-    bg-realvo-light text-realvo-blue
-    dark:bg-slate-950 dark:text-sky-400
-    transition-colors duration-200
-    group-hover:bg-realvo-blue group-hover:text-white
-    mb-4
-    whitespace-nowrap
-  "
->
-  <span className="h-2 w-2 rounded-full bg-realvo-teal group-hover:bg-white transition-colors duration-200" />
-  {block.kicker}
-</div>
+      <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-950 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-4">
+        <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
+        {block.kicker}
+      </div>
 
       <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-start gap-3">
         <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-realvo-light dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800/80 text-realvo-blue dark:text-sky-400">
