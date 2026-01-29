@@ -37,7 +37,8 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: 'Core',
     title: 'Content Management',
     description:
-      'Private tools for organizing, reviewing, and managing recordings at scale — built for enterprise programs.',
+      description:
+  'Everything teams need to manage, review, and deliver content at scale.',
     blocks: [
       {
         id: 'library',
@@ -311,11 +312,8 @@ const VBPlatform_More: React.FC = () => {
               </p>
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                VideoBooth.tv Online Portal
-                <span className="block text-base sm:text-lg font-normal text-slate-500 dark:text-slate-400 mt-2">
-                  Everything teams need to manage, review, and deliver content at scale.
-                </span>
-              </h1>
+  VideoBooth.tv Features
+</h1>
             </div>
 
             <div className="mt-10 sm:mt-14 lg:mt-16">
