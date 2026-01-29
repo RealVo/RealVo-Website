@@ -248,7 +248,7 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
         {block.description}
       </p>
 
-      <ul className="mt-5 space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-200 list-disc pl-5 marker:text-realvo-teal">
+      <ul className="mt-5 space-y-2 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5 marker:text-realvo-teal">
         {block.bullets.map((b, i) => (
           <li key={i}>{b}</li>
         ))}
