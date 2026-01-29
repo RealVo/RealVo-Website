@@ -75,21 +75,20 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
   imageSide: 'right',
 },
   {
-    id: 'notes-tags',
-    kicker: 'Notes & Tags',
-    title: 'Add context teams can act on.',
-    description:
-      'Annotate content with notes and tags to capture themes, outcomes, or next steps — without changing the original recordings.',
-    bullets: [
-      'Notes per video/session',
-      'Tag content by theme or category',
-      'Organize clips for comms and reporting',
-      'Support internal review consistency',
-    ],
-    image: { src: '/vbplatform/vbtv_screens_3.png', alt: 'VideoBooth.tv notes and tagging' },
-    icon: FileText,
-    imageSide: 'right',
-  },
+  id: 'notes-tags',
+  kicker: 'Notes & Tags',
+  title: 'Add context teams can act on.',
+  description:
+    'Capture internal notes and apply custom tags directly to sessions to support review, editorial workflows, and downstream analysis.',
+  bullets: [
+    'Add internal notes tied to individual sessions',
+    'Apply unlimited custom tags for categorization',
+    'Use tags and notes to support review and shortlisting',
+    'Filter sessions by notes and tags across groups',
+  ],
+  icon: FileText,
+  imageSide: 'right',
+},
   {
     id: 'governance',
     kicker: 'Governance & Permissions',
