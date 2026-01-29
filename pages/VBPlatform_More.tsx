@@ -59,6 +59,22 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
   imageSide: 'left',
 },
   {
+  id: 'session-review',
+  kicker: 'Session Review',
+  title: 'Everything needed to review and manage a single session.',
+  description:
+    'Each recorded session opens into a dedicated review workspace where teams can play, edit, annotate, and manage content without leaving the dashboard.',
+  bullets: [
+    'Centralized playback with session-specific controls',
+    'Download individual assets or full session bundles',
+    'Add notes and tags tied directly to the session',
+    'Manage visibility, approval status, and session actions',
+    'Access transcription, metadata, and session-level analytics',
+  ],
+  icon: Play,
+  imageSide: 'right',
+},
+  {
     id: 'notes-tags',
     kicker: 'Notes & Tags',
     title: 'Add context teams can act on.',
