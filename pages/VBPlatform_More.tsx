@@ -244,7 +244,7 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
         <span>{block.title}</span>
       </h3>
 
-      <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300">
+      <p className="mt-3 text-sm sm:text-base text-slate-900 dark:text-slate-100">
         {block.description}
       </p>
 
