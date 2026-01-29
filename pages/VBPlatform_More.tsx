@@ -43,21 +43,21 @@ const FEATURE_BLOCKS: FeatureBlock[] = [
   imageSide: 'right',
 },
   {
-    id: 'search',
-    kicker: 'Search & Filters',
-    title: 'Find what you need in seconds.',
-    description:
-      'Search and filter across sessions to isolate the moments that matter — by campaign, group, and more.',
-    bullets: [
-      'Search across groups and sessions',
-      'Filter to narrow large results sets',
-      'Quickly shortlist usable clips',
-      'Designed for repeatable review workflows',
-    ],
-    image: { src: '/vbplatform/vbtv_screens_2.png', alt: 'VideoBooth.tv search and filters' },
-    icon: Search,
-    imageSide: 'left',
-  },
+  id: 'search',
+  kicker: 'Search & Filters',
+  title: 'Find, select, and act on content in seconds.',
+  description:
+    'Quickly narrow large volumes of recorded sessions, then take action in bulk using tools designed for real-world review and curation workflows.',
+  bullets: [
+    'Filter by date, visibility, moderation, view status, and responses',
+    'Search by keyword, tags, or participant data',
+    'Select individual sessions or batch-select filtered results',
+    'Perform bulk actions like approve, download, move, compile, or share',
+  ],
+  image: { src: '/vbplatform/vbtv_screens_2.png', alt: 'VideoBooth.tv search and filters' },
+  icon: Search,
+  imageSide: 'left',
+},
   {
     id: 'notes-tags',
     kicker: 'Notes & Tags',
