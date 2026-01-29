@@ -35,9 +35,9 @@ const SECTIONS: FeatureSection[] = [
   {
     id: 'content-management',
     eyebrow: 'Core',
-    title: 'Content Management',
+    title: 'Content Management Tools',
     description:
-      'Everything teams need to manage, review, and deliver content at scale.',
+      'Everything teams need to organize, review, and manage recordings at scale.',
     blocks: [
       {
         id: 'library',
