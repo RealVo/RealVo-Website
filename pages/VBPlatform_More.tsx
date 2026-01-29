@@ -223,14 +223,12 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
 
   return (
     <div className="group rounded-3xl bg-white/90 dark:bg-slate-900/70 border border-slate-200/80 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-shadow p-6 sm:p-7">
-      {/* Kicker pill (leave as-is) */}
       <div className="inline-flex items-center gap-2 bg-realvo-light dark:bg-slate-950 px-3 py-1.5 rounded-full text-sm font-medium text-realvo-blue dark:text-sky-400 mb-4">
         <span className="h-2 w-2 rounded-full bg-realvo-teal animate-pulse" />
         {block.kicker}
       </div>
 
       <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-start gap-3">
-        {/* Feature Icon (locked size + card-only hover) */}
         <span
           className="
             mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center
@@ -243,7 +241,6 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
         >
           <Icon size={18} />
         </span>
-
         <span>{block.title}</span>
       </h3>
 
@@ -263,15 +260,15 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
 function SectionBlock({ section }: { section: FeatureSection }) {
   return (
     <div id={section.id} className="scroll-mt-28">
-      {/* Section header */}
-      <div className="mb-6 sm:mb-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+      {/* TEAL SECTION BAND */}
+      <div className="mb-8 rounded-3xl bg-realvo-teal px-6 py-8 sm:px-8 sm:py-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80 mb-2">
           {section.eyebrow}
         </p>
-        <h2 className="mt-2 text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
           {section.title}
         </h2>
-        <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-3xl">
+        <p className="mt-2 max-w-3xl text-sm sm:text-base text-white/90">
           {section.description}
         </p>
       </div>
@@ -300,7 +297,6 @@ const VBPlatform_More: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
-            {/* Back link */}
             <Link
               to="/#vbtv"
               className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
@@ -309,7 +305,6 @@ const VBPlatform_More: React.FC = () => {
               Back to Platform
             </Link>
 
-            {/* HERO */}
             <div className="max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue dark:text-sky-400 mb-2">
                 Platform
@@ -323,15 +318,8 @@ const VBPlatform_More: React.FC = () => {
               </h1>
             </div>
 
-            {/* Sections wrapper */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
               <div className="rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/50 p-4 sm:p-6 lg:p-8">
-                <div className="mb-5 sm:mb-7">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Platform features
-                  </p>
-                </div>
-
                 <div className="space-y-12 sm:space-y-14 lg:space-y-16">
                   {SECTIONS.map((section) => (
                     <SectionBlock key={section.id} section={section} />
@@ -340,7 +328,6 @@ const VBPlatform_More: React.FC = () => {
               </div>
             </div>
 
-            {/* Bottom nav */}
             <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <Link
                 to="/#vbtv"
