@@ -41,7 +41,7 @@ const SECTIONS: FeatureSection[] = [
     blocks: [
       {
         id: 'library',
-        kicker: 'Content Management',
+        kicker: 'Library & Organization',
         title: 'A centralized content library for every recording.',
         description:
           'A secure, campaign-based dashboard for reviewing and managing video content at scale — designed for real-world, high-volume capture programs.',
