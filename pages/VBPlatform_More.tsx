@@ -27,21 +27,21 @@ type FeatureBlock = {
 
 const FEATURE_BLOCKS: FeatureBlock[] = [
   {
-    id: 'library',
-    kicker: 'Content Management',
-    title: 'A centralized content library for every recording.',
-    description:
-      'Keep campaigns, groups, and sessions organized — so teams can review, shortlist, and deliver without chasing files.',
-    bullets: [
-      'Campaign + group structure for large programs',
-      'Fast browsing with thumbnails + playback',
-      'Consistent organization across activations',
-      'Built for high-volume capture',
-    ],
-    image: { src: '/vbplatform/vbtv_screens_1.png', alt: 'VideoBooth.tv library view' },
-    icon: Layers,
-    imageSide: 'right',
-  },
+  id: 'library',
+  kicker: 'Content Management',
+  title: 'A centralized content library for every recording.',
+  description:
+    'A secure, campaign-based dashboard for reviewing and managing video content at scale — designed for real-world, high-volume capture programs.',
+  bullets: [
+    'Campaign and group structure for large deployments',
+    'Thumbnail-based review of every recorded session',
+    'Session-level access to video, transcription, and data',
+    'Built for teams managing thousands of recordings',
+  ],
+  image: { src: '/vbplatform/vbtv_screens_1.png', alt: 'VideoBooth.tv library view' },
+  icon: Layers,
+  imageSide: 'right',
+},
   {
     id: 'search',
     kicker: 'Search & Filters',
