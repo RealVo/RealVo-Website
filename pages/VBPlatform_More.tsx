@@ -20,165 +20,202 @@ type FeatureBlock = {
   title: string;
   description: string;
   bullets: string[];
-  image?: { src: string; alt: string }; // kept for now (ignored)
   icon: React.ElementType;
-  imageSide: 'left' | 'right'; // kept for now (ignored)
 };
 
-const FEATURE_BLOCKS: FeatureBlock[] = [
+type FeatureSection = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  blocks: FeatureBlock[];
+};
+
+const SECTIONS: FeatureSection[] = [
   {
-  id: 'library',
-  kicker: 'Content Management',
-  title: 'A centralized content library for every recording.',
-  description:
-    'A secure, campaign-based dashboard for reviewing and managing video content at scale — designed for real-world, high-volume capture programs.',
-  bullets: [
-    'Campaign and group structure for large deployments',
-    'Thumbnail-based review of every recorded session',
-    'Session-level access to video, transcription, and data',
-    'Built for teams managing thousands of recordings',
-  ],
-  image: { src: '/vbplatform/vbtv_screens_1.png', alt: 'VideoBooth.tv library view' },
-  icon: Layers,
-  imageSide: 'right',
-},
+    id: 'content-management',
+    eyebrow: 'Core',
+    title: 'Content Management',
+    description:
+      'Private tools for organizing, reviewing, and managing recordings at scale — built for enterprise programs.',
+    blocks: [
+      {
+        id: 'library',
+        kicker: 'Content Management',
+        title: 'A centralized content library for every recording.',
+        description:
+          'A secure, campaign-based dashboard for reviewing and managing video content at scale — designed for real-world, high-volume capture programs.',
+        bullets: [
+          'Campaign and group structure for large deployments',
+          'Thumbnail-based review of every recorded session',
+          'Session-level access to video, transcription, and data',
+          'Built for teams managing thousands of recordings',
+        ],
+        icon: Layers,
+      },
+      {
+        id: 'search',
+        kicker: 'Search & Filters',
+        title: 'Find, select, and act on content in seconds.',
+        description:
+          'Quickly narrow large volumes of recorded sessions, then take action in bulk using tools designed for real-world review and curation workflows.',
+        bullets: [
+          'Filter by date, visibility, moderation, view status, and responses',
+          'Search by keyword, tags, or participant data',
+          'Select individual sessions or batch-select filtered results',
+          'Perform bulk actions like approve, download, move, compile, or share',
+        ],
+        icon: Search,
+      },
+      {
+        id: 'session-review',
+        kicker: 'Session Review',
+        title: 'Everything needed to review and manage a single session.',
+        description:
+          'Each recorded session opens into a dedicated review workspace where teams can play, edit, annotate, and manage content without leaving the dashboard.',
+        bullets: [
+          'Centralized playback with session-specific controls',
+          'Download individual assets or full session bundles',
+          'Add notes and tags tied directly to the session',
+          'Manage visibility, approval status, and session actions',
+          'Access transcription, metadata, and session-level analytics',
+        ],
+        icon: Play,
+      },
+      {
+        id: 'notes-tags',
+        kicker: 'Notes & Tags',
+        title: 'Add context teams can act on.',
+        description:
+          'Capture internal notes and apply custom tags directly to sessions to support review, editorial workflows, and downstream analysis.',
+        bullets: [
+          'Add internal notes tied to individual sessions',
+          'Apply unlimited custom tags for categorization',
+          'Use tags and notes to support review and shortlisting',
+          'Filter sessions by notes and tags across groups',
+        ],
+        icon: FileText,
+      },
+      {
+        id: 'governance',
+        kicker: 'Governance & Permissions',
+        title: 'Control access without slowing teams down.',
+        description:
+          'Manage who can view, review, and act on content with permission controls designed for professional, multi-stakeholder programs.',
+        bullets: [
+          'Permission-based access for teams and stakeholders',
+          'Separate internal review from external viewing',
+          'Reduce file sharing and content duplication',
+          'Designed for enterprise and multi-department workflows',
+        ],
+        icon: Lock,
+      },
+      {
+        id: 'transcription',
+        kicker: 'AI Transcription',
+        title: 'Turn video into searchable text automatically.',
+        description:
+          'Every recorded session is transcribed automatically, making content easier to review, search, and reuse — especially at scale.',
+        bullets: [
+          'Automatic transcription for every recorded session',
+          'Scan content without watching full videos',
+          'Improve accessibility and review efficiency',
+          'Support faster insight extraction across programs',
+        ],
+        icon: Play,
+      },
+      {
+        id: 'exports',
+        kicker: 'Exports & Delivery',
+        title: 'Move content and data into the rest of your workflow.',
+        description:
+          'Export video assets and structured session data in formats designed for real-world reporting, archiving, and CRM integration.',
+        bullets: [
+          'Download individual videos or full session asset bundles',
+          'Export structured session data in CRM-ready CSV formats',
+          'Access raw files, compressed videos, audio, and metadata',
+          'Designed for reporting, compliance, and downstream systems',
+        ],
+        icon: Download,
+      },
+    ],
+  },
+
   {
-  id: 'search',
-  kicker: 'Search & Filters',
-  title: 'Find, select, and act on content in seconds.',
-  description:
-    'Quickly narrow large volumes of recorded sessions, then take action in bulk using tools designed for real-world review and curation workflows.',
-  bullets: [
-    'Filter by date, visibility, moderation, view status, and responses',
-    'Search by keyword, tags, or participant data',
-    'Select individual sessions or batch-select filtered results',
-    'Perform bulk actions like approve, download, move, compile, or share',
-  ],
-  image: { src: '/vbplatform/vbtv_screens_2.png', alt: 'VideoBooth.tv search and filters' },
-  icon: Search,
-  imageSide: 'left',
-},
+    id: 'content-preparation',
+    eyebrow: 'Bridge Layer',
+    title: 'Content Preparation',
+    description:
+      'Tools for shaping and packaging recordings before distribution — without altering original source content.',
+    blocks: [
+      {
+        id: 'video-presentation',
+        kicker: 'Video Presentation & Branding',
+        title: 'Prepare videos for internal or external audiences.',
+        description:
+          'Apply optional branding and structural elements to individual videos or compiled sessions — without altering the original recordings.',
+        bullets: [
+          'Add branded intros, outros, and question markers',
+          'Apply lower thirds with names, roles, or campaign context',
+          'Overlay logos, watermarks, or visual identifiers',
+          'Prepare compiled videos for internal or public distribution',
+        ],
+        icon: Layers,
+      },
+    ],
+  },
+
   {
-  id: 'session-review',
-  kicker: 'Session Review',
-  title: 'Everything needed to review and manage a single session.',
-  description:
-    'Each recorded session opens into a dedicated review workspace where teams can play, edit, annotate, and manage content without leaving the dashboard.',
-  bullets: [
-    'Centralized playback with session-specific controls',
-    'Download individual assets or full session bundles',
-    'Add notes and tags tied directly to the session',
-    'Manage visibility, approval status, and session actions',
-    'Access transcription, metadata, and session-level analytics',
-  ],
-  icon: Play,
-  imageSide: 'right',
-},
-  {
-  id: 'notes-tags',
-  kicker: 'Notes & Tags',
-  title: 'Add context teams can act on.',
-  description:
-    'Capture internal notes and apply custom tags directly to sessions to support review, editorial workflows, and downstream analysis.',
-  bullets: [
-    'Add internal notes tied to individual sessions',
-    'Apply unlimited custom tags for categorization',
-    'Use tags and notes to support review and shortlisting',
-    'Filter sessions by notes and tags across groups',
-  ],
-  icon: FileText,
-  imageSide: 'right',
-},
-  {
-  id: 'moderation',
-  kicker: 'Moderation & Approvals',
-  title: 'Keep content appropriate, controlled, and ready to publish.',
-  description:
-    'Review and moderate sessions before they’re shared, ensuring content meets program standards and is appropriate for internal or external audiences.',
-  bullets: [
-    'Approve, decline, or leave sessions unmoderated',
-    'Clearly mark content as appropriate or inappropriate',
-    'Control visibility for internal or public-facing galleries',
-    'Maintain brand and program standards at scale',
-  ],
-  icon: CheckCircle2,
-  imageSide: 'right',
-},
-  {
-  id: 'governance',
-  kicker: 'Governance & Permissions',
-  title: 'Control access without slowing teams down.',
-  description:
-    'Manage who can view, review, and act on content with permission controls designed for professional, multi-stakeholder programs.',
-  bullets: [
-    'Permission-based access for teams and stakeholders',
-    'Separate internal review from external viewing',
-    'Reduce file sharing and content duplication',
-    'Designed for enterprise and multi-department workflows',
-  ],
-  icon: Lock,
-  imageSide: 'left',
-},
-  {
-  id: 'transcription',
-  kicker: 'AI Transcription',
-  title: 'Turn video into searchable text automatically.',
-  description:
-    'Every recorded session is transcribed automatically, making content easier to review, search, and reuse — especially at scale.',
-  bullets: [
-    'Automatic transcription for every recorded session',
-    'Scan content without watching full videos',
-    'Improve accessibility and review efficiency',
-    'Support faster insight extraction across programs',
-  ],
-  icon: Play,
-  imageSide: 'left',
-},
-  {
-  id: 'analytics',
-  kicker: 'Engagement & Reporting',
-  title: 'Understand activity and engagement across programs.',
-  description:
-    'Track participation and viewing activity to understand how content is being used — at the campaign, group, and session level.',
-  bullets: [
-    'View activity and engagement at a glance',
-    'Track session volume and trends over time',
-    'Identify most-watched and trending content',
-    'Support internal reporting and post-program review',
-  ],
-  icon: BarChart2,
-  imageSide: 'right',
-},
-  {
-  id: 'exports',
-  kicker: 'Exports & Delivery',
-  title: 'Move content and data into the rest of your workflow.',
-  description:
-    'Export video assets and structured session data in formats designed for real-world reporting, archiving, and CRM integration.',
-  bullets: [
-    'Download individual videos or full session asset bundles',
-    'Export structured session data in CRM-ready CSV formats',
-    'Access raw files, compressed videos, audio, and metadata',
-    'Designed for reporting, compliance, and downstream systems',
-  ],
-  icon: Download,
-  imageSide: 'left',
-},
-  {
-  id: 'online-sharing',
-  kicker: 'Online Sharing Service',
-  title: 'Publish curated stories through controlled viewing experiences.',
-  description:
-    'Extend programs beyond internal review with optional, brand-safe sharing through microsites, galleries, and embeds — only when and where it makes sense.',
-  bullets: [
-    'Branded microsites for internal or public viewing',
-    'Curated galleries featuring approved content only',
-    'Embeddable layouts for intranets and websites',
-    'Full moderation and visibility control before publishing',
-  ],
-  icon: Globe,
-  imageSide: 'right',
-},
+    id: 'distribution-engagement',
+    eyebrow: 'Optional',
+    title: 'Distribution & Engagement',
+    description:
+      'Controlled delivery for internal distribution, intranet viewing, and public-facing campaigns — with full visibility and access control.',
+    blocks: [
+      {
+        id: 'moderation',
+        kicker: 'Moderation & Approvals',
+        title: 'Keep content appropriate, controlled, and ready to publish.',
+        description:
+          'Review and moderate sessions before they’re shared, ensuring content meets program standards and is appropriate for internal or external audiences.',
+        bullets: [
+          'Approve, decline, or leave sessions unmoderated',
+          'Clearly mark content as appropriate or inappropriate',
+          'Control visibility for internal or public-facing galleries',
+          'Maintain brand and program standards at scale',
+        ],
+        icon: CheckCircle2,
+      },
+      {
+        id: 'distribution-analytics',
+        kicker: 'Engagement & Reporting',
+        title: 'Understand activity and engagement across programs.',
+        description:
+          'Track participation and viewing activity to understand how distributed content is being used — at the campaign, group, and session level.',
+        bullets: [
+          'View activity and engagement at a glance',
+          'Track session volume and trends over time',
+          'Identify most-watched and trending content',
+          'Support internal reporting and post-program review',
+        ],
+        icon: BarChart2,
+      },
+      {
+        id: 'distribution-layer',
+        kicker: 'Distribution Layer',
+        title: 'Deliver curated stories through galleries, microsites, and embeds.',
+        description:
+          'Extend programs beyond internal review with optional, brand-safe distribution through intranet-friendly galleries, microsites, and embeddable players.',
+        bullets: [
+          'Branded microsites for internal or public viewing',
+          'Curated galleries featuring approved content only',
+          'Embeddable layouts for intranets and websites',
+          'Optional sharing controls enabled per campaign',
+        ],
+        icon: Globe,
+      },
+    ],
+  },
 ];
 
 function FeatureCard({ block }: { block: FeatureBlock }) {
@@ -192,7 +229,7 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
         {block.kicker}
       </div>
 
-      <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-start gap-3">
+      <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-white flex items-start gap-3">
         {/* Feature Icon (locked size + card-only hover) */}
         <span
           className="
@@ -208,7 +245,7 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
         </span>
 
         <span>{block.title}</span>
-      </h2>
+      </h3>
 
       <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300">
         {block.description}
@@ -219,6 +256,34 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
           <li key={i}>{b}</li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+function SectionBlock({ section }: { section: FeatureSection }) {
+  return (
+    <div id={section.id} className="scroll-mt-28">
+      {/* Section header */}
+      <div className="mb-6 sm:mb-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+          {section.eyebrow}
+        </p>
+        <h2 className="mt-2 text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+          {section.title}
+        </h2>
+        <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-3xl">
+          {section.description}
+        </p>
+      </div>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
+        {section.blocks.map((block) => (
+          <div key={block.id} id={block.id} className="scroll-mt-24">
+            <FeatureCard block={block} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -258,9 +323,8 @@ const VBPlatform_More: React.FC = () => {
               </h1>
             </div>
 
-            {/* Feature cards (2-column on desktop) */}
+            {/* Sections wrapper */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
-              {/* NOTE: no "group" here */}
               <div className="rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/50 p-4 sm:p-6 lg:p-8">
                 <div className="mb-5 sm:mb-7">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
@@ -268,11 +332,9 @@ const VBPlatform_More: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
-                  {FEATURE_BLOCKS.map((block) => (
-                    <div key={block.id} id={block.id} className="scroll-mt-24">
-                      <FeatureCard block={block} />
-                    </div>
+                <div className="space-y-12 sm:space-y-14 lg:space-y-16">
+                  {SECTIONS.map((section) => (
+                    <SectionBlock key={section.id} section={section} />
                   ))}
                 </div>
               </div>
