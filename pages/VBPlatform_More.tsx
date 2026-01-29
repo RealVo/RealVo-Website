@@ -58,7 +58,7 @@ const SECTIONS: FeatureSection[] = [
         kicker: 'Search & Filters',
         title: 'Find and refine sessions across large programs.',
         description:
-          Powerful filtering and selection tools designed for reviewing high-volume recordings at the group level.',
+          'Powerful filtering and selection tools designed for reviewing high-volume recordings at the group level.',
         bullets: [
           'Filter by date, visibility, moderation, view status, and responses',
           'Search using keywords, tags, or transcription text',
@@ -77,7 +77,7 @@ const SECTIONS: FeatureSection[] = [
           'Download individual assets or full session bundles',
           'Manage visibility, approval status, and session actions',
           'Access transcription and session metadata',
-          'session-level activity analytics',
+          'Session-level activity analytics',
         ],
         icon: Play,
       },
