@@ -40,16 +40,16 @@ const SECTIONS: FeatureSection[] = [
       'Everything teams need to organize, review, and manage recordings at scale.',
     blocks: [
       {
-        id: 'library',
-        kicker: 'Library & Organization',
-        title: 'A centralized content library for every recording.',
+        id: 'Organization',
+        kicker: 'Organization',
+        title: 'A top-level program overview of all recorded sessions.',
         description:
-          'A secure, campaign-based dashboard for reviewing and managing video content at scale — designed for real-world, high-volume capture programs.',
+          'See every group, session, and recording in one place — with clear structure, activity trends, and quick access to what matters most.',
         bullets: [
-          'Campaign and group structure for large deployments',
-          'Thumbnail-based review of every recorded session',
-          'Session-level access to video, transcription, and data',
-          'Built for teams managing thousands of recordings',
+          'Group-based organization for multi-location or multi-booth programs',
+          'Session volume and activity trends over time',
+          'At-a-glance visibility into recent and trending recordings',
+          'Direct entry point into group and session review',
         ],
         icon: Layers,
       },
