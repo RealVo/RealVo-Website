@@ -56,12 +56,12 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'search',
         kicker: 'Search & Filters',
-        title: 'Find, select, and act on content in seconds.',
+        title: 'Find and refine sessions across large programs.',
         description:
-          'Quickly narrow large volumes of recorded sessions, then take action in bulk using tools designed for real-world review and curation workflows.',
+          Powerful filtering and selection tools designed for reviewing high-volume recordings at the group level.',
         bullets: [
           'Filter by date, visibility, moderation, view status, and responses',
-          'Search by keyword, tags, or participant data',
+          'Search using keywords, tags, or transcription text',
           'Select individual sessions or batch-select filtered results',
           'Perform bulk actions like approve, download, move, compile, or share',
         ],
@@ -70,22 +70,21 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'session-review',
         kicker: 'Session Review',
-        title: 'Everything needed to review and manage a single session.',
+        title: 'Review, manage, and act on individual sessions.',
         description:
-          'Each recorded session opens into a dedicated review workspace where teams can play, edit, annotate, and manage content without leaving the dashboard.',
+          'Each session opens to a dedicated page where teams can playback, manage status, and take action.',
         bullets: [
-          'Centralized playback with session-specific controls',
           'Download individual assets or full session bundles',
-          'Add notes and tags tied directly to the session',
           'Manage visibility, approval status, and session actions',
-          'Access transcription, metadata, and session-level analytics',
+          'Access transcription and session metadata',
+          'session-level activity analytics',
         ],
         icon: Play,
       },
       {
         id: 'notes-tags',
         kicker: 'Notes & Tags',
-        title: 'Add context teams can act on.',
+        title: 'Add structure and context to recorded sessions.',
         description:
           'Capture internal notes and apply custom tags directly to sessions to support review, editorial workflows, and downstream analysis.',
         bullets: [
