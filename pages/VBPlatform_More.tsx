@@ -265,9 +265,9 @@ function SectionBlock({ section }: { section: FeatureSection }) {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80 mb-2">
           {section.eyebrow}
         </p>
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
-          {section.title}
-        </h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+  {section.title}
+</h2>
         <p className="mt-2 max-w-3xl text-sm sm:text-base text-white/90">
           {section.description}
         </p>
