@@ -42,9 +42,9 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'Organization',
         kicker: 'Organization',
-        title: 'A top-level campaign overview of all recorded sessions.',
+        title: 'Top-level campaign overview of all recorded sessions.',
         description:
-          'One searchable hub for all your video assets—complete with activity trends and instant access to what matters most',
+          'A searchable hub for all videos — complete with activity trends and instant access to what matters most',
         bullets: [
           'Content organized by capture source - booth or online',
           'Monitor session volume and trends over time',
@@ -53,21 +53,7 @@ const SECTIONS: FeatureSection[] = [
         ],
         icon: Layers,
       },
-      {
-        id: 'search',
-        kicker: 'Search & Filters',
-        title: 'Find and refine sessions across large programs.',
-        description:
-          'Powerful filtering and selection tools designed for reviewing high-volume recordings at the group level.',
-        bullets: [
-          'Filter by date, visibility, moderation, view status, and responses',
-          'Search using keywords, tags, or transcription text',
-          'Select individual sessions or batch-select filtered results',
-          'Perform bulk actions like approve, download, move, compile, or share',
-        ],
-        icon: Search,
-      },
-      {
+       {
         id: 'session-review',
         kicker: 'Session Review',
         title: 'Review, manage, and act on individual sessions.',
@@ -79,6 +65,20 @@ const SECTIONS: FeatureSection[] = [
           'Access session transcription and metadata',
           'Session-level activity analytics',
         ],
+      {
+        id: 'search',
+        kicker: 'Search & Filters',
+        title: 'Find and refine sessions across large programs.',
+        description:
+          'Powerful filtering and search tools designed for reviewing high-volume recordings.',
+        bullets: [
+          'Filter by date, moderation, view status, and responses',
+          'Search using keywords, tags, or transcription text',
+          'Select individual sessions or batch-select filtered results',
+          'Perform bulk actions like approve, download, move, compile, or share',
+        ],
+        icon: Search,
+      },
         icon: Play,
       },
       {
