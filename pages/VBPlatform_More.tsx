@@ -42,14 +42,14 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'Organization',
         kicker: 'Organization',
-        title: 'A top-level program overview of all recorded sessions.',
+        title: 'A top-level overview of all recorded sessions.',
         description:
-          'See every group, session, and recording in one place — with clear structure, activity trends, and quick access to what matters most.',
+          'Manage your entire campaign from a structured dashboard, with activity trends and direct access to recorded sessions.',
         bullets: [
-          'Group-based organization for multi-location or multi-booth programs',
-          'Session volume and activity trends over time',
-          'At-a-glance visibility into recent and trending recordings',
-          'Direct entry point into group and session review',
+          'Groups organize recordings by booth, location, or capture source',
+          'Monitor session volume and trends over time',
+          'At-a-glance view of recent and active recordings',
+          'One-click access to any group or session for review',
         ],
         icon: Layers,
       },
