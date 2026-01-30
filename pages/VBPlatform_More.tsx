@@ -100,11 +100,11 @@ const SECTIONS: FeatureSection[] = [
         kicker: 'Governance & Permissions',
         title: 'Control access without slowing teams down.',
         description:
-          'Manage who can view, review, and act on content with permission controls designed for professional, multi-stakeholder programs.',
+          'Assign administration and access rights to control who can view, review, and act on content across programs.',
         bullets: [
-          'Permission-based access for teams and stakeholders',
+          'Role-based access levels for teams and administrators',
+          'Password-protected access with mandatory two-factor authentication',
           'Separate internal review from external viewing',
-          'Reduce file sharing and content duplication',
           'Designed for enterprise and multi-department workflows',
         ],
         icon: Lock,
