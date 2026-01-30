@@ -76,7 +76,7 @@ const SECTIONS: FeatureSection[] = [
         bullets: [
           'Download individual assets or full session bundles',
           'Manage visibility, approval status, and session actions',
-          'Access transcription and session metadata',
+          'Access session transcription and metadata',
           'Session-level activity analytics',
         ],
         icon: Play,
@@ -94,20 +94,6 @@ const SECTIONS: FeatureSection[] = [
           'Filter sessions by tags or notes by search',
         ],
         icon: FileText,
-      },
-      {
-        id: 'transcription',
-        kicker: 'AI Transcription',
-        title: 'Turn video into searchable text automatically.',
-        description:
-          'Every recorded session is transcribed automatically, making content easier to review, search, and reuse — especially at scale.',
-        bullets: [
-          'Automatic transcription for every recorded session',
-          'Scan content without watching full videos',
-          'Improve accessibility and review efficiency',
-          'Support faster insight extraction across programs',
-        ],
-        icon: Play,
       },
       {
         id: 'governance',
