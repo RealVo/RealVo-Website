@@ -83,15 +83,15 @@ const SECTIONS: FeatureSection[] = [
       },
       {
         id: 'notes-tags',
-        kicker: 'Notes & Tags',
+        kicker: 'Tags & Notes',
         title: 'Add structure and context to recorded sessions.',
         description:
           'Capture internal notes and apply custom tags directly to sessions to support review, editorial workflows, and downstream analysis.',
         bullets: [
-          'Add internal notes tied to individual sessions',
           'Apply unlimited custom tags for categorization',
+          'Add notes specific to session for reviewers',
           'Use tags and notes to support review and shortlisting',
-          'Filter sessions by notes and tags across groups',
+          'Filter sessions by tags or notes by search',
         ],
         icon: FileText,
       },
