@@ -53,7 +53,7 @@ const SECTIONS: FeatureSection[] = [
         ],
         icon: Layers,
       },
-       {
+             {
         id: 'session-review',
         kicker: 'Session Review',
         title: 'Review, manage, and act on individual sessions.',
@@ -67,7 +67,7 @@ const SECTIONS: FeatureSection[] = [
         ],
         icon: Search,
       },
-       {
+      {
         id: 'search',
         kicker: 'Search & Filters',
         title: 'Find and refine sessions across large programs.',
@@ -79,7 +79,6 @@ const SECTIONS: FeatureSection[] = [
           'Select individual sessions or batch-select filtered results',
           'Perform bulk actions like approve, download, move, compile, or share',
         ],
-      },
         icon: Play,
       },
       {
