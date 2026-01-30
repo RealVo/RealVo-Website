@@ -42,11 +42,11 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'Organization',
         kicker: 'Organization',
-        title: 'A top-level overview of all recorded sessions.',
+        title: 'A top-level campaign overview.',
         description:
-          'Manage your entire campaign from a structured dashboard, with activity trends and direct access to recorded sessions.',
+          'One searchable hub for all your video assets—complete with activity trends and instant access to what matters most',
         bullets: [
-          'Groups organize recordings by booth, location, or capture source',
+          'Content organized by capture source - booth or virtual',
           'Monitor session volume and trends over time',
           'At-a-glance view of recent and active recordings',
           'One-click access to any group or session for review',
