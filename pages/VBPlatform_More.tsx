@@ -42,7 +42,7 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'Organization',
         kicker: 'Organization',
-        title: 'A top-level campaign overview.',
+        title: 'A top-level campaign overview of all recorded sessions.',
         description:
           'One searchable hub for all your video assets—complete with activity trends and instant access to what matters most',
         bullets: [
