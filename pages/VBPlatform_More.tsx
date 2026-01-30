@@ -40,7 +40,7 @@ const SECTIONS: FeatureSection[] = [
       'Everything teams need to organize, review, and manage recordings at scale.',
     blocks: [
       {
-        id: 'Organization',
+        id: 'organization',
         kicker: 'Organization',
         title: 'Top-level campaign overview of all recorded sessions.',
         description:
