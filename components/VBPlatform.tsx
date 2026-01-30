@@ -108,7 +108,7 @@ const VBPlatform: React.FC = () => {
           </h2>
 
           <p className="text-lg text-gray-600 mb-8">
-            A private content management dashboard for reviewing, managing, and sharing content.
+            Your private content management dashboard for reviewing, managing, and sharing content.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
