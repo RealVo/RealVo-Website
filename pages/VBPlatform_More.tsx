@@ -65,6 +65,7 @@ const SECTIONS: FeatureSection[] = [
           'Access session transcription and metadata',
           'Session-level activity analytics',
         ],
+        icon: Search,
       {
         id: 'search',
         kicker: 'Search & Filters',
@@ -77,7 +78,6 @@ const SECTIONS: FeatureSection[] = [
           'Select individual sessions or batch-select filtered results',
           'Perform bulk actions like approve, download, move, compile, or share',
         ],
-        icon: Search,
       },
         icon: Play,
       },
