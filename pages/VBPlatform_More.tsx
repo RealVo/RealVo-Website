@@ -66,6 +66,7 @@ const SECTIONS: FeatureSection[] = [
           'Session-level activity analytics',
         ],
         icon: Search,
+     },
       {
         id: 'search',
         kicker: 'Search & Filters',
