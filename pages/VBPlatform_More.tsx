@@ -96,20 +96,6 @@ const SECTIONS: FeatureSection[] = [
         icon: FileText,
       },
       {
-        id: 'governance',
-        kicker: 'Governance & Permissions',
-        title: 'Control access without slowing teams down.',
-        description:
-          'Manage who can view, review, and act on content with permission controls designed for professional, multi-stakeholder programs.',
-        bullets: [
-          'Permission-based access for teams and stakeholders',
-          'Separate internal review from external viewing',
-          'Reduce file sharing and content duplication',
-          'Designed for enterprise and multi-department workflows',
-        ],
-        icon: Lock,
-      },
-      {
         id: 'transcription',
         kicker: 'AI Transcription',
         title: 'Turn video into searchable text automatically.',
@@ -122,6 +108,20 @@ const SECTIONS: FeatureSection[] = [
           'Support faster insight extraction across programs',
         ],
         icon: Play,
+      },
+      {
+        id: 'governance',
+        kicker: 'Governance & Permissions',
+        title: 'Control access without slowing teams down.',
+        description:
+          'Manage who can view, review, and act on content with permission controls designed for professional, multi-stakeholder programs.',
+        bullets: [
+          'Permission-based access for teams and stakeholders',
+          'Separate internal review from external viewing',
+          'Reduce file sharing and content duplication',
+          'Designed for enterprise and multi-department workflows',
+        ],
+        icon: Lock,
       },
       {
         id: 'exports',
