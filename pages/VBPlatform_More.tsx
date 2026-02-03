@@ -147,6 +147,20 @@ const SECTIONS: FeatureSection[] = [
         ],
         icon: Layers,
       },
+      {
+        id: 'photo-presentation',
+        kicker: 'Photo Presentation & Branding',
+        title: 'Prepare photos for internal or external audiences.',
+        description:
+          'Apply optional branding and structural elements to individual videos or compiled sessions — without altering the original recordings.',
+        bullets: [
+          'Add branded intros, outros, and question markers',
+          'Apply lower thirds with names, roles, or campaign context',
+          'Overlay logos, watermarks, or visual identifiers',
+          'Prepare compiled videos for internal or public distribution',
+        ],
+        icon: Layers,
+      },
     ],
   },
 
