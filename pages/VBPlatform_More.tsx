@@ -40,6 +40,18 @@ const SECTIONS: FeatureSection[] = [
       'Everything teams need to organize, review, and manage recordings at scale.',
     blocks: [
       {
+        id: 'governance',
+        kicker: 'Governance & Permissions',
+        title: 'Manage access and permissions across teams',
+        bullets: [
+          'Role-based access levels for teams and administrators',
+          'Authentication using 2FA or secure tokens required',
+          'Internal-facing access only with controlled visibility',
+          'Designed for enterprise and multi-department workflows',
+        ],
+        icon: Lock,
+      },
+      {
         id: 'organization',
         kicker: 'Organization',
         title: 'Top-level campaign overview of all recorded sessions',
@@ -86,18 +98,6 @@ const SECTIONS: FeatureSection[] = [
           'Support shortlisting and internal review workflows',
         ],
         icon: FileText,
-      },
-      {
-        id: 'governance',
-        kicker: 'Governance & Permissions',
-        title: 'Manage access and permissions across teams',
-        bullets: [
-          'Role-based access levels for teams and administrators',
-          'Authentication using 2FA or secure tokens required',
-          'Internal-facing access only with controlled visibility',
-          'Designed for enterprise and multi-department workflows',
-        ],
-        icon: Lock,
       },
       {
         id: 'exports',
