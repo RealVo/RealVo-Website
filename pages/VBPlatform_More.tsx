@@ -52,16 +52,14 @@ const SECTIONS: FeatureSection[] = [
         icon: Layers,
       },
       {
-        id: 'search',
-        kicker: 'Search & Filters',
-        title: 'Find and refine sessions across large programs.',
-        description:
-          'Powerful filtering and search tools designed for reviewing high-volume recordings.',
-        bullets: [
-          'Filter by date, moderation, view status, and responses',
-          'Search using keywords, tags, or transcription text',
-          'Select individual sessions or batch-select filtered results',
-          'Perform bulk actions like approve, download, move, compile, or share',
+      id: 'search',
+      kicker: 'Search & Filters',
+      title: 'Find and refine sessions across large programs',
+      bullets: [
+        'Filter by date, question, moderation and view status',
+        'Search using keywords, tags, or transcription text',
+        'Select individual sessions or batch-select filtered results',
+        'Perform bulk actions such as approve, download, move, compile, or share',
         ],
         icon: Play,
       },
