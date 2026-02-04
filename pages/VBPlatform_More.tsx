@@ -59,7 +59,7 @@ const SECTIONS: FeatureSection[] = [
         'Filter by date, question, moderation and view status',
         'Search using keywords, tags, or transcription text',
         'Select individual sessions or batch-select filtered results',
-        'Perform bulk actions such as approve, download, move, compile, or share',
+        'Bulk actions such as download, delete, approve, compile',
         ],
         icon: Play,
       },
