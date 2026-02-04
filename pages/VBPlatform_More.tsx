@@ -78,12 +78,12 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'notes-tags',
         kicker: 'Tags & Notes',
-        title: 'Add structure and internal context to sessions.',
+        title: 'Add structure and context to sessions.',
         bullets: [
           'Apply unlimited custom tags for categorization',
-          'Add internal notes for reviewers',
-          'Use tags and notes to support review and shortlisting',
-          'Filter sessions by tags or notes by search',
+          'Add internal notes and reviewer comments',
+          'Filter sessions using tags or notes',
+          'Support shortlisting and internal review workflows',
         ],
         icon: FileText,
       },
