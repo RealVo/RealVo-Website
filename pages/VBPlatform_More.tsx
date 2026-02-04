@@ -67,8 +67,6 @@ const SECTIONS: FeatureSection[] = [
         id: 'session-review',
         kicker: 'Session Review',
         title: 'Review, manage, and act on individual sessions',
-        description:
-          'Each session opens to a dedicated page where teams can playback, manage status, and take action.',
         bullets: [
           'Playback recorded sessions in a dedicated session view',
           'Download individual assets or full session bundles',
