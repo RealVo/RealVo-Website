@@ -66,7 +66,7 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'session-review',
         kicker: 'Session Review',
-        title: 'Review, manage, and act on individual sessions',
+        title: 'View and manage individual sessions',
         bullets: [
           'Playback recorded sessions in a dedicated session view',
           'Download individual assets or full session bundles',
@@ -78,12 +78,10 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'notes-tags',
         kicker: 'Tags & Notes',
-        title: 'Add structure and context to recorded sessions.',
-        description:
-          'Capture internal notes and apply custom tags directly to sessions to support review, editorial workflows, and downstream analysis.',
+        title: 'Add structure and internal context to sessions.',
         bullets: [
           'Apply unlimited custom tags for categorization',
-          'Add notes specific to session for reviewers',
+          'Add internal notes for reviewers',
           'Use tags and notes to support review and shortlisting',
           'Filter sessions by tags or notes by search',
         ],
