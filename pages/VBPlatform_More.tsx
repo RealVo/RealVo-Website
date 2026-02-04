@@ -117,7 +117,7 @@ const SECTIONS: FeatureSection[] = [
   {
     id: 'content-preparation',
     eyebrow: 'Bridge Layer',
-    title: 'Content Preparation',
+    title: 'Branding & Presentation',
     description:
       'Tools for shaping and packaging recordings before distribution — without altering original source content.',
     blocks: [
