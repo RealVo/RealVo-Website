@@ -47,8 +47,8 @@ const SECTIONS: FeatureSection[] = [
           'A searchable hub for all videos — complete with activity trends and instant access to what matters most',
         bullets: [
           'Content organized by capture source - booth or online',
-          'Monitor session volume and trends over time',
           'At-a-glance view of recent and active recordings',
+          'Monitor session volume and activity over time',
           'One-click access to any group or session for review',
         ],
         icon: Layers,
