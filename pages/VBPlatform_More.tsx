@@ -51,20 +51,6 @@ const SECTIONS: FeatureSection[] = [
         ],
         icon: Layers,
       },
-             {
-        id: 'session-review',
-        kicker: 'Session Review',
-        title: 'Review, manage, and act on individual sessions.',
-        description:
-          'Each session opens to a dedicated page where teams can playback, manage status, and take action.',
-        bullets: [
-          'Download individual assets or full session bundles',
-          'Manage visibility, approval status, and session actions',
-          'Access session transcription and metadata',
-          'Session-level activity analytics',
-        ],
-        icon: Search,
-      },
       {
         id: 'search',
         kicker: 'Search & Filters',
@@ -78,6 +64,20 @@ const SECTIONS: FeatureSection[] = [
           'Perform bulk actions like approve, download, move, compile, or share',
         ],
         icon: Play,
+      },
+      {
+        id: 'session-review',
+        kicker: 'Session Review',
+        title: 'Review, manage, and act on individual sessions.',
+        description:
+          'Each session opens to a dedicated page where teams can playback, manage status, and take action.',
+        bullets: [
+          'Download individual assets or full session bundles',
+          'Manage visibility, approval status, and session actions',
+          'Access session transcription and metadata',
+          'Session-level activity analytics',
+        ],
+        icon: Search,
       },
       {
         id: 'notes-tags',
