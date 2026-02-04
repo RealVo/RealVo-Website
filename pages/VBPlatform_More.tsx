@@ -78,7 +78,7 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'notes-tags',
         kicker: 'Tags & Notes',
-        title: 'Add structure and context to sessions.',
+        title: 'Add structure and context to sessions',
         bullets: [
           'Apply unlimited custom tags for categorization',
           'Add internal notes and reviewer comments',
@@ -90,28 +90,24 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'governance',
         kicker: 'Governance & Permissions',
-        title: 'Control access without slowing teams down.',
-        description:
-          'Assign administration and access rights to control who can view, review, and act on content across programs.',
+        title: 'Manage access and permissions across teams',
         bullets: [
           'Role-based access levels for teams and administrators',
-          'Password-protected access with mandatory two-factor authentication',
-          'Separate internal review from external viewing',
+          'Authentication using 2FA or secure tokens required',
+          'Internal-facing access only with controlled visibility',
           'Designed for enterprise and multi-department workflows',
         ],
         icon: Lock,
       },
       {
         id: 'exports',
-        kicker: 'Exports & Delivery',
-        title: 'Move content and data into the rest of your workflow.',
-        description:
-          'Export video assets and structured session data in formats designed for real-world reporting, archiving, and CRM integration.',
+        kicker: 'Exports & Asset Management',
+        title: 'Download video assets and session data',
         bullets: [
-          'Download individual videos or full session asset bundles',
-          'Export structured session data in CRM-ready CSV formats',
-          'Access raw files, compressed videos, audio, and metadata',
-          'Designed for reporting, compliance, and downstream systems',
+          'Raw and web-formatted video assets',
+          'Session metadata and user-provided details',
+          'CSV exports for user, session, and stats data',
+          'Session transcription files',
         ],
         icon: Download,
       },
