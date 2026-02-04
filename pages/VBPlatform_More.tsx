@@ -43,8 +43,6 @@ const SECTIONS: FeatureSection[] = [
         id: 'organization',
         kicker: 'Organization',
         title: 'Top-level campaign overview of all recorded sessions.',
-        description:
-          'A searchable hub for all videos — complete with activity trends and instant access to what matters most',
         bullets: [
           'Content organized by capture source - booth or online',
           'At-a-glance view of recent and active recordings',
