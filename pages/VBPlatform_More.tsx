@@ -42,7 +42,7 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'organization',
         kicker: 'Organization',
-        title: 'Top-level campaign overview of all recorded sessions.',
+        title: 'Top-level campaign overview of all recorded sessions',
         bullets: [
           'Content organized by capture source - booth or online',
           'At-a-glance view of recent and active recordings',
@@ -66,14 +66,14 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'session-review',
         kicker: 'Session Review',
-        title: 'Review, manage, and act on individual sessions.',
+        title: 'Review, manage, and act on individual sessions',
         description:
           'Each session opens to a dedicated page where teams can playback, manage status, and take action.',
         bullets: [
+          'Playback recorded sessions in a dedicated session view',
           'Download individual assets or full session bundles',
-          'Manage visibility, approval status, and session actions',
-          'Access session transcription and metadata',
-          'Session-level activity analytics',
+          'Access session transcription and associated session details',
+          'View basic activity and sharing indicators for each session',
         ],
         icon: Search,
       },
