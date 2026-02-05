@@ -183,20 +183,6 @@ const SECTIONS: FeatureSection[] = [
         icon: CheckCircle2,
       },
       {
-        id: 'distribution-analytics',
-        kicker: 'Engagement & Reporting',
-        title: 'Understand activity and engagement across programs.',
-        description:
-          'Track participation and viewing activity to understand how distributed content is being used — at the campaign, group, and session level.',
-        bullets: [
-          'View activity and engagement at a glance',
-          'Track session volume and trends over time',
-          'Identify most-watched and trending content',
-          'Support internal reporting and post-program review',
-        ],
-        icon: BarChart2,
-      },
-      {
         id: 'distribution-layer',
         kicker: 'Distribution Layer',
         title: 'Deliver curated stories through galleries, microsites, and embeds.',
@@ -209,6 +195,20 @@ const SECTIONS: FeatureSection[] = [
           'Optional sharing controls enabled per campaign',
         ],
         icon: Globe,
+      },
+      {
+        id: 'distribution-analytics',
+        kicker: 'Engagement & Reporting',
+        title: 'Understand activity and engagement across programs.',
+        description:
+          'Track participation and viewing activity to understand how distributed content is being used — at the campaign, group, and session level.',
+        bullets: [
+          'View activity and engagement at a glance',
+          'Track session volume and trends over time',
+          'Identify most-watched and trending content',
+          'Support internal reporting and post-program review',
+        ],
+        icon: BarChart2,
       },
     ],
   },
