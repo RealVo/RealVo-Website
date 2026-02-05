@@ -157,13 +157,13 @@ const SECTIONS: FeatureSection[] = [
     blocks: [
       {
         id: 'email-social-prep',
-        kicker: 'Email & Social Preparation',
+        kicker: 'Email & Social Elements',
         title: 'Prepare branded sharing experiences',
         bullets: [
-          'Branded email templates for approved and declined content',
-          'Pre-built social share copy, links, and metadata',
-          'Campaign-specific messaging and redirects',
-          'Sharing rules defined before distribution',
+          'Personalized, pre-populated branded emails',
+          'Pre-configured social share copy for LinkedIn, Facebook, and X',
+          'Campaign-specific messaging and redirect logic',
+          'Sharing rules defined before launch',
         ],
         icon: FileText,
       },
