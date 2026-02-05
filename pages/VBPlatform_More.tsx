@@ -119,14 +119,12 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: 'Asset Treatment',
     title: 'Branding & Presentation',
     description:
-      'Polished, presentation-ready video and photo assets produced from captured recordings, aligned to your brand and program standards — all managed for you by RealVo.',
+      'Source videos and photos transformed into presentation-ready assets aligned to campaign and brand guidelines — fully managed by RealVo.',
     blocks: [
       {
         id: 'video-presentation',
-        kicker: 'Video Presentation & Branding',
-        title: 'Prepare videos for internal or external audiences.',
-        description:
-          'Apply optional branding and structural elements to individual videos or compiled sessions — without altering the original recordings.',
+        kicker: 'Video Activations',
+        title: 'Treat videos for internal or external audiences.',
         bullets: [
           'Add branded intros, outros, and question markers',
           'Apply lower thirds with names, roles, or campaign context',
