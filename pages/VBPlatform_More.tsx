@@ -182,15 +182,13 @@ const SECTIONS: FeatureSection[] = [
       },
       {
         id: 'distribution-layer',
-        kicker: 'Distribution Layer',
-        title: 'Deliver curated stories through galleries, microsites, and embeds.',
-        description:
-          'Extend programs beyond internal review with optional, brand-safe distribution through intranet-friendly galleries, microsites, and embeddable players.',
+        kicker: 'Viewing Experience',
+        title: 'Provide a branded destination for viewing',
         bullets: [
-          'Branded microsites for internal or public viewing',
+          'Branded player page for internal or public viewing',
           'Curated galleries featuring approved content only',
           'Embeddable layouts for intranets and websites',
-          'Optional sharing controls enabled per campaign',
+          'Gallery links function as a standalone destination',
         ],
         icon: Globe,
       },
