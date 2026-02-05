@@ -153,7 +153,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: 'Optional',
     title: 'Distribution & Engagement',
     description:
-      'A managed online sharing service for deploying approved, branded video and photo assets via email, social channels, and microsites — with moderation, visibility, and reporting built in.',
+      'A managed sharing layer for deploying approved video and photo assets through branded emails, social channels, and microsites — with moderation and reporting.',
     blocks: [
       {
         id: 'email-social-prep',
