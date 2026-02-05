@@ -161,7 +161,7 @@ const Hero: React.FC = () => {
             {HERO_IMAGES.map((src, idx) => (
               <img
   key={src}
-  src={idx === activeIndex ? src : undefined}
+  src={src}
   alt="RealVo video capture example"
   width={1440}
   height={900}
