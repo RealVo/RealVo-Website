@@ -153,7 +153,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: 'Optional',
     title: 'Distribution & Engagement',
     description:
-      'Controlled delivery for internal distribution, intranet viewing, and public-facing campaigns — with full visibility and access control.',
+      'A managed online sharing service for deploying approved, branded video and photo assets via email, social channels, and microsites — with moderation, visibility, and reporting built in.',
     blocks: [
       {
         id: 'email-social-prep',
