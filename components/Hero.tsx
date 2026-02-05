@@ -11,9 +11,9 @@ const Hero: React.FC = () => {
 
   // HERO IMAGE ROTATION
   const HERO_IMAGES = [
-    '/capture/hero/booth-user-3.png',
-    '/capture/hero/fsk-user-2.png',
-    '/capture/hero/vvb-user-4.png',
+    '/capture/hero/booth-user-3.webp',
+    '/capture/hero/fsk-user-2.webp',
+    '/capture/hero/vvb-user-4.webp',
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
