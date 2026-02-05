@@ -172,13 +172,11 @@ const SECTIONS: FeatureSection[] = [
         id: 'moderation',
         kicker: 'Moderation & Approvals',
         title: 'Keep content appropriate, controlled, and ready to publish.',
-        description:
-          'Review and moderate sessions before they’re shared, ensuring content meets program standards and is appropriate for internal or external audiences.',
         bullets: [
-          'Approve, decline, or leave sessions unmoderated',
-          'Clearly mark content as appropriate or inappropriate',
-          'Control visibility for internal or public-facing galleries',
-          'Maintain brand and program standards at scale',
+          'Sessions enter a pending review state upon upload',
+          'Approve or decline sessions based on content suitability',
+          'Approval or decline determines email delivery and view access',
+          'Gallery visibility controlled by moderators',
         ],
         icon: CheckCircle2,
       },
