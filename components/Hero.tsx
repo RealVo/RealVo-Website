@@ -160,16 +160,20 @@ const Hero: React.FC = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
             {HERO_IMAGES.map((src, idx) => (
               <img
-                key={src}
-                src={src}
-                alt="RealVo video capture example"
-                className={`
-                  absolute inset-0 w-full h-full object-cover
-                  transition-opacity ease-in-out
-                  duration-[${FADE_MS}ms]
-                  ${idx === activeIndex ? 'opacity-100' : 'opacity-0'}
-                `}
-              />
+  key={src}
+  src={src}
+  alt="RealVo video capture example"
+  width={1440}
+  height={900}
+  loading={idx === activeIndex ? "eager" : "lazy"}
+  fetchPriority={idx === activeIndex ? "high" : "auto"}
+  className={`
+    absolute inset-0 w-full h-full object-cover
+    transition-opacity ease-in-out
+    duration-[${FADE_MS}ms]
+    ${idx === activeIndex ? 'opacity-100' : 'opacity-0'}
+  `}
+/>
             ))}
           </div>
 
