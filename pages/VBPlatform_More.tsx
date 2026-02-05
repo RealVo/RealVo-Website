@@ -195,13 +195,11 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'distribution-analytics',
         kicker: 'Engagement & Reporting',
-        title: 'Understand activity and engagement across programs.',
-        description:
-          'Track participation and viewing activity to understand how distributed content is being used — at the campaign, group, and session level.',
+        title: 'Measure viewing and participation',
         bullets: [
-          'View activity and engagement at a glance',
-          'Track session volume and trends over time',
-          'Identify most-watched and trending content',
+          'View engagement and activity at a glance',
+          'Track session volume and participation trends',
+          'Identify most-viewed and trending content',
           'Support internal reporting and post-program review',
         ],
         icon: BarChart2,
