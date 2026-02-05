@@ -116,10 +116,10 @@ const SECTIONS: FeatureSection[] = [
 
   {
     id: 'content-preparation',
-    eyebrow: 'Bridge Layer',
+    eyebrow: 'Asset Treatment',
     title: 'Branding & Presentation',
     description:
-      'Tools for shaping and packaging recordings before distribution — without altering original source content.',
+      'Polished, presentation-ready video and photo assets produced from captured recordings, aligned to your brand and program standards — all managed for you by RealVo.',
     blocks: [
       {
         id: 'video-presentation',
