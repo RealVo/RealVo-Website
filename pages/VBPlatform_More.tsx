@@ -123,27 +123,25 @@ const SECTIONS: FeatureSection[] = [
     blocks: [
       {
         id: 'video-presentation',
-        kicker: 'Video Activations',
-        title: 'Treat videos for internal or external audiences.',
+        kicker: 'Videos',
+        title: 'Treat videos for internal or external audiences',
         bullets: [
           'Intros, outros, question markers, and fade transitions',
           'Lower thirds, logos, and watermark overlays',
           'Captions and audio backing tracks',
-          'Background replacement for controlled environments',
+          'Background replacement for brand consistency',
         ],
         icon: Layers,
       },
       {
         id: 'photo-presentation',
-        kicker: 'Photo Presentation & Branding',
-        title: 'Prepare photos for internal or external audiences.',
-        description:
-          'Apply optional branding and structural elements to individual videos or compiled sessions — without altering the original recordings.',
+        kicker: 'Photos',
+        title: 'Apply branded treatments to photo assets',
         bullets: [
-          'Add branded intros, outros, and question markers',
-          'Apply lower thirds with names, roles, or campaign context',
-          'Overlay logos, watermarks, or visual identifiers',
-          'Prepare compiled videos for internal or public distribution',
+          'Single or multi-photo layouts and GIF outputs',
+          'Custom frames, banners, and logo overlays',
+          'Custom filters and brand-aligned styles',
+          'AI background removal',
         ],
         icon: Layers,
       },
