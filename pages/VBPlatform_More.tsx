@@ -171,7 +171,7 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'moderation',
         kicker: 'Moderation & Approvals',
-        title: 'Control sharing before release',
+        title: 'Review and control sharing access before release',
         bullets: [
           'Sessions held in a pending review state',
           'Approve or decline based on content suitability',
@@ -183,9 +183,9 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'distribution-layer',
         kicker: 'Viewing Experience',
-        title: 'Provide a branded destination for viewing',
+        title: 'Branded player and gallery for viewing',
         bullets: [
-          'Branded player page for internal or public viewing',
+          'Dedicated player page for internal or public viewing',
           'Curated galleries featuring approved content only',
           'Embeddable layouts for intranets and websites',
           'Gallery links function as a standalone destination',
