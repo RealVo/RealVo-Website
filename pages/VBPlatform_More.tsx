@@ -173,9 +173,9 @@ const SECTIONS: FeatureSection[] = [
         kicker: 'Moderation & Approvals',
         title: 'Keep content appropriate, controlled, and ready to publish.',
         bullets: [
-          'Sessions enter a pending review state upon upload',
-          'Approve or decline sessions based on content suitability',
-          'Approval or decline determines email delivery and view access',
+          'Sessions held in a pending review state',
+          'Approve or decline based on content suitability',
+          'Approval status determines email and view access',
           'Gallery visibility controlled by moderators',
         ],
         icon: CheckCircle2,
