@@ -18,7 +18,7 @@ type FeatureBlock = {
   id: string;
   kicker: string;
   title: string;
-  description: string;
+  description?: string; // ✅ allow cards without a description
   bullets: string[];
   icon: React.ElementType;
 };
@@ -56,7 +56,7 @@ const SECTIONS: FeatureSection[] = [
         kicker: 'Organization',
         title: 'Top-level campaign overview of all recorded sessions',
         bullets: [
-          'Content organized by capture source - booth or online',
+          'Content organized by capture source — booth or online',
           'At-a-glance view of recent and active recordings',
           'Monitor session volume and activity over time',
           'One-click access to any group or session for review',
@@ -64,14 +64,14 @@ const SECTIONS: FeatureSection[] = [
         icon: Layers,
       },
       {
-      id: 'search',
-      kicker: 'Search & Filters',
-      title: 'Find and refine sessions across large programs',
-      bullets: [
-        'Filter by date, question, moderation and view status',
-        'Search using keywords, tags, or transcription text',
-        'Select individual sessions or batch-select filtered results',
-        'Bulk actions such as download, delete, approve, compile',
+        id: 'search',
+        kicker: 'Search & Filters',
+        title: 'Find and refine sessions across large programs',
+        bullets: [
+          'Filter by date, question, moderation, and view status',
+          'Search using keywords, tags, or transcription text',
+          'Select individual sessions or batch-select filtered results',
+          'Bulk actions such as download, delete, approve, and compile',
         ],
         icon: Play,
       },
@@ -234,11 +234,14 @@ function FeatureCard({ block }: { block: FeatureBlock }) {
         <span>{block.title}</span>
       </h3>
 
-      <p className="mt-3 text-lg sm:text-base text-slate-900 dark:text-slate-100">
-        {block.description}
-      </p>
+      {/* ✅ Only render description when present */}
+      {block.description ? (
+        <p className="mt-3 text-lg sm:text-base text-slate-900 dark:text-slate-100">
+          {block.description}
+        </p>
+      ) : null}
 
-      <ul className="mt-5 space-y-2 text-base sm:text-sm text-slate-700 dark:text-slate-200 list-disc pl-5 marker:text-realvo-teal">
+      <ul className={`space-y-2 text-base sm:text-sm text-slate-700 dark:text-slate-200 list-disc pl-5 marker:text-realvo-teal ${block.description ? 'mt-5' : 'mt-4'}`}>
         {block.bullets.map((b, i) => (
           <li key={i}>{b}</li>
         ))}
@@ -256,8 +259,8 @@ function SectionBlock({ section }: { section: FeatureSection }) {
           {section.eyebrow}
         </p>
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
-  {section.title}
-</h2>
+          {section.title}
+        </h2>
         <p className="mt-2 max-w-3xl text-sm sm:text-base text-white/90">
           {section.description}
         </p>
@@ -301,8 +304,8 @@ const VBPlatform_More: React.FC = () => {
               </p>
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-  VideoBooth.tv Features
-</h1>
+                VideoBooth.tv Features
+              </h1>
             </div>
 
             <div className="mt-10 sm:mt-14 lg:mt-16">
@@ -342,4 +345,3 @@ const VBPlatform_More: React.FC = () => {
 };
 
 export default VBPlatform_More;
-
