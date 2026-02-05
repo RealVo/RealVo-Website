@@ -161,7 +161,7 @@ const SECTIONS: FeatureSection[] = [
         title: 'Prepare branded sharing experiences',
         bullets: [
           'Personalized, pre-populated branded emails',
-          'Pre-configured social share copy for LinkedIn, Facebook, and X',
+          'Pre-configured LinkedIn, Facebook, and X share options',
           'Campaign-specific messaging and redirect logic',
           'Sharing rules defined before launch',
         ],
