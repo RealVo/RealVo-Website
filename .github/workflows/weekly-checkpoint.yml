@@ -1,0 +1,24 @@
+name: Weekly Stable Checkpoint
+
+on:
+  schedule:
+    # Every Monday at 09:00 UTC
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  create-checkpoint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout stable
+        uses: actions/checkout@v4
+        with:
+          ref: stable
+
+      - name: Create checkpoint tag
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          TAG="checkpoint-$DATE"
+          git tag "$TAG"
+          git push origin "$TAG"
