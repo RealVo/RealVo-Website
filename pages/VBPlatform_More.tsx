@@ -156,6 +156,19 @@ const SECTIONS: FeatureSection[] = [
       'Controlled delivery for internal distribution, intranet viewing, and public-facing campaigns — with full visibility and access control.',
     blocks: [
       {
+        id: 'email-social-prep',
+        kicker: 'Email & Social Preparation',
+        title: 'Prepare branded sharing experiences',
+        bullets: [
+          'Branded email templates for approved and declined content',
+          'Pre-built social share copy, links, and metadata',
+          'Campaign-specific messaging and redirects',
+          'Sharing rules defined before distribution',
+        ],
+        icon: FileText,
+      },
+
+      {
         id: 'moderation',
         kicker: 'Moderation & Approvals',
         title: 'Keep content appropriate, controlled, and ready to publish.',
