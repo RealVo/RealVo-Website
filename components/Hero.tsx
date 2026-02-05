@@ -161,12 +161,13 @@ const Hero: React.FC = () => {
             {HERO_IMAGES.map((src, idx) => (
               <img
   key={src}
-  src={src}
+  src={idx === activeIndex ? src : undefined}
   alt="RealVo video capture example"
   width={1440}
   height={900}
-  loading={idx === activeIndex ? "eager" : "lazy"}
-  fetchPriority={idx === activeIndex ? "high" : "auto"}
+  loading="eager"
+  fetchPriority="high"
+  style={{ backgroundColor: "#f2f4f7" }}
   className={`
     absolute inset-0 w-full h-full object-cover
     transition-opacity ease-in-out
