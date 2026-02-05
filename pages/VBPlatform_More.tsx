@@ -153,7 +153,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: 'Optional',
     title: 'Distribution & Engagement',
     description:
-      'Share the experience. Extend campaign reach through a branded video and photo viewing experience, hosted as a stand-alone microsite or embedded within client websites, with visibility and engagement tracking',
+      'Share the experience. Extend campaign reach through a branded video and photo viewing experience, hosted as a stand-alone microsite or embedded within client websites, with visibility and engagement tracking.',
     blocks: [
       {
         id: 'email-social-prep',
