@@ -171,7 +171,7 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'moderation',
         kicker: 'Moderation & Approvals',
-        title: 'Keep content appropriate, controlled, and ready to publish.',
+        title: 'Control sharing before release',
         bullets: [
           'Sessions held in a pending review state',
           'Approve or decline based on content suitability',
