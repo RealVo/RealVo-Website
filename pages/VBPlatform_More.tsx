@@ -195,7 +195,7 @@ const SECTIONS: FeatureSection[] = [
       {
         id: 'distribution-analytics',
         kicker: 'Engagement & Reporting',
-        title: 'Measure viewing and participation',
+        title: 'Visibility into participation, viewing, and trends',
         bullets: [
           'View engagement and activity at a glance',
           'Track session volume and participation trends',
