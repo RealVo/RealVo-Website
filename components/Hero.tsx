@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
 
   {/* Subline — Desktop */}
 <p className="hidden sm:block mt-6 text-lg text-gray-600 max-w-3xl">
-  A fully managed, enterprise-ready solution for capturing stories, testimonials, and insights through video, voice, and text — in person and online.
+  A managed, enterprise-ready solution for capturing stories, testimonials, and insights through video, voice, and text — in person and online.
 </p>
 
 {/* Subline — Mobile (adds modality clarity) */}
