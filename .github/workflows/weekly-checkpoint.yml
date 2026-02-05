@@ -1,0 +1,22 @@
+name: Weekly Stable Checkpoint
+
+on:
+  schedule:
+    - cron: '0 3 * * 1' # Every Monday at 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  checkpoint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create stable checkpoint branch
+        run: |
+          DATE=$(date +'%Y-%m-%d')
+          git checkout -B stable
+          git merge main --no-edit
+          git push origin stable --force
