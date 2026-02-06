@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowDownCircle } from 'lucide-react';
 import Button from './Button';
 
 type NavLink =
@@ -145,9 +145,11 @@ const Header: React.FC = () => {
                 aria-expanded={processOpen}
               >
                 Process &amp; Platform
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${processOpen ? 'rotate-180' : ''}`}
-                />
+                <ArrowDownCircle
+  className={`h-4 w-4 text-realvo-blue transition-transform ${
+    processOpen ? 'rotate-180' : ''
+  }`}
+/>
               </button>
 
               {processOpen && (
@@ -245,11 +247,11 @@ const Header: React.FC = () => {
     className="w-full flex items-center justify-between py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
   >
     <span>Process &amp; Platform</span>
-    <ChevronDown
-      className={`h-4 w-4 transition-transform ${
-        processMobileOpen ? 'rotate-180' : ''
-      }`}
-    />
+    <ArrowDownCircle
+  className={`h-4 w-4 text-realvo-blue transition-transform ${
+    processMobileOpen ? 'rotate-180' : ''
+  }`}
+/>
   </button>
 
   {processMobileOpen && (
