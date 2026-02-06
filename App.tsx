@@ -121,11 +121,19 @@ const HomePage: React.FC = () => {
         <WhyWhatBridge />
 
         <Industries />
-        <CaptureOptions />
-        <ImplementationProcess />
-        <HowItWorks />
-        <VBPlatform />
-        <Pricing />
+<CaptureOptions />
+
+{/* Anchors for "Process & Platform" */}
+<div id="implementation-process" />
+<ImplementationProcess />
+
+<div id="how-it-works" />
+<HowItWorks />
+
+<div id="vb-platform" />
+<VBPlatform />
+
+<Pricing />
 
         <Section
           id="contact"
