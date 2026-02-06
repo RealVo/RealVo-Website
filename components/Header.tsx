@@ -139,7 +139,7 @@ const Header: React.FC = () => {
             {/* Process & Platform dropdown (Desktop) */}
             <div
               ref={processWrapRef}
-              className="relative pb-3"
+              className="relative"
               onMouseEnter={() => setProcessOpen(true)}
               onMouseLeave={() => setProcessOpen(false)}
             >
@@ -157,6 +157,8 @@ const Header: React.FC = () => {
   }`}
 />
               </button>
+
+              <div className="absolute left-0 right-0 top-full h-3 pointer-events-none" />
 
               {processOpen && (
                 <div
