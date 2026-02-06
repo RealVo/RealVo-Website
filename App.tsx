@@ -130,7 +130,7 @@ const HomePage: React.FC = () => {
 <div id="how-it-works" />
 <HowItWorks />
 
-<section id="vb-platform" className="scroll-mt-24">
+<section id="vb-platform" className="scroll-mt-16">
   <VBPlatform />
 </section>
 
