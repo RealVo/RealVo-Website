@@ -163,7 +163,7 @@ const Header: React.FC = () => {
               {processOpen && (
                 <div
                   role="menu"
-                  className="absolute left-0 mt-2 w-64 rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden"
+                  className="absolute left-0 mt-0 w-64 rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden"
                 >
                   <div className="py-2">
                     {PROCESS_PLATFORM_ITEMS.map((item) => (
