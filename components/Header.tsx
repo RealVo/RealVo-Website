@@ -31,6 +31,7 @@ const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [processOpen, setProcessOpen] = useState(false);
   const processWrapRef = useRef<HTMLDivElement | null>(null);
+  const [processMobileOpen, setProcessMobileOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     const isHome =
@@ -236,26 +237,40 @@ const Header: React.FC = () => {
               );
             })}
 
-            {/* Mobile grouped links for Process & Platform */}
-            <div className="pt-2">
-              <div className="text-xs font-semibold tracking-wide text-gray-500 py-2">
-                Process &amp; Platform
-              </div>
+            {/* Mobile accordion: Process & Platform */}
+<div className="pt-2">
+  <button
+    type="button"
+    onClick={() => setProcessMobileOpen((v) => !v)}
+    className="w-full flex items-center justify-between py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+  >
+    <span>Process &amp; Platform</span>
+    <ChevronDown
+      className={`h-4 w-4 transition-transform ${
+        processMobileOpen ? 'rotate-180' : ''
+      }`}
+    />
+  </button>
 
-              {PROCESS_PLATFORM_ITEMS.map((item) => (
-                <button
-                  key={item.targetId}
-                  type="button"
-                  onClick={() => {
-                    setMobileOpen(false);
-                    scrollToSection(item.targetId);
-                  }}
-                  className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+  {processMobileOpen && (
+    <div className="pl-3">
+      {PROCESS_PLATFORM_ITEMS.map((item) => (
+        <button
+          key={item.targetId}
+          type="button"
+          onClick={() => {
+            setProcessMobileOpen(false);
+            setMobileOpen(false);
+            scrollToSection(item.targetId);
+          }}
+          className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+        >
+          {item.label}
+        </button>
+      ))}
+    </div>
+  )}
+</div>
 
             <Button
               size="sm"
