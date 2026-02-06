@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Menu, X, TriangleDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Button from './Button';
 
 type NavLink =
@@ -20,6 +20,18 @@ const navLinks: NavLink[] = [
   { label: 'Use Cases', href: '/use-cases' },
   { label: 'Solutions', targetId: 'solutions' },
 ];
+
+// Solid filled triangle caret (uses currentColor)
+const SolidCaretDown: React.FC<{ className?: string }> = ({ className }) => (
+  <svg
+    viewBox="0 0 12 12"
+    aria-hidden="true"
+    focusable="false"
+    className={className}
+  >
+    <path d="M6 9.5 1.5 3.5h9L6 9.5Z" fill="currentColor" />
+  </svg>
+);
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -134,12 +146,12 @@ const Header: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setProcessOpen((v) => !v)}
-                className="inline-flex items-center gap-1 relative transition-colors hover:text-realvo-blue"
+                className="inline-flex items-center gap-2 relative transition-colors hover:text-realvo-blue"
                 aria-haspopup="menu"
                 aria-expanded={processOpen}
               >
                 Process &amp; Platform
-                <TriangleDown
+                <SolidCaretDown
                   className={`h-3 w-3 text-realvo-blue transition-transform ${
                     processOpen ? 'rotate-180' : ''
                   }`}
@@ -242,7 +254,7 @@ const Header: React.FC = () => {
                 className="w-full flex items-center justify-between py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
               >
                 <span>Process &amp; Platform</span>
-                <TriangleDown
+                <SolidCaretDown
                   className={`h-3 w-3 text-realvo-blue transition-transform ${
                     processMobileOpen ? 'rotate-180' : ''
                   }`}
