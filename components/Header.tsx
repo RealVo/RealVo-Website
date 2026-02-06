@@ -139,7 +139,7 @@ const Header: React.FC = () => {
             {/* Process & Platform dropdown (Desktop) */}
             <div
               ref={processWrapRef}
-              className="relative"
+              className="relative pb-3"
               onMouseEnter={() => setProcessOpen(true)}
               onMouseLeave={() => setProcessOpen(false)}
             >
