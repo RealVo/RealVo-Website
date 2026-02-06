@@ -1,22 +1,37 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Button from './Button';
 
 type NavLink =
   | { label: string; targetId: string; href?: never }
   | { label: string; href: string; targetId?: never };
 
+const PROCESS_PLATFORM_ITEMS = [
+  { label: 'Implementation Process', targetId: 'implementation-process' },
+  { label: 'How It Works', targetId: 'how-it-works' },
+  { label: 'VB Platform', targetId: 'vb-platform' },
+];
+
 const navLinks: NavLink[] = [
+  // NOTE: Your App.tsx currently has <div id="why-realvo" />.
+  // If you want this to scroll correctly, ensure the ID on the page matches this targetId.
   { label: 'Why RealVo', targetId: 'why-realvo-exists' },
+
   { label: 'Industries', targetId: 'industries' },
   { label: 'Use Cases', href: '/use-cases' },
   { label: 'Solutions', targetId: 'solutions' },
-  { label: 'Process & Platform', targetId: 'process-platform' },
+
+  // "Process & Platform" is now a dropdown (desktop) + grouped links (mobile),
+  // so it is intentionally removed from the flat navLinks list.
+  // { label: 'Process & Platform', targetId: 'process-platform' },
+
   { label: 'Pricing', targetId: 'pricing' },
 ];
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [processOpen, setProcessOpen] = useState(false);
+  const processWrapRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSection = (id: string) => {
     const isHome =
@@ -32,12 +47,14 @@ const Header: React.FC = () => {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     } else {
+      // Keep existing behavior (full navigation) for non-home pages
       window.location.href = `/#${id}`;
     }
   };
 
   const scrollToTop = () => {
     setMobileOpen(false);
+    setProcessOpen(false);
 
     if (typeof window === 'undefined') return;
 
@@ -54,6 +71,24 @@ const Header: React.FC = () => {
       window.location.href = '/';
     }
   };
+
+  // Close the desktop dropdown on outside click + ESC
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => {
+      if (!processWrapRef.current) return;
+      if (!processWrapRef.current.contains(e.target as Node)) setProcessOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setProcessOpen(false);
+    };
+
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
@@ -94,6 +129,51 @@ const Header: React.FC = () => {
                 </button>
               );
             })}
+
+            {/* Process & Platform dropdown (Desktop) */}
+            <div
+              ref={processWrapRef}
+              className="relative"
+              onMouseEnter={() => setProcessOpen(true)}
+              onMouseLeave={() => setProcessOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setProcessOpen((v) => !v)}
+                className="inline-flex items-center gap-1 relative transition-colors hover:text-realvo-blue"
+                aria-haspopup="menu"
+                aria-expanded={processOpen}
+              >
+                Process &amp; Platform
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${processOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {processOpen && (
+                <div
+                  role="menu"
+                  className="absolute left-0 mt-2 w-64 rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden"
+                >
+                  <div className="py-2">
+                    {PROCESS_PLATFORM_ITEMS.map((item) => (
+                      <button
+                        key={item.targetId}
+                        type="button"
+                        role="menuitem"
+                        onClick={() => {
+                          setProcessOpen(false);
+                          scrollToSection(item.targetId);
+                        }}
+                        className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-realvo-blue transition"
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Desktop Contact button */}
@@ -148,6 +228,27 @@ const Header: React.FC = () => {
                 </button>
               );
             })}
+
+            {/* Mobile grouped links for Process & Platform */}
+            <div className="pt-2">
+              <div className="text-xs font-semibold tracking-wide text-gray-500 py-2">
+                Process &amp; Platform
+              </div>
+
+              {PROCESS_PLATFORM_ITEMS.map((item) => (
+                <button
+                  key={item.targetId}
+                  type="button"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    scrollToSection(item.targetId);
+                  }}
+                  className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
 
             <Button
               size="sm"
