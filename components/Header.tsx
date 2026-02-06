@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Button from './Button';
 
 type NavLink =
@@ -151,11 +151,11 @@ const Header: React.FC = () => {
                 aria-expanded={processOpen}
               >
                 Process &amp; Platform
-                <SolidCaretDown
-                  className={`h-3 w-3 text-realvo-blue transition-transform ${
-                    processOpen ? 'rotate-180' : ''
-                  }`}
-                />
+                <ChevronDown
+  className={`h-4 w-4 text-realvo-blue transition-transform ${
+    processOpen ? 'rotate-180' : ''
+  }`}
+/>
               </button>
 
               {processOpen && (
