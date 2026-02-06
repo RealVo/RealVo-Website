@@ -25,7 +25,6 @@ const navLinks: NavLink[] = [
   // so it is intentionally removed from the flat navLinks list.
   // { label: 'Process & Platform', targetId: 'process-platform' },
 
-  { label: 'Pricing', targetId: 'pricing' },
 ];
 
 const Header: React.FC = () => {
@@ -173,7 +172,15 @@ const Header: React.FC = () => {
                   </div>
                 </div>
               )}
-            </div>
+                        </div>
+
+            <button
+              type="button"
+              onClick={() => scrollToSection('pricing')}
+              className="relative transition-colors hover:text-realvo-blue"
+            >
+              Pricing
+            </button>
           </nav>
 
           {/* Desktop Contact button */}
