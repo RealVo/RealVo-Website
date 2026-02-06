@@ -16,22 +16,16 @@ const navLinks: NavLink[] = [
   // NOTE: Your App.tsx currently has <div id="why-realvo" />.
   // If you want this to scroll correctly, ensure the ID on the page matches this targetId.
   { label: 'Why RealVo', targetId: 'why-realvo-exists' },
-
   { label: 'Industries', targetId: 'industries' },
   { label: 'Use Cases', href: '/use-cases' },
   { label: 'Solutions', targetId: 'solutions' },
-
-  // "Process & Platform" is now a dropdown (desktop) + grouped links (mobile),
-  // so it is intentionally removed from the flat navLinks list.
-  // { label: 'Process & Platform', targetId: 'process-platform' },
-
 ];
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [processOpen, setProcessOpen] = useState(false);
-  const processWrapRef = useRef<HTMLDivElement | null>(null);
   const [processMobileOpen, setProcessMobileOpen] = useState(false);
+  const processWrapRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSection = (id: string) => {
     const isHome =
@@ -47,7 +41,6 @@ const Header: React.FC = () => {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     } else {
-      // Keep existing behavior (full navigation) for non-home pages
       window.location.href = `/#${id}`;
     }
   };
@@ -55,6 +48,7 @@ const Header: React.FC = () => {
   const scrollToTop = () => {
     setMobileOpen(false);
     setProcessOpen(false);
+    setProcessMobileOpen(false);
 
     if (typeof window === 'undefined') return;
 
@@ -146,10 +140,10 @@ const Header: React.FC = () => {
               >
                 Process &amp; Platform
                 <TriangleDown
-  className={`h-3 w-3 text-realvo-blue transition-transform ${
-    processOpen ? 'rotate-180' : ''
-  }`}
-/>
+                  className={`h-3 w-3 text-realvo-blue transition-transform ${
+                    processOpen ? 'rotate-180' : ''
+                  }`}
+                />
               </button>
 
               {processOpen && (
@@ -175,8 +169,9 @@ const Header: React.FC = () => {
                   </div>
                 </div>
               )}
-                        </div>
+            </div>
 
+            {/* Pricing (last) */}
             <button
               type="button"
               onClick={() => scrollToSection('pricing')}
@@ -240,39 +235,51 @@ const Header: React.FC = () => {
             })}
 
             {/* Mobile accordion: Process & Platform */}
-<div className="pt-2">
-  <button
-    type="button"
-    onClick={() => setProcessMobileOpen((v) => !v)}
-    className="w-full flex items-center justify-between py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
-  >
-    <span>Process &amp; Platform</span>
-    <TriangleDown
-  className={`h-3 w-3 text-realvo-blue transition-transform ${
-    processMobileOpen ? 'rotate-180' : ''
-  }`}
-/>
-  </button>
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => setProcessMobileOpen((v) => !v)}
+                className="w-full flex items-center justify-between py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+              >
+                <span>Process &amp; Platform</span>
+                <TriangleDown
+                  className={`h-3 w-3 text-realvo-blue transition-transform ${
+                    processMobileOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
-  {processMobileOpen && (
-    <div className="pl-3">
-      {PROCESS_PLATFORM_ITEMS.map((item) => (
-        <button
-          key={item.targetId}
-          type="button"
-          onClick={() => {
-            setProcessMobileOpen(false);
-            setMobileOpen(false);
-            scrollToSection(item.targetId);
-          }}
-          className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
-        >
-          {item.label}
-        </button>
-      ))}
-    </div>
-  )}
-</div>
+              {processMobileOpen && (
+                <div className="pl-3">
+                  {PROCESS_PLATFORM_ITEMS.map((item) => (
+                    <button
+                      key={item.targetId}
+                      type="button"
+                      onClick={() => {
+                        setProcessMobileOpen(false);
+                        setMobileOpen(false);
+                        scrollToSection(item.targetId);
+                      }}
+                      className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Pricing (last, mobile) */}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                scrollToSection('pricing');
+              }}
+              className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+            >
+              Pricing
+            </button>
 
             <Button
               size="sm"
