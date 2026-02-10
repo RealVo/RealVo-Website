@@ -107,10 +107,6 @@ const TorontoVideoBooth: React.FC = () => {
                   Participants are guided through a calm, distraction-free experience — resulting in consistent, usable video stories.
                 </p>
 
-                <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  Built on over 20 years of real-world experience delivering structured video capture for organizations.
-                </p>
-
                 {/* VBPlatform mention (short + punchy) */}
                 <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
                   Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform.
