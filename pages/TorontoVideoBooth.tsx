@@ -52,14 +52,14 @@ const TorontoVideoBooth: React.FC = () => {
               {/* Visual */}
               <div className="lg:sticky lg:top-24">
                 <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
-                  <div className="aspect-[4/3] w-full bg-slate-50 flex items-center justify-center p-6">
-                    <img
-                      src="/private_booth.png"
-                      alt="RealVo enclosed video booth deployment"
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                </div>
+  <div className="w-full bg-slate-50 flex items-center justify-center p-6 max-h-[420px] lg:max-h-[460px]">
+    <img
+      src="/private_booth.png"
+      alt="RealVo enclosed video booth deployment"
+      className="h-full w-auto object-contain"
+    />
+  </div>
+</div>
 
                 <p className="mt-3 text-xs text-slate-500 max-w-sm">
                   Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
