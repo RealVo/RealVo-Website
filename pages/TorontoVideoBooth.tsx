@@ -33,14 +33,6 @@ const TorontoVideoBooth: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
-            {/* Back link */}
-            <a
-              href="/"
-              className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 hover:text-realvo-blue transition"
-            >
-              <span className="mr-1.5 text-base">←</span>
-              Back to RealVo
-            </a>
 
             {/* Hero */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start lg:gap-10">
