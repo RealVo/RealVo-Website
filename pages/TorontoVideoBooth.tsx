@@ -113,7 +113,8 @@ const TorontoVideoBooth: React.FC = () => {
                 </p>
 
                 <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-                  Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform.
+                  Captured content is securely managed, reviewed, and organized
+                  through the VideoBooth.tv platform.
                 </p>
 
                 {/* CTA */}
@@ -125,12 +126,16 @@ const TorontoVideoBooth: React.FC = () => {
                     Start a Toronto conversation
                   </a>
                 </div>
-              </div>
-            </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-xl">
-              <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
-              Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
+                {/* Local deployments note (moved here; lighter, no box) */}
+                <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+                  <span className="font-semibold text-slate-600">
+                    Local deployments only.
+                  </span>{' '}
+                  Limited availability across Toronto &amp; the GTA. Exploratory
+                  conversations welcome.
+                </p>
+              </div>
             </div>
 
             {/* Who this is for */}
@@ -166,7 +171,6 @@ const TorontoVideoBooth: React.FC = () => {
                 Technical specifications
               </h2>
 
-              {/* Clean layout: 1-col mobile, 2-col md, 3-col lg (avoids orphan row feeling) */}
               <div className="grid gap-y-6 gap-x-10 text-xs sm:text-sm text-slate-700 md:grid-cols-2 lg:grid-cols-3">
                 <div>
                   <p className="font-semibold">Camera &amp; audio</p>
