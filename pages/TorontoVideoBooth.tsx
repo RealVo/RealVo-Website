@@ -128,6 +128,11 @@ const TorontoVideoBooth: React.FC = () => {
               </div>
             </div>
 
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-xl">
+              <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
+              Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
+            </div>
+
             {/* Who this is for */}
             <div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
               <div>
