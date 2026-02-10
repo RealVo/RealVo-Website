@@ -83,9 +83,10 @@ const TorontoVideoBooth: React.FC = () => {
                 <div className="flex flex-wrap gap-2">
                   {[
                     'Enclosed, seated booth',
-                    'Sound-controlled environment',
+                    'Sound-dampened environment',
                     'Guided on-screen prompts',
                     'Consistent framing & audio',
+                    'Commanding on-site presence',
                     'Local Toronto deployment',
                   ].map(tag => (
                     <span
