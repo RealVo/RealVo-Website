@@ -158,11 +158,11 @@ const TorontoVideoBooth: React.FC = () => {
               </h2>
 
               <ul className="space-y-2.5 text-sm sm:text-base text-slate-700">
-                <li>• Enclosed, seated booth design for focus and comfort</li>
-                <li>• Sound-controlled recording environment</li>
-                <li>• Guided on-screen prompts for consistency</li>
-                <li>• Predictable participant experience across sessions</li>
-                <li>• Content that is easier to review, organize, and use</li>
+                <li>• <strong>More consistent stories</strong> — guided prompts reduce variation and help people stay on topic</li>
+                <li>• <strong>Less on-site coordination</strong> — RealVo handles setup and participant flow so your team isn’t producing</li>
+                <li>• <strong>Higher usable yield</strong> — cleaner audio and repeatable framing means less time sorting through unusable clips</li>
+                <li>• <strong>Designed for real environments</strong> — works in offices, campuses, and institutions without a full production crew</li>
+                <li>• <strong>Built for review workflows</strong> — content is easier to screen, organize, and share internally</li>
               </ul>
             </div>
 
@@ -178,6 +178,13 @@ const TorontoVideoBooth: React.FC = () => {
                   <p className="font-semibold">Camera &amp; audio</p>
                   <p className="text-slate-600">
                     HD 1080p camera (30 fps) with directional microphone system
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">Lighting</p>
+                  <p className="text-slate-600">
+                    Dimmable lighting optimized for flattering skin tones
                   </p>
                 </div>
 
