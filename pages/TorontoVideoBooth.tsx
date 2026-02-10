@@ -38,7 +38,6 @@ const TorontoVideoBooth: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
-
             {/* Back link */}
             <a
               href="/"
@@ -60,10 +59,11 @@ const TorontoVideoBooth: React.FC = () => {
                   />
                 </div>
 
-  <p className="mt-3 text-xs text-slate-500 max-w-sm">
-    Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
-  </p>
-</div>
+                <p className="mt-3 text-xs text-slate-500 max-w-sm">
+                  Illustrative deployment shown. Booth configuration, branding,
+                  and exterior / backdrop wraps are project-specific.
+                </p>
+              </div>
 
               {/* Copy */}
               <div className="space-y-5 sm:space-y-6">
@@ -74,7 +74,8 @@ const TorontoVideoBooth: React.FC = () => {
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                     Structured Video Booth Rentals
                     <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
-                      A premium, enclosed video booth experience for organizations across Toronto and the Greater Toronto Area.
+                      A premium, enclosed video booth experience for
+                      organizations across Toronto and the Greater Toronto Area.
                     </span>
                   </h1>
                 </div>
@@ -99,12 +100,16 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  RealVo provides a structured video booth designed for organizations that need more than casual testimonials or DIY recordings.
-                  Participants are guided through a calm, distraction-free experience — resulting in consistent, usable video stories.
+                  RealVo provides a structured video booth designed for
+                  organizations that need more than casual testimonials or DIY
+                  recordings. Participants are guided through a calm,
+                  distraction-free experience — resulting in consistent, usable
+                  video stories.
                 </p>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  Built on over 20 years of real-world experience delivering structured video capture for organizations.
+                  Built on over 20 years of real-world experience delivering
+                  structured video capture for organizations.
                 </p>
 
                 {/* CTA */}
@@ -122,7 +127,7 @@ const TorontoVideoBooth: React.FC = () => {
             {/* Who this is for */}
             <div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-3">
+                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
                   Who this is for
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
@@ -134,7 +139,7 @@ const TorontoVideoBooth: React.FC = () => {
               </div>
 
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-3">
+                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
                   Not intended for
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
@@ -148,7 +153,7 @@ const TorontoVideoBooth: React.FC = () => {
 
             {/* What makes it different */}
             <div className="mt-12 sm:mt-16">
-              <h2 className="text-lg sm:text-xl font-semibold mb-4">
+              <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4">
                 What makes this video booth different
               </h2>
 
@@ -162,44 +167,49 @@ const TorontoVideoBooth: React.FC = () => {
             </div>
 
             {/* Technical specifications */}
-<div className="mt-12 sm:mt-16">
-  <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
-    Technical specifications
-  </h2>
+            <div className="mt-12 sm:mt-16">
+              <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
+                Technical specifications
+              </h2>
 
-  <div className="text-xs sm:text-sm text-slate-700 grid gap-y-3 sm:gap-y-4 sm:grid-cols-2 sm:gap-x-6">
-    <div>
-      <p className="font-semibold">Camera &amp; audio</p>
-      <p className="text-slate-600">
-        HD 1080p camera (30 fps) with directional microphone system
-      </p>
-    </div>
-    <div>
-      <p className="font-semibold">Power</p>
-      <p className="text-slate-600">
-        Single standard 15A outlet (dedicated where possible)
-      </p>
-    </div>
-    <div>
-      <p className="font-semibold">Footprint</p>
-      <p className="text-slate-600">
-        Approx. 8&apos;W × 8&apos;L × 8&apos;H (plus queue space)
-      </p>
-    </div>
-    <div>
-      <p className="font-semibold">Setup time</p>
-      <p className="text-slate-600">
-        ~1.5–2 hours from arrival to first recording
-      </p>
-    </div>
-    <div>
-      <p className="font-semibold">On-site support</p>
-      <p className="text-slate-600">
-        RealVo technician(s) or trained partner staff
-      </p>
-    </div>
-  </div>
-</div>
+              {/* Clean layout: 1-col mobile, 2-col md, 3-col lg (avoids orphan row feeling) */}
+              <div className="grid gap-y-6 gap-x-10 text-xs sm:text-sm text-slate-700 md:grid-cols-2 lg:grid-cols-3">
+                <div>
+                  <p className="font-semibold">Camera &amp; audio</p>
+                  <p className="text-slate-600">
+                    HD 1080p camera (30 fps) with directional microphone system
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">Power</p>
+                  <p className="text-slate-600">
+                    Single standard 15A outlet (dedicated where possible)
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">Footprint</p>
+                  <p className="text-slate-600">
+                    Approx. 8&apos;W × 8&apos;L × 8&apos;H (plus queue space)
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">Setup time</p>
+                  <p className="text-slate-600">
+                    ~1.5–2 hours from arrival to first recording
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">On-site support</p>
+                  <p className="text-slate-600">
+                    RealVo technician(s) or trained partner staff
+                  </p>
+                </div>
+              </div>
+            </div>
 
             {/* CTA band */}
             <div
@@ -234,7 +244,6 @@ const TorontoVideoBooth: React.FC = () => {
                 Talk to us
               </a>
             </div>
-
           </div>
         </section>
       </main>
@@ -245,3 +254,4 @@ const TorontoVideoBooth: React.FC = () => {
 };
 
 export default TorontoVideoBooth;
+
