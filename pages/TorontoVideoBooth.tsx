@@ -61,7 +61,7 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
   <p className="mt-3 text-xs text-slate-500 max-w-sm">
-    Illustrative deployment shown. Booth configuration, branding, and exterior wraps are project-specific.
+    Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
   </p>
 </div>
 
@@ -160,6 +160,46 @@ const TorontoVideoBooth: React.FC = () => {
                 <li>• Content that is easier to review, organize, and use</li>
               </ul>
             </div>
+
+            {/* Technical specifications */}
+<div className="mt-12 sm:mt-16">
+  <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
+    Technical specifications
+  </h2>
+
+  <div className="text-xs sm:text-sm text-slate-700 grid gap-y-3 sm:gap-y-4 sm:grid-cols-2 sm:gap-x-6">
+    <div>
+      <p className="font-semibold">Camera &amp; audio</p>
+      <p className="text-slate-600">
+        HD 1080p camera (30 fps) with directional microphone system
+      </p>
+    </div>
+    <div>
+      <p className="font-semibold">Power</p>
+      <p className="text-slate-600">
+        Single standard 15A outlet (dedicated where possible)
+      </p>
+    </div>
+    <div>
+      <p className="font-semibold">Footprint</p>
+      <p className="text-slate-600">
+        Approx. 8&apos;W × 8&apos;L × 8&apos;H (plus queue space)
+      </p>
+    </div>
+    <div>
+      <p className="font-semibold">Setup time</p>
+      <p className="text-slate-600">
+        ~1.5–2 hours from arrival to first recording
+      </p>
+    </div>
+    <div>
+      <p className="font-semibold">On-site support</p>
+      <p className="text-slate-600">
+        RealVo technician(s) or trained partner staff
+      </p>
+    </div>
+  </div>
+</div>
 
             {/* CTA band */}
             <div
