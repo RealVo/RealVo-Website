@@ -129,13 +129,14 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 {/* Local deployments note (moved here; lighter, no box) */}
-                <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-                  <span className="font-semibold text-slate-600">
-                    Local deployments only.
-                  </span>{' '}
-                  Limited availability across Toronto &amp; the GTA. Exploratory
-                  conversations welcome.
-                </p>
+                <p className="mt-3 text-xs text-slate-500 max-w-sm">
+  Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
+</p>
+
+<p className="mt-4 text-xs sm:text-sm text-slate-600 max-w-sm">
+  <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
+  Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
+</p>
               </div>
             </div>
 
