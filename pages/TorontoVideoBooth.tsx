@@ -3,14 +3,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const TorontoVideoBooth: React.FC = () => {
-  // Scroll to top when navigating to this page
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  /**
-   * CTA animation trigger (unchanged pattern)
-   */
+  // CTA animation trigger (unchanged pattern)
   const ctaRef = useRef<HTMLDivElement | null>(null);
   const [ctaAnimKey, setCtaAnimKey] = useState(0);
 
@@ -20,9 +17,7 @@ const TorontoVideoBooth: React.FC = () => {
 
     const observer = new IntersectionObserver(
       entries => {
-        if (entries[0].isIntersecting) {
-          setCtaAnimKey(k => k + 1);
-        }
+        if (entries[0].isIntersecting) setCtaAnimKey(k => k + 1);
       },
       { threshold: 0.35 }
     );
@@ -49,24 +44,32 @@ const TorontoVideoBooth: React.FC = () => {
 
             {/* Hero */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start lg:gap-10">
-              {/* Visual */}
-              <div className="lg:sticky lg:top-24">
+              {/* LEFT: Visual + notes (fills the “blank space” on desktop) */}
+              <div className="flex flex-col gap-4">
                 <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
-  <div className="w-full bg-slate-50 flex items-center justify-center p-6 max-h-[420px] lg:max-h-[460px]">
-    <img
-      src="/private_booth.png"
-      alt="RealVo enclosed video booth deployment"
-      className="h-full w-auto object-contain"
-    />
-  </div>
-</div>
+                  {/* keeps the visual feeling “substantial” */}
+                  <div className="aspect-[4/3] w-full bg-slate-50 flex items-center justify-center p-6">
+                    <img
+                      src="/private_booth.png"
+                      alt="RealVo enclosed video booth deployment"
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
 
-                <p className="mt-3 text-xs text-slate-500 max-w-sm">
+                {/* ONLY ONCE: illustrative note (no duplicates anywhere else) */}
+                <p className="text-xs text-slate-500 max-w-md">
                   Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
                 </p>
+
+                {/* This is the key to killing the empty white space */}
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-md">
+                  <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
+                  Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
+                </div>
               </div>
 
-              {/* Copy */}
+              {/* RIGHT: Copy */}
               <div className="space-y-5 sm:space-y-6">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
@@ -75,13 +78,12 @@ const TorontoVideoBooth: React.FC = () => {
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                     Structured Video Booth Rentals
                     <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
-                      A premium, enclosed video booth experience for
-                      organizations across Toronto and the Greater Toronto Area.
+                      A premium, enclosed video booth experience for organizations across Toronto and the Greater Toronto Area.
                     </span>
                   </h1>
                 </div>
 
-                {/* Pill set — intentionally restrained */}
+                {/* Pills */}
                 <div className="flex flex-wrap gap-2">
                   {[
                     'Enclosed, seated booth',
@@ -101,21 +103,17 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  RealVo provides a structured video booth designed for
-                  organizations that need more than casual testimonials or DIY
-                  recordings. Participants are guided through a calm,
-                  distraction-free experience — resulting in consistent, usable
-                  video stories.
+                  RealVo provides a structured video booth designed for organizations that need more than casual testimonials or DIY recordings.
+                  Participants are guided through a calm, distraction-free experience — resulting in consistent, usable video stories.
                 </p>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  Built on over 20 years of real-world experience delivering
-                  structured video capture for organizations.
+                  Built on over 20 years of real-world experience delivering structured video capture for organizations.
                 </p>
 
+                {/* VBPlatform mention (short + punchy) */}
                 <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-                  Captured content is securely managed, reviewed, and organized
-                  through the VideoBooth.tv platform.
+                  Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform.
                 </p>
 
                 {/* CTA */}
@@ -127,16 +125,6 @@ const TorontoVideoBooth: React.FC = () => {
                     Start a Toronto conversation
                   </a>
                 </div>
-
-                {/* Local deployments note (moved here; lighter, no box) */}
-                <p className="mt-3 text-xs text-slate-500 max-w-sm">
-  Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
-</p>
-
-<p className="mt-4 text-xs sm:text-sm text-slate-600 max-w-sm">
-  <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
-  Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
-</p>
               </div>
             </div>
 
@@ -261,4 +249,3 @@ const TorontoVideoBooth: React.FC = () => {
 };
 
 export default TorontoVideoBooth;
-
