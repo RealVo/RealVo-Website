@@ -48,20 +48,21 @@ const TorontoVideoBooth: React.FC = () => {
             </a>
 
             {/* Hero */}
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-stretch">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start">
               {/* Visual */}
-              <div className="h-full flex flex-col">
-  <div className="relative flex-1 rounded-3xl bg-slate-100 overflow-hidden shadow-sm border border-slate-200 flex items-center justify-center">
-    <img
-      src="/private_booth.png"
-      alt="RealVo enclosed video booth deployment"
-      className="w-full h-full object-contain p-6"
-    />
+<div>
+  <div className="relative rounded-3xl bg-slate-100 overflow-hidden shadow-sm border border-slate-200">
+    <div className="h-[320px] sm:h-[380px] lg:h-[460px] flex items-center justify-center">
+      <img
+        src="/private_booth.png"
+        alt="RealVo enclosed video booth deployment"
+        className="max-h-full w-auto object-contain p-6"
+      />
+    </div>
   </div>
 
   <p className="mt-3 text-xs text-slate-500 max-w-sm">
-    Illustrative deployment shown. Booth configuration, branding,
-    and exterior / backdrop wraps are project-specific.
+    Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
   </p>
 </div>
 
