@@ -151,21 +151,6 @@ const TorontoVideoBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* What makes it different */}
-            <div className="mt-12 sm:mt-16">
-              <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4">
-                What makes this video booth different
-              </h2>
-
-              <ul className="space-y-2.5 text-sm sm:text-base text-slate-700">
-                <li>• <strong>More consistent stories</strong> — guided prompts reduce variation and help people stay on topic</li>
-                <li>• <strong>Less on-site coordination</strong> — RealVo handles setup and participant flow so your team isn’t producing</li>
-                <li>• <strong>Higher usable yield</strong> — cleaner audio and repeatable framing means less time sorting through unusable clips</li>
-                <li>• <strong>Designed for real environments</strong> — works in offices, campuses, and institutions without a full production crew</li>
-                <li>• <strong>Built for review workflows</strong> — content is easier to screen, organize, and share internally</li>
-              </ul>
-            </div>
-
             {/* Technical specifications */}
             <div className="mt-12 sm:mt-16">
               <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
