@@ -66,11 +66,6 @@ const TorontoVideoBooth: React.FC = () => {
                 </p>
               </div>
 
-  <p className="mt-3 text-xs text-slate-500 max-w-sm">
-    Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
-  </p>
-</div>
-
               {/* Copy */}
               <div className="space-y-5 sm:space-y-6">
                 <div>
