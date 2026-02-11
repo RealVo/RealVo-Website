@@ -173,7 +173,7 @@ const TorontoVideoBooth: React.FC = () => {
 </div>
 
             {/* Technical specifications */}
-            <div className="mt-14 sm:mt-20">
+            <div className="mt-10 sm:mt-14">
               <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                 Technical Specifications
               </h2>
