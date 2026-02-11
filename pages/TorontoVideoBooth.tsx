@@ -56,7 +56,7 @@ const TorontoVideoBooth: React.FC = () => {
                 <div className="flex flex-wrap gap-2">
                   {[
                     'Enclosed, seated booth',
-                    'Sound-dampened environment',
+                    'Maximum privacy + comfort',
                     'Guided on-screen prompts',
                     'Commanding on-site presence',
                   ].map(tag => (
