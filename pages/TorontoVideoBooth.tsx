@@ -35,7 +35,7 @@ const TorontoVideoBooth: React.FC = () => {
 
       <main className="flex-grow">
         <section className="w-full">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-14">
+          <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-14">
             {/* Hero */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-10">
               {/* Copy (LEFT) */}
