@@ -69,13 +69,6 @@ const TorontoVideoBooth: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Strong differentiator line (adds edge + breaks “flat” feeling) */}
-                <p className="text-sm sm:text-base text-slate-700 font-medium max-w-xl">
-                  Not a novelty photo booth — a controlled, sound-managed
-                  recording environment built for usable, high-quality video
-                  stories.
-                </p>
-
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
                   Designed for teams that require more than casual testimonials
                   or DIY recordings. Participants are guided through a calm,
