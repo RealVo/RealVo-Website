@@ -35,7 +35,7 @@ const TorontoVideoBooth: React.FC = () => {
 
       <main className="flex-grow">
         <section className="w-full">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-14">
             {/* Back link */}
             <a
               href="/"
@@ -46,21 +46,23 @@ const TorontoVideoBooth: React.FC = () => {
             </a>
 
             {/* Hero */}
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-start lg:gap-10">
-              {/* Copy (LEFT) */}
-              <div className="space-y-5 sm:space-y-6">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
-                    Toronto &amp; GTA
-                  </p>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                    Structured Video Booth Rentals
-                    <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
-                      A premium, enclosed video booth experience for
-                      organizations across Toronto and the Greater Toronto Area.
-                    </span>
-                  </h1>
-                </div>
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-10">
+  {/* Copy (LEFT) */}
+  <div className="space-y-5 sm:space-y-6 lg:pt-1">
+    <div className="space-y-2">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue">
+        Toronto &amp; GTA
+      </p>
+
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
+        Structured Video Booth Rentals
+      </h1>
+
+      <p className="text-base sm:text-lg font-normal text-slate-500">
+        A premium, enclosed video booth experience for organizations across
+        Toronto and the Greater Toronto Area.
+      </p>
+    </div>
 
                 {/* Pills */}
                 <div className="flex flex-wrap gap-2">
