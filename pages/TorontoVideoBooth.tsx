@@ -86,7 +86,6 @@ const TorontoVideoBooth: React.FC = () => {
       Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
     </div>
   </div>
-</div>
             
                 {/* Pills */}
                 <div className="flex flex-wrap gap-2">
