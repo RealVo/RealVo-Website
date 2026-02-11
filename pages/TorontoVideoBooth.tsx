@@ -130,13 +130,12 @@ const TorontoVideoBooth: React.FC = () => {
   <div
     className="
   group
-  bg-slate-50 dark:bg-gray-900
+  bg-white
   p-10 rounded-2xl
-  border border-slate-200 dark:border-gray-800
-  shadow-sm
-  antialiased
-  transition-shadow transition-colors duration-200
-  hover:shadow-md
+  border border-slate-300
+  shadow-md
+  transition-all duration-200
+  hover:-translate-y-1 hover:shadow-lg
 "
   >
     <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
@@ -153,13 +152,12 @@ const TorontoVideoBooth: React.FC = () => {
   <div
     className="
   group
-  bg-slate-50 dark:bg-gray-900
+  bg-white
   p-10 rounded-2xl
-  border border-slate-200 dark:border-gray-800
-  shadow-sm
-  antialiased
-  transition-shadow transition-colors duration-200
-  hover:shadow-md
+  border border-slate-300
+  shadow-md
+  transition-all duration-200
+  hover:-translate-y-1 hover:shadow-lg
 "
   >
     <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
