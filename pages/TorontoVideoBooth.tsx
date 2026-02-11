@@ -46,47 +46,22 @@ const TorontoVideoBooth: React.FC = () => {
             </a>
 
             {/* Hero */}
-<div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-start lg:gap-10">
-  {/* Copy */}
-  <div className="space-y-5 sm:space-y-6">
-    <div>
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
-        Toronto &amp; GTA
-      </p>
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-        Structured Video Booth Rentals
-        <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
-          A premium, enclosed video booth experience for organizations across Toronto and the Greater Toronto Area.
-        </span>
-      </h1>
-    </div>
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-start lg:gap-10">
+              {/* Copy (LEFT) */}
+              <div className="space-y-5 sm:space-y-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
+                    Toronto &amp; GTA
+                  </p>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
+                    Structured Video Booth Rentals
+                    <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
+                      A premium, enclosed video booth experience for
+                      organizations across Toronto and the Greater Toronto Area.
+                    </span>
+                  </h1>
+                </div>
 
-    {/* (keep your pills, paragraphs, VBPlatform line, CTA here) */}
-    {/* ... */}
-  </div>
-
-  {/* Visual */}
-  <div>
-    <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
-      <div className="aspect-[4/3] w-full bg-slate-50 flex items-center justify-center p-6">
-        <img
-          src="/private_booth.png"
-          alt="RealVo enclosed video booth deployment"
-          className="h-full w-full object-contain"
-        />
-      </div>
-    </div>
-
-    <p className="mt-3 text-xs text-slate-500 max-w-sm">
-      Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
-    </p>
-
-    <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-md">
-      <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
-      Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
-    </div>
-  </div>
-            
                 {/* Pills */}
                 <div className="flex flex-wrap gap-2">
                   {[
@@ -107,16 +82,21 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  RealVo provides a structured video booth designed for organizations that need more than casual testimonials or DIY
-                  recordings. Participants are guided through a calm, distraction-free experience — resulting in consistent, usable video stories.
+                  RealVo provides a structured video booth designed for
+                  organizations that need more than casual testimonials or DIY
+                  recordings. Participants are guided through a calm,
+                  distraction-free experience — resulting in consistent, usable
+                  video stories.
                 </p>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  Built on over 20 years of real-world experience delivering structured video capture for organizations.
+                  Built on over 20 years of real-world experience delivering
+                  structured video capture for organizations.
                 </p>
 
                 <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-                  Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform.
+                  Captured content is securely managed, reviewed, and organized
+                  through the VideoBooth.tv platform.
                 </p>
 
                 {/* CTA */}
@@ -127,6 +107,34 @@ const TorontoVideoBooth: React.FC = () => {
                   >
                     Start a Toronto conversation
                   </a>
+                </div>
+              </div>
+
+              {/* Visual (RIGHT) */}
+              <div>
+                <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
+                  <div className="aspect-[4/3] w-full bg-slate-50 flex items-center justify-center p-6">
+                    <img
+                      src="/private_booth.png"
+                      alt="RealVo enclosed video booth deployment"
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+
+                {/* Single caption ONLY (no duplicates anywhere else) */}
+                <p className="mt-3 text-xs text-slate-500 max-w-sm">
+                  Illustrative deployment shown. Booth configuration, branding,
+                  and exterior / backdrop wraps are project-specific.
+                </p>
+
+                {/* Local deployments note (under image to balance whitespace) */}
+                <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-md">
+                  <span className="font-semibold text-slate-700">
+                    Local deployments only.
+                  </span>{' '}
+                  Limited availability across Toronto &amp; the GTA. Exploratory
+                  conversations welcome.
                 </div>
               </div>
             </div>
@@ -221,7 +229,10 @@ const TorontoVideoBooth: React.FC = () => {
 
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
                   Make voices{' '}
-                  <span key={ctaAnimKey} className="text-realvo-teal animate-pulse-once-light">
+                  <span
+                    key={ctaAnimKey}
+                    className="text-realvo-teal animate-pulse-once-light"
+                  >
                     matter
                   </span>
                   .
