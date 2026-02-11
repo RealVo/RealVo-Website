@@ -120,7 +120,7 @@ const TorontoVideoBooth: React.FC = () => {
             </div>
 
             {/* Who this is for */}
-<div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
+<div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2 bg-slate-50/60 rounded-3xl p-8">
   <p className="col-span-full text-base sm:text-lg text-slate-600">
     Our Toronto video booth rentals support corporate environments,
     universities, healthcare institutions, and community organizations
