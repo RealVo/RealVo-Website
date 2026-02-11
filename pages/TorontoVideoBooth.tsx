@@ -105,8 +105,8 @@ const TorontoVideoBooth: React.FC = () => {
 
                 {/* Single caption ONLY (no duplicates anywhere else) */}
                 <p className="mt-3 text-xs text-slate-500 mx-auto text-center">
-                  Illustration only. UX, branding, and configuration are
-                  customized per project.
+                  Illustration only. UX, branding, and<br />
+                  configuration are customized per project.
                 </p>
 
                 {/* Local deployments note (under image to balance whitespace) */}
