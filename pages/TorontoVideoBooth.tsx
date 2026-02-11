@@ -46,7 +46,21 @@ const TorontoVideoBooth: React.FC = () => {
             </a>
 
             {/* Hero */}
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start lg:gap-10">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-start lg:gap-10">
+              {/* Copy */}
+              <div className="space-y-5 sm:space-y-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
+                    Toronto &amp; GTA
+                  </p>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
+                    Structured Video Booth Rentals
+                    <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
+                      A premium, enclosed video booth experience for organizations across Toronto and the Greater Toronto Area.
+                    </span>
+                  </h1>
+                </div>
+              
               {/* Visual */}
               <div>
                 <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
@@ -70,20 +84,6 @@ const TorontoVideoBooth: React.FC = () => {
                   Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
                 </div>
               </div>
-
-              {/* Copy */}
-              <div className="space-y-5 sm:space-y-6">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
-                    Toronto &amp; GTA
-                  </p>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                    Structured Video Booth Rentals
-                    <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
-                      A premium, enclosed video booth experience for organizations across Toronto and the Greater Toronto Area.
-                    </span>
-                  </h1>
-                </div>
 
                 {/* Pills */}
                 <div className="flex flex-wrap gap-2">
