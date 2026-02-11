@@ -46,45 +46,48 @@ const TorontoVideoBooth: React.FC = () => {
             </a>
 
             {/* Hero */}
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-start lg:gap-10">
-              {/* Copy */}
-              <div className="space-y-5 sm:space-y-6">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
-                    Toronto &amp; GTA
-                  </p>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                    Structured Video Booth Rentals
-                    <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
-                      A premium, enclosed video booth experience for organizations across Toronto and the Greater Toronto Area.
-                    </span>
-                  </h1>
-                </div>
-              
-              {/* Visual */}
-              <div>
-                <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
-                  <div className="aspect-[4/3] w-full bg-slate-50 flex items-center justify-center p-6">
-                    <img
-                      src="/private_booth.png"
-                      alt="RealVo enclosed video booth deployment"
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                </div>
+<div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-start lg:gap-10">
+  {/* Copy */}
+  <div className="space-y-5 sm:space-y-6">
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
+        Toronto &amp; GTA
+      </p>
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
+        Structured Video Booth Rentals
+        <span className="block text-base sm:text-lg font-normal text-slate-500 mt-1">
+          A premium, enclosed video booth experience for organizations across Toronto and the Greater Toronto Area.
+        </span>
+      </h1>
+    </div>
 
-                {/* Single caption ONLY (no duplicates anywhere else) */}
-                <p className="mt-3 text-xs text-slate-500 max-w-sm">
-                  Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
-                </p>
+    {/* (keep your pills, paragraphs, VBPlatform line, CTA here) */}
+    {/* ... */}
+  </div>
 
-                {/* Local deployments note (left column to balance whitespace) */}
-                <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-md">
-                  <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
-                  Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
-                </div>
-              </div>
+  {/* Visual */}
+  <div>
+    <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
+      <div className="aspect-[4/3] w-full bg-slate-50 flex items-center justify-center p-6">
+        <img
+          src="/private_booth.png"
+          alt="RealVo enclosed video booth deployment"
+          className="h-full w-full object-contain"
+        />
+      </div>
+    </div>
 
+    <p className="mt-3 text-xs text-slate-500 max-w-sm">
+      Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
+    </p>
+
+    <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-md">
+      <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
+      Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
+    </div>
+  </div>
+</div>
+            
                 {/* Pills */}
                 <div className="flex flex-wrap gap-2">
                   {[
