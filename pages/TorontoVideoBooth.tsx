@@ -44,12 +44,12 @@ const TorontoVideoBooth: React.FC = () => {
     <div className="space-y-2">
 
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-        Toronto Video Booth Rentals for Organizations
-      </h1>
+  Video Booth Rentals in Toronto for Organizations
+</h1>
 
       <p className="text-base sm:text-lg font-normal text-slate-500">
-        A fully managed, enterprise-grade solution designed to capture real stories and structured insight.
-      </p>
+  A fully managed, enterprise-grade video booth rental solution designed to capture real stories and structured insight.
+</p>
     </div>
 
                 {/* Pills */}
@@ -70,12 +70,8 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  RealVo provides a structured video booth designed for
-                  organizations that need more than casual testimonials or DIY
-                  recordings. Participants are guided through a calm,
-                  distraction-free experience — resulting in consistent, usable
-                  video stories.
-                </p>
+  Designed for organizations that require more than casual testimonials or DIY recordings. Participants are guided through a calm, sound-controlled environment — producing consistent framing, clear audio, and usable video stories.
+</p>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
                   Built on over 20 years of real-world experience delivering
@@ -128,12 +124,15 @@ const TorontoVideoBooth: React.FC = () => {
 
             {/* Who this is for */}
             <div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
+  <p className="col-span-full text-sm sm:text-base text-slate-600 max-w-3xl">
+    Our Toronto video booth rentals are designed for corporate environments, universities, healthcare institutions, and community organizations seeking structured, on-site video capture.
+  </p>
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
                   Who this is for
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
-                  <li>Employee experience &amp; engagement initiatives</li>
+                  <li>Corporate employee engagement &amp; experience initiatives</li>
                   <li>University and college student storytelling</li>
                   <li>Community, research, and qualitative insight projects</li>
                   <li>Internal communications and program feedback</li>
@@ -156,8 +155,8 @@ const TorontoVideoBooth: React.FC = () => {
             {/* Technical specifications */}
             <div className="mt-12 sm:mt-16">
               <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
-                Technical specifications
-              </h2>
+  Toronto Video Booth Rental Technical Specifications
+</h2>
 
               <div className="grid gap-y-6 gap-x-10 text-xs sm:text-sm text-slate-700 md:grid-cols-2 lg:grid-cols-3">
                 <div>
@@ -211,8 +210,8 @@ const TorontoVideoBooth: React.FC = () => {
             >
               <div>
                 <p className="text-sm font-semibold tracking-wide text-slate-200/90 mb-2">
-                  Toronto &amp; GTA deployments
-                </p>
+  Toronto corporate video booth deployments
+</p>
 
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
                   Make voices{' '}
