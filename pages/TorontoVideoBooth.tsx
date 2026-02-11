@@ -3,11 +3,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const TorontoVideoBooth: React.FC = () => {
+  // Scroll to top when navigating to this page
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // CTA animation trigger (unchanged pattern)
+  /**
+   * CTA animation trigger (unchanged pattern)
+   */
   const ctaRef = useRef<HTMLDivElement | null>(null);
   const [ctaAnimKey, setCtaAnimKey] = useState(0);
 
@@ -33,13 +36,20 @@ const TorontoVideoBooth: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
+            {/* Back link */}
+            <a
+              href="/"
+              className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 hover:text-realvo-blue transition"
+            >
+              <span className="mr-1.5 text-base">←</span>
+              Back to RealVo
+            </a>
 
             {/* Hero */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start lg:gap-10">
-              {/* LEFT: Visual + notes (fills the “blank space” on desktop) */}
-              <div className="flex flex-col gap-4">
+              {/* Visual */}
+              <div>
                 <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
-                  {/* keeps the visual feeling “substantial” */}
                   <div className="aspect-[4/3] w-full bg-slate-50 flex items-center justify-center p-6">
                     <img
                       src="/private_booth.png"
@@ -49,19 +59,19 @@ const TorontoVideoBooth: React.FC = () => {
                   </div>
                 </div>
 
-                {/* ONLY ONCE: illustrative note (no duplicates anywhere else) */}
-                <p className="text-xs text-slate-500 max-w-md">
+                {/* Single caption ONLY (no duplicates anywhere else) */}
+                <p className="mt-3 text-xs text-slate-500 max-w-sm">
                   Illustrative deployment shown. Booth configuration, branding, and exterior / backdrop wraps are project-specific.
                 </p>
 
-                {/* This is the key to killing the empty white space */}
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-md">
+                {/* Local deployments note (left column to balance whitespace) */}
+                <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs sm:text-sm text-slate-600 max-w-md">
                   <span className="font-semibold text-slate-700">Local deployments only.</span>{' '}
                   Limited availability across Toronto &amp; the GTA. Exploratory conversations welcome.
                 </div>
               </div>
 
-              {/* RIGHT: Copy */}
+              {/* Copy */}
               <div className="space-y-5 sm:space-y-6">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue mb-2">
@@ -95,11 +105,14 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  RealVo provides a structured video booth designed for organizations that need more than casual testimonials or DIY recordings.
-                  Participants are guided through a calm, distraction-free experience — resulting in consistent, usable video stories.
+                  RealVo provides a structured video booth designed for organizations that need more than casual testimonials or DIY
+                  recordings. Participants are guided through a calm, distraction-free experience — resulting in consistent, usable video stories.
                 </p>
 
-                {/* VBPlatform mention (short + punchy) */}
+                <p className="text-sm sm:text-base text-slate-600 max-w-xl">
+                  Built on over 20 years of real-world experience delivering structured video capture for organizations.
+                </p>
+
                 <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
                   Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform.
                 </p>
@@ -206,10 +219,7 @@ const TorontoVideoBooth: React.FC = () => {
 
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
                   Make voices{' '}
-                  <span
-                    key={ctaAnimKey}
-                    className="text-realvo-teal animate-pulse-once-light"
-                  >
+                  <span key={ctaAnimKey} className="text-realvo-teal animate-pulse-once-light">
                     matter
                   </span>
                   .
