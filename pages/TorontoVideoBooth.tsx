@@ -36,21 +36,21 @@ const TorontoVideoBooth: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-14">
-
             {/* Hero */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-10">
-  {/* Copy (LEFT) */}
-  <div className="space-y-5 sm:space-y-6 lg:pt-1">
-    <div className="space-y-2">
+              {/* Copy (LEFT) */}
+              <div className="space-y-5 sm:space-y-6 lg:pt-1">
+                <div className="space-y-2">
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
+                    Toronto Video Booth Rentals for Organizations
+                  </h1>
 
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-        Toronto Video Booth Rentals for Organizations
-      </h1>
-
-      <p className="text-base sm:text-lg font-normal text-slate-500">
-  A fully managed, enterprise-grade video booth rental solution designed to capture real stories and meaningful insight.
-</p>
-    </div>
+                  <p className="text-base sm:text-lg font-normal text-slate-500">
+                    A fully managed, enterprise-grade video booth rental
+                    solution designed to capture real stories and meaningful
+                    insight.
+                  </p>
+                </div>
 
                 {/* Pills */}
                 <div className="flex flex-wrap gap-2">
@@ -69,12 +69,23 @@ const TorontoVideoBooth: React.FC = () => {
                   ))}
                 </div>
 
+                {/* Strong differentiator line (adds edge + breaks “flat” feeling) */}
+                <p className="text-sm sm:text-base text-slate-700 font-medium max-w-xl">
+                  Not a novelty photo booth — a controlled, sound-managed
+                  recording environment built for usable, high-quality video
+                  stories.
+                </p>
+
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-  Designed for teams that require more than casual testimonials or DIY recordings. Participants are guided through a calm, sound-controlled environment — producing consistent framing, clear audio, and usable video stories.
-</p>
+                  Designed for teams that require more than casual testimonials
+                  or DIY recordings. Participants are guided through a calm,
+                  sound-controlled environment — producing consistent framing,
+                  clear audio, and usable video stories.
+                </p>
 
                 <p className="text-sm sm:text-base text-slate-700 font-medium max-w-xl">
-                  Built on over 20 years of real-world experience delivering professional video capture.
+                  Built on over 20 years of real-world experience delivering
+                  professional video capture.
                 </p>
 
                 {/* CTA */}
@@ -102,7 +113,8 @@ const TorontoVideoBooth: React.FC = () => {
 
                 {/* Single caption ONLY (no duplicates anywhere else) */}
                 <p className="mt-3 text-xs text-slate-500 mx-auto text-center whitespace-nowrap">
-                  Illustration only. UX, branding, and configuration are customized per project.
+                  Illustration only. UX, branding, and configuration are
+                  customized per project.
                 </p>
 
                 {/* Local deployments note (under image to balance whitespace) */}
@@ -117,9 +129,12 @@ const TorontoVideoBooth: React.FC = () => {
 
             {/* Who this is for */}
             <div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
-  <p className="col-span-full text-base sm:text-lg text-slate-600">
-    Our Toronto video booth rentals support corporate environments, universities, healthcare institutions, and community organizations seeking professional on-site video capture.
-  </p>
+              <p className="col-span-full text-base sm:text-lg text-slate-600">
+                Our Toronto video booth rentals support corporate environments,
+                universities, healthcare institutions, and community
+                organizations seeking professional on-site video capture.
+              </p>
+
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
                   Who this is for
@@ -194,9 +209,12 @@ const TorontoVideoBooth: React.FC = () => {
                   </p>
                 </div>
               </div>
-              className="mt-10 pt-6 border-t border-slate-200 text-sm sm:text-base text-slate-600"
-  Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform, with export options for internal communications, research, and reporting needs.
-</p>
+
+              <p className="mt-10 pt-6 border-t border-slate-200 text-sm sm:text-base text-slate-600">
+                Captured content is securely managed, reviewed, and organized
+                through the VideoBooth.tv platform, with export options for
+                internal communications, research, and reporting needs.
+              </p>
             </div>
 
             {/* CTA band */}
@@ -206,8 +224,8 @@ const TorontoVideoBooth: React.FC = () => {
             >
               <div>
                 <p className="text-sm font-semibold tracking-wide text-slate-200/90 mb-2">
-  Toronto corporate deployments
-</p>
+                  Toronto corporate deployments
+                </p>
 
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
                   Make voices{' '}
@@ -221,8 +239,8 @@ const TorontoVideoBooth: React.FC = () => {
                 </h2>
 
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-  Let’s discuss your upcoming project.
-</p>
+                  Let’s discuss your upcoming project.
+                </p>
               </div>
 
               <a
@@ -242,3 +260,4 @@ const TorontoVideoBooth: React.FC = () => {
 };
 
 export default TorontoVideoBooth;
+
