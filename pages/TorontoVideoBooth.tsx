@@ -110,8 +110,7 @@ const TorontoVideoBooth: React.FC = () => {
                   <span className="font-semibold text-slate-700">
                     Local deployments only.
                   </span>{' '}
-                  Limited availability across Toronto &amp; the GTA. Exploratory
-                  conversations welcome.
+                  Limited availability across the Greater Toronto Area.
                 </div>
               </div>
             </div>
