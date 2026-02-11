@@ -127,9 +127,9 @@ const TorontoVideoBooth: React.FC = () => {
                   Who this is for
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
-                  <li>Corporate employee engagement &amp; experience initiatives</li>
-                  <li>University and college student storytelling &amp; qualitative research initiatives</li>
-                  <li>Community engagement, research, and narrative-driven storytelling initiatives</li>
+                  <li>Corporate employee engagement &amp; experience programs</li>
+                  <li>University and college student storytelling &amp; research projects</li>
+                  <li>Community engagement and research efforts</li>
                   <li>Internal communications, leadership messaging, and program feedback</li>
                 </ul>
               </div>
