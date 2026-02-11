@@ -78,10 +78,6 @@ const TorontoVideoBooth: React.FC = () => {
                   structured video capture for organizations.
                 </p>
 
-                <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-  Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform, with export options for internal communications, research, and reporting needs.
-</p>
-
                 {/* CTA */}
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <a
@@ -200,6 +196,9 @@ const TorontoVideoBooth: React.FC = () => {
                   </p>
                 </div>
               </div>
+              <p className="mt-8 text-sm sm:text-base text-slate-600">
+  Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform, with export options for internal communications, research, and reporting needs.
+</p>
             </div>
 
             {/* CTA band */}
