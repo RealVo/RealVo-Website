@@ -42,17 +42,13 @@ const TorontoVideoBooth: React.FC = () => {
   {/* Copy (LEFT) */}
   <div className="space-y-5 sm:space-y-6 lg:pt-1">
     <div className="space-y-2">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-realvo-blue">
-        Toronto &amp; GTA
-      </p>
 
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-        Structured Video Booth Rentals
+        Toronto Video Booth Rentals for Organizations
       </h1>
 
       <p className="text-base sm:text-lg font-normal text-slate-500">
-        A premium, enclosed video booth experience for organizations across
-        Toronto and the Greater Toronto Area.
+        A fully managed, enterprise-grade solution designed to capture real stories and structured insight.
       </p>
     </div>
 
@@ -62,9 +58,7 @@ const TorontoVideoBooth: React.FC = () => {
                     'Enclosed, seated booth',
                     'Sound-dampened environment',
                     'Guided on-screen prompts',
-                    'Consistent framing & audio',
                     'Commanding on-site presence',
-                    'Local Toronto deployment',
                   ].map(tag => (
                     <span
                       key={tag}
