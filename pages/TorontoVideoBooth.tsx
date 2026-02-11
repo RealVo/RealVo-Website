@@ -44,8 +44,8 @@ const TorontoVideoBooth: React.FC = () => {
     <div className="space-y-2">
 
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-  Video Booth Rentals in Toronto for Organizations
-</h1>
+        Toronto Video Booth Rentals for Organizations
+      </h1>
 
       <p className="text-base sm:text-lg font-normal text-slate-500">
   A fully managed, enterprise-grade video booth rental solution designed to capture real stories and meaningful insight.
