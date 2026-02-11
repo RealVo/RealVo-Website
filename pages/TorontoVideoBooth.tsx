@@ -36,14 +36,6 @@ const TorontoVideoBooth: React.FC = () => {
       <main className="flex-grow">
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-14">
-            {/* Back link */}
-            <a
-              href="/"
-              className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 hover:text-realvo-blue transition"
-            >
-              <span className="mr-1.5 text-base">←</span>
-              Back to RealVo
-            </a>
 
             {/* Hero */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-10">
@@ -125,7 +117,7 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 {/* Single caption ONLY (no duplicates anywhere else) */}
-                <p className="mt-3 text-xs text-slate-500 max-w-sm mx-auto text-center">
+                <p className="mt-3 text-xs text-slate-500 mx-auto text-center whitespace-nowrap">
                   Illustration only. UX, branding, and configuration are customized per project.
                 </p>
 
