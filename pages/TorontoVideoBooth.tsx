@@ -120,37 +120,61 @@ const TorontoVideoBooth: React.FC = () => {
             </div>
 
             {/* Who this is for */}
-            <div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
-              <p className="col-span-full text-base sm:text-lg text-slate-600">
-                Our Toronto video booth rentals support corporate environments,
-                universities, healthcare institutions, and community
-                organizations seeking professional on-site video capture.
-              </p>
+<div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
+  <p className="col-span-full text-base sm:text-lg text-slate-600">
+    Our Toronto video booth rentals support corporate environments,
+    universities, healthcare institutions, and community organizations
+    seeking professional on-site video capture.
+  </p>
 
-              <div>
-                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
-                  Who this is for
-                </h2>
-                <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
-                  <li>Employee &amp; leadership storytelling</li>
-                  <li>Customer, client, or patient testimonials</li>
-                  <li>Student, alumni &amp; donor reflections</li>
-                  <li>Conference insights &amp; speaker reactions</li>
-                </ul>
-              </div>
+  <div
+    className="
+      group
+      bg-white dark:bg-gray-900
+      p-8 rounded-2xl
+      border border-gray-200 dark:border-gray-800
+      shadow-sm
+      antialiased
+      transition-shadow transition-colors duration-200
+      hover:shadow-lg
+      hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
+    "
+  >
+    <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
+      Who this is for
+    </h2>
+    <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
+      <li>Employee &amp; leadership storytelling</li>
+      <li>Customer, client, or patient testimonials</li>
+      <li>Student, alumni &amp; donor reflections</li>
+      <li>Conference insights &amp; speaker reactions</li>
+    </ul>
+  </div>
 
-              <div>
-                <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
-                  Not intended for
-                </h2>
-                <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
-                  <li>Weddings, parties, or novelty events</li>
-                  <li>Consumer photo booth rentals</li>
-                  <li>DIY tablet testimonial stations</li>
-                  <li>High-volume entertainment activations</li>
-                </ul>
-              </div>
-            </div>
+  <div
+    className="
+      group
+      bg-white dark:bg-gray-900
+      p-8 rounded-2xl
+      border border-gray-200 dark:border-gray-800
+      shadow-sm
+      antialiased
+      transition-shadow transition-colors duration-200
+      hover:shadow-lg
+      hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
+    "
+  >
+    <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
+      Not intended for
+    </h2>
+    <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
+      <li>Weddings, parties, or novelty events</li>
+      <li>Consumer photo booth rentals</li>
+      <li>DIY tablet testimonial stations</li>
+      <li>High-volume entertainment activations</li>
+    </ul>
+  </div>
+</div>
 
             {/* Technical specifications */}
             <div className="mt-14 sm:mt-20">
