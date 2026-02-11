@@ -39,7 +39,7 @@ const TorontoVideoBooth: React.FC = () => {
             {/* Hero */}
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-10">
               {/* Copy (LEFT) */}
-              <div className="space-y-5 sm:space-y-6 lg:pt-1">
+              <div className="space-y-4 sm:space-y-5 lg:pt-1">
                 <div className="space-y-2">
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
                     Toronto Video Booth Rentals for Organizations
@@ -83,10 +83,9 @@ const TorontoVideoBooth: React.FC = () => {
                   clear audio, and usable video stories.
                 </p>
 
-                <p className="text-sm sm:text-base text-slate-700 font-medium max-w-xl">
-                  Built on over 20 years of real-world experience delivering
-                  professional video capture.
-                </p>
+                <p className="text-sm sm:text-base text-slate-900 font-semibold max-w-xl">
+  Built on over 20 years of real-world experience delivering professional video capture.
+</p>
 
                 {/* CTA */}
                 <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -224,7 +223,7 @@ const TorontoVideoBooth: React.FC = () => {
             >
               <div>
                 <p className="text-sm font-semibold tracking-wide text-slate-200/90 mb-2">
-                  Toronto corporate deployments
+                  Serving Toronto &amp; the GTA
                 </p>
 
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
