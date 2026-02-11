@@ -83,7 +83,7 @@ const TorontoVideoBooth: React.FC = () => {
                     href="/#contact"
                     className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-realvo-blue text-white hover:bg-realvo-blue/90 transition"
                   >
-                    Start a Toronto conversation
+                    Speak With Our Team
                   </a>
                 </div>
               </div>
@@ -117,7 +117,7 @@ const TorontoVideoBooth: React.FC = () => {
 
             {/* Who this is for */}
             <div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
-  <p className="col-span-full text-sm sm:text-base text-slate-600 max-w-3xl">
+  <p className="col-span-full text-base sm:text-lg text-slate-600">
     Our Toronto video booth rentals are designed for corporate environments, universities, healthcare institutions, and community organizations seeking structured, on-site video capture.
   </p>
               <div>
