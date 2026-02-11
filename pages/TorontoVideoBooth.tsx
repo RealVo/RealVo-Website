@@ -56,7 +56,7 @@ const TorontoVideoBooth: React.FC = () => {
                 <div className="flex flex-wrap gap-2">
                   {[
                     'Enclosed, seated booth',
-                    'Maximum privacy + comfort',
+                    'Maximum privacy and comfort',
                     'Guided on-screen prompts',
                     'Commanding on-site presence',
                   ].map(tag => (
@@ -73,7 +73,7 @@ const TorontoVideoBooth: React.FC = () => {
   Designed for teams that require more than casual testimonials or DIY recordings. Participants are guided through a calm, sound-controlled environment — producing consistent framing, clear audio, and usable video stories.
 </p>
 
-                <p className="text-sm sm:text-base text-slate-600 max-w-xl">
+                <p className="text-sm sm:text-base text-slate-700 font-medium max-w-xl">
                   Built on over 20 years of real-world experience delivering professional video capture.
                 </p>
 
@@ -118,7 +118,7 @@ const TorontoVideoBooth: React.FC = () => {
             {/* Who this is for */}
             <div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-2">
   <p className="col-span-full text-base sm:text-lg text-slate-600">
-    Our Toronto video booth rentals are designed for corporate environments, universities, healthcare institutions, and community organizations seeking structured, on-site video capture.
+    Our Toronto video booth rentals support corporate environments, universities, healthcare institutions, and community organizations seeking professional on-site video capture.
   </p>
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
@@ -194,7 +194,7 @@ const TorontoVideoBooth: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <p className="mt-8 text-sm sm:text-base text-slate-600">
+              className="mt-10 pt-6 border-t border-slate-200 text-sm sm:text-base text-slate-600"
   Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform, with export options for internal communications, research, and reporting needs.
 </p>
             </div>
@@ -206,7 +206,7 @@ const TorontoVideoBooth: React.FC = () => {
             >
               <div>
                 <p className="text-sm font-semibold tracking-wide text-slate-200/90 mb-2">
-  Toronto corporate video booth deployments
+  Toronto corporate deployments
 </p>
 
                 <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
