@@ -48,7 +48,7 @@ const TorontoVideoBooth: React.FC = () => {
 </h1>
 
       <p className="text-base sm:text-lg font-normal text-slate-500">
-  A fully managed, enterprise-grade video booth rental solution designed to capture real stories and structured insight.
+  A fully managed, enterprise-grade video booth rental solution designed to capture real stories and meaningful insight.
 </p>
     </div>
 
@@ -74,7 +74,7 @@ const TorontoVideoBooth: React.FC = () => {
 </p>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  Built on over 20 years of real-world experience delivering structured video capture.
+                  Built on over 20 years of real-world experience delivering professional video capture.
                 </p>
 
                 {/* CTA */}
@@ -149,8 +149,8 @@ const TorontoVideoBooth: React.FC = () => {
             {/* Technical specifications */}
             <div className="mt-14 sm:mt-20">
               <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
-  Toronto Video Booth Rental Technical Specifications
-</h2>
+                Technical Specifications
+              </h2>
 
               <div className="grid gap-y-6 gap-x-10 text-xs sm:text-sm text-slate-700 md:grid-cols-2 lg:grid-cols-3">
                 <div>
