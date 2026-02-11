@@ -104,7 +104,7 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 {/* Single caption ONLY (no duplicates anywhere else) */}
-                <p className="mt-3 text-xs text-slate-500 mx-auto text-center whitespace-nowrap">
+                <p className="mt-3 text-xs text-slate-500 mx-auto text-center">
                   Illustration only. UX, branding, and configuration are
                   customized per project.
                 </p>
@@ -257,7 +257,7 @@ const TorontoVideoBooth: React.FC = () => {
 
               <a
                 href="/#contact"
-                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition"
               >
                 Talk to us
               </a>
