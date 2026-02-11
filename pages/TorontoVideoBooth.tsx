@@ -125,9 +125,8 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 {/* Single caption ONLY (no duplicates anywhere else) */}
-                <p className="mt-3 text-xs text-slate-500 max-w-sm">
-                  Illustrative deployment shown. Booth configuration, branding,
-                  and exterior / backdrop wraps are project-specific.
+                <p className="mt-3 text-xs text-slate-500 max-w-sm mx-auto text-center">
+                  Illustration only. UX, branding, and configuration are customized per project.
                 </p>
 
                 {/* Local deployments note (under image to balance whitespace) */}
