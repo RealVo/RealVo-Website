@@ -94,7 +94,7 @@ const TorontoVideoBooth: React.FC = () => {
               {/* Visual (RIGHT) */}
               <div>
                 <div className="relative rounded-3xl bg-white overflow-hidden shadow-sm border border-slate-200">
-                  <div className="aspect-[4/3] w-full bg-slate-50 flex items-center justify-center p-6">
+                  <div className="aspect-[4/3] w-full bg-white flex items-center justify-center p-6">
                     <img
                       src="/private_booth.png"
                       alt="RealVo enclosed video booth deployment"
