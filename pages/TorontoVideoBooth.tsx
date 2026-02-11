@@ -76,9 +76,9 @@ const TorontoVideoBooth: React.FC = () => {
                   clear audio, and usable video stories.
                 </p>
 
-                <p className="text-sm sm:text-base text-slate-900 font-semibold max-w-xl">
-  Built on over 20 years of real-world experience delivering professional video capture.
-</p>
+                <p className="text-sm sm:text-base text-realvo-blue font-semibold max-w-xl">
+                  Built on over 20 years of real-world experience delivering professional video capture.
+                </p>
 
                 {/* CTA */}
                 <div className="flex flex-wrap gap-3 sm:gap-4">
