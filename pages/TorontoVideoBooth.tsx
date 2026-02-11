@@ -130,7 +130,6 @@ const TorontoVideoBooth: React.FC = () => {
                   <li>Customer, client, or patient testimonials</li>
                   <li>Student, alumni &amp; donor reflections</li>
                   <li>Conference insights &amp; speaker reactions</li>
-                  <li>Innovation feedback &amp; idea capture</li>
                 </ul>
               </div>
 
