@@ -129,16 +129,15 @@ const TorontoVideoBooth: React.FC = () => {
 
   <div
     className="
-      group
-      bg-white dark:bg-gray-900
-      p-8 rounded-2xl
-      border border-gray-200 dark:border-gray-800
-      shadow-sm
-      antialiased
-      transition-shadow transition-colors duration-200
-      hover:shadow-lg
-      hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
-    "
+  group
+  bg-slate-50 dark:bg-gray-900
+  p-10 rounded-2xl
+  border border-slate-200 dark:border-gray-800
+  shadow-sm
+  antialiased
+  transition-shadow transition-colors duration-200
+  hover:shadow-md
+"
   >
     <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
       Who this is for
@@ -153,16 +152,15 @@ const TorontoVideoBooth: React.FC = () => {
 
   <div
     className="
-      group
-      bg-white dark:bg-gray-900
-      p-8 rounded-2xl
-      border border-gray-200 dark:border-gray-800
-      shadow-sm
-      antialiased
-      transition-shadow transition-colors duration-200
-      hover:shadow-lg
-      hover:border-realvo-blue/30 dark:hover:border-realvo-teal/30
-    "
+  group
+  bg-slate-50 dark:bg-gray-900
+  p-10 rounded-2xl
+  border border-slate-200 dark:border-gray-800
+  shadow-sm
+  antialiased
+  transition-shadow transition-colors duration-200
+  hover:shadow-md
+"
   >
     <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-3">
       Not intended for
