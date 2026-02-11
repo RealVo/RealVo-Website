@@ -79,9 +79,8 @@ const TorontoVideoBooth: React.FC = () => {
                 </p>
 
                 <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
-                  Captured content is securely managed, reviewed, and organized
-                  through the VideoBooth.tv platform.
-                </p>
+  Captured content is securely managed, reviewed, and organized through the VideoBooth.tv platform, with export options for internal communications, research, and reporting needs.
+</p>
 
                 {/* CTA */}
                 <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -133,9 +132,9 @@ const TorontoVideoBooth: React.FC = () => {
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 list-disc pl-5">
                   <li>Corporate employee engagement &amp; experience initiatives</li>
-                  <li>University and college student storytelling</li>
-                  <li>Community, research, and qualitative insight projects</li>
-                  <li>Internal communications and program feedback</li>
+                  <li>University and college student storytelling &amp; qualitative research initiatives</li>
+                  <li>Community engagement, research, and narrative-driven storytelling initiatives</li>
+                  <li>Internal communications, leadership messaging, and program feedback</li>
                 </ul>
               </div>
 
@@ -153,7 +152,7 @@ const TorontoVideoBooth: React.FC = () => {
             </div>
 
             {/* Technical specifications */}
-            <div className="mt-12 sm:mt-16">
+            <div className="mt-14 sm:mt-20">
               <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
   Toronto Video Booth Rental Technical Specifications
 </h2>
@@ -225,8 +224,8 @@ const TorontoVideoBooth: React.FC = () => {
                 </h2>
 
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 max-w-xl">
-                  Exploratory conversations welcome. Local projects only.
-                </p>
+  Let’s discuss your upcoming project.
+</p>
               </div>
 
               <a
