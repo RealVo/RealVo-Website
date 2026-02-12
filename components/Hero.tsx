@@ -117,12 +117,12 @@ const Hero: React.FC = () => {
   {/* Headline */}
   <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-realvo-charcoal">
     <span className="block">
-      Enterprise Video Booth & Storytelling Platform |{' '}
+      Capture{' '}
       <span
         ref={headlineRef}
         className="text-realvo-teal animate-pulse-once"
       >
-        RealVo
+        Authentic Voices
       </span>
     </span>
   </h1>
