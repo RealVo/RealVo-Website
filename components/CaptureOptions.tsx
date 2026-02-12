@@ -92,8 +92,8 @@ const CaptureOptions: React.FC = () => {
   </span>{' '}
   — On-Site or Online
 </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
-  Purpose-built enterprise video booth, kiosk, and virtual capture solutions — fully managed and adaptable for your environment and goals.
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+  Purpose-built enterprise video booth, kiosk, and virtual capture options — fully managed and designed to adapt to your environment and goals.
 </p>
       </div>
 
