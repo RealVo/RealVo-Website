@@ -101,13 +101,17 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className="flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-realvo-blue"
-          >
-            <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
-          </button>
+          {/* Logo */}
+<button
+  type="button"
+  onClick={scrollToTop}
+  className="flex flex-col items-start leading-tight rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-realvo-blue"
+>
+  <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
+  <span className="text-[10px] text-gray-500 tracking-wide mt-0.5">
+    Real Voices | Real Stories | Real Insights
+  </span>
+</button>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium text-gray-600">
