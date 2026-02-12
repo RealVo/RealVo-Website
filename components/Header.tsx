@@ -108,7 +108,7 @@ const Header: React.FC = () => {
   className="flex flex-col items-start leading-tight rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-realvo-blue"
 >
   <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
-  <span className="text-[10px] sm:text-[11px] text-gray-500 tracking-wide mt-1">
+  <span className="text-[10px] sm:text-[11px] text-gray-500 tracking-wide mt-1.5">
     Real Voices · Real Stories · Real Insights
   </span>
 </button>
