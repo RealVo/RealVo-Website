@@ -154,7 +154,7 @@ const CaptureOptions: React.FC = () => {
                       variant="secondary"
                       className="text-xs px-3 py-1.5 ml-auto mt-2"
                     >
-                      MORE INFO
+                      Explore {option.title}
                     </Button>
                   </a>
                 </div>
