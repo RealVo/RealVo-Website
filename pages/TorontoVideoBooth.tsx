@@ -55,10 +55,10 @@ const TorontoVideoBooth: React.FC = () => {
                 {/* Pills */}
                 <div className="flex flex-wrap gap-2">
                   {[
-                    'Enclosed, seated booth',
                     'Maximum privacy and comfort',
-                    'Guided on-screen prompts',
-                    'Commanding on-site presence',
+                    'Self-guided recording experience',
+                    'Branded exterior and backdrop',
+                    'Efficient high-traffic throughput',
                   ].map(tag => (
                     <span
                       key={tag}
@@ -70,7 +70,7 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  Designed for teams that require more than casual testimonials or DIY recordings. Participants are guided through a structured, production-managed environment — producing consistent framing, professional audio capture, and usable video stories within live event settings.
+                  A fully enclosed, sound-dampened video capture environment designed to deliver consistent framing, professional audio, and usable video stories within live event settings.
                 </p>
 
                 <p className="text-sm sm:text-base text-realvo-blue font-semibold max-w-xl">
