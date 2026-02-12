@@ -70,10 +70,7 @@ const TorontoVideoBooth: React.FC = () => {
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-600 max-w-xl">
-                  Designed for teams that require more than casual testimonials
-                  or DIY recordings. Participants are guided through a calm,
-                  sound-controlled environment — producing consistent framing,
-                  clear audio, and usable video stories.
+                  Designed for teams that require more than casual testimonials or DIY recordings. Participants are guided through a structured, production-managed environment — producing consistent framing, professional audio capture, and usable video stories within live event settings.
                 </p>
 
                 <p className="text-sm sm:text-base text-realvo-blue font-semibold max-w-xl">
