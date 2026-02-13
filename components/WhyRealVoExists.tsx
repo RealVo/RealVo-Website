@@ -65,7 +65,7 @@ const WhyRealVoExists: React.FC<Props> = ({ showInsightCard = true }) => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal" />
               </span>
-              <span>Approaches Fall Short</span>
+              <span>Traditional Approaches Fall Short</span>
             </div>
 
             {/* Two-column: image left, text right (equal height driven by text) */}
@@ -100,7 +100,7 @@ const WhyRealVoExists: React.FC<Props> = ({ showInsightCard = true }) => {
 
                       <div className="min-w-0">
                         <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                          Traditional interviews and filming create barriers.
+                          Interviews and filming create barriers.
                         </h4>
                         <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
                           Scheduling, crews, and cameras are resource-heavy — and often feel staged or
