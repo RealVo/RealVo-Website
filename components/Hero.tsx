@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-  <Section className="!py-8 md:!py-16 relative overflow-hidden">
+  <Section className="!py-12 md:!py-16 relative overflow-hidden">
     <div
       ref={heroRef}
       className={`
