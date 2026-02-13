@@ -14,13 +14,13 @@ const features: Feature[] = [
   {
     title: 'Make Voices Matter',
     description:
-      'Provide a private, low-pressure space for honest expression — where input is gathered with intention and treated as meaningful, not performative',
+      'Provide a private, low-pressure space for honest expression — where input is gathered with intention and treated as meaningful.',
     icon: ShieldCheck,
   },
   {
     title: 'Connect Insight to Action',
     description:
-      'Transform individual perspectives into clear, actionable insights — so decisions are better informed and meaningful change follows',
+      'Transform individual perspectives into clear, actionable insights — so decisions are better informed and meaningful change follows.',
     icon: MessageSquare,
   },
   {
