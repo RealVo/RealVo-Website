@@ -20,7 +20,7 @@ const features: Feature[] = [
   {
     title: 'Connect Insight to Action',
     description:
-      'Transform individual perspectives into clear, actionable insights — so decisions are better informed and meaningful change follows.',
+      'Transform individual perspectives into actionable insights — so decisions are better informed and meaningful change follows.',
     icon: MessageSquare,
   },
   {
