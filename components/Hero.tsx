@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
     <div
       ref={heroRef}
       className={`
-        -mt-4 md:mt-0
+        -mt-8 md:mt-0
         grid grid-cols-1 lg:grid-cols-12 gap-12 items-center
         transition-all duration-700 ease-out
         ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
