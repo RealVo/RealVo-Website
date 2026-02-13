@@ -51,7 +51,7 @@ const WhyRealVoExists: React.FC<Props> = ({ showInsightCard = true }) => {
           </h2>
 
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
-            Understanding begins with human communication — yet it often breaks down when people aren’t given a structured, private way to speak in their own words.
+            Understanding begins with human communication — yet it often breaks down when people aren’t given a structured, private setting to speak in their own words.
           </p>
         </div>
 
