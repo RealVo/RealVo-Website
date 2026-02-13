@@ -97,15 +97,16 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <Section className="!pt-8 pb-12 md:pt-14 md:pb-20 relative overflow-hidden">
-      <div
-        ref={heroRef}
-        className={`
-          grid grid-cols-1 lg:grid-cols-12 gap-12 items-center
-          transition-all duration-700 ease-out
-          ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-        `}
-      >
+  <Section className="!pt-8 pb-12 md:pt-14 md:pb-20 relative overflow-hidden">
+    <div
+      ref={heroRef}
+      className={`
+        -mt-4 md:mt-0
+        grid grid-cols-1 lg:grid-cols-12 gap-12 items-center
+        transition-all duration-700 ease-out
+        ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+      `}
+    >
         {/* LEFT COLUMN */}
 <div className="lg:col-span-7 space-y-6">
   {/* Eyebrow / Pill */}
