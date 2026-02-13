@@ -108,13 +108,13 @@ const Header: React.FC = () => {
   className="flex flex-col items-start leading-tight rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-realvo-blue"
 >
   <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
-  <span className="text-[10px] sm:text-[11px] text-gray-500 tracking-wide mt-1.5">
+  <span className="hidden lg:block text-[10px] sm:text-[11px] text-gray-500 tracking-wide mt-1.5">
     Real Voices · Real Stories · Real Insights
   </span>
 </button>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8 text-[15px] font-medium text-gray-600">
+          <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium text-gray-600">
             {navLinks.map((link) => {
               if ('href' in link) {
                 return (
@@ -200,7 +200,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Desktop Contact button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button
               size="sm"
               variant="primary"
@@ -213,7 +213,7 @@ const Header: React.FC = () => {
           {/* Mobile hamburger */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:text-realvo-blue focus:outline-none focus:ring-2 focus:ring-realvo-blue"
+            className="lg:hidden inline-flex items-center justify-center ...
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label="Toggle navigation"
           >
@@ -224,7 +224,8 @@ const Header: React.FC = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
+        {mobileOpen && (
+        <div className="lg:hidden border-t border-gray-100 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
             {navLinks.map((link) => {
               if ('href' in link) {
