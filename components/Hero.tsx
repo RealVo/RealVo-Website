@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-  <Section className="!pt-6 pb-12 md:pt-14 md:pb-20 relative overflow-visible md:overflow-hidden">
+  <Section className="pt-12 pb-12 md:!pt-14 md:pb-20 relative overflow-hidden">
     <div
       ref={heroRef}
       className={`
