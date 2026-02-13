@@ -224,7 +224,6 @@ const Header: React.FC = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        {mobileOpen && (
         <div className="lg:hidden border-t border-gray-100 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
             {navLinks.map((link) => {
