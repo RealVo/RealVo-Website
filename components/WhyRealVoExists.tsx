@@ -65,7 +65,7 @@ const WhyRealVoExists: React.FC<Props> = ({ showInsightCard = true }) => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-realvo-teal opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-realvo-teal" />
               </span>
-              <span>Traditional Approaches Fall Short</span>
+              <span>Approaches Fall Short</span>
             </div>
 
             {/* Two-column: image left, text right (equal height driven by text) */}
