@@ -90,7 +90,7 @@ const WhyRealVoExists: React.FC<Props> = ({ showInsightCard = true }) => {
                     <div className="space-y-6">
                       <div className="min-w-0">
                         <h4 className="text-lg font-bold text-realvo-charcoal dark:text-white">
-                          Metrics capture data — not meaning.
+                          Metrics capture data — not lived experience.
                         </h4>
                         <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
                           Dashboards and forms are effective for numbers, but they miss emotion, nuance,
