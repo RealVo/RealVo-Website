@@ -158,7 +158,7 @@ const Hero: React.FC = () => {
 
         {/* RIGHT COLUMN — IMAGE ROTATION */}
         <div className="lg:col-span-5 relative">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video max-h-[240px] sm:max-h-none">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 h-[220px] sm:h-auto sm:aspect-video">
             {HERO_IMAGES.map((src, idx) => (
               <img
   key={src}
