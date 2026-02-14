@@ -81,10 +81,8 @@ const Industries: React.FC = () => {
           </span>
         </h2>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-  Designed for real-world organizational contexts{' '}
-  <br className="hidden sm:block" />
-  where capturing perspective actually matters.
-</p>
+          Designed for real-world organizational contexts where capturing perspective needs to be structured, safe, and actionable.
+        </p>
       </div>
 
       {/* Icon-anchored layout */}
