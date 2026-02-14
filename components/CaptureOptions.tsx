@@ -32,7 +32,7 @@ const options: CaptureOption[] = [
   {
     title: "Desktop Tablet Kiosk",
     description:
-      "A compact, desk-level capture format designed for counters, reception areas, and everyday operational spaces.",
+      "A compact, desk-level capture format designed for counters, reception areas, and everyday spaces.",
     image: "/tablet_booth.png",
     features: [
       "Fits naturally into everyday spaces",
