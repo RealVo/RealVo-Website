@@ -35,8 +35,8 @@ const options: CaptureOption[] = [
       "A compact, desk-level capture format designed for counters, reception areas, and everyday spaces.",
     image: "/tablet_booth.png",
     features: [
-      "Fits naturally into everyday spaces",
-      "Quick to place and go live",
+      "Lightweight and highly portable",
+      "Plug-and-play setup",
       "Designed for ongoing use",
     ],
     href: "/capture/desktop-tablet-kiosk",
