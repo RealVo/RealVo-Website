@@ -80,9 +80,11 @@ const Industries: React.FC = () => {
             Where Voices Truly Matter
           </span>
         </h2>
-        <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Designed for real-world organizational contexts where capturing perspective needs to be structured, safe, and actionable.
-        </p>
+       <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          Designed for real-world organizational contexts where capturing{' '}
+          <br className="hidden sm:block" />
+          perspective needs to be structured, safe, and actionable.
+        </p>        
       </div>
 
       {/* Icon-anchored layout */}
