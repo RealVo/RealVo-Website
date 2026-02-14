@@ -98,8 +98,7 @@ const ImplementationProcess: React.FC = () => {
           </h2>
 
           <p className="text-lg text-gray-700">
-            We partner with you from first idea to ongoing support, so your
-            capture experience launches smoothly and keeps delivering value.
+            We partner with you from initial planning through activation and ongoing support — ensuring your program launches smoothly and continues delivering measurable value.
           </p>
         </div>
 
