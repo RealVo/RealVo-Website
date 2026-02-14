@@ -8,7 +8,7 @@ const options: CaptureOption[] = [
   {
     title: "Private Enclosed Booth",
     description:
-      "Stand-out booth presence that invites people to share their voice comfortably and without distraction.",
+      "A fully enclosed booth environment designed for privacy, focus, and consistent capture quality.",
     image: "/private_booth.png",
     features: [
       "Sound Dampened Environment",
@@ -20,7 +20,7 @@ const options: CaptureOption[] = [
   {
     title: "Free-standing Kiosk",
     description:
-      "Sleek, approachable kiosk designed to make participation easy and comfortable in open public spaces.",
+      "A streamlined kiosk format designed for high-visibility environments and flexible on-site deployment.",
     image: "/kiosk_booth.png",
     features: [
       "Compact Footprint Design",
@@ -32,7 +32,7 @@ const options: CaptureOption[] = [
   {
     title: "Desktop Tablet Kiosk",
     description:
-      "A compact capture point designed for desks, counters, and front-facing spaces where people naturally pause.",
+      "A compact, desk-level capture format designed for counters, reception areas, and everyday operational spaces.",
     image: "/tablet_booth.png",
     features: [
       "Fits naturally into everyday spaces",
