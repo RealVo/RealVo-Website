@@ -9,13 +9,13 @@ const industries: Industry[] = [
   {
     name: 'Enterprises & Brands',
     description:
-      'Give employees, customers, and partners a voice that builds trust and authenticity — inside organizations and across brand experiences.',
+      'Give employees, customers, partners, and consumers a trusted way to share — strengthening culture, alignment, and brand authenticity.',
     icon: Building2,
   },
   {
     name: 'Universities & Colleges',
     description:
-      'Empower students, faculty, alumni, and staff to share experiences that shape learning, culture, and campus life across the academic community.',
+      'Empower students, faculty, alumni, and staff to share experiences that shape learning, belonging, and campus life across the academic community.',
     icon: GraduationCap,
   },
   {
@@ -27,7 +27,7 @@ const industries: Industry[] = [
   {
     name: 'Community Organizations',
     description:
-      'Enable residents, members, and advocates to share stories and perspectives that strengthen connection, transparency, and collective voice.',
+      'Enable residents, members, and advocates to share perspectives that strengthen connection, transparency, and collective voice.',
     icon: Users2,
   },
 ];
@@ -131,7 +131,7 @@ const Industries: React.FC = () => {
     onClick={() => navigate('/use-cases')}
     className="shadow-none hover:shadow-none hover:-translate-y-0 tracking-wide"
   >
-    EXPLORE REAL-WORLD USE CASES
+    EXPLORE USE CASES
   </Button>
 </div>
     </Section>
