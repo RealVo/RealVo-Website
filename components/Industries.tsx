@@ -73,11 +73,11 @@ const Industries: React.FC = () => {
       {/* Header */}
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white mb-4">
-          Proven Across
+          Proven Across Industries
           <span className="hidden md:inline">{' '}</span>
           <br className="block md:hidden" />
           <span ref={serveRef} className="animate-pulse-once-light">
-            Key Environments
+            Where Voices Truly Matter
           </span>
         </h2>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
