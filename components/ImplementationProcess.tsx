@@ -45,7 +45,7 @@ const steps: Step[] = [
     title: 'Sustain and improve',
     bullets: [
       'Provide technical support throughout activation',
-      'Monitor platform performance and content flow in VideoBooth.tv',
+      'Monitor performance and content flow',
       'Conduct post-event review and recommend future optimizations',
     ],
     icon: LifeBuoy,
