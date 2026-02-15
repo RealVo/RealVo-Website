@@ -22,7 +22,7 @@ const steps: Step[] = [
   },
   {
     phase: 'Design & Prepare',
-    title: 'Build the branded experience',
+    title: 'Build the experience',
     bullets: [
       'Assemble required design templates and visual assets',
       'Finalize creative elements and secure stakeholder approval',
