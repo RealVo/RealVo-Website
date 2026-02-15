@@ -14,9 +14,9 @@ const steps: Step[] = [
     phase: 'Assess',
     title: 'Align on objectives',
     bullets: [
-      'Clarify business goals and success measures.',
-      'Map audiences, locations, and timelines.',
-      'Match capture options to your use cases.',
+      'Define goals and success measures',
+      'Identify audience, environment, and capture solution',
+      'Confirm timeline and deployment approach',
     ],
     icon: Target,
   },
