@@ -8,7 +8,7 @@ const steps = [
   { number: 4, title: 'Guided Reflection', desc: 'Prompt thoughtful responses through tailored questions.' },
   { number: 5, title: 'Record', desc: 'Capture responses in a calm, distraction-free recording interface.' },
   { number: 6, title: 'Review & Confirm', desc: 'Participants can review and refine before submitting.' },
-  { number: 7, title: 'Submit', desc: 'Securely transfer recordings to your private dashboard for review and management.' },
+  { number: 7, title: 'Thank You', desc: 'A closing message thanks the participant and confirms their session is complete' },
 ];
 
 type InteractionMode = 'none' | 'hover' | 'click';
@@ -210,9 +210,9 @@ const HowItWorks: React.FC = () => {
         {/* LEFT: STEPS */}
         <div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
-            How RealVo{' '}
+            The{' '}
             <span ref={worksRef} className="text-realvo-teal animate-pulse-once">
-              Works
+              User Experience
             </span>
           </h2>
 
