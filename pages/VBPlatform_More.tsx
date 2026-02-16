@@ -73,7 +73,7 @@ const SECTIONS: FeatureSection[] = [
           'Select individual sessions or batch-select filtered results',
           'Bulk actions such as download, delete, approve, and compile',
         ],
-        icon: Play,
+        icon: Search,
       },
       {
         id: 'session-review',
@@ -85,7 +85,7 @@ const SECTIONS: FeatureSection[] = [
           'Access session transcription and associated session details',
           'View basic activity and sharing indicators for each session',
         ],
-        icon: Search,
+        icon: Play,
       },
       {
         id: 'notes-tags',
