@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import Button from './Button';
-import { CheckCircle2, Calendar, Layers, Shield } from 'lucide-react';
+import { CheckCircle2, Calendar, Layers } from 'lucide-react';
 
 const ProgramStructure: React.FC = () => {
   const accentRef = useRef<HTMLSpanElement | null>(null);
 
-  // Re-trigger pulse animation when section enters view
   useEffect(() => {
     const node = accentRef.current;
     if (!node) return;
@@ -44,7 +43,6 @@ const ProgramStructure: React.FC = () => {
         </p>
       </div>
 
-      {/* 3 engagement models (not "tiers") */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {/* Pilot */}
         <div className="rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
@@ -56,7 +54,9 @@ const ProgramStructure: React.FC = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 Pilot
               </p>
-              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">Prove the workflow</p>
+              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
+                Prove the workflow
+              </p>
             </div>
           </div>
 
@@ -98,7 +98,9 @@ const ProgramStructure: React.FC = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-300">
                 Activation
               </p>
-              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">Launch at an event</p>
+              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
+                Launch at an event
+              </p>
             </div>
           </div>
 
@@ -136,7 +138,9 @@ const ProgramStructure: React.FC = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 Ongoing
               </p>
-              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">Sustain a program</p>
+              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
+                Sustain a program
+              </p>
             </div>
           </div>
 
@@ -162,14 +166,6 @@ const ProgramStructure: React.FC = () => {
           <Button variant="outline" className="w-full" onClick={() => (window.location.href = '/#contact')}>
             Plan an ongoing program
           </Button>
-        </div>
-      </div>
-
-          <div className="md:shrink-0">
-            <Button variant="secondary" onClick={() => (window.location.href = '/#contact')}>
-              Talk to us about your workflow
-            </Button>
-          </div>
         </div>
       </div>
     </Section>
