@@ -44,26 +44,10 @@ const ProgramStructure: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {/* 1) Event Programs */}
-        <div className="group relative rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
-          {/* Badge (Most-Common style) */}
-          <div
-  className="
-    absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
-    bg-realvo-blue text-white
-    px-5 py-1
-    rounded-full
-    text-xs font-bold uppercase tracking-wide
-    shadow-md
-    whitespace-nowrap
-    w-max
-  "
->
-  Extended &amp; Multi-Site Programs
-</div>
-
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 w-max whitespace-nowrap px-5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] bg-realvo-light text-gray-600 border border-gray-200">
             Event Programs
-          </div>
-
+        </div>
           <div className="flex items-center gap-3 mb-5">
             <div
               className="
@@ -75,8 +59,9 @@ const ProgramStructure: React.FC = () => {
             >
               <Calendar size={18} />
             </div>
-
             <div>
+                Event Programs
+              </p>
               <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
                 Launch at an Event
               </p>
@@ -120,26 +105,10 @@ const ProgramStructure: React.FC = () => {
         </div>
 
         {/* 2) Extended & Multi-Site Programs */}
-        <div className="group relative rounded-2xl p-8 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
-          {/* Badge (Most-Common style) */}
-          <div
-  className="
-    absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
-    bg-realvo-blue text-white
-    px-5 py-1
-    rounded-full
-    text-xs font-bold uppercase tracking-wide
-    shadow-md
-    whitespace-nowrap
-    w-max
-  "
->
-  Extended &amp; Multi-Site Programs
-</div>
-
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 w-max whitespace-nowrap px-5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] bg-realvo-light text-gray-600 border border-gray-200">
             Extended &amp; Multi-Site Programs
           </div>
-
           <div className="flex items-center gap-3 mb-5">
             <div
               className="
@@ -151,9 +120,10 @@ const ProgramStructure: React.FC = () => {
             >
               <Layers size={18} />
             </div>
-
             <div>
-              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-300">
+                Extended &amp; Multi-Site Programs
+              </p>
                 Scale Across Locations
               </p>
             </div>
@@ -196,26 +166,10 @@ const ProgramStructure: React.FC = () => {
         </div>
 
         {/* 3) Owned Installations */}
-        <div className="group relative rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
-          {/* Badge (Most-Common style) */}
-          <div
-  className="
-    absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
-    bg-realvo-blue text-white
-    px-5 py-1
-    rounded-full
-    text-xs font-bold uppercase tracking-wide
-    shadow-md
-    whitespace-nowrap
-    w-max
-  "
->
-  Extended &amp; Multi-Site Programs
-</div>
-
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 w-max whitespace-nowrap px-5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] bg-realvo-light text-gray-600 border border-gray-200">
             Owned Installations
           </div>
-
           <div className="flex items-center gap-3 mb-5">
             <div
               className="
@@ -227,9 +181,10 @@ const ProgramStructure: React.FC = () => {
             >
               <CheckCircle2 size={18} />
             </div>
-
             <div>
-              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+                Owned Installations
+              </p>
                 Build Long-Term Infrastructure
               </p>
             </div>
@@ -276,4 +231,3 @@ const ProgramStructure: React.FC = () => {
 };
 
 export default ProgramStructure;
-
