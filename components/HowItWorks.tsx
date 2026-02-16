@@ -2,13 +2,13 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Section from './Section';
 
 const steps = [
-  { number: 1, title: 'Welcome & Context', desc: 'Set the stage with a custom welcome message.' },
-  { number: 2, title: 'Disclaimer & Privacy', desc: 'Clear, transparent permissions.' },
-  { number: 3, title: 'Profile Questions', desc: 'Understand who is speaking (name, email, role, etc.).' },
-  { number: 4, title: 'Reflection', desc: 'Guided prompts to elicit deep thought.' },
-  { number: 5, title: 'Record', desc: 'Capture messages in a calm, distraction-free recording interface.' },
-  { number: 6, title: 'Review or Retry', desc: 'Participants can refine what they said before submitting.' },
-  { number: 7, title: 'Submit & Upload', desc: 'Secure transfer to your VB.tv dashboard.' },
+  { number: 1, title: 'Welcome & Context', desc: 'Set the tone with a custom welcome message aligned to your program.' },
+  { number: 2, title: 'Consent & Privacy', desc: 'Present clear, transparent permissions before recording begins.' },
+  { number: 3, title: 'User Profile Details', desc: 'Capture key participant information to properly contextualize each submission.' },
+  { number: 4, title: 'Guided Reflection', desc: 'Prompt thoughtful responses through tailored questions.' },
+  { number: 5, title: 'Record', desc: 'Capture responses in a calm, distraction-free recording interface.' },
+  { number: 6, title: 'Review & Confirm', desc: 'Participants can review and refine before submitting.' },
+  { number: 7, title: 'Submit', desc: 'Securely transfer recordings to your private dashboard for review and management.' },
 ];
 
 type InteractionMode = 'none' | 'hover' | 'click';
@@ -217,8 +217,7 @@ const HowItWorks: React.FC = () => {
           </h2>
 
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            A simple, human-centered workflow for capturing meaningful stories — in person or online.
-            We&apos;ve removed the friction so you can focus on the insight.
+            A simple, human-centered workflow for capturing meaningful stories — in person or online. Designed to remove friction and keep the focus on insight.
           </p>
 
           {/* Mobile helper line */}
