@@ -46,7 +46,21 @@ const ProgramStructure: React.FC = () => {
         {/* 1) Event Programs */}
         <div className="group relative rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
           {/* Badge (Most-Common style) */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-md">
+          <div
+  className="
+    absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
+    bg-realvo-blue text-white
+    px-5 py-1
+    rounded-full
+    text-xs font-bold uppercase tracking-wide
+    shadow-md
+    whitespace-nowrap
+    w-max
+  "
+>
+  Extended &amp; Multi-Site Programs
+</div>
+
             Event Programs
           </div>
 
@@ -108,7 +122,21 @@ const ProgramStructure: React.FC = () => {
         {/* 2) Extended & Multi-Site Programs */}
         <div className="group relative rounded-2xl p-8 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
           {/* Badge (Most-Common style) */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-md">
+          <div
+  className="
+    absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
+    bg-realvo-blue text-white
+    px-5 py-1
+    rounded-full
+    text-xs font-bold uppercase tracking-wide
+    shadow-md
+    whitespace-nowrap
+    w-max
+  "
+>
+  Extended &amp; Multi-Site Programs
+</div>
+
             Extended &amp; Multi-Site Programs
           </div>
 
@@ -170,7 +198,21 @@ const ProgramStructure: React.FC = () => {
         {/* 3) Owned Installations */}
         <div className="group relative rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
           {/* Badge (Most-Common style) */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-md">
+          <div
+  className="
+    absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
+    bg-realvo-blue text-white
+    px-5 py-1
+    rounded-full
+    text-xs font-bold uppercase tracking-wide
+    shadow-md
+    whitespace-nowrap
+    w-max
+  "
+>
+  Extended &amp; Multi-Site Programs
+</div>
+
             Owned Installations
           </div>
 
