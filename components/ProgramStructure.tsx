@@ -83,7 +83,7 @@ const ProgramStructure: React.FC = () => {
           </Button>
         </div>
 
-        {/* Activation */}
+        {/* Event Programs */}
         <div className="relative rounded-2xl p-8 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-md">
             Most Common
@@ -95,7 +95,7 @@ const ProgramStructure: React.FC = () => {
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-300">
-                Activation
+                Event Programs
               </p>
               <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
                 Launch at an event
@@ -104,13 +104,13 @@ const ProgramStructure: React.FC = () => {
           </div>
 
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
-            A guided deployment for conferences, campuses, hospitals, and campaigns — with reliable capture and support.
+            Short-term deployments for conferences, campuses, community events, exhibitions, and national meetings.
           </p>
 
           <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 flex-1">
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
-              Experience configuration and pre-launch testing
+              Single-event or multi-day activations
             </li>
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
@@ -118,7 +118,7 @@ const ProgramStructure: React.FC = () => {
             </li>
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
-              Moderation, export workflows, and reporting
+              Branded experience configuration and portal access for review and export
             </li>
           </ul>
 
@@ -172,3 +172,4 @@ const ProgramStructure: React.FC = () => {
 };
 
 export default ProgramStructure;
+
