@@ -313,16 +313,16 @@ const Header: React.FC = () => {
               )}
             </div>
 
-            {/* Pricing (last, mobile) */}
+            {/* Program Structure (last, mobile) */}
             <button
               type="button"
               onClick={() => {
                 setMobileOpen(false);
-                scrollToSection('pricing');
+                scrollToSection('program-structure');
               }}
               className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
             >
-              Pricing
+              Program Structure
             </button>
 
             <Button
