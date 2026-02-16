@@ -165,21 +165,6 @@ const ProgramStructure: React.FC = () => {
         </div>
       </div>
 
-      {/* Procurement-safe reassurance row */}
-      <div className="mt-10 md:mt-12 max-w-6xl mx-auto">
-        <div className="rounded-2xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
-              <Shield size={18} />
-            </div>
-            <div>
-              <p className="font-semibold text-realvo-charcoal dark:text-white">Scoped to your environment</p>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Capture formats, retention, moderation, and access controls are configured to match your program.
-              </p>
-            </div>
-          </div>
-
           <div className="md:shrink-0">
             <Button variant="secondary" onClick={() => (window.location.href = '/#contact')}>
               Talk to us about your workflow
