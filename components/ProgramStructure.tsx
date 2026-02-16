@@ -38,8 +38,7 @@ const ProgramStructure: React.FC = () => {
         </h2>
 
         <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Programs are scoped to your goals, capture environment, and governance needs — with a structured path from
-          planning through activation and ongoing oversight.
+          A structured engagement model — designed around your goals, capture environment, and support needs.
         </p>
       </div>
 
