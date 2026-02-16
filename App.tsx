@@ -18,7 +18,7 @@ import CaptureOptions from './components/CaptureOptions';
 import VBPlatform from './components/VBPlatform';
 import Industries from './components/Industries';
 import UseCases from './pages/UseCases';
-import Pricing from './components/Pricing';
+import ProgramStructure from './components/ProgramStructure';
 import Footer from './components/Footer';
 import Section from './components/Section';
 import PrivateEnclosedBooth from './pages/PrivateEnclosedBooth';
@@ -135,7 +135,7 @@ const HomePage: React.FC = () => {
   <VBPlatform />
 </section>
 
-<Pricing />
+<ProgramStructure />
 
         <Section
           id="contact"
