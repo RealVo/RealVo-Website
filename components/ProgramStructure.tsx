@@ -44,7 +44,10 @@ const ProgramStructure: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {/* 1) Event Programs */}
-        <div className="group rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] bg-realvo-light text-gray-600 border border-gray-200">
+            Event Programs
+        </div>
           <div className="flex items-center gap-3 mb-5">
             <div
               className="
@@ -103,7 +106,10 @@ const ProgramStructure: React.FC = () => {
         </div>
 
         {/* 2) Extended & Multi-Site Programs */}
-        <div className="group rounded-2xl p-8 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] bg-realvo-light text-gray-700 border border-gray-200">
+            Extended &amp; Multi-Site Programs
+          </div>
           <div className="flex items-center gap-3 mb-5">
             <div
               className="
@@ -162,7 +168,10 @@ const ProgramStructure: React.FC = () => {
         </div>
 
         {/* 3) Owned Installations */}
-        <div className="group rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.25em] bg-realvo-light text-gray-600 border border-gray-200">
+            Owned Installations
+          </div>
           <div className="flex items-center gap-3 mb-5">
             <div
               className="
