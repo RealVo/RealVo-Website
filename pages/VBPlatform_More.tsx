@@ -308,15 +308,21 @@ const VBPlatform_More: React.FC = () => {
 </h1>
 
 {/* Section jump links */}
-<div className="mt-6 flex flex-wrap gap-4 text-sm font-medium text-realvo-blue">
-  <a href="#content-management" className="hover:underline">
+<div className="mt-5 flex flex-wrap text-sm font-medium text-realvo-blue">
+  <a
+    href="#content-management"
+    className="hover:underline after:content-['•'] after:mx-3 after:text-slate-300"
+  >
     Content Management Tools
   </a>
-  <span className="text-slate-300">•</span>
-  <a href="#content-preparation" className="hover:underline">
+
+  <a
+    href="#content-preparation"
+    className="hover:underline after:content-['•'] after:mx-3 after:text-slate-300"
+  >
     Branding & Presentation
   </a>
-  <span className="text-slate-300">•</span>
+
   <a href="#distribution-engagement" className="hover:underline">
     Distribution & Engagement
   </a>
