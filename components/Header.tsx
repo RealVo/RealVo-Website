@@ -5,12 +5,7 @@ import Button from './Button';
 type NavLink =
   | { label: string; targetId: string; href?: never }
   | { label: string; href: string; targetId?: never };
-
-const PROCESS_PLATFORM_ITEMS = [
-  { label: 'Implementation Process', targetId: 'implementation-process' },
-  { label: 'How It Works', targetId: 'how-it-works' },
-  { label: 'VB Platform', href: '/vbplatform-more' },
-];
+  | { label: 'VB Platform', href: '/vbplatform-more' },
 
 const navLinks: NavLink[] = [
   // NOTE: Your App.tsx currently has <div id="why-realvo" />.
