@@ -274,6 +274,12 @@ const HowItWorks: React.FC = () => {
               );
             })}
           </div>
+
+{/* Customization disclaimer */}
+<p className="mt-4 pl-[56px] text-xs text-gray-400 dark:text-gray-500">
+  This workflow is fully customizable — from profile fields and question formats to recording limits and interface design.
+</p>
+          
         </div>
 
         {/* RIGHT: KIOSK (keep your original shadow untouched) */}
