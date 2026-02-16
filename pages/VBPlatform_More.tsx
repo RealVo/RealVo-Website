@@ -119,7 +119,7 @@ const SECTIONS: FeatureSection[] = [
     eyebrow: 'Asset Treatment',
     title: 'Branding & Presentation',
     description:
-      'Source videos and photos transformed into presentation-ready assets aligned to campaign and brand guidelines — fully managed by RealVo.',
+      'Source videos and photos transformed into presentation-ready assets aligned to campaign and brand guidelines — implemented and managed by RealVo.',
     blocks: [
       {
         id: 'video-presentation',
