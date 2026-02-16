@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Section from './Section';
 import Button from './Button';
-import { CheckCircle2, Calendar, Layers } from 'lucide-react';
+import { Calendar, Layers, CheckCircle2 } from 'lucide-react';
 
 const ProgramStructure: React.FC = () => {
   const accentRef = useRef<HTMLSpanElement | null>(null);
@@ -43,58 +43,14 @@ const ProgramStructure: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {/* Pilot */}
+        {/* 1) Event Programs */}
         <div className="rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
-              <CheckCircle2 size={18} />
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
-                Pilot
-              </p>
-              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
-                Prove the workflow
-              </p>
-            </div>
-          </div>
-
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
-            A focused engagement to validate UX, permissions, and outcomes before scaling.
-          </p>
-
-          <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 flex-1">
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Define the capture flow and success measures
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Configure profile fields, questions, and review rules
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Portal access for review, export, and reporting
-            </li>
-          </ul>
-
-          <Button variant="outline" className="w-full" onClick={() => (window.location.href = '/#contact')}>
-            Discuss a pilot
-          </Button>
-        </div>
-
-        {/* Event Programs */}
-        <div className="relative rounded-2xl p-8 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-md">
-            Most Common
-          </div>
-
           <div className="flex items-center gap-3 mb-5">
             <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
               <Calendar size={18} />
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-300">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 Event Programs
               </p>
               <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
@@ -103,67 +59,147 @@ const ProgramStructure: React.FC = () => {
             </div>
           </div>
 
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+            Short-term deployments for conferences, campuses, community events, and national meetings.
+          </p>
+
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
-            Short-term deployments for conferences, campuses, community events, exhibitions, and national meetings.
+            Designed for defined dates and structured environments — with configured UX, support, and post-event review workflows built in.
           </p>
 
           <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 flex-1">
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
-              Single-event or multi-day activations
+              Short-term activations
             </li>
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
-              On-site or remote activation support (as scoped)
+              On-site or remote support (as scoped)
             </li>
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
-              Branded experience configuration and portal access for review and export
+              Branded experience configuration
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-0.5 text-realvo-teal">•</span>
+              Secure portal access for review and export
             </li>
           </ul>
 
-          <Button variant="primary" className="w-full" onClick={() => (window.location.href = '/#contact')}>
-            Request a program outline
+          <Button
+            variant="outline"
+            className="w-full"
+            onClick={() => (window.location.href = '/#contact')}
+          >
+            Plan an event program
           </Button>
         </div>
 
-        {/* Ongoing */}
-        <div className="rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+        {/* 2) Extended & Multi-Site Programs */}
+        <div className="relative rounded-2xl p-8 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-md">
+            Most Common
+          </div>
+
           <div className="flex items-center gap-3 mb-5">
             <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
               <Layers size={18} />
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
-                Ongoing
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-300">
+                Extended &amp; Multi-Site Programs
               </p>
               <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
-                Sustain a program
+                Scale across locations
               </p>
             </div>
           </div>
 
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+            Deploy across multiple locations, offices, or phases of a campaign.
+          </p>
+
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
-            A repeatable, governed workflow for ongoing storytelling and insight capture across teams and locations.
+            Ideal for touring activations, national initiatives, and multi-month programs.
           </p>
 
           <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 flex-1">
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
-              Campaign and team structures with permissions
+              Consistent experience across locations
             </li>
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
-              Ongoing portal access, exports, and governance
+              Governance and permission controls
             </li>
             <li className="flex gap-3">
               <span className="mt-0.5 text-realvo-teal">•</span>
-              Iteration and optimization based on outcomes
+              Ongoing portal access and reporting
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-0.5 text-realvo-teal">•</span>
+              Often begins with one or two initial activations
             </li>
           </ul>
 
-          <Button variant="outline" className="w-full" onClick={() => (window.location.href = '/#contact')}>
-            Plan an ongoing program
+          <Button
+            variant="primary"
+            className="w-full"
+            onClick={() => (window.location.href = '/#contact')}
+          >
+            Discuss an extended program
+          </Button>
+        </div>
+
+        {/* 3) Owned Installations */}
+        <div className="rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
+              <CheckCircle2 size={18} />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+                Owned Installations
+              </p>
+              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
+                Build long-term infrastructure
+              </p>
+            </div>
+          </div>
+
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+            Installed systems for organizations building ongoing storytelling and insight capture into their environment.
+          </p>
+
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
+            Used across campuses, corporate headquarters, hospitals, and civic spaces.
+          </p>
+
+          <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 flex-1">
+            <li className="flex gap-3">
+              <span className="mt-0.5 text-realvo-teal">•</span>
+              Hardware ownership
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-0.5 text-realvo-teal">•</span>
+              Configured UX and governance structure
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-0.5 text-realvo-teal">•</span>
+              Long-term portal access
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-0.5 text-realvo-teal">•</span>
+              Designed for repeat or continuous use
+            </li>
+          </ul>
+
+          <Button
+            variant="outline"
+            className="w-full"
+            onClick={() => (window.location.href = '/#contact')}
+          >
+            Explore ownership options
           </Button>
         </div>
       </div>
@@ -172,4 +208,3 @@ const ProgramStructure: React.FC = () => {
 };
 
 export default ProgramStructure;
-
