@@ -204,13 +204,13 @@ const Header: React.FC = () => {
               )}
             </div>
 
-            {/* Pricing (last) */}
+            {/* Program Structure (last) */}
             <button
               type="button"
-              onClick={() => scrollToSection('pricing')}
+              onClick={() => scrollToSection('program-structure')}
               className="relative transition-colors hover:text-realvo-blue"
             >
-              Pricing
+              Program Structure
             </button>
           </nav>
 
