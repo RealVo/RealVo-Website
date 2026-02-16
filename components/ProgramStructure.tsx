@@ -37,7 +37,7 @@ const ProgramStructure: React.FC = () => {
           </span>
         </h2>
 
-        <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        <p className="text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
           A structured engagement model — designed around your goals, capture environment, and support needs.
         </p>
       </div>
