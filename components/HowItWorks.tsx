@@ -277,7 +277,7 @@ const HowItWorks: React.FC = () => {
 
 {/* Customization disclaimer */}
 <p className="mt-0 md:mt-1 pl-[56px] text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
-  This workflow is fully customizable — from profile fields and question formats to recording limits and interface design.
+  This visual represents a simplified example. Each deployment is configured to your objectives — including profile fields, optional multiple-choice inputs, question structure, recording limits, and overall session flow.
 </p>
           
         </div>
