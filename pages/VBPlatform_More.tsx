@@ -304,15 +304,26 @@ const VBPlatform_More: React.FC = () => {
               </p>
 
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-                VideoBooth.tv Features
-              </h1>
-            </div>
+  VideoBooth.tv Features
+</h1>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl">
-              A structured, enterprise-ready platform — implemented and managed in partnership with your team.
-            </p>
+{/* Section jump links */}
+<div className="mt-6 flex flex-wrap gap-4 text-sm font-medium text-realvo-blue">
+  <a href="#content-management" className="hover:underline">
+    Content Management Tools
+  </a>
+  <span className="text-slate-300">•</span>
+  <a href="#content-preparation" className="hover:underline">
+    Branding & Presentation
+  </a>
+  <span className="text-slate-300">•</span>
+  <a href="#distribution-engagement" className="hover:underline">
+    Distribution & Engagement
+  </a>
+</div>
+</div>
 
-            <div className="mt-10 sm:mt-14 lg:mt-16">
+<div className="mt-10 sm:mt-14 lg:mt-16">
               <div className="rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/50 p-4 sm:p-6 lg:p-8">
                 <div className="space-y-12 sm:space-y-14 lg:space-y-16">
                   {SECTIONS.map((section) => (
