@@ -5,7 +5,6 @@ import Button from './Button';
 type NavLink =
   | { label: string; targetId: string; href?: never }
   | { label: string; href: string; targetId?: never };
-  | { label: 'VB Platform', href: '/vbplatform-more' },
 
 const navLinks: NavLink[] = [
   // NOTE: Your App.tsx currently has <div id="why-realvo" />.
@@ -16,14 +15,15 @@ const navLinks: NavLink[] = [
   { label: 'Solutions', targetId: 'solutions' },
 ];
 
+const PROCESS_PLATFORM_ITEMS: NavLink[] = [
+  { label: 'Implementation Process', targetId: 'implementation-process' },
+  { label: 'How It Works', targetId: 'how-it-works' },
+  { label: 'VB Platform', href: '/vbplatform-more' }, // ✅ route, not scroll
+];
+
 // Solid filled triangle caret (uses currentColor)
 const SolidCaretDown: React.FC<{ className?: string }> = ({ className }) => (
-  <svg
-    viewBox="0 0 12 12"
-    aria-hidden="true"
-    focusable="false"
-    className={className}
-  >
+  <svg viewBox="0 0 12 12" aria-hidden="true" focusable="false" className={className}>
     <path d="M6 9.5 1.5 3.5h9L6 9.5Z" fill="currentColor" />
   </svg>
 );
@@ -35,8 +35,7 @@ const Header: React.FC = () => {
   const processWrapRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSection = (id: string) => {
-    const isHome =
-      typeof window !== 'undefined' && window.location.pathname === '/';
+    const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
 
     setMobileOpen(false);
 
@@ -52,6 +51,15 @@ const Header: React.FC = () => {
     }
   };
 
+  const goToHref = (href: string) => {
+    setMobileOpen(false);
+    setProcessOpen(false);
+    setProcessMobileOpen(false);
+
+    if (typeof window === 'undefined') return;
+    window.location.href = href;
+  };
+
   const scrollToTop = () => {
     setMobileOpen(false);
     setProcessOpen(false);
@@ -64,10 +72,7 @@ const Header: React.FC = () => {
 
     if (isHome) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      if (hash) {
-        window.history.replaceState(null, '', '/');
-      }
+      if (hash) window.history.replaceState(null, '', '/');
     } else {
       window.location.href = '/';
     }
@@ -96,17 +101,16 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          {/* Logo */}
-<button
-  type="button"
-  onClick={scrollToTop}
-  className="flex flex-col items-start leading-tight rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-realvo-blue"
->
-  <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
-  <span className="hidden lg:block text-[10px] sm:text-[11px] text-gray-500 tracking-wide mt-1.5">
-    Real Voices · Real Stories · Real Insights
-  </span>
-</button>
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="flex flex-col items-start leading-tight rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-realvo-blue"
+          >
+            <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
+            <span className="hidden lg:block text-[10px] sm:text-[11px] text-gray-500 tracking-wide mt-1.5">
+              Real Voices · Real Stories · Real Insights
+            </span>
+          </button>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium text-gray-600">
@@ -151,10 +155,10 @@ const Header: React.FC = () => {
               >
                 Process &amp; Platform
                 <ChevronDown
-  className={`h-4 w-4 text-realvo-blue transition-transform ${
-    processOpen ? 'rotate-180' : ''
-  }`}
-/>
+                  className={`h-4 w-4 text-realvo-blue transition-transform ${
+                    processOpen ? 'rotate-180' : ''
+                  }`}
+                />
               </button>
 
               <div className="absolute left-0 right-0 top-full h-3 pointer-events-none" />
@@ -165,20 +169,36 @@ const Header: React.FC = () => {
                   className="absolute left-0 mt-0 w-64 rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden"
                 >
                   <div className="py-2">
-                    {PROCESS_PLATFORM_ITEMS.map((item) => (
-                      <button
-                        key={item.targetId}
-                        type="button"
-                        role="menuitem"
-                        onClick={() => {
-                          setProcessOpen(false);
-                          scrollToSection(item.targetId);
-                        }}
-                        className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-realvo-blue transition"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
+                    {PROCESS_PLATFORM_ITEMS.map((item) => {
+                      if ('href' in item) {
+                        return (
+                          <a
+                            key={item.label}
+                            href={item.href}
+                            role="menuitem"
+                            onClick={() => setProcessOpen(false)}
+                            className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-realvo-blue transition"
+                          >
+                            {item.label}
+                          </a>
+                        );
+                      }
+
+                      return (
+                        <button
+                          key={item.targetId}
+                          type="button"
+                          role="menuitem"
+                          onClick={() => {
+                            setProcessOpen(false);
+                            scrollToSection(item.targetId);
+                          }}
+                          className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-realvo-blue transition"
+                        >
+                          {item.label}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -196,117 +216,129 @@ const Header: React.FC = () => {
 
           {/* Desktop Contact button */}
           <div className="hidden lg:block">
-            <Button
-              size="sm"
-              variant="primary"
-              onClick={() => scrollToSection('contact')}
-            >
+            <Button size="sm" variant="primary" onClick={() => scrollToSection('contact')}>
               Contact Us
             </Button>
           </div>
 
           {/* Mobile hamburger */}
-<button
-  type="button"
-  className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:text-realvo-blue focus:outline-none focus:ring-2 focus:ring-realvo-blue"
-  onClick={() => setMobileOpen((prev) => !prev)}
-  aria-label="Toggle navigation"
->
-  {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-</button>
-</div>
-</div>
-
-{/* Mobile menu */}
-{mobileOpen && (
-  <div className="lg:hidden border-t border-gray-100 bg-white">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
-      {navLinks.map((link) => {
-        if ('href' in link) {
-          return (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
-            >
-              {link.label}
-            </a>
-          );
-        }
-
-        return (
           <button
-            key={link.targetId}
             type="button"
-            onClick={() => scrollToSection(link.targetId)}
-            className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+            className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:text-realvo-blue focus:outline-none focus:ring-2 focus:ring-realvo-blue"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
           >
-            {link.label}
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
-        );
-      })}
-
-      {/* Mobile accordion: Process & Platform */}
-      <div className="pt-2">
-        <button
-          type="button"
-          onClick={() => setProcessMobileOpen((v) => !v)}
-          className="w-full flex items-center justify-between py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
-        >
-          <span>Process &amp; Platform</span>
-          <SolidCaretDown
-            className={`h-3 w-3 text-realvo-blue transition-transform ${
-              processMobileOpen ? 'rotate-180' : ''
-            }`}
-          />
-        </button>
-
-        {processMobileOpen && (
-          <div className="pl-3">
-            {PROCESS_PLATFORM_ITEMS.map((item) => (
-              <button
-                key={item.targetId}
-                type="button"
-                onClick={() => {
-                  setProcessMobileOpen(false);
-                  setMobileOpen(false);
-                  scrollToSection(item.targetId);
-                }}
-                className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        )}
+        </div>
       </div>
 
-      {/* Pricing (last, mobile) */}
-      <button
-        type="button"
-        onClick={() => {
-          setMobileOpen(false);
-          scrollToSection('pricing');
-        }}
-        className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
-      >
-        Pricing
-      </button>
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="lg:hidden border-t border-gray-100 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
+            {navLinks.map((link) => {
+              if ('href' in link) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
 
-      <Button
-        size="sm"
-        variant="primary"
-        className="mt-2 w-full"
-        onClick={() => scrollToSection('contact')}
-      >
-        Contact Us
-      </Button>
-    </div>
-  </div>
-)}
+              return (
+                <button
+                  key={link.targetId}
+                  type="button"
+                  onClick={() => scrollToSection(link.targetId)}
+                  className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                >
+                  {link.label}
+                </button>
+              );
+            })}
+
+            {/* Mobile accordion: Process & Platform */}
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => setProcessMobileOpen((v) => !v)}
+                className="w-full flex items-center justify-between py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+              >
+                <span>Process &amp; Platform</span>
+                <SolidCaretDown
+                  className={`h-3 w-3 text-realvo-blue transition-transform ${
+                    processMobileOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {processMobileOpen && (
+                <div className="pl-3">
+                  {PROCESS_PLATFORM_ITEMS.map((item) => {
+                    if ('href' in item) {
+                      return (
+                        <button
+                          key={item.label}
+                          type="button"
+                          onClick={() => goToHref(item.href)}
+                          className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                        >
+                          {item.label}
+                        </button>
+                      );
+                    }
+
+                    return (
+                      <button
+                        key={item.targetId}
+                        type="button"
+                        onClick={() => {
+                          setProcessMobileOpen(false);
+                          setMobileOpen(false);
+                          scrollToSection(item.targetId);
+                        }}
+                        className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                      >
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Pricing (last, mobile) */}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                scrollToSection('pricing');
+              }}
+              className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+            >
+              Pricing
+            </button>
+
+            <Button
+              size="sm"
+              variant="primary"
+              className="mt-2 w-full"
+              onClick={() => scrollToSection('contact')}
+            >
+              Contact Us
+            </Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
 
 export default Header;
+
