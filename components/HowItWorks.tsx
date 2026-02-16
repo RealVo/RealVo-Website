@@ -217,7 +217,7 @@ const HowItWorks: React.FC = () => {
           </h2>
 
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            A simple, human-centered workflow for capturing meaningful stories — in person or online. Designed to remove friction and keep the focus on insight.
+            A flexible, customizable experience that guides participants from welcome through to completion.
           </p>
 
           {/* Mobile helper line */}
