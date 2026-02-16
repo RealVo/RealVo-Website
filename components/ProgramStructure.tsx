@@ -44,9 +44,16 @@ const ProgramStructure: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {/* 1) Event Programs */}
-        <div className="rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+        <div className="group rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
+            <div
+              className="
+                w-10 h-10 rounded-xl bg-realvo-light text-realvo-blue
+                flex items-center justify-center
+                transition-colors duration-200
+                group-hover:bg-realvo-blue group-hover:text-white
+              "
+            >
               <Calendar size={18} />
             </div>
             <div>
@@ -54,7 +61,7 @@ const ProgramStructure: React.FC = () => {
                 Event Programs
               </p>
               <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
-                Launch at an event
+                Launch at an Event
               </p>
             </div>
           </div>
@@ -96,13 +103,16 @@ const ProgramStructure: React.FC = () => {
         </div>
 
         {/* 2) Extended & Multi-Site Programs */}
-        <div className="relative rounded-2xl p-8 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-md">
-            Most Common
-          </div>
-
+        <div className="group rounded-2xl p-8 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
+            <div
+              className="
+                w-10 h-10 rounded-xl bg-realvo-light text-realvo-blue
+                flex items-center justify-center
+                transition-colors duration-200
+                group-hover:bg-realvo-blue group-hover:text-white
+              "
+            >
               <Layers size={18} />
             </div>
             <div>
@@ -110,7 +120,7 @@ const ProgramStructure: React.FC = () => {
                 Extended &amp; Multi-Site Programs
               </p>
               <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
-                Scale across locations
+                Scale Across Locations
               </p>
             </div>
           </div>
@@ -152,9 +162,16 @@ const ProgramStructure: React.FC = () => {
         </div>
 
         {/* 3) Owned Installations */}
-        <div className="rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+        <div className="group rounded-2xl p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-10 h-10 rounded-xl bg-realvo-light flex items-center justify-center text-realvo-blue">
+            <div
+              className="
+                w-10 h-10 rounded-xl bg-realvo-light text-realvo-blue
+                flex items-center justify-center
+                transition-colors duration-200
+                group-hover:bg-realvo-blue group-hover:text-white
+              "
+            >
               <CheckCircle2 size={18} />
             </div>
             <div>
@@ -162,7 +179,7 @@ const ProgramStructure: React.FC = () => {
                 Owned Installations
               </p>
               <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
-                Build long-term infrastructure
+                Build Long-Term Infrastructure
               </p>
             </div>
           </div>
@@ -208,3 +225,4 @@ const ProgramStructure: React.FC = () => {
 };
 
 export default ProgramStructure;
+
