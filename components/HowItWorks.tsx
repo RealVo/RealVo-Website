@@ -11,10 +11,6 @@ const steps = [
   { number: 7, title: 'Thank You', desc: 'A closing message thanks the participant and confirms their session is complete' },
 ];
 
-<p className="mt-8 text-sm text-gray-500 max-w-3xl mx-auto text-center">
-  This workflow is fully customizable — from profile fields and question formats to recording limits and interface design.
-</p>
-
 type InteractionMode = 'none' | 'hover' | 'click';
 
 const HowItWorks: React.FC = () => {
