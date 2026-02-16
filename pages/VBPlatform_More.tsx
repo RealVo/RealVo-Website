@@ -308,6 +308,10 @@ const VBPlatform_More: React.FC = () => {
               </h1>
             </div>
 
+            <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl">
+              A structured, enterprise-ready platform — implemented and managed in partnership with your team.
+            </p>
+
             <div className="mt-10 sm:mt-14 lg:mt-16">
               <div className="rounded-3xl border border-slate-200/70 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-900/50 p-4 sm:p-6 lg:p-8">
                 <div className="space-y-12 sm:space-y-14 lg:space-y-16">
