@@ -9,7 +9,7 @@ type NavLink =
 const PROCESS_PLATFORM_ITEMS = [
   { label: 'Implementation Process', targetId: 'implementation-process' },
   { label: 'How It Works', targetId: 'how-it-works' },
-  { label: 'VB Platform', targetId: 'vb-platform' },
+  { label: 'VB Platform', href: '/vbplatform-more' },
 ];
 
 const navLinks: NavLink[] = [
