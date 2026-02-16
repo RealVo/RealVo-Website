@@ -276,7 +276,7 @@ const HowItWorks: React.FC = () => {
           </div>
 
 {/* Customization disclaimer */}
-<p className="mt-3 pl-[56px] text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
+<p className="mt-1 pl-[56px] text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
   This workflow is fully customizable — from profile fields and question formats to recording limits and interface design.
 </p>
           
