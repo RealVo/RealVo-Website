@@ -60,7 +60,6 @@ const ProgramStructure: React.FC = () => {
               <Calendar size={18} />
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 Event Programs
               </p>
               <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
@@ -125,7 +124,6 @@ const ProgramStructure: React.FC = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-300">
                 Extended &amp; Multi-Site Programs
               </p>
-              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
                 Scale Across Locations
               </p>
             </div>
@@ -187,7 +185,6 @@ const ProgramStructure: React.FC = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 Owned Installations
               </p>
-              <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
                 Build Long-Term Infrastructure
               </p>
             </div>
