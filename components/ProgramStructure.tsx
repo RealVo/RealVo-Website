@@ -68,18 +68,14 @@ const ProgramStructure: React.FC = () => {
           </div>
 
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-            Short-term deployments for conferences, campuses, community events, and national meetings.
-          </p>
-
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
-            Designed for defined dates and structured environments — with configured UX, support, and post-event review workflows built in.
+            Ideal for short-term video booth rentals at conferences, tradeshows, national sales meetings, campus events, and community gatherings.
           </p>
 
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
   {[
-    'Short-term activations',
-    'On-site or remote support (as scoped)',
-    'Branded experience configuration',
+    'Single- or multi-day activations',
+    'Delivery and on-site setup',
+    'On-site or remote technical support',
     'Secure portal access for review and export',
   ].map((b) => (
     <li key={b} className="flex gap-2.5">
