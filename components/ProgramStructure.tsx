@@ -68,15 +68,15 @@ const ProgramStructure: React.FC = () => {
           </div>
 
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-            Ideal for short-term video booth rentals at conferences, tradeshows, national sales meetings, campus events, and community gatherings.
+            Ideal for short-term video booth rentals at conferences, tradeshows, sales meetings, campus events, and community gatherings.
           </p>
 
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
   {[
     'Single or multi-day activations',
-    'Delivery and on-site setup',
+    'Fully managed from planning through teardown',
     'On-site or remote technical support',
-    'Secure portal access for review and export',
+    'Content delivered through your secure VB.tv portal',
   ].map((b) => (
     <li key={b} className="flex gap-2.5">
       <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-realvo-teal shrink-0" />
@@ -123,15 +123,15 @@ const ProgramStructure: React.FC = () => {
           </p>
 
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
-            Ideal for touring activations, national initiatives, and multi-month programs.
+            Designed for touring activations, multi-city campaigns, national initiatives, and longer-term rentals.
           </p>
 
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
   {[
-    'Consistent experience across locations',
-    'Governance and permission controls',
-    'Ongoing portal access and reporting',
-    'Often begins with one or two initial activations',
+    'Consistent experience across every location',
+    'Coordinated logistics and scheduling',
+    'Centralized content collection across sites',
+    'Optional pilot before broader rollout',
   ].map((b) => (
     <li key={b} className="flex gap-2.5">
       <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-realvo-teal shrink-0" />
@@ -169,7 +169,7 @@ const ProgramStructure: React.FC = () => {
             </div>
 
             <p className="text-xl font-semibold text-realvo-charcoal dark:text-white">
-              Build Long-Term Infrastructure
+              Built for Permanent Placement
             </p>
           </div>
 
@@ -184,9 +184,9 @@ const ProgramStructure: React.FC = () => {
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
   {[
     'Hardware ownership',
-    'Configured UX and governance structure',
-    'Long-term portal access',
-    'Designed for repeat or continuous use',
+    'Permanent or semi-permanent placement',
+    'Designed for repeat or ongoing use',
+    'Integrated with your existing programs and teams',
   ].map((b) => (
     <li key={b} className="flex gap-2.5">
       <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-realvo-teal shrink-0" />
