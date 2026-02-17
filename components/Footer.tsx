@@ -55,7 +55,6 @@ const Footer: React.FC = () => {
       Toronto Video Booth
     </a>
   </div>
-</div>
 
         {/* Legal Line */}
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
