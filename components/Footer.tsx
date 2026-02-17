@@ -21,39 +21,53 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Right: Menu (forced 2 rows) */}
-          <div className="text-sm text-gray-400">
-            {/* Row 1 */}
-            <div className="flex items-center justify-start lg:justify-end gap-x-4">
-              <a href="/" className="hover:text-white transition-colors">Home</a>
-              <span className="text-gray-600">•</span>
+          {/* Right: Menu */}
+<div className="text-sm text-gray-400">
+  {/* Mobile (stacked) */}
+  <div className="flex flex-col items-start gap-2 lg:hidden">
+    <a href="/" className="hover:text-white transition-colors">Home</a>
+    <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
+    <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
+    <a href="/#process-platform" className="hover:text-white transition-colors">Process &amp; Platform</a>
+    <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
+    <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+    <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
+    <a href="/toronto-video-booth" className="hover:text-white transition-colors">Toronto Video Booth</a>
+  </div>
 
-              <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
-              <span className="text-gray-600">•</span>
+  {/* Desktop (2 rows, right aligned) */}
+  <div className="hidden lg:block">
+    {/* Row 1 */}
+    <div className="flex items-center justify-end gap-x-4">
+      <a href="/" className="hover:text-white transition-colors">Home</a>
+      <span className="text-gray-600">•</span>
 
-              <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
-              <span className="text-gray-600">•</span>
+      <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
+      <span className="text-gray-600">•</span>
 
-              <a href="/#process-platform" className="hover:text-white transition-colors">Process &amp; Platform</a>
-            </div>
+      <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
+      <span className="text-gray-600">•</span>
 
-            {/* Row 2 */}
-            <div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
-              <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
-              <span className="text-gray-600">•</span>
+      <a href="/#process-platform" className="hover:text-white transition-colors">Process &amp; Platform</a>
+    </div>
 
-              <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-              <span className="text-gray-600">•</span>
+    {/* Row 2 */}
+    <div className="mt-2 flex items-center justify-end gap-x-4">
+      <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
+      <span className="text-gray-600">•</span>
 
-              <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
-              <span className="text-gray-600">•</span>
+      <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+      <span className="text-gray-600">•</span>
 
-              <a href="/toronto-video-booth" className="hover:text-white transition-colors whitespace-nowrap">
-                Toronto Video Booth
-              </a>
-            </div>
-          </div>
-        </div>
+      <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
+      <span className="text-gray-600">•</span>
+
+      <a href="/toronto-video-booth" className="hover:text-white transition-colors whitespace-nowrap">
+        Toronto Video Booth
+      </a>
+    </div>
+  </div>
+</div>
 
         {/* Legal Line */}
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
