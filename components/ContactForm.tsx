@@ -145,8 +145,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
         >
           <option value="" disabled>Select a program type</option>
           <option value="Event Program (1–5 days)">Event Program (1–5 days)</option>
-          <option value="Extended / Multi-site (multi-city or multi-week)">
-            Extended / Multi-site (multi-city or multi-week)
+          <option value="Extended Rental / Tour / Multiple Locations">
+            Extended Rental / Tour / Multiple Locations
           </option>
           <option value="Owned Installation (purchase / permanent placement)">
             Owned Installation (purchase / permanent placement)
