@@ -141,18 +141,40 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </div>
 
-      {/* Capture Solution */}
+      {/* Program Type (replaces Nature of Inquiry) */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Capture Solution<span className="text-red-500">*</span>
+          Program Type<span className="text-red-500">*</span>
         </label>
         <select
-          name="captureSolution"
+          name="programType"
           required
           className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
           defaultValue=""
         >
-          <option value="" disabled>Select a solution</option>
+          <option value="" disabled>Select a program type</option>
+          <option value="Event Program (1–5 days)">Event Program (1–5 days)</option>
+          <option value="Extended / Multi-site (multi-city or multi-week)">
+            Extended / Multi-site (multi-city or multi-week)
+          </option>
+          <option value="Owned Installation (purchase / permanent placement)">
+            Owned Installation (purchase / permanent placement)
+          </option>
+          <option value="Not sure yet / Need guidance">Not sure yet / Need guidance</option>
+        </select>
+      </div>
+
+      {/* Capture Solution (make optional + friendlier name) */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Capture Format
+        </label>
+        <select
+          name="captureSolution"
+          className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
+          defaultValue=""
+        >
+          <option value="">Select a format (optional)</option>
           <option value="Private Enclosed Booth">Private Enclosed Booth</option>
           <option value="Free-standing Kiosk">Free-standing Kiosk</option>
           <option value="Desktop Tablet Kiosk">Desktop Tablet Kiosk</option>
@@ -161,59 +183,57 @@ const ContactForm: React.FC<ContactFormProps> = ({
         </select>
       </div>
 
-      {/* Inquiry */}
+      {/* Timeline (required) */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Nature of Inquiry<span className="text-red-500">*</span>
+          Timeline<span className="text-red-500">*</span>
         </label>
         <select
-          name="nature"
+          name="timeline"
           required
           className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
           defaultValue=""
         >
-          <option value="" disabled>Select one</option>
-          <option value="Purchase">Purchase</option>
-          <option value="Rental - 1 week or less">Rental (1-week or less)</option>
-          <option value="Rental - 1 month or less">Rental (1-month or less)</option>
-          <option value="Rental - more than 1 month">Rental (More than 1-month)</option>
-          <option value="Custom / Bespoke">Custom / Bespoke</option>
-          <option value="Other">Other</option>
+          <option value="" disabled>Select a timeline</option>
+          <option value="Within 2 weeks">Within 2 weeks</option>
+          <option value="2–6 weeks">2–6 weeks</option>
+          <option value="1–3 months">1–3 months</option>
+          <option value="3+ months">3+ months</option>
+          <option value="Just exploring">Just exploring</option>
         </select>
       </div>
 
-      {/* Budget */}
+      {/* Estimated Investment Range (optional + non-salesy) */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Budget Range<span className="text-red-500">*</span>
+          Estimated Investment Range <span className="text-gray-400">(optional)</span>
         </label>
         <select
           name="budget"
-          required
           className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
           defaultValue=""
         >
-          <option value="" disabled>Select range</option>
-          <option value="< 5000">Less than $5k</option>
-          <option value="5000-10000">$5k – $10k</option>
-          <option value="10000-15000">$10k – $15k</option>
+          <option value="">Select a range (optional)</option>
+          <option value="< 7500">Under $7.5k</option>
+          <option value="7500-15000">$7.5k – $15k</option>
           <option value="15000-25000">$15k – $25k</option>
-          <option value="25000+">$25k+</option>
-          <option value="unsure">Not sure yet / Exploring options</option>
+          <option value="25000-50000">$25k – $50k</option>
+          <option value="50000+">$50k+</option>
+          <option value="unsure">Not sure yet</option>
         </select>
       </div>
 
       {/* Activation Details */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Tell us about your activation<span className="text-red-500">*</span>
+          Tell us about your program<span className="text-red-500">*</span>
         </label>
         <textarea
           name="message"
           rows={3}
           required
           className="w-full rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-          placeholder="Share timing, location, goals, outcomes"
+          placeholder="Share dates, location(s), audience, and what you’re hoping to capture"
         />
       </div>
 
@@ -238,4 +258,3 @@ const ContactForm: React.FC<ContactFormProps> = ({
 };
 
 export default ContactForm;
-
