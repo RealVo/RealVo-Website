@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
     <footer className="bg-realvo-charcoal text-white py-12 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Row */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
           {/* Left: Logo + Description */}
           <div className="max-w-sm">
             <a href="/">
