@@ -44,7 +44,7 @@ const ProgramStructure: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {/* 1) Event Programs */}
-        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col">
           {/* Floating pill */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] shadow-md w-max whitespace-nowrap">
             Event Programs
@@ -99,7 +99,7 @@ const ProgramStructure: React.FC = () => {
         </div>
 
         {/* 2) Extended & Multi-Site Programs */}
-        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-realvo-charcoal shadow-xl border-2 border-realvo-blue flex flex-col">
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col">
           {/* Floating pill */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] shadow-md w-max whitespace-nowrap">
             Extended &amp; Multi-Site Programs
@@ -154,7 +154,7 @@ const ProgramStructure: React.FC = () => {
         </div>
 
         {/* 3) Owned Installations */}
-        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col">
+        <div className="group relative rounded-2xl p-8 pt-10 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col">
           {/* Floating pill */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-realvo-blue text-white px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] shadow-md w-max whitespace-nowrap">
             Owned Installations
