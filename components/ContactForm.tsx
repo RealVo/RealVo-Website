@@ -26,6 +26,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
       {/* Required by Netlify */}
       <input type="hidden" name="form-name" value="contact" />
 
+      {/* Keep capturing Role in Netlify payload (even though field is removed from UI) */}
+      <input type="hidden" name="role" value="" />
+
       {/* Honeypot */}
       <p className="hidden">
         <label>
@@ -129,7 +132,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         />
       </div>
 
-      {/* Program Type (replaces Nature of Inquiry) */}
+      {/* Program Type */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Program Type<span className="text-red-500">*</span>
@@ -152,7 +155,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         </select>
       </div>
 
-      {/* Capture Solution (make optional + friendlier name) */}
+      {/* Capture Format (optional) */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Capture Format
@@ -188,11 +191,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <option value="3–6 months">3–6 months</option>
           <option value="6+ months">6+ months</option>
           <option value="Just exploring">Just exploring</option>
-
         </select>
       </div>
 
-      {/* Estimated Investment Range (optional + non-salesy) */}
+      {/* Estimated Investment Range (optional) */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Estimated Investment Range <span className="text-gray-400">(optional)</span>
@@ -210,6 +212,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <option value="50000+">$50k+</option>
           <option value="unsure">Not sure yet</option>
         </select>
+
+        <p className="mt-1 text-xs text-gray-400">
+          If you’re unsure, choose “Not sure yet” — we’ll help scope it.
+        </p>
       </div>
 
       {/* Activation Details */}
