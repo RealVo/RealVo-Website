@@ -143,15 +143,25 @@ const ContactForm: React.FC<ContactFormProps> = ({
           className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
           defaultValue=""
         >
-          <option value="" disabled>Select a program type</option>
-          <option value="Event Program (1–5 days)">Event Program (1–5 days)</option>
-          <option value="Extended Rental / Tour / Multiple Locations">
-            Extended Rental / Tour / Multiple Locations
+          <option value="Event Rental (1–5 days)">
+            Event Rental (1–5 days)
           </option>
-          <option value="Owned Installation (purchase / permanent placement)">
-            Owned Installation (purchase / permanent placement)
-          </option>
-          <option value="Not sure yet / Need guidance">Not sure yet / Need guidance</option>
+
+        <option value="Extended Rental (6+ days)">
+          Extended Rental (6+ days)
+        </option>
+
+        <option value="Tour / Multi-Location Program">
+          Tour / Multi-Location Program
+        </option>
+
+        <option value="Owned Installation (purchase / permanent placement)">
+          Owned Installation (purchase / permanent placement)
+        </option>
+
+        <option value="Not sure yet / Need guidance">
+          Not sure yet / Need guidance
+        </option>
         </select>
       </div>
 
