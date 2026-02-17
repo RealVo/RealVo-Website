@@ -119,10 +119,6 @@ const ProgramStructure: React.FC = () => {
           </div>
 
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-            Deploy across multiple locations, offices, or phases of a campaign.
-          </p>
-
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
             Designed for touring activations, multi-city campaigns, national initiatives, and longer-term rentals.
           </p>
 
@@ -175,10 +171,6 @@ const ProgramStructure: React.FC = () => {
 
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
             Installed systems for organizations building ongoing storytelling and insight capture into their environment.
-          </p>
-
-          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
-            Used across campuses, corporate headquarters, hospitals, and civic spaces.
           </p>
 
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
