@@ -4,10 +4,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-realvo-charcoal text-white py-12 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Top Row */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
-
           {/* Left: Logo + Description */}
           <div className="max-w-sm">
             <a href="/">
@@ -19,53 +17,51 @@ const Footer: React.FC = () => {
             </a>
 
             <p className="mt-4 text-gray-400 text-sm leading-relaxed">
-              A storytelling & insights platform for human understanding. 
-              Trusted by leading organizations worldwide.
+              A storytelling &amp; insights platform for human understanding. Trusted by leading organizations worldwide.
             </p>
           </div>
 
           {/* Right: Menu (forced 2 rows) */}
-<div className="text-sm text-gray-400">
-  {/* Row 1 */}
-  <div className="flex items-center justify-start lg:justify-end gap-x-4">
-    <a href="/" className="hover:text-white transition-colors">Home</a>
-    <span className="text-gray-600">•</span>
+          <div className="text-sm text-gray-400">
+            {/* Row 1 */}
+            <div className="flex items-center justify-start lg:justify-end gap-x-4">
+              <a href="/" className="hover:text-white transition-colors">Home</a>
+              <span className="text-gray-600">•</span>
 
-    <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
-    <span className="text-gray-600">•</span>
+              <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
+              <span className="text-gray-600">•</span>
 
-    <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
-    <span className="text-gray-600">•</span>
+              <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
+              <span className="text-gray-600">•</span>
 
-    <a href="/#process-platform" className="hover:text-white transition-colors">Process &amp; Platform</a>
-  </div>
+              <a href="/#process-platform" className="hover:text-white transition-colors">Process &amp; Platform</a>
+            </div>
 
-  {/* Row 2 */}
-  <div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
-    <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
-    <span className="text-gray-600">•</span>
+            {/* Row 2 */}
+            <div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
+              <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
+              <span className="text-gray-600">•</span>
 
-    <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-    <span className="text-gray-600">•</span>
+              <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+              <span className="text-gray-600">•</span>
 
-    <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
-    <span className="text-gray-600">•</span>
+              <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
+              <span className="text-gray-600">•</span>
 
-    <a href="/toronto-video-booth" className="hover:text-white transition-colors whitespace-nowrap">
-      Toronto Video Booth
-    </a>
-  </div>
+              <a href="/toronto-video-booth" className="hover:text-white transition-colors whitespace-nowrap">
+                Toronto Video Booth
+              </a>
+            </div>
+          </div>
+        </div>
 
         {/* Legal Line */}
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
           &copy; {new Date().getFullYear()} RealVo. RealVo is powered by VideoBooth Inc. All rights reserved.
         </div>
-
       </div>
     </footer>
   );
 };
 
 export default Footer;
-
-
