@@ -90,7 +90,8 @@ const ProgramStructure: React.FC = () => {
 </ul>
 
           <Button
-            variant="outline"
+            variant="primary"
+            size="lg"
             className="w-full"
             onClick={() => (window.location.href = '/#contact')}
           >
@@ -146,6 +147,7 @@ const ProgramStructure: React.FC = () => {
 
           <Button
             variant="primary"
+            size="lg"
             className="w-full"
             onClick={() => (window.location.href = '/#contact')}
           >
@@ -200,7 +202,8 @@ const ProgramStructure: React.FC = () => {
 </ul>
 
           <Button
-            variant="outline"
+            variant="primary"
+            size="lg"
             className="w-full"
             onClick={() => (window.location.href = '/#contact')}
           >
