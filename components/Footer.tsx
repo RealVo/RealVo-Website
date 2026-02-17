@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} RealVo. All rights reserved.
+          &copy; {new Date().getFullYear()} RealVo. RealVo is operated by VideoBooth Inc.
         </div>
       </div>
     </footer>
