@@ -73,7 +73,7 @@ const ProgramStructure: React.FC = () => {
 
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
   {[
-    'Single- or multi-day activations',
+    'Single or multi-day activations',
     'Delivery and on-site setup',
     'On-site or remote technical support',
     'Secure portal access for review and export',
