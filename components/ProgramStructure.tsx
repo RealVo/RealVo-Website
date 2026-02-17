@@ -75,24 +75,19 @@ const ProgramStructure: React.FC = () => {
             Designed for defined dates and structured environments — with configured UX, support, and post-event review workflows built in.
           </p>
 
-          <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 flex-1">
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Short-term activations
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              On-site or remote support (as scoped)
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Branded experience configuration
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Secure portal access for review and export
-            </li>
-          </ul>
+          <ul className="space-y-2.5 text-[15px] text-gray-700 dark:text-gray-200 mb-8 flex-1">
+  {[
+    'Short-term activations',
+    'On-site or remote support (as scoped)',
+    'Branded experience configuration',
+    'Secure portal access for review and export',
+  ].map((b) => (
+    <li key={b} className="flex gap-2.5">
+      <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-realvo-teal shrink-0" />
+      <span>{b}</span>
+    </li>
+  ))}
+</ul>
 
           <Button
             variant="outline"
