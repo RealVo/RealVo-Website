@@ -25,32 +25,32 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Right: Horizontal Menu */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-400">
-            <a href="/" className="hover:text-white transition-colors">Home</a>
-            <span className="text-gray-600">|</span>
+<div className="flex flex-wrap lg:flex-nowrap items-center justify-start lg:justify-end gap-x-4 gap-y-2 text-sm text-gray-400">
+  <a href="/" className="hover:text-white transition-colors">Home</a>
+  <span className="text-gray-600">•</span>
 
-            <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
-            <span className="text-gray-600">|</span>
+  <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
+  <span className="text-gray-600">•</span>
 
-            <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
-            <span className="text-gray-600">|</span>
+  <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
+  <span className="text-gray-600">•</span>
 
-            <a href="/#process-platform" className="hover:text-white transition-colors">Process & Platform</a>
-            <span className="text-gray-600">|</span>
+  <a href="/#process-platform" className="hover:text-white transition-colors">Process & Platform</a>
+  <span className="text-gray-600">•</span>
 
-            <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
-            <span className="text-gray-600">|</span>
+  <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
+  <span className="text-gray-600">•</span>
 
-            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <span className="text-gray-600">|</span>
+  <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+  <span className="text-gray-600">•</span>
 
-            <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
-            <span className="text-gray-600">|</span>
+  <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
+  <span className="text-gray-600">•</span>
 
-            <a href="/toronto-video-booth" className="hover:text-white transition-colors">
-              Toronto Video Booth
-            </a>
-          </div>
+  <a href="/toronto-video-booth" className="hover:text-white transition-colors whitespace-nowrap">
+    Toronto Video Booth
+  </a>
+</div>
 
         </div>
 
