@@ -75,7 +75,7 @@ const ProgramStructure: React.FC = () => {
             Designed for defined dates and structured environments — with configured UX, support, and post-event review workflows built in.
           </p>
 
-          <ul className="space-y-2.5 text-[15px] text-gray-700 dark:text-gray-200 mb-8 flex-1">
+          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
   {[
     'Short-term activations',
     'On-site or remote support (as scoped)',
@@ -130,7 +130,7 @@ const ProgramStructure: React.FC = () => {
             Ideal for touring activations, national initiatives, and multi-month programs.
           </p>
 
-          <ul className="space-y-2.5 text-[15px] text-gray-700 dark:text-gray-200 mb-8 flex-1">
+          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
   {[
     'Consistent experience across locations',
     'Governance and permission controls',
@@ -185,7 +185,7 @@ const ProgramStructure: React.FC = () => {
             Used across campuses, corporate headquarters, hospitals, and civic spaces.
           </p>
 
-          <ul className="space-y-2.5 text-[15px] text-gray-700 dark:text-gray-200 mb-8 flex-1">
+          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-200 mb-8 flex-1">
   {[
     'Hardware ownership',
     'Configured UX and governance structure',
