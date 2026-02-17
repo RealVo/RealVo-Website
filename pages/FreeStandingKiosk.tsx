@@ -406,7 +406,7 @@ const FreeStandingKiosk: React.FC = () => {
                   Customization options
                 </h2>
                 <ul className="mt-3 space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200 list-disc pl-5">
-                  <li>Available in Wall-mount configuration</li>
+                  <li>Available in wall-mount configuration</li>
                   <li>Audio, text, and photo capture support</li>
                   <li>
                     Immersive branded interface (video intros + voice-over prompts)
