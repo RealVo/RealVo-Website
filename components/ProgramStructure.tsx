@@ -130,24 +130,19 @@ const ProgramStructure: React.FC = () => {
             Ideal for touring activations, national initiatives, and multi-month programs.
           </p>
 
-          <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 flex-1">
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Consistent experience across locations
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Governance and permission controls
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Ongoing portal access and reporting
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Often begins with one or two initial activations
-            </li>
-          </ul>
+          <ul className="space-y-2.5 text-[15px] text-gray-700 dark:text-gray-200 mb-8 flex-1">
+  {[
+    'Consistent experience across locations',
+    'Governance and permission controls',
+    'Ongoing portal access and reporting',
+    'Often begins with one or two initial activations',
+  ].map((b) => (
+    <li key={b} className="flex gap-2.5">
+      <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-realvo-teal shrink-0" />
+      <span>{b}</span>
+    </li>
+  ))}
+</ul>
 
           <Button
             variant="primary"
@@ -190,24 +185,19 @@ const ProgramStructure: React.FC = () => {
             Used across campuses, corporate headquarters, hospitals, and civic spaces.
           </p>
 
-          <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300 mb-8 flex-1">
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Hardware ownership
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Configured UX and governance structure
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Long-term portal access
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-0.5 text-realvo-teal">•</span>
-              Designed for repeat or continuous use
-            </li>
-          </ul>
+          <ul className="space-y-2.5 text-[15px] text-gray-700 dark:text-gray-200 mb-8 flex-1">
+  {[
+    'Hardware ownership',
+    'Configured UX and governance structure',
+    'Long-term portal access',
+    'Designed for repeat or continuous use',
+  ].map((b) => (
+    <li key={b} className="flex gap-2.5">
+      <span className="mt-[9px] w-1.5 h-1.5 rounded-full bg-realvo-teal shrink-0" />
+      <span>{b}</span>
+    </li>
+  ))}
+</ul>
 
           <Button
             variant="outline"
