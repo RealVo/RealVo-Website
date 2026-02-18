@@ -7,29 +7,25 @@ const ScrollToHash = () => {
   useEffect(() => {
     if (!hash) return;
 
-    const id = hash.replace('#', '');
-    let rafId = 0;
-    let attempts = 0;
-    const maxAttempts = 30; // ~0.5s at 60fps
+    const id = hash.slice(1);
+    let raf = 0;
+    let tries = 0;
+    const maxTries = 60; // ~1s at 60fps
 
-    const tryScroll = () => {
+    const attempt = () => {
       const el = document.getElementById(id);
 
       if (el) {
         el.scrollIntoView({ behavior: 'auto', block: 'start' });
-        return; // success
+        return;
       }
 
-      attempts += 1;
-      if (attempts < maxAttempts) {
-        rafId = requestAnimationFrame(tryScroll);
-      }
+      tries += 1;
+      if (tries < maxTries) raf = requestAnimationFrame(attempt);
     };
 
-    // kick off on next frame to allow route render
-    rafId = requestAnimationFrame(tryScroll);
-
-    return () => cancelAnimationFrame(rafId);
+    raf = requestAnimationFrame(attempt);
+    return () => cancelAnimationFrame(raf);
   }, [hash, pathname]);
 
   return null;
