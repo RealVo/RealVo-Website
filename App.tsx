@@ -46,19 +46,6 @@ const HomePage: React.FC = () => {
 
   const location = useLocation();
 
-  useEffect(() => {
-    if (!location.hash) return;
-
-    const id = location.hash.replace('#', '');
-    const scrollToTarget = () => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
-    setTimeout(scrollToTarget, 0);
-  }, [location]);
-
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, '').slice(0, 10);
     const len = digits.length;
@@ -188,17 +175,14 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div
-  id="contact"
-  <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
->
-  <ContactForm
-    onSubmit={handleSubmit}
-    submitted={submitted}
-    phone={phone}
-    onPhoneChange={handlePhoneChange}
-  />
-</div>
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+              <ContactForm
+              onSubmit={handleSubmit}
+              submitted={submitted}
+              phone={phone}
+              onPhoneChange={handlePhoneChange}
+            />
+            </div>
           </div>
         </Section>
       </main>
