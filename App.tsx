@@ -31,6 +31,7 @@ import VBPlatform_More from './pages/VBPlatform_More';
 import TorontoVideoBooth from './pages/TorontoVideoBooth';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
+import SecurityAndDataProtection from './pages/SecurityAndDataProtection';
 
 // ------------------------
 // Home / Landing page
@@ -220,6 +221,7 @@ const App: React.FC = () => {
         <Route path="/toronto-video-booth" element={<TorontoVideoBooth />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfUse />} />
+        <Route path="/security-and-data-protection" element={<SecurityAndDataProtection />} />
       </Routes>
     </Router>
   );
