@@ -20,8 +20,8 @@ const PrivacyPolicy: React.FC = () => {
             <p>
               VideoBooth Inc. (“we,” “us,” or “our”) respects your privacy and is committed
               to protecting personal information in accordance with Canada’s Personal
-              Information Protection and Electronic Documents Act (PIPEDA) and applicable
-              U.S. state privacy laws.
+              Information Protection and Electronic Documents Act (PIPEDA) and other
+              applicable privacy laws.
             </p>
 
             <p>
@@ -90,11 +90,15 @@ const PrivacyPolicy: React.FC = () => {
                   Participants enter data via booth interface after accepting a
                   client-provided legal release.
                 </li>
-                <li>Video is processed locally, encoded, and uploaded to secure third-party servers.</li>
+                <li>
+                  Video is processed locally, encoded, and uploaded to secure third-party
+                  servers.
+                </li>
                 <li>Website data is collected via forms or system logs.</li>
               </ul>
               <p className="mt-2">
-                If a participant declines the release, no data is stored and the session resets.
+                If a participant declines the release, no data is stored and the session
+                resets.
               </p>
             </div>
 
@@ -110,7 +114,8 @@ const PrivacyPolicy: React.FC = () => {
                 <li>Respond to inquiries or legal requirements</li>
               </ul>
               <p className="mt-2">
-                We do not use participant data for our own marketing unless explicitly opted in.
+                We do not use participant data for our own marketing unless explicitly
+                opted in.
               </p>
             </div>
 
@@ -120,7 +125,10 @@ const PrivacyPolicy: React.FC = () => {
               </h2>
               <ul className="list-disc ml-6 space-y-1">
                 <li>With our clients (data controllers)</li>
-                <li>With VideoBooth Systems Ltd. (UK partner) and ISO 27001-certified hosting providers</li>
+                <li>
+                  With VideoBooth Systems Ltd. (UK partner) and third-party hosting
+                  providers supporting service delivery
+                </li>
                 <li>With trusted service providers under contractual safeguards</li>
                 <li>If required by law</li>
               </ul>
@@ -132,13 +140,15 @@ const PrivacyPolicy: React.FC = () => {
                 6. Storage &amp; Security
               </h2>
               <p>
-                Data is processed locally on booth hardware and uploaded to secure ISO
-                27001-certified infrastructure. We apply role-based access controls and
-                internal IT safeguards.
+                Data is processed locally on booth hardware and uploaded to secure,
+                access-controlled cloud infrastructure operated by vetted third-party
+                hosting providers. We apply role-based access controls and internal IT
+                safeguards appropriate to the nature of our services.
               </p>
               <p className="mt-2">
-                Participant data is retained as directed by the client or typically deleted
-                30 days after program completion unless otherwise agreed.
+                Participant data is retained as directed by the client or, where not
+                otherwise specified, we apply a default retention period (typically 30
+                days after program completion), subject to contractual requirements.
               </p>
             </div>
 
@@ -147,8 +157,13 @@ const PrivacyPolicy: React.FC = () => {
                 7. Your Rights
               </h2>
               <p>
-                Under PIPEDA and applicable U.S. laws, you may request access, correction,
+                Under PIPEDA and other applicable laws, you may request access, correction,
                 deletion, or withdrawal of consent where applicable.
+              </p>
+              <p className="mt-2">
+                If you participated in a client program, the client organization is
+                responsible for responding to privacy requests as the data controller. We
+                will support the client as a service provider where applicable.
               </p>
               <p className="mt-2">
                 To exercise these rights, contact:{' '}
@@ -165,7 +180,10 @@ const PrivacyPolicy: React.FC = () => {
               <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
                 8. Cookies &amp; Tracking
               </h2>
-              <p>Our websites use cookies for functionality and analytics. Booths do not use cookies.</p>
+              <p>
+                Our websites use cookies for functionality and analytics to help us
+                understand site usage and improve performance. Booths do not use cookies.
+              </p>
             </div>
 
             <div>
@@ -173,7 +191,8 @@ const PrivacyPolicy: React.FC = () => {
                 9. International Transfers
               </h2>
               <p>
-                Data may be processed in Canada, the U.S., and the UK with appropriate contractual safeguards.
+                Data may be processed in Canada, the U.S., and the UK with appropriate
+                contractual safeguards.
               </p>
             </div>
 
@@ -182,7 +201,9 @@ const PrivacyPolicy: React.FC = () => {
                 10. Client-Supplied Legal Releases
               </h2>
               <p>
-                Any legal release text displayed within the booth interface is provided by the client and their legal counsel. Clients are responsible for ensuring compliance with applicable laws.
+                Any legal release text displayed within the booth interface is provided by
+                the client and their legal counsel. Clients are responsible for ensuring
+                compliance with applicable laws.
               </p>
             </div>
 
@@ -191,7 +212,8 @@ const PrivacyPolicy: React.FC = () => {
                 11. Changes to This Policy
               </h2>
               <p>
-                We may update this policy periodically. Updates will be posted with a revised effective date.
+                We may update this policy periodically. Updates will be posted with a
+                revised effective date.
               </p>
             </div>
 
@@ -220,3 +242,4 @@ const PrivacyPolicy: React.FC = () => {
 };
 
 export default PrivacyPolicy;
+
