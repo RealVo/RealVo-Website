@@ -129,62 +129,65 @@ const HomePage: React.FC = () => {
 <ProgramStructure />
 
         <Section
-          id="contact"
-          background="white"
-          padding="lg"
-          className="scroll-mt-28 border-t border-gray-100 !pt-10 md:!pt-20"
+  background="white"
+  padding="lg"
+  className="border-t border-gray-100 !pt-10 md:!pt-20"
+>
+  {/* Dedicated anchor target for /#contact */}
+  <div id="contact" className="scroll-mt-28" />
+
+  <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
+    <div className="space-y-6">
+      <h2
+        ref={contactHeadlineRef}
+        className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-tight text-realvo-charcoal dark:text-white"
+      >
+        Ready to{' '}
+        <span
+          className={
+            contactInView
+              ? 'text-realvo-blue animate-pulse-once'
+              : 'text-realvo-blue'
+          }
         >
-          <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
-            <div className="space-y-6">
-              <h2
-                ref={contactHeadlineRef}
-                className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-tight text-realvo-charcoal dark:text-white"
-              >
-                Ready to{' '}
-                <span
-                  className={
-                    contactInView
-                      ? 'text-realvo-blue animate-pulse-once'
-                      : 'text-realvo-blue'
-                  }
-                >
-                  capture real voices?
-                </span>
-              </h2>
+          capture real voices?
+        </span>
+      </h2>
 
-              <p className="text-lg text-gray-600">
-                Tell us about your program — your goals, timing, and where voices will be shared.
-              </p>
+      <p className="text-lg text-gray-600">
+        Tell us about your program — your goals, timing, and where voices will be shared.
+      </p>
 
-              <p className="text-sm text-gray-500">
-                A member of our team will be in touch within 24 hours.
-              </p>
+      <p className="text-sm text-gray-500">
+        A member of our team will be in touch within 24 hours.
+      </p>
 
-              <div className="pt-4">
-                <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
-                  <img
-                    src="/capture/contact-form/contact-form-naco.png"
-                    alt="RealVo participant sharing their story"
-                    loading="lazy"
-                    decoding="async"
-                    width={1200}
-                    height={675}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+      <div className="pt-4">
+        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
+          <img
+            src="/capture/contact-form/contact-form-naco.png"
+            alt="RealVo participant sharing their story"
+            loading="lazy"
+            decoding="async"
+            width={1200}
+            height={675}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-              <ContactForm
-              onSubmit={handleSubmit}
-              submitted={submitted}
-              phone={phone}
-              onPhoneChange={handlePhoneChange}
-            />
-            </div>
-          </div>
-        </Section>
+    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+      <ContactForm
+        onSubmit={handleSubmit}
+        submitted={submitted}
+        phone={phone}
+        onPhoneChange={handlePhoneChange}
+      />
+    </div>
+  </div>
+</Section>
+
       </main>
 
       <Footer />
