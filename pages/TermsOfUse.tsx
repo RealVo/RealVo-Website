@@ -16,7 +16,7 @@ const TermsOfUse: React.FC = () => {
             </h1>
 
             <p className="text-gray-500">
-              Last updated: February 17, 2026
+              Effective Date: February 17, 2026
             </p>
 
             <p>
