@@ -50,8 +50,7 @@ const SecurityAndDataProtection: React.FC = () => {
                 <li>Role-based access and permissions are used to limit access to systems and data.</li>
                 <li>Access provisioning, de-provisioning, and access reviews are part of operational controls.</li>
                 <li>
-                  Note: Single Sign-On (SSO) may be required by some organizations; if requested,
-                  we can discuss available options for your specific program.
+                  Note: Note: Some organizations require Single Sign-On (SSO). If requested, we will review available options for your specific program and environment.
                 </li>
               </ul>
             </div>
@@ -62,8 +61,7 @@ const SecurityAndDataProtection: React.FC = () => {
               </h2>
               <ul className="list-disc ml-6 space-y-1">
                 <li>
-                  Our internal policy includes encryption requirements (e.g., AES-256) for certain
-                  data handling scenarios such as personal data in email and encrypted backups.
+                  Our internal policy includes encryption requirements for certain data handling scenarios (for example, encryption for backups and for transmitting personal data where applicable).
                 </li>
                 <li>
                   We maintain processes intended to reduce unnecessary storage of personal data on
