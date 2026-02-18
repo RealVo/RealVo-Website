@@ -57,14 +57,30 @@ const Footer: React.FC = () => {
   <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
   <span className="text-gray-600">•</span>
 
-  <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+  <a
+    href="/privacy"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-white transition-colors"
+  >
+    Privacy Policy
+  </a>
   <span className="text-gray-600">•</span>
 
-  <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
+  <a
+    href="/terms"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-white transition-colors"
+  >
+    Terms of Use
+  </a>
   <span className="text-gray-600">•</span>
 
   <a
     href="/security-and-data-protection"
+    target="_blank"
+    rel="noopener noreferrer"
     className="hover:text-white transition-colors whitespace-nowrap"
   >
     Security &amp; Data Protection
