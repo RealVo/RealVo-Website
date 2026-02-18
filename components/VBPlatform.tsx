@@ -97,7 +97,7 @@ const VBPlatform: React.FC = () => {
         <div className="lg:col-span-5">
           <div className="inline-flex items-center gap-2 bg-realvo-blue/10 px-3 py-1 rounded-full text-sm font-medium text-realvo-blue mb-4">
             <Lock size={14} className="text-realvo-teal animate-pulse" />
-            <span>Enterprise Secure</span>
+            <span>Enterprise-Ready</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-6">
