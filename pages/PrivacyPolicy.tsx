@@ -9,7 +9,7 @@ const PrivacyPolicy: React.FC = () => {
       <Header />
 
       <main className="flex-grow">
-        <Section padding="lg">
+        <Section padding="md">
           <div className="max-w-4xl mx-auto space-y-8 text-sm text-gray-700 leading-relaxed">
             <h1 className="text-3xl font-bold text-realvo-charcoal mb-2">
               Privacy Policy
