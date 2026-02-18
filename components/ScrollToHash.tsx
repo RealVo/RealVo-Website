@@ -10,7 +10,7 @@ const ScrollToHash = () => {
     const id = hash.slice(1);
     let raf = 0;
     let tries = 0;
-    const maxTries = 60; // ~1s at 60fps
+    const maxTries = 90; // ~1.5s at 60fps
 
     const attempt = () => {
       const el = document.getElementById(id);
