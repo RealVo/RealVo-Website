@@ -187,14 +187,17 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-              <ContactForm
-                onSubmit={handleSubmit}
-                submitted={submitted}
-                phone={phone}
-                onPhoneChange={handlePhoneChange}
-              />
-            </div>
+            <div
+  id="contact"
+  className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm"
+>
+  <ContactForm
+    onSubmit={handleSubmit}
+    submitted={submitted}
+    phone={phone}
+    onPhoneChange={handlePhoneChange}
+  />
+</div>
           </div>
         </Section>
       </main>
