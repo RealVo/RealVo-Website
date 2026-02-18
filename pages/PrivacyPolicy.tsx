@@ -1,45 +1,31 @@
-import React from 'react';
-import Section from '../components/Section';
+import React, { useEffect } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const PrivacyPolicy: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
+
   return (
-    <Section padding="lg" background="white">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold text-realvo-charcoal mb-8">
-          Privacy Policy
-        </h1>
+    <div className="min-h-screen flex flex-col bg-white">
+      <Header />
 
-        {/* Replace everything below with your actual policy copy */}
+      <main className="flex-grow">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-realvo-charcoal mb-6">
+            Privacy Policy
+          </h1>
 
-        <div className="space-y-6 text-sm text-gray-700 leading-relaxed">
-          <p>
-            This Privacy Policy describes how RealVo collects, uses, and
-            protects your information.
-          </p>
+          {/* Paste your policy copy below */}
+          <div className="prose prose-slate max-w-none">
+            <p>Paste your privacy policy copy here.</p>
+          </div>
+        </section>
+      </main>
 
-          <h2 className="text-lg font-semibold text-realvo-charcoal">
-            1. Information We Collect
-          </h2>
-          <p>
-            Placeholder text. Replace with your actual content.
-          </p>
-
-          <h2 className="text-lg font-semibold text-realvo-charcoal">
-            2. How We Use Information
-          </h2>
-          <p>
-            Placeholder text. Replace with your actual content.
-          </p>
-
-          <h2 className="text-lg font-semibold text-realvo-charcoal">
-            3. Contact Information
-          </h2>
-          <p>
-            If you have questions about this policy, contact us at hello@realvo.com.
-          </p>
-        </div>
-      </div>
-    </Section>
+      <Footer />
+    </div>
   );
 };
 
