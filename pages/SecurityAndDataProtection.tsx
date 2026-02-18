@@ -50,7 +50,7 @@ const SecurityAndDataProtection: React.FC = () => {
                 <li>Role-based access and permissions are used to limit access to systems and data.</li>
                 <li>Access provisioning, de-provisioning, and access reviews are part of operational controls.</li>
                 <li>
-                  Note: Note: Some organizations require Single Sign-On (SSO). If requested, we will review available options for your specific program and environment.
+                  Note: Some organizations require Single Sign-On (SSO). If requested, we will review available options for your specific program and environment.
                 </li>
               </ul>
             </div>
