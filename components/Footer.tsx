@@ -53,23 +53,31 @@ const Footer: React.FC = () => {
               </div>
 
               {/* Row 2 */}
-              <div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
-                <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
-                <span className="text-gray-600">•</span>
+<div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
+  <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
+  <span className="text-gray-600">•</span>
 
-                <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacy Policy</a>
-                <span className="text-gray-600">•</span>
+  <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+  <span className="text-gray-600">•</span>
 
-                <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
-                <span className="text-gray-600">•</span>
+  <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
+  <span className="text-gray-600">•</span>
 
-                <a
-                  href="/toronto-video-booth"
-                  className="hover:text-white transition-colors whitespace-nowrap"
-                >
-                  Toronto Video Booth
-                </a>
-              </div>
+  <a
+    href="/security-and-data-protection"
+    className="hover:text-white transition-colors whitespace-nowrap"
+  >
+    Security &amp; Data Protection
+  </a>
+  <span className="text-gray-600">•</span>
+
+  <a
+    href="/toronto-video-booth"
+    className="hover:text-white transition-colors whitespace-nowrap"
+  >
+    Toronto Video Booth
+  </a>
+</div>
             </div>
           </div>
         </div>
