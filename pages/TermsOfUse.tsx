@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Section from '../components/Section';
 
-const PrivacyPolicy: React.FC = () => {
+const TermsOfUse: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
@@ -15,192 +15,199 @@ const PrivacyPolicy: React.FC = () => {
               Terms of Use
             </h1>
 
-            <p className="text-gray-500">Effective Date: February 17, 2026</p>
-
-            <p>
-              VideoBooth Inc. (“we,” “us,” or “our”) respects your privacy and is committed
-              to protecting personal information in accordance with Canada’s Personal
-              Information Protection and Electronic Documents Act (PIPEDA) and applicable
-              U.S. state privacy laws.
+            <p className="text-gray-500">
+              Last updated: February 17, 2026
             </p>
 
             <p>
-              This Privacy Policy explains how we collect, use, disclose, store, and
-              protect personal information when you rent or purchase video booths,
-              participate in booth sessions, or interact with our websites (realvo.io,
-              videobooth.ca, and related sites).
+              These Terms of Use (“Terms”) govern your access to and use of the
+              websites owned and operated by VideoBooth Inc. (“we,” “us,” or
+              “our”), including realvo.io, videobooth.ca, related domains, and
+              any associated software platforms, dashboards, or booth
+              interfaces (collectively, the “Services”).
+            </p>
+
+            <p>
+              By accessing or using the Services, you agree to these Terms. If
+              you do not agree, you should not use the Services.
             </p>
 
             <div>
               <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                1. Who We Are
+                1. Acceptance of Terms
               </h2>
               <p>
-                VideoBooth Inc. is a Toronto-based company providing video booth rental and
-                sales services. We act as a data processor for participant data collected
-                through booths — our clients (organizations renting or buying booths) are
-                the data controllers who determine the purposes of collection.
+                Your use of the Services constitutes acceptance of these Terms
+                and our Privacy Policy.
               </p>
               <p className="mt-2">
-                Contact:{' '}
-                <a
-                  href="mailto:hello@realvo.io"
-                  className="text-realvo-teal hover:underline"
-                >
-                  hello@realvo.io
-                </a>{' '}
-                | Toronto, Ontario, Canada
+                We may update these Terms periodically. Updates will be posted
+                with a revised effective date. Continued use of the Services
+                after changes become effective constitutes acceptance of the
+                revised Terms.
               </p>
             </div>
 
             <div>
               <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                2. Personal Information We Collect
+                2. Description of Services
               </h2>
-
-              <p className="font-medium">From booth participants:</p>
+              <p>
+                VideoBooth Inc. provides video capture hardware, software
+                platforms, and related services under the RealVo and
+                VideoBooth brands.
+              </p>
+              <p className="mt-2">
+                Services may include:
+              </p>
               <ul className="list-disc ml-6 space-y-1">
-                <li>First and last name</li>
-                <li>Email address</li>
+                <li>Website access</li>
+                <li>Booth-based video capture interfaces</li>
+                <li>Cloud-hosted dashboards and content management tools</li>
+                <li>Event rental and extended program deployments</li>
+              </ul>
+              <p className="mt-2">
+                Specific services may also be governed by separate agreements
+                with clients. In the event of a conflict, the written client
+                agreement controls.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
+                3. Permitted Use
+              </h2>
+              <p>
+                You agree to use the Services only for lawful purposes and in
+                accordance with these Terms.
+              </p>
+              <p className="mt-2">You agree not to:</p>
+              <ul className="list-disc ml-6 space-y-1">
+                <li>Violate applicable laws or regulations</li>
+                <li>Attempt unauthorized access to systems or data</li>
+                <li>Interfere with or disrupt servers or infrastructure</li>
+                <li>Reverse engineer or attempt to extract source code</li>
+                <li>Use automated tools (bots, scrapers) without permission</li>
                 <li>
-                  Additional fields requested by the client (e.g., phone, postal code,
-                  country, role)
+                  Copy, reproduce, or distribute materials beyond permitted use
                 </li>
-                <li>Video/photo recordings (including voice and likeness)</li>
-              </ul>
-
-              <p className="font-medium mt-4">From clients and website users:</p>
-              <ul className="list-disc ml-6 space-y-1">
-                <li>Name, email, phone, organization</li>
-                <li>IP address and browser/device information</li>
-              </ul>
-
-              <p className="mt-3">
-                We do not collect sensitive personal information unless explicitly
-                requested by the client and supported by their legal release.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                3. How We Collect Information
-              </h2>
-              <ul className="list-disc ml-6 space-y-1">
-                <li>
-                  Participants enter data via booth interface after accepting a
-                  client-provided legal release.
-                </li>
-                <li>Video is processed locally, encoded, and uploaded to secure third-party servers.</li>
-                <li>Website data is collected via forms or system logs.</li>
               </ul>
               <p className="mt-2">
-                If a participant declines the release, no data is stored and the session resets.
+                We reserve the right to suspend or restrict access where misuse
+                is identified.
               </p>
             </div>
 
             <div>
               <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                4. How We Use Personal Information
-              </h2>
-              <ul className="list-disc ml-6 space-y-1">
-                <li>Deliver booth programs and transfer content to client dashboards</li>
-                <li>Provide setup and technical support</li>
-                <li>Process rentals, sales, and payments</li>
-                <li>Maintain service quality (aggregated analytics only)</li>
-                <li>Respond to inquiries or legal requirements</li>
-              </ul>
-              <p className="mt-2">
-                We do not use participant data for our own marketing unless explicitly opted in.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                5. Sharing &amp; Disclosure
-              </h2>
-              <ul className="list-disc ml-6 space-y-1">
-                <li>With our clients (data controllers)</li>
-                <li>With VideoBooth Systems Ltd. (UK partner) and ISO 27001-certified hosting providers</li>
-                <li>With trusted service providers under contractual safeguards</li>
-                <li>If required by law</li>
-              </ul>
-              <p className="mt-2">We do not sell personal information.</p>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                6. Storage &amp; Security
+                4. Intellectual Property
               </h2>
               <p>
-                Data is processed locally on booth hardware and uploaded to secure ISO
-                27001-certified infrastructure. We apply role-based access controls and
-                internal IT safeguards.
+                All content, software, interfaces, designs, trademarks, logos,
+                and materials within the Services are owned by VideoBooth Inc.
+                or its licensors and are protected by intellectual property
+                laws.
               </p>
               <p className="mt-2">
-                Participant data is retained as directed by the client or typically deleted
-                30 days after program completion unless otherwise agreed.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                7. Your Rights
-              </h2>
-              <p>
-                Under PIPEDA and applicable U.S. laws, you may request access, correction,
-                deletion, or withdrawal of consent where applicable.
+                Clients retain ownership of video and media content recorded
+                through authorized programs, subject to their agreements with
+                participants.
               </p>
               <p className="mt-2">
-                To exercise these rights, contact:{' '}
-                <a
-                  href="mailto:hello@realvo.io"
-                  className="text-realvo-teal hover:underline"
-                >
-                  hello@realvo.io
-                </a>
+                Nothing in these Terms transfers ownership of platform
+                technology or software to users or clients.
               </p>
             </div>
 
             <div>
               <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                8. Cookies &amp; Tracking
-              </h2>
-              <p>Our websites use cookies for functionality and analytics. Booths do not use cookies.</p>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                9. International Transfers
+                5. Third-Party Services
               </h2>
               <p>
-                Data may be processed in Canada, the U.S., and the UK with appropriate contractual safeguards.
+                The Services may integrate with or link to third-party
+                providers, including hosting providers and technology partners.
+              </p>
+              <p className="mt-2">
+                We are not responsible for third-party websites or services and
+                do not control their content or privacy practices.
               </p>
             </div>
 
             <div>
               <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                10. Client-Supplied Legal Releases
+                6. Disclaimers
               </h2>
               <p>
-                Any legal release text displayed within the booth interface is provided by the client and their legal counsel. Clients are responsible for ensuring compliance with applicable laws.
+                The Services are provided on an “as available” basis. While we
+                apply reasonable operational safeguards, we do not guarantee
+                uninterrupted or error-free access.
+              </p>
+              <p className="mt-2">
+                To the fullest extent permitted by law, we disclaim implied
+                warranties of merchantability, fitness for a particular purpose,
+                and non-infringement.
               </p>
             </div>
 
             <div>
               <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                11. Changes to This Policy
+                7. Limitation of Liability
               </h2>
               <p>
-                We may update this policy periodically. Updates will be posted with a revised effective date.
+                To the extent permitted by law, VideoBooth Inc. shall not be
+                liable for indirect, incidental, consequential, special, or
+                punitive damages arising from use of the Services.
+              </p>
+              <p className="mt-2">
+                Our aggregate liability relating to website access shall not
+                exceed CAD $1,000.
+              </p>
+              <p className="mt-2">
+                For clients operating under written service agreements,
+                liability limitations are governed by those agreements.
               </p>
             </div>
 
             <div>
               <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
-                12. Contact Us
+                8. Indemnification
               </h2>
               <p>
-                Questions or concerns may be directed to{' '}
+                You agree to indemnify and hold harmless VideoBooth Inc., its
+                affiliates, officers, employees, and agents from claims arising
+                from your misuse of the Services, violation of these Terms, or
+                violation of applicable laws.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
+                9. Governing Law
+              </h2>
+              <p>
+                These Terms are governed by the laws of the Province of Ontario
+                and the federal laws of Canada applicable therein. Any disputes
+                shall be resolved exclusively in the courts located in Toronto,
+                Ontario.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
+                10. Severability
+              </h2>
+              <p>
+                If any provision of these Terms is found unenforceable, the
+                remaining provisions remain in effect.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-realvo-charcoal mb-2">
+                11. Contact
+              </h2>
+              <p>
+                Questions regarding these Terms may be directed to{' '}
                 <a
                   href="mailto:hello@realvo.io"
                   className="text-realvo-teal hover:underline"
@@ -210,6 +217,10 @@ const PrivacyPolicy: React.FC = () => {
                 .
               </p>
             </div>
+
+            <p className="pt-4 text-gray-500">
+              © 2026 VideoBooth Inc. All rights reserved.
+            </p>
           </div>
         </Section>
       </main>
@@ -219,4 +230,5 @@ const PrivacyPolicy: React.FC = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default TermsOfUse;
+
