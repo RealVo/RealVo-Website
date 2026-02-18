@@ -29,7 +29,7 @@ import VirtualVideoBooth from './pages/VirtualVideoBooth';
 import ContactForm from './components/ContactForm';
 import VBPlatform_More from './pages/VBPlatform_More';
 import TorontoVideoBooth from './pages/TorontoVideoBooth';
-import PrivacyPolicy from './pages/PrivacyPolic';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 // ------------------------
 // Home / Landing page
