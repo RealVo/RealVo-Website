@@ -30,6 +30,7 @@ import ContactForm from './components/ContactForm';
 import VBPlatform_More from './pages/VBPlatform_More';
 import TorontoVideoBooth from './pages/TorontoVideoBooth';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfUse from './pages/TermsOfUse';
 
 // ------------------------
 // Home / Landing page
@@ -218,6 +219,7 @@ const App: React.FC = () => {
         <Route path="/vbplatform-more" element={<VBPlatform_More />} />
         <Route path="/toronto-video-booth" element={<TorontoVideoBooth />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfUse />} />
       </Routes>
     </Router>
   );
