@@ -128,12 +128,11 @@ const HomePage: React.FC = () => {
 <ProgramStructure />
 
         <Section
+  id="contact"
   background="white"
   padding="lg"
-  className="border-t border-gray-100 !pt-10 md:!pt-20"
+  className="border-t border-gray-100 !pt-10 md:!pt-20 scroll-mt-28"
 >
-  {/* Dedicated anchor target for /#contact */}
-  <div id="contact" className="scroll-mt-28" />
 
   <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
     <div className="space-y-6">
