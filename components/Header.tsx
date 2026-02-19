@@ -40,15 +40,13 @@ const Header: React.FC = () => {
     setMobileOpen(false);
 
     if (isHome) {
-      const el = document.getElementById(id);
-      if (!el) return;
+  const el = document.getElementById(id);
+  if (!el) return;
 
-      window.setTimeout(() => {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
-    } else {
-      window.location.href = `/#${id}`;
-    }
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+} else {
+  window.location.href = `/#${id}`;
+}
   };
 
   const goToHref = (href: string) => {
