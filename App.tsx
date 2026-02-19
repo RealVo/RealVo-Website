@@ -108,24 +108,12 @@ useEffect(() => {
   const el = document.getElementById(id);
   if (!el) return;
 
-  // 1) initial smooth scroll
+  // Wait longer so the page finishes layout before we do ONE smooth scroll.
   const t1 = window.setTimeout(() => {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 50);
+  }, 220);
 
-  // 2) quiet correction after layout settles (prevents “stops short” after hard refresh)
-  const t2 = window.setTimeout(() => {
-  // Only snap if we're still meaningfully misaligned (prevents jitter)
-  const top = el.getBoundingClientRect().top;
-  if (Math.abs(top) > 12) {
-    el.scrollIntoView({ behavior: 'auto', block: 'start' });
-  }
-}, 350);
-
-  return () => {
-    window.clearTimeout(t1);
-    window.clearTimeout(t2);
-  };
+  return () => window.clearTimeout(t1);
 }, []);
 
   return (
