@@ -129,9 +129,19 @@ useEffect(() => {
 
     // once stable for a few frames, do ONE smooth scroll
     if (stableCount >= 6 || frames >= maxFrames) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
+  // 1) Smooth scroll once
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // 2) If we're still off after things settle, snap invisibly
+  window.setTimeout(() => {
+    const stillOff = Math.abs(el.getBoundingClientRect().top) > 12;
+    if (stillOff) {
+      el.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
+  }, 350);
+
+  return;
+}
 
     raf = requestAnimationFrame(tick);
   };
