@@ -115,8 +115,12 @@ useEffect(() => {
 
   // 2) quiet correction after layout settles (prevents “stops short” after hard refresh)
   const t2 = window.setTimeout(() => {
+  // Only snap if we're still meaningfully misaligned (prevents jitter)
+  const top = el.getBoundingClientRect().top;
+  if (Math.abs(top) > 12) {
     el.scrollIntoView({ behavior: 'auto', block: 'start' });
-  }, 350);
+  }
+}, 350);
 
   return () => {
     window.clearTimeout(t1);
