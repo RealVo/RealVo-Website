@@ -108,12 +108,36 @@ useEffect(() => {
   const el = document.getElementById(id);
   if (!el) return;
 
-  // Wait longer so the page finishes layout before we do ONE smooth scroll.
-  const t1 = window.setTimeout(() => {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 220);
+  let raf = 0;
+  let stableCount = 0;
+  let lastTop: number | null = null;
+  let frames = 0;
+  const maxFrames = 90; // ~1.5s at 60fps
 
-  return () => window.clearTimeout(t1);
+  const tick = () => {
+    frames += 1;
+
+    const top = el.getBoundingClientRect().top;
+
+    // consider "stable" if position changes by less than 1px
+    if (lastTop !== null && Math.abs(top - lastTop) < 1) {
+      stableCount += 1;
+    } else {
+      stableCount = 0;
+      lastTop = top;
+    }
+
+    // once stable for a few frames, do ONE smooth scroll
+    if (stableCount >= 6 || frames >= maxFrames) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    raf = requestAnimationFrame(tick);
+  };
+
+  raf = requestAnimationFrame(tick);
+  return () => cancelAnimationFrame(raf);
 }, []);
 
   return (
