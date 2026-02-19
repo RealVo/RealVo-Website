@@ -165,7 +165,7 @@ useEffect(() => {
 <div id="how-it-works" />
 <HowItWorks />
 
-<section id="vb-platform" className="scroll-mt-28">
+<section id="vb-platform" className="scroll-mt-32">
   <VBPlatform />
 </section>
 
