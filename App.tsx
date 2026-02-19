@@ -108,9 +108,20 @@ useEffect(() => {
   const el = document.getElementById(id);
   if (!el) return;
 
-  window.setTimeout(() => {
+  // 1) initial smooth scroll
+  const t1 = window.setTimeout(() => {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 50);
+
+  // 2) quiet correction after layout settles (prevents “stops short” after hard refresh)
+  const t2 = window.setTimeout(() => {
+    el.scrollIntoView({ behavior: 'auto', block: 'start' });
+  }, 350);
+
+  return () => {
+    window.clearTimeout(t1);
+    window.clearTimeout(t2);
+  };
 }, []);
 
   return (
