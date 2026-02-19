@@ -32,7 +32,6 @@ import TorontoVideoBooth from './pages/TorontoVideoBooth';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import SecurityAndDataProtection from './pages/SecurityAndDataProtection';
-import ScrollToHash from './components/ScrollToHash';
 
 // ------------------------
 // Home / Landing page
@@ -201,7 +200,6 @@ const HomePage: React.FC = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <ScrollToHash />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/use-cases" element={<UseCases />} />
