@@ -177,7 +177,7 @@ if (!el) {
 <HowItWorks />
 
 <section id="vb-platform">
-  <div style={{ height: '48px' }} />
+  <div style={{ height: '40px' }} />
   <VBPlatform />
 </section>
 
