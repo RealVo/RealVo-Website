@@ -105,8 +105,7 @@ useEffect(() => {
   if (!hash) return;
 
   const id = decodeURIComponent(hash.replace('#', ''));
-  const el = document.getElementById(id);
-  if (!el) return;
+  let el: HTMLElement | null = null;
 
   let raf = 0;
   let stableCount = 0;
@@ -116,6 +115,11 @@ useEffect(() => {
 
   const tick = () => {
     frames += 1;
+    el = document.getElementById(id) as HTMLElement | null;
+if (!el) {
+  raf = requestAnimationFrame(tick);
+  return;
+}
 
     const top = el.getBoundingClientRect().top;
 
