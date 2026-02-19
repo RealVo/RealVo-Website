@@ -139,7 +139,7 @@ useEffect(() => {
 
   raf = requestAnimationFrame(tick);
   return () => cancelAnimationFrame(raf);
-}, []);
+}, [location]);
 
   return (
     <div className="min-h-screen flex flex-col bg-white transition-colors duration-300">
