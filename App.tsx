@@ -165,7 +165,7 @@ useEffect(() => {
 <div id="how-it-works" />
 <HowItWorks />
 
-<section id="vb-platform" className="scroll-mt-32">
+<section id="vb-platform" style={{ scrollMarginTop: '120px' }}>
   <VBPlatform />
 </section>
 
