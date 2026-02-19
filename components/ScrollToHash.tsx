@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+const HEADER_OFFSET = 96; // adjust if needed to match header height
+
 const ScrollToHash = () => {
   const { hash, pathname } = useLocation();
 
@@ -10,13 +12,22 @@ const ScrollToHash = () => {
     const id = hash.slice(1);
     let raf = 0;
     let tries = 0;
-    const maxTries = 60; // ~1s at 60fps
+    const maxTries = 60;
 
     const attempt = () => {
       const el = document.getElementById(id);
 
       if (el) {
-        el.scrollIntoView({ behavior: 'auto', block: 'start' });
+        const y =
+          el.getBoundingClientRect().top +
+          window.pageYOffset -
+          HEADER_OFFSET;
+
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth',
+        });
+
         return;
       }
 
