@@ -18,24 +18,24 @@ const ScrollToHash = () => {
       const el = document.getElementById(id);
 
       if (el) {
-  const scrollToEl = (behavior: ScrollBehavior) => {
-    const y =
-      el.getBoundingClientRect().top +
-      window.pageYOffset -
-      HEADER_OFFSET;
+  const targetY = () =>
+    el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
 
-    window.scrollTo({ top: y, behavior });
+  const snapIfOff = (thresholdPx: number) => {
+    const diff = targetY() - window.pageYOffset;
+    if (Math.abs(diff) > thresholdPx) {
+      window.scrollTo({ top: targetY(), behavior: 'auto' }); // invisible correction
+    }
   };
 
-  // 1) Initial scroll
-  scrollToEl('auto');
+  // 1) Smooth scroll once
+  window.scrollTo({ top: targetY(), behavior: 'smooth' });
 
-  // 2) Re-apply after layout settles (images/fonts/cards can shift height)
-  const t1 = window.setTimeout(() => scrollToEl('auto'), 80);
-  const t2 = window.setTimeout(() => scrollToEl('auto'), 220);
-  const t3 = window.setTimeout(() => scrollToEl('auto'), 500);
+  // 2) Correct only if layout shift moved us noticeably
+  const t1 = window.setTimeout(() => snapIfOff(10), 120);
+  const t2 = window.setTimeout(() => snapIfOff(10), 260);
+  const t3 = window.setTimeout(() => snapIfOff(10), 520);
 
-  // Cleanup timers if route changes quickly
   return () => {
     window.clearTimeout(t1);
     window.clearTimeout(t2);
