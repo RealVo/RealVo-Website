@@ -176,7 +176,8 @@ if (!el) {
 <div id="how-it-works" />
 <HowItWorks />
 
-<section id="vb-platform" style={{ scrollMarginTop: '120px' }}>
+<section id="vb-platform">
+  <div style={{ height: '24px' }} />
   <VBPlatform />
 </section>
 
