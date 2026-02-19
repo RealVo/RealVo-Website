@@ -83,19 +83,35 @@ const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-    const node = contactHeadlineRef.current;
-    if (!node) return;
+  const node = contactHeadlineRef.current;
+  if (!node) return;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => setContactInView(entry.isIntersecting));
-      },
-      { threshold: 0.6 }
-    );
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => setContactInView(entry.isIntersecting));
+    },
+    { threshold: 0.6 }
+  );
 
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  observer.observe(node);
+  return () => observer.disconnect();
+}, []);
+
+// 👉 ADD THE NEW useEffect RIGHT HERE
+useEffect(() => {
+  if (typeof window === 'undefined') return;
+
+  const { hash } = window.location;
+  if (!hash) return;
+
+  const id = decodeURIComponent(hash.replace('#', ''));
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  window.setTimeout(() => {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
+}, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white transition-colors duration-300">
