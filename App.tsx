@@ -134,21 +134,23 @@ if (!el) {
     // once stable for a few frames, scroll to the anchor, then nudge down
 if (stableCount >= 6 || frames >= maxFrames) {
   // 1) Go to the anchor
-  el.scrollIntoView({ behavior: 'auto', block: 'start' });
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   // 2) Nudge down so we don't "catch" the section above under the sticky header
-  const nudge = window.innerWidth < 768 ? 110 : 75;
+  const header = document.querySelector('header');
+  const headerHeight = header ? header.offsetHeight : 0;
+  const nudge = headerHeight + (window.innerWidth < 768 ? 20 : 10); // Buffer for padding/margin
 
   requestAnimationFrame(() => {
-    window.scrollBy({ top: -nudge, left: 0, behavior: 'auto' });
+    window.scrollBy({ top: -nudge, left: 0, behavior: 'smooth' });
 
     // Safety: if mobile shifts after, re-anchor and nudge once more
     window.setTimeout(() => {
       const stillOff = Math.abs(el!.getBoundingClientRect().top) > 12;
       if (stillOff) {
-        el!.scrollIntoView({ behavior: 'auto', block: 'start' });
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         requestAnimationFrame(() => {
-          window.scrollBy({ top: -nudge, left: 0, behavior: 'auto' });
+          window.scrollBy({ top: -nudge, left: 0, behavior: 'smooth' });
         });
       }
     }, 250);
