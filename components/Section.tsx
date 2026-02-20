@@ -38,9 +38,10 @@ const scrollMarginClass = id ? 'scroll-mt-12 md:scroll-mt-10' : '';
   return (
     <section
       id={id}
-      className={`${paddingStyles[padding]} px-4 sm:px-6 lg:px-8 ${bgStyles[background]} ${className} ${scrollMarginClass}`}
+      className={`${paddingStyles[padding]} px-4 sm:px-6 lg:px-8 ${bgStyles[background]} ${className}`}
     >
       <div className="max-w-7xl mx-auto w-full">
+        {id ? <div id={id} className="h-0 scroll-mt-20 md:scroll-mt-16" /> : null}
         {children}
       </div>
     </section>
