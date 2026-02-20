@@ -36,6 +36,30 @@ import SecurityAndDataProtection from './pages/SecurityAndDataProtection';
 // ------------------------
 // Home / Landing page
 // ------------------------
+const HashScroller: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (!hash) return;
+
+    const id = hash.slice(1);
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const header = document.querySelector('header');
+    const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
+    const breathing = 8;
+
+    requestAnimationFrame(() => {
+      const y = el.getBoundingClientRect().top + window.scrollY - headerH - breathing;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
+    });
+  }, [location.pathname, location.hash]);
+
+  return null;
+};
+
 const HomePage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('');
@@ -259,6 +283,7 @@ useEffect(() => {
 const App: React.FC = () => {
   return (
     <Router>
+      <HashScroller />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/use-cases" element={<UseCases />} />
