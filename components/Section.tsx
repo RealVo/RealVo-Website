@@ -29,7 +29,7 @@ const Section: React.FC<SectionProps> = ({
   const paddingStyles: Record<NonNullable<SectionProps['padding']>, string> = {
     sm: 'py-8 md:py-10',
     md: 'py-12 md:py-16',
-    lg: 'py-20 md:py-28'
+    lg: 'pt-20 pb-20 md:pt-28 md:pb-28'
   };
 
   // Sticky header anchor offset (applies to any section with an id)
