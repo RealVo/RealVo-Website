@@ -131,22 +131,29 @@ if (!el) {
       lastTop = top;
     }
 
-    // once stable for a few frames, do ONE smooth scroll
-    if (stableCount >= 6 || frames >= maxFrames) {
-  const headerHeight = 64;
+    // once stable for a few frames, scroll to the anchor, then nudge down
+if (stableCount >= 6 || frames >= maxFrames) {
+  // 1) Go to the anchor
+  el.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-  // "Breathing room" under the sticky header:
-  // - mobile needs more (address bar / tighter viewport)
-  // - desktop needs less
-  const breathingRoom = window.innerWidth < 768 ? 110 : 75;
+  // 2) Nudge down so we don't "catch" the section above under the sticky header
+  const nudge = window.innerWidth < 768 ? 110 : 75;
 
-  const targetTop =
-    el.getBoundingClientRect().top +
-    window.pageYOffset -
-    headerHeight -
-    breathingRoom;
+  requestAnimationFrame(() => {
+    window.scrollBy({ top: nudge, left: 0, behavior: 'auto' });
 
-  window.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' });
+    // Safety: if mobile shifts after, re-anchor and nudge once more
+    window.setTimeout(() => {
+      const stillOff = Math.abs(el!.getBoundingClientRect().top) > 12;
+      if (stillOff) {
+        el!.scrollIntoView({ behavior: 'auto', block: 'start' });
+        requestAnimationFrame(() => {
+          window.scrollBy({ top: nudge, left: 0, behavior: 'auto' });
+        });
+      }
+    }, 250);
+  });
+
   return;
 }
 
