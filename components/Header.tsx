@@ -33,13 +33,30 @@ export const scrollToSectionGlobal = (id: string) => {
 
   const isHome = window.location.pathname === '/';
 
-  if (isHome) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } else {
+  if (!isHome) {
     window.location.href = `/#${id}`;
+    return;
   }
+
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  // sticky header height (h-16 = 64px)
+  const headerHeight = 64;
+
+  // slight breathing room under header
+  const breathing = 16;
+
+  const targetTop =
+    el.getBoundingClientRect().top +
+    window.pageYOffset -
+    headerHeight -
+    breathing;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior: 'smooth',
+  });
 };
 
 const Header: React.FC = () => {
