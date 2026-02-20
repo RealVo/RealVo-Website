@@ -133,27 +133,16 @@ if (!el) {
 
     // once stable for a few frames, do ONE smooth scroll
     if (stableCount >= 6 || frames >= maxFrames) {
-  el.scrollIntoView({ behavior: 'auto', block: 'start' });
+  const headerHeight = 64; // your sticky header height
+  const mobileExtra = window.innerWidth < 768 ? 110 : 75;
 
-  // Mobile-safe nudge so we don't "catch" the section above under the sticky header
-      if (id === 'contact' && window.innerWidth < 768) {
-        window.setTimeout(() => {
-          window.scrollBy({ top: 110, left: 0, behavior: 'auto' });
-        }, 0);
-      }
+  const top =
+    el.getBoundingClientRect().top +
+    window.pageYOffset -
+    headerHeight +
+    mobileExtra;
 
-  window.setTimeout(() => {
-    const stillOff = Math.abs(el.getBoundingClientRect().top) > 12;
-    if (stillOff) {
-      el.scrollIntoView({ behavior: 'auto', block: 'start' });
-
-      if (id === 'contact' && window.innerWidth < 768) {
-        window.setTimeout(() => {
-          window.scrollBy({ top: 110, left: 0, behavior: 'auto' });
-        }, 0);
-      }
-    }
-  }, 350);
+  window.scrollTo({ top, behavior: 'auto' });
 
   return;
 }
