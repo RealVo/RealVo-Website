@@ -33,13 +33,33 @@ export const scrollToSectionGlobal = (id: string) => {
 
   const isHome = window.location.pathname === '/';
 
-  if (isHome) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } else {
+  // If not on home, navigate to the anchor (Home will load, then user can click again if needed)
+  // (If you want auto-scroll after navigation later, we can add that next.)
+  if (!isHome) {
     window.location.href = `/#${id}`;
+    return;
   }
+
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  // Measure the real sticky header height
+  const headerEl = document.querySelector('[data-site-header]') as HTMLElement | null;
+  const headerH = headerEl ? Math.ceil(headerEl.getBoundingClientRect().height) : 64;
+
+  // Extra breathing room under the header
+  const breathing = window.innerWidth < 768 ? 140 : 90;
+
+  // Compute exact target scroll position
+  const targetTop =
+    el.getBoundingClientRect().top + window.pageYOffset - headerH - breathing;
+
+  // iOS/Safari can shift viewport during smooth scroll; do a double-rAF scroll to stabilize
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+    });
+  });
 };
 
 const Header: React.FC = () => {
@@ -99,7 +119,10 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+    <header
+  data-site-header
+  className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100"
+>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
