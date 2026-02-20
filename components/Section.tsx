@@ -27,8 +27,8 @@ const Section: React.FC<SectionProps> = ({
   };
 
   const paddingStyles: Record<NonNullable<SectionProps['padding']>, string> = {
-    sm: 'py-8 md:py-10',
-    md: 'py-12 md:py-16',
+    sm: 'pt-8 pb-8 md:pt-10 md:pb-10',
+    md: 'pt-12 pb-12 md:pt-16 md:pb-16',
     lg: 'pt-20 pb-20 md:pt-28 md:pb-28'
   };
 
