@@ -49,7 +49,7 @@ const HashScroller: React.FC = () => {
 
     const header = document.querySelector('header');
     const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
-    const breathing = 8;
+    const breathing = 16;
 
     requestAnimationFrame(() => {
       const y = el.getBoundingClientRect().top + window.scrollY - headerH - breathing;
