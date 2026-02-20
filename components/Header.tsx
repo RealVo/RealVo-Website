@@ -7,8 +7,6 @@ type NavLink =
   | { label: string; href: string; targetId?: never };
 
 const navLinks: NavLink[] = [
-  // NOTE: Your App.tsx currently has <div id="why-realvo" />.
-  // If you want this to scroll correctly, ensure the ID on the page matches this targetId.
   { label: 'Why RealVo', targetId: 'why-realvo-exists' },
   { label: 'Industries', targetId: 'industries' },
   { label: 'Use Cases', href: '/use-cases' },
@@ -18,7 +16,7 @@ const navLinks: NavLink[] = [
 const PROCESS_PLATFORM_ITEMS: NavLink[] = [
   { label: 'Implementation Process', targetId: 'implementation-process' },
   { label: 'The User Experience', targetId: 'how-it-works' },
-  { label: 'VideoBooth.tv Online Portal', href: '/vbplatform-more' }, // ✅ route, not scroll
+  { label: 'VideoBooth.tv Online Portal', href: '/vbplatform-more' }, // route
 ];
 
 // Solid filled triangle caret (uses currentColor)
@@ -185,7 +183,7 @@ const Header: React.FC = () => {
 
             {/* Program Structure (last) */}
             <a
-              href="#program-structure"
+              href="/#program-structure"
               className="relative transition-colors hover:text-realvo-blue"
             >
               Program Structure
@@ -194,7 +192,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Contact button */}
           <div className="hidden lg:block">
-            <a href="#contact">
+            <a href="/#contact">
               <Button size="sm" variant="primary">
                 Contact Us
               </Button>
@@ -294,14 +292,14 @@ const Header: React.FC = () => {
 
             {/* Program Structure (last, mobile) */}
             <a
-              href="#program-structure"
+              href="/#program-structure"
               onClick={() => setMobileOpen(false)}
               className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
             >
               Program Structure
             </a>
 
-            <a href="#contact" onClick={() => setMobileOpen(false)}>
+            <a href="/#contact" onClick={() => setMobileOpen(false)}>
               <Button size="sm" variant="primary" className="mt-2 w-full">
                 Contact Us
               </Button>
