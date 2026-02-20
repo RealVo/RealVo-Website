@@ -135,10 +135,23 @@ if (!el) {
     if (stableCount >= 6 || frames >= maxFrames) {
   el.scrollIntoView({ behavior: 'auto', block: 'start' });
 
+  // Mobile-safe nudge so we don't "catch" the section above under the sticky header
+  if (id === 'contact') {
+    window.setTimeout(() => {
+      window.scrollBy({ top: 75, left: 0, behavior: 'auto' });
+    }, 0);
+  }
+
   window.setTimeout(() => {
     const stillOff = Math.abs(el.getBoundingClientRect().top) > 12;
     if (stillOff) {
       el.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+      if (id === 'contact') {
+        window.setTimeout(() => {
+          window.scrollBy({ top: 75, left: 0, behavior: 'auto' });
+        }, 0);
+      }
     }
   }, 350);
 
