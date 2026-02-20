@@ -140,7 +140,7 @@ if (stableCount >= 6 || frames >= maxFrames) {
   const nudge = window.innerWidth < 768 ? 110 : 75;
 
   requestAnimationFrame(() => {
-    window.scrollBy({ top: nudge, left: 0, behavior: 'auto' });
+    window.scrollBy({ top: -nudge, left: 0, behavior: 'auto' });
 
     // Safety: if mobile shifts after, re-anchor and nudge once more
     window.setTimeout(() => {
@@ -148,7 +148,7 @@ if (stableCount >= 6 || frames >= maxFrames) {
       if (stillOff) {
         el!.scrollIntoView({ behavior: 'auto', block: 'start' });
         requestAnimationFrame(() => {
-          window.scrollBy({ top: nudge, left: 0, behavior: 'auto' });
+          window.scrollBy({ top: -nudge, left: 0, behavior: 'auto' });
         });
       }
     }, 250);
