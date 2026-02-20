@@ -97,3 +97,7 @@
   animation: booth-marquee2 18s linear infinite;
 }
 
+html {
+  scroll-padding-top: 65px;
+}
+
