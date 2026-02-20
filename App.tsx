@@ -133,17 +133,20 @@ if (!el) {
 
     // once stable for a few frames, do ONE smooth scroll
     if (stableCount >= 6 || frames >= maxFrames) {
-  const headerHeight = 64; // your sticky header height
-  const mobileExtra = window.innerWidth < 768 ? 110 : 75;
+  const headerHeight = 64;
 
-  const top =
+  // "Breathing room" under the sticky header:
+  // - mobile needs more (address bar / tighter viewport)
+  // - desktop needs less
+  const breathingRoom = window.innerWidth < 768 ? 110 : 75;
+
+  const targetTop =
     el.getBoundingClientRect().top +
     window.pageYOffset -
-    headerHeight +
-    mobileExtra;
+    headerHeight -
+    breathingRoom;
 
-  window.scrollTo({ top, behavior: 'auto' });
-
+  window.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' });
   return;
 }
 
