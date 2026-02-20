@@ -148,11 +148,8 @@ if (!el) {
     raf = requestAnimationFrame(tick);
   };
 
-  window.setTimeout(() => {
-    raf = requestAnimationFrame(tick);
-  }, 0);
-
-return () => cancelAnimationFrame(raf);
+  raf = requestAnimationFrame(tick);
+  return () => cancelAnimationFrame(raf);
 }, [location]);
 
   return (
