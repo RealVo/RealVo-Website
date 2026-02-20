@@ -49,7 +49,25 @@ const Header: React.FC = () => {
   const processWrapRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSection = (id: string) => {
+  // capture whether the mobile menu is currently open
+  const wasMobileOpen = mobileOpen;
+
+  // close menus first
   setMobileOpen(false);
+  setProcessOpen(false);
+  setProcessMobileOpen(false);
+
+  // If the menu was open, wait for it to collapse before scrolling.
+  // This prevents the "scrolls too far / past the H1" bug on mobile.
+  if (wasMobileOpen) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        scrollToSectionGlobal(id);
+      });
+    });
+    return;
+  }
+
   scrollToSectionGlobal(id);
 };
 
