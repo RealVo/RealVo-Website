@@ -185,7 +185,7 @@ const Header: React.FC = () => {
 
             {/* Program Structure (last) */}
             <a
-              href="/#program-structure"
+              href="#program-structure"
               className="relative transition-colors hover:text-realvo-blue"
             >
               Program Structure
@@ -194,7 +194,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Contact button */}
           <div className="hidden lg:block">
-            <a href="/#contact">
+            <a href="#contact">
               <Button size="sm" variant="primary">
                 Contact Us
               </Button>
@@ -294,14 +294,14 @@ const Header: React.FC = () => {
 
             {/* Program Structure (last, mobile) */}
             <a
-              href="/#program-structure"
+              href="#program-structure"
               onClick={() => setMobileOpen(false)}
               className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
             >
               Program Structure
             </a>
 
-            <a href="/#contact" onClick={() => setMobileOpen(false)}>
+            <a href="#contact" onClick={() => setMobileOpen(false)}>
               <Button size="sm" variant="primary" className="mt-2 w-full">
                 Contact Us
               </Button>
