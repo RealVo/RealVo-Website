@@ -28,6 +28,20 @@ const SolidCaretDown: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
+export const scrollToSectionGlobal = (id: string) => {
+  if (typeof window === 'undefined') return;
+
+  const isHome = window.location.pathname === '/';
+
+  if (isHome) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    window.location.href = `/#${id}`;
+  }
+};
+
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [processOpen, setProcessOpen] = useState(false);
@@ -35,19 +49,9 @@ const Header: React.FC = () => {
   const processWrapRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSection = (id: string) => {
-    const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
-
-    setMobileOpen(false);
-
-    if (isHome) {
-  const el = document.getElementById(id);
-  if (!el) return;
-
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-} else {
-  window.location.href = `/#${id}`;
-}
-  };
+  setMobileOpen(false);
+  scrollToSectionGlobal(id);
+};
 
   const goToHref = (href: string) => {
     setMobileOpen(false);
