@@ -32,9 +32,8 @@ const Section: React.FC<SectionProps> = ({
     lg: 'py-20 md:py-28'
   };
 
-  // Smaller scroll margin so the section aligns nicely under the sticky header
-  const scrollMarginClass =
-    id === 'contact' ? 'scroll-mt-44 md:scroll-mt-28' : '';
+  // Sticky header anchor offset (applies to any section with an id)
+const scrollMarginClass = id ? 'scroll-mt-20 md:scroll-mt-16' : '';
 
   return (
     <section
