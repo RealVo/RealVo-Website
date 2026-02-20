@@ -138,7 +138,7 @@ if (!el) {
   // Mobile-safe nudge so we don't "catch" the section above under the sticky header
   if (id === 'contact') {
     window.setTimeout(() => {
-      window.scrollBy({ top: 75, left: 0, behavior: 'auto' });
+      window.scrollBy({ top: 110, left: 0, behavior: 'auto' });
     }, 0);
   }
 
@@ -149,7 +149,7 @@ if (!el) {
 
       if (id === 'contact') {
         window.setTimeout(() => {
-          window.scrollBy({ top: 75, left: 0, behavior: 'auto' });
+          window.scrollBy({ top: 110, left: 0, behavior: 'auto' });
         }, 0);
       }
     }
