@@ -28,61 +28,11 @@ const SolidCaretDown: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-export const scrollToSectionGlobal = (id: string) => {
-  if (typeof window === 'undefined') return;
-
-  const isHome = window.location.pathname === '/';
-
-  if (!isHome) {
-    window.location.href = `/#${id}`;
-    return;
-  }
-
-  const el = document.getElementById(id);
-  if (!el) return;
-
-  // sticky header height (h-16 = 64px)
-  const headerHeight = 64;
-
-  // slight breathing room under header
-  const breathing = 16;
-
-  const targetTop =
-    el.getBoundingClientRect().top +
-    window.pageYOffset -
-    headerHeight -
-    breathing;
-
-  window.scrollTo({
-    top: Math.max(0, targetTop),
-    behavior: 'smooth',
-  });
-};
-
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [processOpen, setProcessOpen] = useState(false);
   const [processMobileOpen, setProcessMobileOpen] = useState(false);
   const processWrapRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollToSection = (id: string) => {
-  const wasMobileOpen = mobileOpen;
-
-  // close menus first
-  setMobileOpen(false);
-  setProcessOpen(false);
-  setProcessMobileOpen(false);
-
-  // If mobile menu was open, wait for layout to settle before scrolling.
-  if (wasMobileOpen) {
-    window.setTimeout(() => {
-      scrollToSectionGlobal(id);
-    }, 250);
-    return;
-  }
-
-  scrollToSectionGlobal(id);
-};
 
   const goToHref = (href: string) => {
     setMobileOpen(false);
@@ -104,7 +54,7 @@ const Header: React.FC = () => {
     const isHome = pathname === '/';
 
     if (isHome) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'auto' });
       if (hash) window.history.replaceState(null, '', '/');
     } else {
       window.location.href = '/';
@@ -161,14 +111,13 @@ const Header: React.FC = () => {
               }
 
               return (
-                <button
+                <a
                   key={link.targetId}
-                  type="button"
-                  onClick={() => scrollToSection(link.targetId)}
+                  href={`/#${link.targetId}`}
                   className="relative transition-colors hover:text-realvo-blue"
                 >
                   {link.label}
-                </button>
+                </a>
               );
             })}
 
@@ -218,18 +167,15 @@ const Header: React.FC = () => {
                       }
 
                       return (
-                        <button
+                        <a
                           key={item.targetId}
-                          type="button"
+                          href={`/#${item.targetId}`}
                           role="menuitem"
-                          onClick={() => {
-                            setProcessOpen(false);
-                            scrollToSection(item.targetId);
-                          }}
+                          onClick={() => setProcessOpen(false)}
                           className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-realvo-blue transition"
                         >
                           {item.label}
-                        </button>
+                        </a>
                       );
                     })}
                   </div>
@@ -238,20 +184,21 @@ const Header: React.FC = () => {
             </div>
 
             {/* Program Structure (last) */}
-            <button
-              type="button"
-              onClick={() => scrollToSection('program-structure')}
+            <a
+              href="/#program-structure"
               className="relative transition-colors hover:text-realvo-blue"
             >
               Program Structure
-            </button>
+            </a>
           </nav>
 
           {/* Desktop Contact button */}
           <div className="hidden lg:block">
-            <Button size="sm" variant="primary" onClick={() => scrollToSection('contact')}>
-              Contact Us
-            </Button>
+            <a href="/#contact">
+              <Button size="sm" variant="primary">
+                Contact Us
+              </Button>
+            </a>
           </div>
 
           {/* Mobile hamburger */}
@@ -285,14 +232,14 @@ const Header: React.FC = () => {
               }
 
               return (
-                <button
+                <a
                   key={link.targetId}
-                  type="button"
-                  onClick={() => scrollToSection(link.targetId)}
+                  href={`/#${link.targetId}`}
+                  onClick={() => setMobileOpen(false)}
                   className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
                 >
                   {link.label}
-                </button>
+                </a>
               );
             })}
 
@@ -328,18 +275,17 @@ const Header: React.FC = () => {
                     }
 
                     return (
-                      <button
+                      <a
                         key={item.targetId}
-                        type="button"
+                        href={`/#${item.targetId}`}
                         onClick={() => {
                           setProcessMobileOpen(false);
                           setMobileOpen(false);
-                          scrollToSection(item.targetId);
                         }}
                         className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
                       >
                         {item.label}
-                      </button>
+                      </a>
                     );
                   })}
                 </div>
@@ -347,25 +293,19 @@ const Header: React.FC = () => {
             </div>
 
             {/* Program Structure (last, mobile) */}
-            <button
-              type="button"
-              onClick={() => {
-                setMobileOpen(false);
-                scrollToSection('program-structure');
-              }}
+            <a
+              href="/#program-structure"
+              onClick={() => setMobileOpen(false)}
               className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
             >
               Program Structure
-            </button>
+            </a>
 
-            <Button
-              size="sm"
-              variant="primary"
-              className="mt-2 w-full"
-              onClick={() => scrollToSection('contact')}
-            >
-              Contact Us
-            </Button>
+            <a href="/#contact" onClick={() => setMobileOpen(false)}>
+              <Button size="sm" variant="primary" className="mt-2 w-full">
+                Contact Us
+              </Button>
+            </a>
           </div>
         </div>
       )}
