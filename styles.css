@@ -97,11 +97,9 @@
   animation: booth-marquee2 18s linear infinite;
 }
 
-:root { --rv-scroll-offset: 64px; }
-
-[id] { scroll-margin-top: var(--rv-scroll-offset); }
+section[id] { scroll-margin-top: 64px; }
 
 @media (min-width: 768px) {
-  :root { --rv-scroll-offset: 64px; }
+  section[id] { scroll-margin-top: 64px; }
 }
 
