@@ -52,9 +52,14 @@ const HashScroller: React.FC = () => {
     const breathing = 16;
 
     requestAnimationFrame(() => {
-      const y = el.getBoundingClientRect().top + window.scrollY - headerH - breathing;
-      window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
-    });
+  // 1) Let the browser do the anchor scroll
+  el.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+  // 2) Then apply header offset
+  requestAnimationFrame(() => {
+    window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
+  });
+});
   }, [location.pathname, location.hash]);
 
   return null;
