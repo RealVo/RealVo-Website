@@ -40,6 +40,29 @@ const HomePage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('');
 
+    useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      const id = hash.slice(1);
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const header = document.querySelector('header');
+      const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
+
+      requestAnimationFrame(() => {
+        const y = el.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
+      });
+    };
+
+    scrollToHash();
+    window.addEventListener('hashchange', scrollToHash);
+    return () => window.removeEventListener('hashchange', scrollToHash);
+  }, []);
+
   const [contactInView, setContactInView] = useState(false);
   const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
 
