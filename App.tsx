@@ -133,14 +133,14 @@ if (!el) {
 
     // once stable for a few frames, do ONE smooth scroll
     if (stableCount >= 6 || frames >= maxFrames) {
-  const headerHeight = 64; // sticky header height
-  const offset = window.innerWidth < 768 ? 140 : 75; // mobile needs more room
+  const headerHeight = 64; // your sticky header height
+  const mobileExtra = window.innerWidth < 768 ? 110 : 75;
 
-const top =
-  el.getBoundingClientRect().top +
-  window.pageYOffset -
-  headerHeight -
-  offset;
+  const top =
+    el.getBoundingClientRect().top +
+    window.pageYOffset -
+    headerHeight +
+    mobileExtra;
 
   window.scrollTo({ top, behavior: 'auto' });
 
