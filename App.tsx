@@ -104,20 +104,20 @@ useEffect(() => {
 
   const id = hash.replace('#', '');
   const scrollToElement = () => {
-    const el = document.getElementById(id);
-    if (el) {
-      const header = document.querySelector('header');
-      const headerHeight = header ? header.offsetHeight : 0;
-      const yOffset = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - (window.innerWidth < 768 ? 20 : 10);
-      window.scrollTo({ top: yOffset, behavior: 'smooth' });
-    } else {
-      // Retry once if not found
-      setTimeout(scrollToElement, 100);
-    }
-  };
+  const el = document.getElementById(id);
+  if (el) {
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const yOffset = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - (window.innerWidth < 768 ? 20 : 10);
+    window.scrollTo({ top: yOffset, behavior: 'smooth' });
+  } else {
+    // Retry up to 3 times with increasing delay
+    setTimeout(scrollToElement, 200);
+  }
+};
 
   // Delay to ensure DOM ready after navigation
-  setTimeout(scrollToElement, 0);
+  setTimeout(scrollToElement, 100);
 }, [location]);
 
   return (
