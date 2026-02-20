@@ -108,12 +108,25 @@ useEffect(() => {
   if (el) {
     const header = document.querySelector('header');
     const headerHeight = header ? header.offsetHeight : 0;
-    const yOffset = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - (window.innerWidth < 768 ? 20 : 10);
+    const yOffset = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - (window.innerWidth < 768 ? 30 : 20);;
     window.scrollTo({ top: yOffset, behavior: 'smooth' });
   } else {
-    // Retry up to 3 times with increasing delay
-    setTimeout(scrollToElement, 200);
-  }
+  // Retry up to 5 times
+  let retries = 0;
+  const retryInterval = setInterval(() => {
+    const retryEl = document.getElementById(id);
+    if (retryEl || retries >= 5) {
+      clearInterval(retryInterval);
+      if (retryEl) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const yOffset = retryEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - (window.innerWidth < 768 ? 30 : 20);
+        window.scrollTo({ top: yOffset, behavior: 'smooth' });
+      }
+    }
+    retries++;
+  }, 200);
+}
 };
 
   // Delay to ensure DOM ready after navigation
