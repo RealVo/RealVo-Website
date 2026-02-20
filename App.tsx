@@ -99,71 +99,25 @@ const HomePage: React.FC = () => {
 
 // 👉 ADD THE NEW useEffect RIGHT HERE
 useEffect(() => {
-  if (typeof window === 'undefined') return;
-
-  const { hash } = window.location;
+  const hash = location.hash;
   if (!hash) return;
 
-  const id = decodeURIComponent(hash.replace('#', ''));
-  let el: HTMLElement | null = null;
-
-  let raf = 0;
-  let stableCount = 0;
-  let lastTop: number | null = null;
-  let frames = 0;
-  const maxFrames = 90; // ~1.5s at 60fps
-
-  const tick = () => {
-    frames += 1;
-    el = document.getElementById(id) as HTMLElement | null;
-if (!el) {
-  raf = requestAnimationFrame(tick);
-  return;
-}
-
-    const top = el.getBoundingClientRect().top;
-
-    // consider "stable" if position changes by less than 1px
-    if (lastTop !== null && Math.abs(top - lastTop) < 1) {
-      stableCount += 1;
+  const id = hash.replace('#', '');
+  const scrollToElement = () => {
+    const el = document.getElementById(id);
+    if (el) {
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const yOffset = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - (window.innerWidth < 768 ? 20 : 10);
+      window.scrollTo({ top: yOffset, behavior: 'smooth' });
     } else {
-      stableCount = 0;
-      lastTop = top;
+      // Retry once if not found
+      setTimeout(scrollToElement, 100);
     }
-
-    // once stable for a few frames, scroll to the anchor, then nudge down
-if (stableCount >= 6 || frames >= maxFrames) {
-  // 1) Go to the anchor
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  // 2) Nudge down so we don't "catch" the section above under the sticky header
-  const header = document.querySelector('header');
-  const headerHeight = header ? header.offsetHeight : 0;
-  const nudge = headerHeight + (window.innerWidth < 768 ? 20 : 10); // Buffer for padding/margin
-
-  requestAnimationFrame(() => {
-    window.scrollBy({ top: -nudge, left: 0, behavior: 'smooth' });
-
-    // Safety: if mobile shifts after, re-anchor and nudge once more
-    window.setTimeout(() => {
-      const stillOff = Math.abs(el!.getBoundingClientRect().top) > 12;
-      if (stillOff) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        requestAnimationFrame(() => {
-          window.scrollBy({ top: -nudge, left: 0, behavior: 'smooth' });
-        });
-      }
-    }, 250);
-  });
-
-  return;
-}
-
-    raf = requestAnimationFrame(tick);
   };
 
-  raf = requestAnimationFrame(tick);
-  return () => cancelAnimationFrame(raf);
+  // Delay to ensure DOM ready after navigation
+  setTimeout(scrollToElement, 0);
 }, [location]);
 
   return (
