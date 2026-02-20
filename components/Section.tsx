@@ -33,7 +33,7 @@ const Section: React.FC<SectionProps> = ({
   };
 
   // Sticky header anchor offset (applies to any section with an id)
-const scrollMarginClass = id ? 'scroll-mt-20 md:scroll-mt-16' : '';
+const scrollMarginClass = id ? 'scroll-mt-24 md:scroll-mt-20' : '';
 
   return (
     <section
