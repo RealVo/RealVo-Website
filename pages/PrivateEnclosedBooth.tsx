@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../components/Header';
+import Header, { scrollToSectionGlobal } from '../components/Header';
 import Footer from '../components/Footer';
-import { scrollToSectionGlobal } from './Header';
 
 const VISIBLE_DESKTOP_IMAGES = 4;
 
@@ -90,7 +88,6 @@ const PrivateEnclosedBooth: React.FC = () => {
   /**
    * CTA "matter" animation trigger:
    * - animates when CTA comes into view
-   * - resets when it leaves view
    * - re-animates every time it re-enters
    */
   const ctaRef = useRef<HTMLDivElement | null>(null);
@@ -104,12 +101,11 @@ const PrivateEnclosedBooth: React.FC = () => {
       entries => {
         const entry = entries[0];
         if (entry.isIntersecting) {
-          // bump key to re-mount the animated span -> animation replays
           setCtaAnimKey(k => k + 1);
         }
       },
       {
-        threshold: 0.35, // ~35% visible triggers animation; feels natural
+        threshold: 0.35,
       }
     );
 
@@ -192,7 +188,7 @@ const PrivateEnclosedBooth: React.FC = () => {
                     className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition"
                   >
                     Request pricing &amp; availability
-                </button>
+                  </button>
                 </div>
               </div>
             </div>
@@ -431,7 +427,7 @@ const PrivateEnclosedBooth: React.FC = () => {
               </a>
             </div>
 
-            {/* Final CTA band (make identical across all capture option pages) */}
+            {/* Final CTA band */}
             <div
               ref={ctaRef}
               className="mt-12 sm:mt-16 lg:mt-20 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 px-5 sm:px-8 py-7 sm:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-5"
@@ -454,12 +450,13 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </p>
               </div>
 
-              <Link
-                to="/#contact"
+              <button
+                type="button"
+                onClick={() => scrollToSectionGlobal('contact')}
                 className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
               >
                 Let&apos;s get started
-            </Link>
+              </button>
             </div>
           </div>
         </section>
@@ -521,4 +518,3 @@ const PrivateEnclosedBooth: React.FC = () => {
 };
 
 export default PrivateEnclosedBooth;
-
