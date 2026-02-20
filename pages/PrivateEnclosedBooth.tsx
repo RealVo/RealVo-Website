@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -184,12 +185,12 @@ const PrivateEnclosedBooth: React.FC = () => {
 
                 {/* Primary CTA */}
                 <div className="flex flex-wrap gap-3 sm:gap-4">
-                  <a
-  href="/#contact"
-  className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition"
->
-  Request pricing &amp; availability
-</a>
+                  <Link
+                    to="/#contact"
+                    className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition"
+                  >
+                    Request pricing &amp; availability
+                </Link>
                 </div>
               </div>
             </div>
@@ -451,12 +452,12 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </p>
               </div>
 
-              <a
-                href="/#contact"
+              <Link
+                to="/#contact"
                 className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
               >
                 Let&apos;s get started
-              </a>
+            </Link>
             </div>
           </div>
         </section>
