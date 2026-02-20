@@ -34,12 +34,12 @@ const Section: React.FC<SectionProps> = ({
 
   // Smaller scroll margin so the section aligns nicely under the sticky header
   const scrollMarginClass =
-    id === 'contact' ? 'scroll-mt-16 md:scroll-mt-14' : '';
+    id === 'contact' ? 'scroll-mt-44 md:scroll-mt-28' : '';
 
   return (
     <section
       id={id}
-      className={`${scrollMarginClass} ${paddingStyles[padding]} px-4 sm:px-6 lg:px-8 ${bgStyles[background]} ${className}`}
+      className={`${paddingStyles[padding]} px-4 sm:px-6 lg:px-8 ${bgStyles[background]} ${className} ${scrollMarginClass}`}
     >
       <div className="max-w-7xl mx-auto w-full">
         {children}
