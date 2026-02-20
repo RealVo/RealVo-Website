@@ -97,9 +97,3 @@
   animation: booth-marquee2 18s linear infinite;
 }
 
-section[id] { scroll-margin-top: 56px; }
-
-@media (min-width: 768px) {
-  section[id] { scroll-margin-top: 56px; }
-}
-
