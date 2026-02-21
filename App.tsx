@@ -40,20 +40,15 @@ const HashScroller: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const stored = sessionStorage.getItem('rvScrollTarget');
     const hashId = location.hash ? location.hash.slice(1) : '';
-    const id = stored || hashId;
-
-    if (!id) return;
-    if (stored) sessionStorage.removeItem('rvScrollTarget');
+    if (!hashId) return;
 
     let tries = 0;
-    const maxTries = 90; // ~1.5s at 60fps
+    const maxTries = 120; // ~2s at 60fps
 
     const tryScroll = () => {
-      const el = document.getElementById(id);
+      const el = document.getElementById(hashId);
 
-      // Wait until the element exists
       if (!el) {
         tries += 1;
         if (tries < maxTries) requestAnimationFrame(tryScroll);
@@ -63,16 +58,18 @@ const HashScroller: React.FC = () => {
       const header = document.querySelector('header');
       const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
 
-      // IMPORTANT: set to 0 to eliminate "peek"
-      const breathing = 0;
+      // If the target is a SECTION with top padding (pt-20, md:pt-28, etc),
+      // scroll to the *content start* (sectionTop + paddingTop), not the section's top.
+      const styles = window.getComputedStyle(el);
+      const paddingTop = parseFloat(styles.paddingTop || '0') || 0;
 
-      // One precise scroll. No scrollIntoView, no scrollBy.
-      const y =
+      const targetY =
         el.getBoundingClientRect().top +
-        window.scrollY -
-        (headerH + breathing);
+        window.scrollY +
+        paddingTop -
+        headerH;
 
-      window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'auto' });
+      window.scrollTo({ top: Math.max(0, targetY), behavior: 'auto' });
     };
 
     requestAnimationFrame(tryScroll);
