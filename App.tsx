@@ -57,7 +57,9 @@ const HashScroller: React.FC = () => {
       const headerH = header ? header.getBoundingClientRect().height : 65;
       const top = el.getBoundingClientRect().top + window.scrollY - headerH;
 
-      window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
+      if (Math.abs(window.scrollY - top) > 5) {
+        window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
+      }
     };
 
     requestAnimationFrame(tryScroll);
