@@ -16,9 +16,10 @@ const navLinks: NavLink[] = [
 const PROCESS_PLATFORM_ITEMS: NavLink[] = [
   { label: 'Implementation Process', targetId: 'implementation-process' },
   { label: 'The User Experience', targetId: 'how-it-works' },
-  { label: 'VideoBooth.tv Online Portal', href: '/vbplatform-more' },
+  { label: 'VideoBooth.tv Online Portal', href: '/vbplatform-more' }, // route
 ];
 
+// Solid filled triangle caret (uses currentColor)
 const SolidCaretDown: React.FC<{ className?: string }> = ({ className }) => (
   <svg viewBox="0 0 12 12" aria-hidden="true" focusable="false" className={className}>
     <path d="M6 9.5 1.5 3.5h9L6 9.5Z" fill="currentColor" />
@@ -31,50 +32,20 @@ const Header: React.FC = () => {
   const [processMobileOpen, setProcessMobileOpen] = useState(false);
   const processWrapRef = useRef<HTMLDivElement | null>(null);
 
-  const closeMenus = () => {
+  const goToHref = (href: string) => {
     setMobileOpen(false);
     setProcessOpen(false);
     setProcessMobileOpen(false);
-  };
 
-  const goToHref = (href: string) => {
-    closeMenus();
     if (typeof window === 'undefined') return;
     window.location.href = href;
   };
 
-  const forceScrollToId = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    const header = document.querySelector('header');
-    const headerH = header ? header.getBoundingClientRect().height : 65;
-
-    const top = el.getBoundingClientRect().top + window.scrollY - headerH;
-  window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
-};
-
-  const goToSection = (id: string) => {
-    closeMenus();
-    if (typeof window === 'undefined') return;
-
-    const isHome = window.location.pathname === '/';
-
-    if (!isHome) {
-      sessionStorage.setItem('rvScrollTarget', id);
-      window.location.href = `/#${id}`;
-      return;
-    }
-
-    if (window.location.hash !== `#${id}`) {
-      window.history.replaceState(null, '', `/#${id}`);
-    }
-
-    requestAnimationFrame(() => forceScrollToId(id));
-  };
-
   const scrollToTop = () => {
-    closeMenus();
+    setMobileOpen(false);
+    setProcessOpen(false);
+    setProcessMobileOpen(false);
+
     if (typeof window === 'undefined') return;
 
     const { pathname, hash } = window.location;
@@ -88,6 +59,7 @@ const Header: React.FC = () => {
     }
   };
 
+  // Close the desktop dropdown on outside click + ESC
   useEffect(() => {
     const onDown = (e: MouseEvent) => {
       if (!processWrapRef.current) return;
@@ -109,6 +81,7 @@ const Header: React.FC = () => {
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
           <button
             type="button"
             onClick={scrollToTop}
@@ -120,11 +93,12 @@ const Header: React.FC = () => {
             </span>
           </button>
 
+          {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium text-gray-600">
             {navLinks.map((link) => {
               if ('href' in link) {
                 return (
-                  
+                  <a
                     key={link.label}
                     href={link.href}
                     className="relative transition-colors hover:text-realvo-blue"
@@ -133,18 +107,19 @@ const Header: React.FC = () => {
                   </a>
                 );
               }
+
               return (
-                <button
+                <a
                   key={link.targetId}
-                  type="button"
-                  onClick={() => goToSection(link.targetId)}
+                  href={`/#${link.targetId}`}
                   className="relative transition-colors hover:text-realvo-blue"
                 >
                   {link.label}
-                </button>
+                </a>
               );
             })}
 
+            {/* Process & Platform dropdown (Desktop) */}
             <div
               ref={processWrapRef}
               className="relative"
@@ -177,7 +152,7 @@ const Header: React.FC = () => {
                     {PROCESS_PLATFORM_ITEMS.map((item) => {
                       if ('href' in item) {
                         return (
-                          
+                          <a
                             key={item.label}
                             href={item.href}
                             role="menuitem"
@@ -188,19 +163,17 @@ const Header: React.FC = () => {
                           </a>
                         );
                       }
+
                       return (
-                        <button
+                        <a
                           key={item.targetId}
-                          type="button"
+                          href={`/#${item.targetId}`}
                           role="menuitem"
-                          onClick={() => {
-                            setProcessOpen(false);
-                            goToSection(item.targetId);
-                          }}
+                          onClick={() => setProcessOpen(false)}
                           className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-realvo-blue transition"
                         >
                           {item.label}
-                        </button>
+                        </a>
                       );
                     })}
                   </div>
@@ -208,21 +181,25 @@ const Header: React.FC = () => {
               )}
             </div>
 
-            <button
-              type="button"
-              onClick={() => goToSection('program-structure')}
+            {/* Program Structure (last) */}
+            <a
+              href="/#program-structure"
               className="relative transition-colors hover:text-realvo-blue"
             >
               Program Structure
-            </button>
+            </a>
           </nav>
 
+          {/* Desktop Contact button */}
           <div className="hidden lg:block">
-            <Button size="sm" variant="primary" onClick={() => goToSection('contact')}>
-              Contact Us
-            </Button>
+            <a href="/#contact">
+              <Button size="sm" variant="primary">
+                Contact Us
+              </Button>
+            </a>
           </div>
 
+          {/* Mobile hamburger */}
           <button
             type="button"
             className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:text-realvo-blue focus:outline-none focus:ring-2 focus:ring-realvo-blue"
@@ -234,13 +211,14 @@ const Header: React.FC = () => {
         </div>
       </div>
 
+      {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-gray-100 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
             {navLinks.map((link) => {
               if ('href' in link) {
                 return (
-                  
+                  <a
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
@@ -250,18 +228,20 @@ const Header: React.FC = () => {
                   </a>
                 );
               }
+
               return (
-                <button
+                <a
                   key={link.targetId}
-                  type="button"
-                  onClick={() => goToSection(link.targetId)}
+                  href={`/#${link.targetId}`}
+                  onClick={() => setMobileOpen(false)}
                   className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
                 >
                   {link.label}
-                </button>
+                </a>
               );
             })}
 
+            {/* Mobile accordion: Process & Platform */}
             <div className="pt-2">
               <button
                 type="button"
@@ -291,41 +271,39 @@ const Header: React.FC = () => {
                         </button>
                       );
                     }
+
                     return (
-                      <button
+                      <a
                         key={item.targetId}
-                        type="button"
+                        href={`/#${item.targetId}`}
                         onClick={() => {
                           setProcessMobileOpen(false);
                           setMobileOpen(false);
-                          goToSection(item.targetId);
                         }}
                         className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
                       >
                         {item.label}
-                      </button>
+                      </a>
                     );
                   })}
                 </div>
               )}
             </div>
 
-            <button
-              type="button"
-              onClick={() => goToSection('program-structure')}
+            {/* Program Structure (last, mobile) */}
+            <a
+              href="/#program-structure"
+              onClick={() => setMobileOpen(false)}
               className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
             >
               Program Structure
-            </button>
+            </a>
 
-            <Button
-              size="sm"
-              variant="primary"
-              className="mt-2 w-full"
-              onClick={() => goToSection('contact')}
-            >
-              Contact Us
-            </Button>
+            <a href="/#contact" onClick={() => setMobileOpen(false)}>
+              <Button size="sm" variant="primary" className="mt-2 w-full">
+                Contact Us
+              </Button>
+            </a>
           </div>
         </div>
       )}
