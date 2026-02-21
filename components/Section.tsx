@@ -34,7 +34,7 @@ const Section: React.FC<SectionProps> = ({
     <section
       id={id}
       className={`${paddingStyles[padding]} px-4 sm:px-6 lg:px-8 ${bgStyles[background]} ${className}`}
-      style={id ? { scrollMarginTop: '24px' } : undefined}
+      style={id ? { scrollMarginTop: '72px' } : undefined}
     >
       <div className="max-w-7xl mx-auto w-full">
         {children}
