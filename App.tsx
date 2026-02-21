@@ -6,6 +6,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import './styles.css';
+import Contact from './pages/Contact';
 
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -231,6 +232,7 @@ const App: React.FC = () => {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfUse />} />
         <Route path="/security-and-data-protection" element={<SecurityAndDataProtection />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
