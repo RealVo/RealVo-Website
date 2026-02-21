@@ -136,34 +136,14 @@ const HomePage: React.FC = () => {
         <Hero />
         <TrustedBy />
 
-                {/* WHY + WHAT chapter */}
-        <section id="why-realvo-exists">
-          <WhyWhatBridge />
-        </section>
-
-        <section id="industries">
-          <Industries />
-        </section>
-
-        <section id="solutions">
-          <CaptureOptions />
-        </section>
-
-        <section id="implementation-process">
-          <ImplementationProcess />
-        </section>
-
-        <section id="how-it-works">
-          <HowItWorks />
-        </section>
-
-        <section id="process-platform">
-          <VBPlatform />
-        </section>
-
-        <section id="program-structure">
-          <ProgramStructure />
-        </section>
+        {/* WHY + WHAT chapter */}
+        <WhyWhatBridge />
+        <Industries />
+        <CaptureOptions />
+        <ImplementationProcess />
+        <HowItWorks />
+        <VBPlatform />
+        <ProgramStructure />
 
         <Section
           id="contact"
