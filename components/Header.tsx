@@ -32,48 +32,56 @@ const Header: React.FC = () => {
   const [processMobileOpen, setProcessMobileOpen] = useState(false);
   const processWrapRef = useRef<HTMLDivElement | null>(null);
 
-  const goToHref = (href: string) => {
+  const closeMenus = () => {
     setMobileOpen(false);
     setProcessOpen(false);
     setProcessMobileOpen(false);
+  };
 
+  const goToHref = (href: string) => {
+    closeMenus();
     if (typeof window === 'undefined') return;
     window.location.href = href;
   };
 
-  // FORCE section navigation + scroll (works from any page)
-  const goToSection = (id: string) => {
-    setMobileOpen(false);
-    setProcessOpen(false);
-    setProcessMobileOpen(false);
+  const forceScrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
 
+    const header = document.querySelector('header');
+    const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
+    const breathing = 8;
+
+    el.scrollIntoView({ behavior: 'auto', block: 'start' });
+    window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
+  };
+
+  // Home sections (works from ANY page)
+  const goToSection = (id: string) => {
+    closeMenus();
     if (typeof window === 'undefined') return;
 
-    // Navigate to home + hash
-    window.location.href = `/#${id}`;
+    const isHome = window.location.pathname === '/';
 
-    // After render, force-scroll to the element with header offset
-    window.setTimeout(() => {
-      const el = document.getElementById(id);
-      if (!el) return;
+    // If we're not on Home, store the target and navigate.
+    // App.tsx will read this and do the scroll after the Home DOM exists.
+    if (!isHome) {
+      sessionStorage.setItem('rvScrollTarget', id);
+      window.location.href = `/#${id}`;
+      return;
+    }
 
-      const header = document.querySelector('header');
-      const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
-      const breathing = 8;
+    // If we're already on Home, update hash (for shareable URL) and scroll now.
+    if (window.location.hash !== `#${id}`) {
+      window.history.replaceState(null, '', `/#${id}`);
+    }
 
-      // 1) native align
-      el.scrollIntoView({ behavior: 'auto', block: 'start' });
-
-      // 2) apply header offset
-      window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
-    }, 350);
+    // Next frame = layout settled
+    requestAnimationFrame(() => forceScrollToId(id));
   };
 
   const scrollToTop = () => {
-    setMobileOpen(false);
-    setProcessOpen(false);
-    setProcessMobileOpen(false);
-
+    closeMenus();
     if (typeof window === 'undefined') return;
 
     const { pathname, hash } = window.location;
