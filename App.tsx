@@ -151,31 +151,34 @@ const HomePage: React.FC = () => {
         <Hero />
         <TrustedBy />
 
-        {/* Anchor for header nav */}
-        <div id="why-realvo-exists" />
+                {/* WHY + WHAT chapter */}
+        <section id="why-realvo-exists">
+          <WhyWhatBridge />
+        </section>
 
-        {/* WHY + WHAT chapter */}
-        <WhyWhatBridge />
+        <section id="industries">
+          <Industries />
+        </section>
 
-        <div id="industries" />
-        <Industries />
+        <section id="solutions">
+          <CaptureOptions />
+        </section>
 
-        <div id="solutions" />
-        <CaptureOptions />
+        <section id="implementation-process">
+          <ImplementationProcess />
+        </section>
 
-        {/* Anchors for "Process & Platform" */}
-        <div id="implementation-process" />
-        <ImplementationProcess />
-
-        <div id="how-it-works" />
-        <HowItWorks />
+        <section id="how-it-works">
+          <HowItWorks />
+        </section>
 
         <section id="process-platform">
           <VBPlatform />
         </section>
 
-        <div id="program-structure" />
-        <ProgramStructure />
+        <section id="program-structure">
+          <ProgramStructure />
+        </section>
 
         <Section
           id="contact"
