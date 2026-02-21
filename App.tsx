@@ -44,40 +44,20 @@ const HashScroller: React.FC = () => {
     if (!hash) return;
 
     const id = hash.slice(1);
-
     let tries = 0;
-    const maxTries = 120; // ~2s at 60fps
 
     const tryScroll = () => {
-      const sectionEl = document.getElementById(id);
-      if (!sectionEl) {
-        tries += 1;
-        if (tries < maxTries) requestAnimationFrame(tryScroll);
+      const el = document.getElementById(id);
+      if (!el) {
+        if (++tries < 120) requestAnimationFrame(tryScroll);
         return;
       }
 
       const header = document.querySelector('header');
-      const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
+      const headerH = header ? header.getBoundingClientRect().height : 65;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerH;
 
-      // small, consistent spacing under header
-      const breathing = 8;
-
-      // Find first heading inside the section
-      const heading = sectionEl.querySelector('h1, h2') as HTMLElement | null;
-
-      // Measure how far the heading sits from the section top (padding/margins/etc)
-      const sectionTop = sectionEl.getBoundingClientRect().top + window.scrollY;
-
-      let extraInsideSection = 0;
-      if (heading) {
-        const headingTop = heading.getBoundingClientRect().top + window.scrollY;
-        extraInsideSection = Math.max(0, headingTop - sectionTop);
-      }
-
-      // Scroll to sectionTop + extraInsideSection, then offset for sticky header
-      const y = sectionTop + extraInsideSection - (headerH + breathing);
-
-      window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'auto' });
+      window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
     };
 
     requestAnimationFrame(tryScroll);
