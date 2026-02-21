@@ -40,15 +40,11 @@ const HashScroller: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Support both:
-    // 1) normal hash links: /#contact
-    // 2) cross-page “stored target” if you ever use it later
     const stored = sessionStorage.getItem('rvScrollTarget');
     const hashId = location.hash ? location.hash.slice(1) : '';
     const id = stored || hashId;
 
     if (!id) return;
-
     if (stored) sessionStorage.removeItem('rvScrollTarget');
 
     let tries = 0;
@@ -57,7 +53,7 @@ const HashScroller: React.FC = () => {
     const tryScroll = () => {
       const el = document.getElementById(id);
 
-      // Wait until the element exists (HomePage + sections fully rendered)
+      // Wait until the element exists
       if (!el) {
         tries += 1;
         if (tries < maxTries) requestAnimationFrame(tryScroll);
@@ -67,12 +63,16 @@ const HashScroller: React.FC = () => {
       const header = document.querySelector('header');
       const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
 
-      // Small breathing room under header (kept minimal)
-      const breathing = 8;
+      // IMPORTANT: set to 0 to eliminate "peek"
+      const breathing = 0;
 
-      // Hard align to the element, then offset for sticky header
-      el.scrollIntoView({ behavior: 'auto', block: 'start' });
-      window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
+      // One precise scroll. No scrollIntoView, no scrollBy.
+      const y =
+        el.getBoundingClientRect().top +
+        window.scrollY -
+        (headerH + breathing);
+
+      window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'auto' });
     };
 
     requestAnimationFrame(tryScroll);
