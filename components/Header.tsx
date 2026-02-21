@@ -52,9 +52,16 @@ const Header: React.FC = () => {
     const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
     const breathing = 0;
 
-    el.scrollIntoView({ behavior: 'auto', block: 'start' });
-    window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
-  };
+    const forceScrollToId = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const header = document.querySelector('header');
+  const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
+
+  const top = el.getBoundingClientRect().top + window.scrollY - headerH;
+  window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
+};
 
   // Home sections (works from ANY page)
   const goToSection = (id: string) => {
