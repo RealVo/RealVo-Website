@@ -50,7 +50,7 @@ const Header: React.FC = () => {
 
     const header = document.querySelector('header');
     const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
-    const breathing = 8;
+    const breathing = 0;
 
     el.scrollIntoView({ behavior: 'auto', block: 'start' });
     window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
