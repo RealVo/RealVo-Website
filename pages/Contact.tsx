@@ -103,6 +103,8 @@ const Contact: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
             <p>© 2026 RealVo. RealVo is powered by VideoBooth Inc. All rights reserved.</p>
             <div className="flex items-center gap-4">
+              <a href="/" className="hover:text-realvo-blue transition">Home</a>
+              <span>·</span>
               <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-realvo-blue transition">Privacy Policy</a>
               <span>·</span>
               <a href="/terms" target="_blank" rel="noopener noreferrer" className="hover:text-realvo-blue transition">Terms of Use</a>
