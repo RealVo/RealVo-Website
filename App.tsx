@@ -10,9 +10,7 @@ import './styles.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustedBy from './components/TrustedBy';
-import WhyRealVoExists from './components/WhyRealVoExists';
 import WhyWhatBridge from './components/WhyWhatBridge';
-import WhatYouCanAchieve from './components/WhatYouCanAchieve';
 import HowItWorks from './components/HowItWorks';
 import CaptureOptions from './components/CaptureOptions';
 import VBPlatform from './components/VBPlatform';
@@ -35,19 +33,22 @@ import SecurityAndDataProtection from './pages/SecurityAndDataProtection';
 
 // ------------------------
 // ONE scroll system (the only one)
+// Scrolls to the first H1/H2 inside the target section, not the padded wrapper.
 // ------------------------
 const HashScroller: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const hashId = location.hash ? location.hash.slice(1) : '';
-    if (!hashId) return;
+    const hash = location.hash;
+    if (!hash) return;
+
+    const id = hash.slice(1);
 
     let tries = 0;
     const maxTries = 120; // ~2s at 60fps
 
     const tryScroll = () => {
-      const el = document.getElementById(hashId);
+      const el = document.getElementById(id);
 
       if (!el) {
         tries += 1;
@@ -58,18 +59,20 @@ const HashScroller: React.FC = () => {
       const header = document.querySelector('header');
       const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
 
-      // If the target is a SECTION with top padding (pt-20, md:pt-28, etc),
-      // scroll to the *content start* (sectionTop + paddingTop), not the section's top.
-      const styles = window.getComputedStyle(el);
-      const paddingTop = parseFloat(styles.paddingTop || '0') || 0;
+      // Small consistent breathing so headings don't "kiss" the header
+      const breathing = 10;
 
-      const targetY =
-        el.getBoundingClientRect().top +
-        window.scrollY +
-        paddingTop -
-        headerH;
+      // Prefer scrolling to the first heading inside the target (fixes padding/spacer inconsistencies)
+      const heading =
+        el.querySelector('h1, h2') ||
+        (el as HTMLElement);
 
-      window.scrollTo({ top: Math.max(0, targetY), behavior: 'auto' });
+      const y =
+        (heading as HTMLElement).getBoundingClientRect().top +
+        window.scrollY -
+        (headerH + breathing);
+
+      window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'auto' });
     };
 
     requestAnimationFrame(tryScroll);
@@ -149,12 +152,15 @@ const HomePage: React.FC = () => {
         <TrustedBy />
 
         {/* Anchor for header nav */}
-        <div id="why-realvo" />
+        <div id="why-realvo-exists" />
 
-        {/* WHY + WHAT chapter (Pattern 1 seam overlap) */}
+        {/* WHY + WHAT chapter */}
         <WhyWhatBridge />
 
+        <div id="industries" />
         <Industries />
+
+        <div id="solutions" />
         <CaptureOptions />
 
         {/* Anchors for "Process & Platform" */}
@@ -164,11 +170,11 @@ const HomePage: React.FC = () => {
         <div id="how-it-works" />
         <HowItWorks />
 
-        <section id="vb-platform">
-          <div style={{ height: '75px' }} />
+        <section id="process-platform">
           <VBPlatform />
         </section>
 
+        <div id="program-structure" />
         <ProgramStructure />
 
         <Section
