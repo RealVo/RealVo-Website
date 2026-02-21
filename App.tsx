@@ -34,68 +34,62 @@ import TermsOfUse from './pages/TermsOfUse';
 import SecurityAndDataProtection from './pages/SecurityAndDataProtection';
 
 // ------------------------
-// Home / Landing page
+// ONE scroll system (the only one)
 // ------------------------
 const HashScroller: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const hash = location.hash;
-    if (!hash) return;
+    // Support both:
+    // 1) normal hash links: /#contact
+    // 2) cross-page “stored target” if you ever use it later
+    const stored = sessionStorage.getItem('rvScrollTarget');
+    const hashId = location.hash ? location.hash.slice(1) : '';
+    const id = stored || hashId;
 
-    const id = hash.slice(1);
-    const el = document.getElementById(id);
-    if (!el) return;
+    if (!id) return;
 
-    const header = document.querySelector('header');
-    const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
-    const breathing = 16;
+    if (stored) sessionStorage.removeItem('rvScrollTarget');
 
-    requestAnimationFrame(() => {
-  // 1) Let the browser do the anchor scroll
-  el.scrollIntoView({ behavior: 'auto', block: 'start' });
+    let tries = 0;
+    const maxTries = 90; // ~1.5s at 60fps
 
-  // 2) Then apply header offset
-  requestAnimationFrame(() => {
-    window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
-  });
-});
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+
+      // Wait until the element exists (HomePage + sections fully rendered)
+      if (!el) {
+        tries += 1;
+        if (tries < maxTries) requestAnimationFrame(tryScroll);
+        return;
+      }
+
+      const header = document.querySelector('header');
+      const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
+
+      // Small breathing room under header (kept minimal)
+      const breathing = 8;
+
+      // Hard align to the element, then offset for sticky header
+      el.scrollIntoView({ behavior: 'auto', block: 'start' });
+      window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
+    };
+
+    requestAnimationFrame(tryScroll);
   }, [location.pathname, location.hash]);
 
   return null;
 };
 
+// ------------------------
+// Home / Landing page
+// ------------------------
 const HomePage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [phone, setPhone] = useState('');
 
-    useEffect(() => {
-    const scrollToHash = () => {
-      const hash = window.location.hash;
-      if (!hash) return;
-
-      const id = hash.slice(1);
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const header = document.querySelector('header');
-      const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
-
-      requestAnimationFrame(() => {
-        const y = el.getBoundingClientRect().top + window.scrollY - headerH;
-        window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
-      });
-    };
-
-    scrollToHash();
-    window.addEventListener('hashchange', scrollToHash);
-    return () => window.removeEventListener('hashchange', scrollToHash);
-  }, []);
-
   const [contactInView, setContactInView] = useState(false);
   const contactHeadlineRef = useRef<HTMLHeadingElement | null>(null);
-
-  const location = useLocation();
 
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, '').slice(0, 10);
@@ -135,55 +129,19 @@ const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-  const node = contactHeadlineRef.current;
-  if (!node) return;
+    const node = contactHeadlineRef.current;
+    if (!node) return;
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => setContactInView(entry.isIntersecting));
-    },
-    { threshold: 0.6 }
-  );
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => setContactInView(entry.isIntersecting));
+      },
+      { threshold: 0.6 }
+    );
 
-  observer.observe(node);
-  return () => observer.disconnect();
-}, []);
-
-// 👉 ADD THE NEW useEffect RIGHT HERE
-useEffect(() => {
-  const hash = location.hash;
-  if (!hash) return;
-
-  const id = hash.replace('#', '');
-  const scrollToElement = () => {
-  const el = document.getElementById(id);
-  if (el) {
-    const header = document.querySelector('header');
-    const headerHeight = header ? header.offsetHeight : 0;
-    const yOffset = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - (window.innerWidth < 768 ? 30 : 20);;
-    window.scrollTo({ top: yOffset, behavior: 'smooth' });
-  } else {
-  // Retry up to 5 times
-  let retries = 0;
-  const retryInterval = setInterval(() => {
-    const retryEl = document.getElementById(id);
-    if (retryEl || retries >= 5) {
-      clearInterval(retryInterval);
-      if (retryEl) {
-        const header = document.querySelector('header');
-        const headerHeight = header ? header.offsetHeight : 0;
-        const yOffset = retryEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - (window.innerWidth < 768 ? 30 : 20);
-        window.scrollTo({ top: yOffset, behavior: 'smooth' });
-      }
-    }
-    retries++;
-  }, 200);
-}
-};
-
-  // Delay to ensure DOM ready after navigation
-  setTimeout(scrollToElement, 100);
-}, [location]);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white transition-colors duration-300">
@@ -200,81 +158,79 @@ useEffect(() => {
         <WhyWhatBridge />
 
         <Industries />
-<CaptureOptions />
+        <CaptureOptions />
 
-{/* Anchors for "Process & Platform" */}
-<div id="implementation-process" />
-<ImplementationProcess />
+        {/* Anchors for "Process & Platform" */}
+        <div id="implementation-process" />
+        <ImplementationProcess />
 
-<div id="how-it-works" />
-<HowItWorks />
+        <div id="how-it-works" />
+        <HowItWorks />
 
-<section id="vb-platform">
-  <div style={{ height: '75px' }} />
-  <VBPlatform />
-</section>
+        <section id="vb-platform">
+          <div style={{ height: '75px' }} />
+          <VBPlatform />
+        </section>
 
-<ProgramStructure />
+        <ProgramStructure />
 
         <Section
-  id="contact"
-  background="white"
-  padding="lg"
-  className="border-t border-gray-100 !pt-10 md:!pt-20 scroll-mt-40"
->
-
-  <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
-    <div className="space-y-6">
-      <h2
-        ref={contactHeadlineRef}
-        className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-tight text-realvo-charcoal dark:text-white"
-      >
-        Ready to{' '}
-        <span
-          className={
-            contactInView
-              ? 'text-realvo-blue animate-pulse-once'
-              : 'text-realvo-blue'
-          }
+          id="contact"
+          background="white"
+          padding="lg"
+          className="border-t border-gray-100 !pt-10 md:!pt-20"
         >
-          capture real voices?
-        </span>
-      </h2>
+          <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
+            <div className="space-y-6">
+              <h2
+                ref={contactHeadlineRef}
+                className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-tight text-realvo-charcoal dark:text-white"
+              >
+                Ready to{' '}
+                <span
+                  className={
+                    contactInView
+                      ? 'text-realvo-blue animate-pulse-once'
+                      : 'text-realvo-blue'
+                  }
+                >
+                  capture real voices?
+                </span>
+              </h2>
 
-      <p className="text-lg text-gray-600">
-        Tell us about your program — your goals, timing, and where voices will be shared.
-      </p>
+              <p className="text-lg text-gray-600">
+                Tell us about your program — your goals, timing, and where voices will be shared.
+              </p>
 
-      <p className="text-sm text-gray-500">
-        A member of our team will be in touch within 24 hours.
-      </p>
+              <p className="text-sm text-gray-500">
+                A member of our team will be in touch within 24 hours.
+              </p>
 
-      <div className="pt-4">
-        <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
-          <img
-            src="/capture/contact-form/contact-form-naco.png"
-            alt="RealVo participant sharing their story"
-            loading="lazy"
-            decoding="async"
-            width={1200}
-            height={675}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
-      </div>
-    </div>
+              <div className="pt-4">
+                <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
+                  <img
+                    src="/capture/contact-form/contact-form-naco.png"
+                    alt="RealVo participant sharing their story"
+                    loading="lazy"
+                    decoding="async"
+                    width={1200}
+                    height={675}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
 
-    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-      <ContactForm
-        onSubmit={handleSubmit}
-        submitted={submitted}
-        phone={phone}
-        onPhoneChange={handlePhoneChange}
-      />
-    </div>
-  </div>
-</Section>
-
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+              <ContactForm
+                onSubmit={handleSubmit}
+                submitted={submitted}
+                phone={phone}
+                onPhoneChange={handlePhoneChange}
+              />
+            </div>
+          </div>
+        </Section>
       </main>
 
       <Footer />
