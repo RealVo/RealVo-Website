@@ -41,6 +41,34 @@ const Header: React.FC = () => {
     window.location.href = href;
   };
 
+  // FORCE section navigation + scroll (works from any page)
+  const goToSection = (id: string) => {
+    setMobileOpen(false);
+    setProcessOpen(false);
+    setProcessMobileOpen(false);
+
+    if (typeof window === 'undefined') return;
+
+    // Navigate to home + hash
+    window.location.href = `/#${id}`;
+
+    // After render, force-scroll to the element with header offset
+    window.setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const header = document.querySelector('header');
+      const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
+      const breathing = 8;
+
+      // 1) native align
+      el.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+      // 2) apply header offset
+      window.scrollBy({ top: -(headerH + breathing), left: 0, behavior: 'auto' });
+    }, 350);
+  };
+
   const scrollToTop = () => {
     setMobileOpen(false);
     setProcessOpen(false);
@@ -109,13 +137,14 @@ const Header: React.FC = () => {
               }
 
               return (
-                <a
+                <button
                   key={link.targetId}
-                  href={`/#${link.targetId}`}
+                  type="button"
+                  onClick={() => goToSection(link.targetId)}
                   className="relative transition-colors hover:text-realvo-blue"
                 >
                   {link.label}
-                </a>
+                </button>
               );
             })}
 
@@ -165,15 +194,18 @@ const Header: React.FC = () => {
                       }
 
                       return (
-                        <a
+                        <button
                           key={item.targetId}
-                          href={`/#${item.targetId}`}
+                          type="button"
                           role="menuitem"
-                          onClick={() => setProcessOpen(false)}
+                          onClick={() => {
+                            setProcessOpen(false);
+                            goToSection(item.targetId);
+                          }}
                           className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-realvo-blue transition"
                         >
                           {item.label}
-                        </a>
+                        </button>
                       );
                     })}
                   </div>
@@ -182,21 +214,20 @@ const Header: React.FC = () => {
             </div>
 
             {/* Program Structure (last) */}
-            <a
-              href="/#program-structure"
+            <button
+              type="button"
+              onClick={() => goToSection('program-structure')}
               className="relative transition-colors hover:text-realvo-blue"
             >
               Program Structure
-            </a>
+            </button>
           </nav>
 
           {/* Desktop Contact button */}
           <div className="hidden lg:block">
-            <a href="/#contact">
-              <Button size="sm" variant="primary">
-                Contact Us
-              </Button>
-            </a>
+            <Button size="sm" variant="primary" onClick={() => goToSection('contact')}>
+              Contact Us
+            </Button>
           </div>
 
           {/* Mobile hamburger */}
@@ -230,14 +261,14 @@ const Header: React.FC = () => {
               }
 
               return (
-                <a
+                <button
                   key={link.targetId}
-                  href={`/#${link.targetId}`}
-                  onClick={() => setMobileOpen(false)}
+                  type="button"
+                  onClick={() => goToSection(link.targetId)}
                   className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
                 >
                   {link.label}
-                </a>
+                </button>
               );
             })}
 
@@ -273,17 +304,18 @@ const Header: React.FC = () => {
                     }
 
                     return (
-                      <a
+                      <button
                         key={item.targetId}
-                        href={`/#${item.targetId}`}
+                        type="button"
                         onClick={() => {
                           setProcessMobileOpen(false);
                           setMobileOpen(false);
+                          goToSection(item.targetId);
                         }}
                         className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
                       >
                         {item.label}
-                      </a>
+                      </button>
                     );
                   })}
                 </div>
@@ -291,19 +323,22 @@ const Header: React.FC = () => {
             </div>
 
             {/* Program Structure (last, mobile) */}
-            <a
-              href="/#program-structure"
-              onClick={() => setMobileOpen(false)}
+            <button
+              type="button"
+              onClick={() => goToSection('program-structure')}
               className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
             >
               Program Structure
-            </a>
+            </button>
 
-            <a href="/#contact" onClick={() => setMobileOpen(false)}>
-              <Button size="sm" variant="primary" className="mt-2 w-full">
-                Contact Us
-              </Button>
-            </a>
+            <Button
+              size="sm"
+              variant="primary"
+              className="mt-2 w-full"
+              onClick={() => goToSection('contact')}
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       )}
