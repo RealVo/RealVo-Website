@@ -14,7 +14,7 @@ const navLinks: NavLink[] = [
 ];
 
 const PROCESS_PLATFORM_ITEMS: NavLink[] = [
-  { label: 'Implementation Process', targetId: 'implementation-process' },
+  { label: 'Implementation Process', targetId: 'process-platform' },
   { label: 'The User Experience', targetId: 'how-it-works' },
   { label: 'VideoBooth.tv Online Portal', href: '/vbplatform-more' }, // route
 ];
