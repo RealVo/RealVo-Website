@@ -157,33 +157,33 @@ const HomePage: React.FC = () => {
         <TrustedBy />
 
                 {/* WHY + WHAT chapter */}
-        <section id="why-realvo-exists" style={{ scrollMarginTop: '72px' }}>
-  <WhyWhatBridge />
-</section>
+        <section id="why-realvo-exists">
+          <WhyWhatBridge />
+        </section>
 
-<section id="industries" style={{ scrollMarginTop: '72px' }}>
-  <Industries />
-</section>
+        <section id="industries">
+          <Industries />
+        </section>
 
-<section id="solutions" style={{ scrollMarginTop: '72px' }}>
-  <CaptureOptions />
-</section>
+        <section id="solutions">
+          <CaptureOptions />
+        </section>
 
-<section id="implementation-process" style={{ scrollMarginTop: '72px' }}>
-  <ImplementationProcess />
-</section>
+        <section id="implementation-process">
+          <ImplementationProcess />
+        </section>
 
-<section id="how-it-works" style={{ scrollMarginTop: '72px' }}>
-  <HowItWorks />
-</section>
+        <section id="how-it-works">
+          <HowItWorks />
+        </section>
 
-<section id="process-platform" style={{ scrollMarginTop: '72px' }}>
-  <VBPlatform />
-</section>
+        <section id="process-platform">
+          <VBPlatform />
+        </section>
 
-<section id="program-structure" style={{ scrollMarginTop: '72px' }}>
-  <ProgramStructure />
-</section>
+        <section id="program-structure">
+          <ProgramStructure />
+        </section>
 
         <Section
           id="contact"
