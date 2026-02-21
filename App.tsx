@@ -61,6 +61,7 @@ const HashScroller: React.FC = () => {
     };
 
     requestAnimationFrame(tryScroll);
+    setTimeout(() => requestAnimationFrame(tryScroll), 100);
   }, [location.pathname, location.hash]);
 
   return null;
