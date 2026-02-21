@@ -33,7 +33,8 @@ import SecurityAndDataProtection from './pages/SecurityAndDataProtection';
 
 // ------------------------
 // ONE scroll system (the only one)
-// Scrolls to the first H1/H2 inside the target section, not the padded wrapper.
+// Scrolls so the first H1/H2 inside the section sits right under the sticky header
+// (eliminates the "gap" caused by section padding)
 // ------------------------
 const HashScroller: React.FC = () => {
   const location = useLocation();
@@ -48,9 +49,8 @@ const HashScroller: React.FC = () => {
     const maxTries = 120; // ~2s at 60fps
 
     const tryScroll = () => {
-      const el = document.getElementById(id);
-
-      if (!el) {
+      const sectionEl = document.getElementById(id);
+      if (!sectionEl) {
         tries += 1;
         if (tries < maxTries) requestAnimationFrame(tryScroll);
         return;
@@ -59,18 +59,23 @@ const HashScroller: React.FC = () => {
       const header = document.querySelector('header');
       const headerH = header ? Math.round(header.getBoundingClientRect().height) : 65;
 
-      // Small consistent breathing so headings don't "kiss" the header
-      const breathing = 10;
+      // small, consistent spacing under header
+      const breathing = 8;
 
-      // Prefer scrolling to the first heading inside the target (fixes padding/spacer inconsistencies)
-      const heading =
-        el.querySelector('h1, h2') ||
-        (el as HTMLElement);
+      // Find first heading inside the section
+      const heading = sectionEl.querySelector('h1, h2') as HTMLElement | null;
 
-      const y =
-        (heading as HTMLElement).getBoundingClientRect().top +
-        window.scrollY -
-        (headerH + breathing);
+      // Measure how far the heading sits from the section top (padding/margins/etc)
+      const sectionTop = sectionEl.getBoundingClientRect().top + window.scrollY;
+
+      let extraInsideSection = 0;
+      if (heading) {
+        const headingTop = heading.getBoundingClientRect().top + window.scrollY;
+        extraInsideSection = Math.max(0, headingTop - sectionTop);
+      }
+
+      // Scroll to sectionTop + extraInsideSection, then offset for sticky header
+      const y = sectionTop + extraInsideSection - (headerH + breathing);
 
       window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'auto' });
     };
