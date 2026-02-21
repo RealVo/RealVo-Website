@@ -55,7 +55,7 @@ const HashScroller: React.FC = () => {
 
       const header = document.querySelector('header');
       const headerH = header ? header.getBoundingClientRect().height : 65;
-      const top = el.getBoundingClientRect().top + window.scrollY - headerH;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerH - 1;
 
       window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
     };
