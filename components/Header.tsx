@@ -44,13 +44,13 @@ const Header: React.FC = () => {
   };
 
   const forceScrollToId = (id: string) => {
-  const el = document.getElementById(id);
-  if (!el) return;
+    const el = document.getElementById(id);
+    if (!el) return;
 
-  const header = document.querySelector('header');
-  const headerH = header ? header.getBoundingClientRect().height : 65;
+    const header = document.querySelector('header');
+    const headerH = header ? header.getBoundingClientRect().height : 65;
 
-  const top = el.getBoundingClientRect().top + window.scrollY - headerH;
+    const top = el.getBoundingClientRect().top + window.scrollY - headerH;
   window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
 };
 
