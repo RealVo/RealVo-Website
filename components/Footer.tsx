@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
               <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
               <a href="/#process-platform" className="hover:text-white transition-colors">Process &amp; Platform</a>
-              <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
+              <a href="/contact" className="hover:text-white transition-colors">Contact Us</a>
               <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="/terms" className="hover:text-white transition-colors">Terms of Use</a>
               <a href="/toronto-video-booth" className="hover:text-white transition-colors">Toronto Video Booth</a>
@@ -53,47 +53,52 @@ const Footer: React.FC = () => {
               </div>
 
               {/* Row 2 */}
-<div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
-  <a href="/contact" className="hover:text-white transition-colors">Contact Us</a>
-  <span className="text-gray-600">•</span>
+              <div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
+                >
+                  Contact Us
+                </a>
+                <span className="text-gray-600">•</span>
 
-  <a
-    href="/privacy"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:text-white transition-colors"
-  >
-    Privacy Policy
-  </a>
-  <span className="text-gray-600">•</span>
+                <a
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </a>
+                <span className="text-gray-600">•</span>
 
-  <a
-    href="/terms"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:text-white transition-colors"
-  >
-    Terms of Use
-  </a>
-  <span className="text-gray-600">•</span>
+                <a
+                  href="/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Terms of Use
+                </a>
+                <span className="text-gray-600">•</span>
 
-  <a
-    href="/security-and-data-protection"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:text-white transition-colors whitespace-nowrap"
-  >
-    Security &amp; Data Protection
-  </a>
-  <span className="text-gray-600">•</span>
+                <a
+                  href="/security-and-data-protection"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors whitespace-nowrap"
+                >
+                  Security &amp; Data Protection
+                </a>
+                <span className="text-gray-600">•</span>
 
-  <a
-    href="/toronto-video-booth"
-    className="hover:text-white transition-colors whitespace-nowrap"
-  >
-    Toronto Video Booth
-  </a>
-</div>
+                <a
+                  href="/toronto-video-booth"
+                  className="hover:text-white transition-colors whitespace-nowrap"
+                >
+                  Toronto Video Booth
+                </a>
+              </div>
             </div>
           </div>
         </div>
