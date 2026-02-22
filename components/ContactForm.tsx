@@ -256,7 +256,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         {submitted && (
           <div className="mt-4 rounded-xl bg-realvo-teal/10 border border-realvo-teal px-5 py-4">
             <p className="text-realvo-teal font-semibold text-base">
-              Thank you — your details have been submitted. We'll be in touch shortly.
+              Thank you — we'll be in touch within 24 hours.
             </p>
           </div>
         )}
