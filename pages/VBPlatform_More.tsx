@@ -349,7 +349,7 @@ const VBPlatform_More: React.FC = () => {
               </Link>
 
               <a
-                href="/#contact"
+                href="/contact"
                 className="inline-flex items-center text-xs sm:text-sm font-medium text-realvo-blue dark:text-sky-400 hover:text-realvo-blue/80 dark:hover:text-sky-300"
               >
                 Talk to us about your workflow
