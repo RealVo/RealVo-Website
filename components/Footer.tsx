@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
 
               {/* Row 2 */}
 <div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
-  <a href="/#contact" className="hover:text-white transition-colors">Contact Us</a>
+  <a href="/contact" className="hover:text-white transition-colors">Contact Us</a>
   <span className="text-gray-600">•</span>
 
   <a
