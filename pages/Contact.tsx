@@ -56,7 +56,7 @@ import ContactForm from '../components/ContactForm';
 
       {/* Main content */}
       <main className="flex-grow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <div className="grid gap-10 lg:gap-16 md:grid-cols-2 items-start">
             <div className="space-y-6">
               <div>
