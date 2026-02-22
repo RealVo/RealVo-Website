@@ -88,7 +88,7 @@ const ProgramStructure: React.FC = () => {
           <Button
             variant="secondary"
             className="w-full text-xs uppercase tracking-wide shadow-none hover:shadow-none hover:-translate-y-0"
-            onClick={() => (window.location.href = '/#contact')}
+            onClick={() => (window.location.href = '/contact')}
           >
             Plan an event program
           </Button>
@@ -139,7 +139,7 @@ const ProgramStructure: React.FC = () => {
           <Button
             variant="secondary"
             className="w-full text-xs uppercase tracking-wide shadow-none hover:shadow-none hover:-translate-y-0"
-            onClick={() => (window.location.href = '/#contact')}
+            onClick={() => (window.location.href = '/contact')}
           >
             Discuss an extended program
           </Button>
@@ -190,7 +190,7 @@ const ProgramStructure: React.FC = () => {
           <Button
             variant="secondary"
             className="w-full text-xs uppercase tracking-wide shadow-none hover:shadow-none hover:-translate-y-0"
-            onClick={() => (window.location.href = '/#contact')}
+            onClick={() => (window.location.href = '/contact')}
           >
             Explore ownership options
           </Button>
