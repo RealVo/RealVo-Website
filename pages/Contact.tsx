@@ -71,9 +71,6 @@ import ContactForm from '../components/ContactForm';
               <p className="text-lg text-gray-600">
                 Tell us about your program — your goals, timing, and where voices will be shared.
               </p>
-              <p className="text-sm text-gray-500">
-                A member of our team will be in touch within 24 hours.
-              </p>
               <div className="pt-4">
                 <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 aspect-video">
                   <img
