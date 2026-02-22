@@ -43,13 +43,23 @@ import ContactForm from '../components/ContactForm';
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* Minimal header — logo only */}
+      {/* Minimal header — logo + tagline */}
       <header className="border-b border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center">
+          <div className="flex h-16 items-center justify-between">
             <a href="/" aria-label="Back to RealVo home">
               <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
             </a>
+            <p className="hidden sm:block text-[11px] text-gray-500 tracking-wide">
+              <span className="text-realvo-blue">Real</span>{' '}
+              <span className="text-realvo-teal">Voices</span>
+              {' · '}
+              <span className="text-realvo-blue">Real</span>{' '}
+              <span className="text-realvo-teal">Stories</span>
+              {' · '}
+              <span className="text-realvo-blue">Real</span>{' '}
+              <span className="text-realvo-teal">Insights</span>
+            </p>
           </div>
         </div>
       </header>
