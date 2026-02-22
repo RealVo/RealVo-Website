@@ -50,7 +50,7 @@ import ContactForm from '../components/ContactForm';
             <a href="/" aria-label="Back to RealVo home">
               <img src="/logo-header.png" alt="RealVo" className="h-7 w-auto" />
             </a>
-            <p className="hidden sm:block text-[11px] text-gray-500 tracking-wide">
+            <p className="hidden sm:block text-[11px] font-bold tracking-wide self-end pb-1">
               <span className="text-realvo-blue">Real</span>{' '}
               <span className="text-realvo-teal">Voices</span>
               {' · '}
