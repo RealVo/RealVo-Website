@@ -54,12 +54,7 @@ const Footer: React.FC = () => {
 
               {/* Row 2 */}
 <div className="mt-2 flex items-center justify-start lg:justify-end gap-x-4">
-  
-    href="/contact"
-    className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
-  >
-    Contact Us
-  </a>
+  <a href="/contact" className="hover:text-white transition-colors">Contact Us</a>
   <span className="text-gray-600">•</span>
 
   <a
