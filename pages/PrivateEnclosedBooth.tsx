@@ -28,12 +28,10 @@ const BOOTH_ACTION_IMAGES = [
 ];
 
 const PrivateEnclosedBooth: React.FC = () => {
-  // Scroll to top when navigating to this page
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Lightbox state
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
@@ -65,7 +63,6 @@ const PrivateEnclosedBooth: React.FC = () => {
   const currentLightboxImage =
     lightboxIndex !== null ? BOOTH_ACTION_IMAGES[lightboxIndex] : null;
 
-  // Desktop carousel state (for Booth in action thumbnails)
   const [desktopStartIndex, setDesktopStartIndex] = useState(0);
   const totalImages = BOOTH_ACTION_IMAGES.length;
   const showDesktopArrows = totalImages > VISIBLE_DESKTOP_IMAGES;
@@ -85,11 +82,6 @@ const PrivateEnclosedBooth: React.FC = () => {
     setDesktopStartIndex(prev => (prev - 1 + totalImages) % totalImages);
   };
 
-  /**
-   * CTA "matter" animation trigger:
-   * - animates when CTA comes into view
-   * - re-animates every time it re-enters
-   */
   const ctaRef = useRef<HTMLDivElement | null>(null);
   const [ctaAnimKey, setCtaAnimKey] = useState(0);
 
@@ -183,22 +175,22 @@ const PrivateEnclosedBooth: React.FC = () => {
                 {/* Primary CTA */}
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <a
-                    href="/#contact"
+                    href="/contact"
                     className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-realvo-blue text-white dark:bg-sky-500 dark:text-slate-950 hover:bg-realvo-blue/90 dark:hover:bg-sky-400 transition"
                   >
                     Request pricing &amp; availability
-                </a>
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Booth in action – carousel on desktop, swipe on mobile */}
+            {/* Booth in action */}
             <div className="mt-10 sm:mt-14 lg:mt-16">
               <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                 Booth in action
               </h2>
 
-              {/* Desktop: 4-image carousel with arrows (no scrollbar) */}
+              {/* Desktop: 4-image carousel with arrows */}
               <div className="hidden md:flex items-center gap-4">
                 {showDesktopArrows && (
                   <button
@@ -275,12 +267,10 @@ const PrivateEnclosedBooth: React.FC = () => {
               id="tech-specs"
               className="mt-10 sm:mt-14 lg:mt-16 grid gap-10 lg:grid-cols-2"
             >
-              {/* Features with purpose / Benefits */}
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Features with purpose
                 </h2>
-
                 <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
                   <li className="pl-3 -indent-3">
                     • <strong>Sound-dampened interior</strong> helps participants
@@ -313,7 +303,6 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Tech specs */}
               <div>
                 <h2 className="text-lg sm:text-xl font-semibold text-realvo-blue mb-4 sm:mb-5">
                   Technical specifications
@@ -415,7 +404,7 @@ const PrivateEnclosedBooth: React.FC = () => {
               </div>
             </div>
 
-            {/* Next capture option – link to Free-standing Kiosk */}
+            {/* Next capture option */}
             <div className="mt-10 sm:mt-14 flex justify-end">
               <a
                 href="/capture/free-standing-kiosk"
@@ -449,13 +438,12 @@ const PrivateEnclosedBooth: React.FC = () => {
                 </p>
               </div>
 
-              <button
-                type="button"
-                onClick={() => scrollToSectionGlobal('contact')}
+              <a
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap md:px-7 md:py-3.5"
               >
                 Let&apos;s get started
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -474,7 +462,6 @@ const PrivateEnclosedBooth: React.FC = () => {
             className="relative max-w-4xl w-full"
             onClick={e => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
               type="button"
               className="absolute -top-10 right-0 text-slate-200 hover:text-white text-sm sm:text-base"
@@ -483,7 +470,6 @@ const PrivateEnclosedBooth: React.FC = () => {
               Close ✕
             </button>
 
-            {/* Image */}
             <div className="relative w-full flex items-center justify-center bg-white p-2">
               <img
                 src={currentLightboxImage.src}
@@ -492,7 +478,6 @@ const PrivateEnclosedBooth: React.FC = () => {
               />
             </div>
 
-            {/* Nav arrows */}
             <button
               type="button"
               onClick={showPrev}
