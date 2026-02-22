@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import ContactForm from '../components/ContactForm';
 
-const Contact: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [phone, setPhone] = useState('');
+  const Contact: React.FC = () => {
+    const [submitted, setSubmitted] = useState(false);
+    const [phone, setPhone] = useState('');
 
-useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, '').slice(0, 10);
