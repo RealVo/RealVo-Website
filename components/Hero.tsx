@@ -149,7 +149,7 @@ const Hero: React.FC = () => {
     <Button
       size="lg"
       variant="primary"
-      onClick={() => scrollToSection('contact')}
+      onClick={() => window.location.href = '/contact'}
     >
       Start a Conversation
     </Button>
