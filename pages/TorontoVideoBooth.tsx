@@ -80,7 +80,7 @@ const TorontoVideoBooth: React.FC = () => {
                 {/* CTA */}
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <a
-                    href="/#contact"
+                    href="/contact"
                     className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium bg-realvo-blue text-white hover:bg-realvo-blue/90 transition"
                   >
                     Speak With Our Team
@@ -253,7 +253,7 @@ const TorontoVideoBooth: React.FC = () => {
               </div>
 
               <a
-                href="/#contact"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition"
               >
                 Talk to us
