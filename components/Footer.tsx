@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
           {/* Right: Button + Menu */}
           <div className="text-sm text-gray-400">
             {/* Contact Us button — top right (desktop only) */}
-            <div className="hidden lg:flex justify-end mb-4">
+            <div className="hidden lg:flex justify-end mt-6 mb-4">
               <a
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium bg-realvo-teal text-white hover:bg-realvo-teal/90 transition whitespace-nowrap"
