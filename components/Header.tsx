@@ -192,7 +192,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Contact button */}
           <div className="hidden lg:block">
-            <a href="/#contact">
+            <a href="/contact">
               <Button size="sm" variant="primary">
                 Contact Us
               </Button>
@@ -299,7 +299,7 @@ const Header: React.FC = () => {
               Program Structure
             </a>
 
-            <a href="/#contact" onClick={() => setMobileOpen(false)}>
+            <a href="/contact" onClick={() => setMobileOpen(false)}>
               <Button size="sm" variant="primary" className="mt-2 w-full">
                 Contact Us
               </Button>
