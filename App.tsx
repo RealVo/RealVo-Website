@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import './styles.css';
 import Contact from './pages/Contact';
-
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustedBy from './components/TrustedBy';
@@ -31,38 +30,49 @@ import TermsOfUse from './pages/TermsOfUse';
 import SecurityAndDataProtection from './pages/SecurityAndDataProtection';
 
 // ------------------------
+// Google Analytics loader
+// ------------------------
+const useGoogleAnalytics = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QT7PJEMBHB';
+    script.async = true;
+    document.head.appendChild(script);
+
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+    (window as any).gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-QT7PJEMBHB');
+  }, []);
+};
+
+// ------------------------
 // ONE scroll system (the only one)
 // ------------------------
 const HashScroller: React.FC = () => {
   const location = useLocation();
-
   useEffect(() => {
     const hash = location.hash;
     if (!hash) return;
-
     const id = hash.slice(1);
     let tries = 0;
-
     const tryScroll = () => {
       const el = document.getElementById(id);
       if (!el) {
         if (++tries < 120) requestAnimationFrame(tryScroll);
         return;
       }
-
       const header = document.querySelector('header');
       const headerH = header ? header.getBoundingClientRect().height : 65;
       const top = el.getBoundingClientRect().top + window.scrollY - headerH;
-
       if (Math.abs(window.scrollY - top) > 5) {
         window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'auto' });
       }
     };
-
     requestAnimationFrame(tryScroll);
     setTimeout(() => requestAnimationFrame(tryScroll), 200);
   }, [location.pathname, location.hash]);
-
   return null;
 };
 
@@ -73,7 +83,6 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white transition-colors duration-300">
       <Header />
-
       <main className="flex-grow">
         <Hero />
         <TrustedBy />
@@ -85,7 +94,6 @@ const HomePage: React.FC = () => {
         <VBPlatform />
         <ProgramStructure />
       </main>
-
       <Footer />
     </div>
   );
@@ -95,6 +103,8 @@ const HomePage: React.FC = () => {
 // App routes
 // ------------------------
 const App: React.FC = () => {
+  useGoogleAnalytics();
+
   return (
     <Router>
       <HashScroller />
