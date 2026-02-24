@@ -132,7 +132,9 @@ const HowItWorks: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Auto-cycle steps when idle
+  // Unified auto-sequencer:
+  // - While on Step 1 (idle): show 1a for ATTRACT_MS, then 1b for ATTRACT_MS, then advance to Step 2
+  // - All other steps: advance every AUTO_MS as before
   useEffect(() => {
     if (!isInView) return;
     if (mode !== 'none') return;
@@ -146,32 +148,26 @@ const HowItWorks: React.FC = () => {
 
     if (prefersReducedMotion) return;
 
+    if (activeStep === 1) {
+      if (attractFrame === 'a') {
+        // Show 1a for ATTRACT_MS, then flip to 1b
+        const t = window.setTimeout(() => setAttractFrame('b'), ATTRACT_MS);
+        return () => window.clearTimeout(t);
+      } else {
+        // Show 1b for ATTRACT_MS, then advance to Step 2
+        const t = window.setTimeout(() => {
+          setAttractFrame('a'); // reset for next cycle
+          setActiveStep(2);
+        }, ATTRACT_MS);
+        return () => window.clearTimeout(t);
+      }
+    }
+
+    // Steps 2–7: advance every AUTO_MS
     const t = window.setInterval(goNext, AUTO_MS);
     return () => window.clearInterval(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInView, mode, isHoveringKiosk, isKioskTapPaused]);
-
-  // Attract loop: alternate 1a ↔ 1b while Step 1 is active and idle
-  useEffect(() => {
-    if (!isInView) return;
-    if (activeStep !== 1) return;
-    if (mode !== 'none') return;
-    if (isHoveringKiosk) return;
-    if (isKioskTapPaused) return;
-
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReducedMotion) return;
-
-    const t = window.setInterval(() => {
-      setAttractFrame(prev => (prev === 'a' ? 'b' : 'a'));
-    }, ATTRACT_MS);
-
-    return () => window.clearInterval(t);
-  }, [isInView, activeStep, mode, isHoveringKiosk, isKioskTapPaused]);
+  }, [isInView, mode, isHoveringKiosk, isKioskTapPaused, activeStep, attractFrame]);
 
   // Reset attract frame to 'a' whenever Step 1 becomes active again
   useEffect(() => {
