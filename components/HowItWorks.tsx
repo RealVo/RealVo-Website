@@ -335,7 +335,9 @@ const HowItWorks: React.FC = () => {
           {/* NOTE: Keeping your original overflow behavior + shadow exactly as-is */}
           <div className="relative flex justify-center overflow-hidden md:overflow-visible">
             {/* Wrapper so pills can anchor to the image */}
-            <div
+            {/* Wrapper so pills can anchor to the image */}
+            <div className="relative">
+              <div
                 className="relative w-full max-w-[520px] drop-shadow-none md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
                 onMouseEnter={handleKioskEnter}
                 onMouseLeave={handleKioskLeave}
