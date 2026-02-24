@@ -14,7 +14,7 @@ const steps = [
 type InteractionMode = 'none' | 'hover' | 'click';
 
 // ─── Attract loop timing for Step 1 (milliseconds) ───────────────────────────
-const ATTRACT_MS = 2000;     // how long each Step 1 image shows before alternating
+const ATTRACT_MS = 3000;     // how long each Step 1 image shows before alternating
 const ATTRACT_FADE_MS = 800; // crossfade duration between 1a and 1b
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -335,51 +335,42 @@ const HowItWorks: React.FC = () => {
           {/* NOTE: Keeping your original overflow behavior + shadow exactly as-is */}
           <div className="relative flex justify-center overflow-hidden md:overflow-visible">
             {/* Wrapper so pills can anchor to the image */}
-            <div className="relative">
-              {activeStep === 1 ? (
-                /* ── Step 1: crossfade between 1a (bottom) and 1b (top) ── */
-                <div
-                  className="relative w-full max-w-[520px] drop-shadow-none md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
-                  onMouseEnter={handleKioskEnter}
-                  onMouseLeave={handleKioskLeave}
-                  onClick={handleKioskTapToggle}
-                >
-                  {/* 1a — always visible underneath */}
-                  <img
-                    src="/how_it_works/hiw_step_1a.png"
-                    alt="RealVo kiosk step 1a"
-                    className="w-full h-auto block"
-                    draggable={false}
-                  />
-                  {/* 1b — fades in on top */}
-                  <img
-                    src="/how_it_works/hiw_step_1b.png"
-                    alt="RealVo kiosk step 1b"
-                    className="absolute inset-0 w-full h-auto block"
-                    style={{
-                      opacity: attractFrame === 'b' ? 1 : 0,
-                      transition: `opacity ${ATTRACT_FADE_MS}ms ease-in-out`,
-                    }}
-                    draggable={false}
-                  />
-                </div>
-              ) : (
-                /* ── Steps 2–7: single image, hard cut ── */
+            <div
+                className="relative w-full max-w-[520px] drop-shadow-none md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
+                onMouseEnter={handleKioskEnter}
+                onMouseLeave={handleKioskLeave}
+                onClick={handleKioskTapToggle}
+              >
+                {/* ── Layer 1 (bottom): 1a — always mounted, never unmounts ── */}
                 <img
-                  src={stepSrc}
-                  alt={`RealVo kiosk step ${activeStep}`}
-                  className="
-                    w-full max-w-[520px]
-                    h-auto
-                    drop-shadow-none
-                    md:drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]
-                  "
+                  src="/how_it_works/hiw_step_1a.png"
+                  alt="RealVo kiosk step 1a"
+                  className="w-full h-auto block"
                   draggable={false}
-                  onMouseEnter={handleKioskEnter}
-                  onMouseLeave={handleKioskLeave}
-                  onClick={handleKioskTapToggle}
                 />
-              )}
+
+                {/* ── Layer 2: 1b — fades in/out over 1a ── */}
+                <img
+                  src="/how_it_works/hiw_step_1b.png"
+                  alt="RealVo kiosk step 1b"
+                  className="absolute inset-0 w-full h-auto block"
+                  style={{
+                    opacity: activeStep === 1 && attractFrame === 'b' ? 1 : 0,
+                    transition: `opacity ${ATTRACT_FADE_MS}ms ease-in-out`,
+                  }}
+                  draggable={false}
+                />
+
+                {/* ── Layer 3 (top): Steps 2–7 — hard cut, covers 1a/1b instantly ── */}
+                {activeStep !== 1 && (
+                  <img
+                    src={stepSrc}
+                    alt={`RealVo kiosk step ${activeStep}`}
+                    className="absolute inset-0 w-full h-auto block"
+                    draggable={false}
+                  />
+                )}
+              </div>
 
               {/* Desktop pill */}
               <div className="hidden lg:block pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
