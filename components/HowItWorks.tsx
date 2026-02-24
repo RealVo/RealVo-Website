@@ -13,6 +13,10 @@ const steps = [
 
 type InteractionMode = 'none' | 'hover' | 'click';
 
+// ─── Attract loop timing for Step 1 (milliseconds) ───────────────────────────
+const ATTRACT_MS = 3000; // how long each Step 1 image shows before alternating
+// ─────────────────────────────────────────────────────────────────────────────
+
 const HowItWorks: React.FC = () => {
   const worksRef = useRef<HTMLSpanElement | null>(null);
 
@@ -25,6 +29,9 @@ const HowItWorks: React.FC = () => {
 
   const [activeStep, setActiveStep] = useState<number>(1);
   const [mode, setMode] = useState<InteractionMode>('none');
+
+  // Step 1 attract sub-frame: 'a' or 'b'
+  const [attractFrame, setAttractFrame] = useState<'a' | 'b'>('a');
 
   // pause controls (desktop hover + mobile tap)
   const [isHoveringKiosk, setIsHoveringKiosk] = useState(false);
@@ -41,7 +48,17 @@ const HowItWorks: React.FC = () => {
     }
   };
 
-  const stepSrc = useMemo(() => `/how_it_works/hiw_step_${activeStep}.png`, [activeStep]);
+  // Derive the image src:
+  // - Step 1 in auto/idle mode → alternate between 1a and 1b
+  // - Step 1 when user has manually selected it (hover/click) → show 1a
+  // - All other steps → single image as before
+  const stepSrc = useMemo(() => {
+    if (activeStep === 1) {
+      const frame = mode === 'none' ? attractFrame : 'a';
+      return `/how_it_works/hiw_step_1${frame}.png`;
+    }
+    return `/how_it_works/hiw_step_${activeStep}.png`;
+  }, [activeStep, attractFrame, mode]);
 
   const goNext = () => setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
 
@@ -72,9 +89,13 @@ const HowItWorks: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Preload step images
+  // Preload step images (including 1a and 1b)
   useEffect(() => {
-    for (let i = 1; i <= TOTAL_STEPS; i++) {
+    const img1a = new Image();
+    img1a.src = '/how_it_works/hiw_step_1a.png';
+    const img1b = new Image();
+    img1b.src = '/how_it_works/hiw_step_1b.png';
+    for (let i = 2; i <= TOTAL_STEPS; i++) {
       const img = new Image();
       img.src = `/how_it_works/hiw_step_${i}.png`;
     }
@@ -97,6 +118,7 @@ const HowItWorks: React.FC = () => {
             setIsHoveringKiosk(false);
             setIsKioskTapPaused(false);
             setActiveStep(1);
+            setAttractFrame('a'); // always start on 1a
           } else {
             setIsInView(false);
           }
@@ -110,7 +132,7 @@ const HowItWorks: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Auto-cycle when idle
+  // Auto-cycle steps when idle
   useEffect(() => {
     if (!isInView) return;
     if (mode !== 'none') return;
@@ -128,6 +150,35 @@ const HowItWorks: React.FC = () => {
     return () => window.clearInterval(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInView, mode, isHoveringKiosk, isKioskTapPaused]);
+
+  // Attract loop: alternate 1a ↔ 1b while Step 1 is active and idle
+  useEffect(() => {
+    if (!isInView) return;
+    if (activeStep !== 1) return;
+    if (mode !== 'none') return;
+    if (isHoveringKiosk) return;
+    if (isKioskTapPaused) return;
+
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) return;
+
+    const t = window.setInterval(() => {
+      setAttractFrame(prev => (prev === 'a' ? 'b' : 'a'));
+    }, ATTRACT_MS);
+
+    return () => window.clearInterval(t);
+  }, [isInView, activeStep, mode, isHoveringKiosk, isKioskTapPaused]);
+
+  // Reset attract frame to 'a' whenever Step 1 becomes active again
+  useEffect(() => {
+    if (activeStep === 1) {
+      setAttractFrame('a');
+    }
+  }, [activeStep]);
 
   // Click-off to resume auto (only when click-locked)
   useEffect(() => {
@@ -275,10 +326,10 @@ const HowItWorks: React.FC = () => {
             })}
           </div>
 
-{/* Customization disclaimer */}
-<p className="mt-0 md:mt-1 pl-[56px] text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
-  This visual represents a simplified example. Each deployment is configured to your objectives — including profile fields, optional multiple-choice inputs, question structure, recording limits, and overall session flow.
-</p>
+          {/* Customization disclaimer */}
+          <p className="mt-0 md:mt-1 pl-[56px] text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
+            This visual represents a simplified example. Each deployment is configured to your objectives — including profile fields, optional multiple-choice inputs, question structure, recording limits, and overall session flow.
+          </p>
           
         </div>
 
