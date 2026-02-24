@@ -14,7 +14,7 @@ const steps = [
 type InteractionMode = 'none' | 'hover' | 'click';
 
 // ─── Attract loop timing for Step 1 (milliseconds) ───────────────────────────
-const ATTRACT_MS = 3000; // how long each Step 1 image shows before alternating
+const ATTRACT_MS = 2000; // how long each Step 1 image shows before alternating
 // ─────────────────────────────────────────────────────────────────────────────
 
 const HowItWorks: React.FC = () => {
