@@ -139,9 +139,16 @@ const HowItWorks: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Refs so interval callbacks always see latest values without re-triggering effects
+  const activeStepRef = useRef(activeStep);
+  const attractFrameRef = useRef(attractFrame);
+  useEffect(() => { activeStepRef.current = activeStep; }, [activeStep]);
+  useEffect(() => { attractFrameRef.current = attractFrame; }, [attractFrame]);
+
   // Unified auto-sequencer:
-  // - While on Step 1 (idle): show 1a for ATTRACT_MS, then 1b for ATTRACT_MS, then advance to Step 2
-  // - All other steps: advance every AUTO_MS as before
+  // Step 1 (idle): show 1a for ATTRACT_MS → 1b for ATTRACT_MS → advance to Step 2
+  // Steps 2–7: single interval, advance every AUTO_MS
+  // Deps do NOT include activeStep/attractFrame — refs are used inside callbacks instead
   useEffect(() => {
     if (!isInView) return;
     if (mode !== 'none') return;
@@ -155,33 +162,25 @@ const HowItWorks: React.FC = () => {
 
     if (prefersReducedMotion) return;
 
-    if (activeStep === 1) {
-      if (attractFrame === 'a') {
-        // Show 1a for ATTRACT_MS, then flip to 1b
-        const t = window.setTimeout(() => setAttractFrame('b'), ATTRACT_MS);
-        return () => window.clearTimeout(t);
-      } else {
-        // Show 1b for ATTRACT_MS, then advance to Step 2
-        const t = window.setTimeout(() => {
-          setAttractFrame('a'); // reset for next cycle
+    const tick = () => {
+      if (activeStepRef.current === 1) {
+        if (attractFrameRef.current === 'a') {
+          setAttractFrame('b');
+        } else {
+          setAttractFrame('a');
           setActiveStep(2);
-        }, ATTRACT_MS);
-        return () => window.clearTimeout(t);
+        }
+      } else {
+        setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
       }
-    }
+    };
 
-    // Steps 2–7: advance every AUTO_MS
-    const t = window.setInterval(goNext, AUTO_MS);
+    // Use ATTRACT_MS for step 1, AUTO_MS for all others — restart interval when step changes
+    const delay = activeStepRef.current === 1 ? ATTRACT_MS : AUTO_MS;
+    const t = window.setInterval(tick, delay);
     return () => window.clearInterval(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInView, mode, isHoveringKiosk, isKioskTapPaused, activeStep, attractFrame]);
-
-  // Reset attract frame to 'a' whenever Step 1 becomes active again
-  useEffect(() => {
-    if (activeStep === 1) {
-      setAttractFrame('a');
-    }
-  }, [activeStep]);
+  }, [isInView, mode, isHoveringKiosk, isKioskTapPaused, activeStep]);
 
   // Click-off to resume auto (only when click-locked)
   useEffect(() => {
@@ -242,18 +241,8 @@ const HowItWorks: React.FC = () => {
   // Kiosk tap toggle (mobile): tap = pause, tap again = resume
   const handleKioskTapToggle = () => {
     if (mode === 'click') return;
-
-    setIsKioskTapPaused(prev => {
-      const resuming = prev === true;
-      if (resuming) {
-        // Defer step nudge so isKioskTapPaused=false settles first,
-        // allowing the sequencer useEffect to re-engage cleanly
-        window.setTimeout(() => {
-          setActiveStep(s => (s % TOTAL_STEPS) + 1);
-        }, 0);
-      }
-      return !prev;
-    });
+    // Simply toggle paused — sequencer restarts automatically via useEffect
+    setIsKioskTapPaused(prev => !prev);
   };
 
   // ✅ One unified paused state for pills
