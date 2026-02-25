@@ -28,6 +28,7 @@ import TorontoVideoBooth from './pages/TorontoVideoBooth';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import SecurityAndDataProtection from './pages/SecurityAndDataProtection';
+import CaseStudies from './pages/CaseStudies';
 
 // ------------------------
 // Google Analytics loader
@@ -111,6 +112,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/use-cases" element={<UseCases />} />
+        <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/capture/private-enclosed-booth" element={<PrivateEnclosedBooth />} />
         <Route path="/capture/free-standing-kiosk" element={<FreeStandingKiosk />} />
         <Route path="/capture/desktop-tablet-kiosk" element={<DesktopTabletKiosk />} />
