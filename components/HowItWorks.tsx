@@ -139,21 +139,20 @@ const HowItWorks: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Refs so interval callbacks always see latest values without re-triggering effects
+  // Single paused ref — source of truth for the interval
+  const isPausedRef = useRef(false);
+  isPausedRef.current = isKioskTapPaused || isHoveringKiosk || mode !== 'none';
+
+  // Refs so the interval callback always sees latest step/frame without restarting
   const activeStepRef = useRef(activeStep);
   const attractFrameRef = useRef(attractFrame);
-  useEffect(() => { activeStepRef.current = activeStep; }, [activeStep]);
-  useEffect(() => { attractFrameRef.current = attractFrame; }, [attractFrame]);
+  activeStepRef.current = activeStep;
+  attractFrameRef.current = attractFrame;
 
-  // Unified auto-sequencer:
-  // Step 1 (idle): show 1a for ATTRACT_MS → 1b for ATTRACT_MS → advance to Step 2
-  // Steps 2–7: single interval, advance every AUTO_MS
-  // Deps do NOT include activeStep/attractFrame — refs are used inside callbacks instead
+  // Single permanent interval — starts when in view, never restarts
+  // All pause/resume logic is handled inside tick() via refs
   useEffect(() => {
     if (!isInView) return;
-    if (mode !== 'none') return;
-    if (isHoveringKiosk) return;
-    if (isKioskTapPaused) return;
 
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
@@ -162,8 +161,18 @@ const HowItWorks: React.FC = () => {
 
     if (prefersReducedMotion) return;
 
+    // Counts AUTO_MS ticks elapsed on the current step-1 frame
+    let attractTicks = 0;
+    const attractTicksNeeded = Math.round(ATTRACT_MS / AUTO_MS);
+
     const tick = () => {
+      // Check paused state via ref — no stale closure issues
+      if (isPausedRef.current) return;
+
       if (activeStepRef.current === 1) {
+        attractTicks++;
+        if (attractTicks < attractTicksNeeded) return; // hold current frame
+        attractTicks = 0;
         if (attractFrameRef.current === 'a') {
           setAttractFrame('b');
         } else {
@@ -171,16 +180,16 @@ const HowItWorks: React.FC = () => {
           setActiveStep(2);
         }
       } else {
+        attractTicks = 0;
         setActiveStep(prev => (prev % TOTAL_STEPS) + 1);
       }
     };
 
-    // Use ATTRACT_MS for step 1, AUTO_MS for all others — restart interval when step changes
-    const delay = activeStepRef.current === 1 ? ATTRACT_MS : AUTO_MS;
-    const t = window.setInterval(tick, delay);
+    // One interval, runs forever while in view — tick() skips when paused
+    const t = window.setInterval(tick, AUTO_MS);
     return () => window.clearInterval(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInView, mode, isHoveringKiosk, isKioskTapPaused, activeStep]);
+  }, [isInView]);
 
   // Click-off to resume auto (only when click-locked)
   useEffect(() => {
