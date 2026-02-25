@@ -52,7 +52,7 @@ const CASE_STUDIES: CaseStudy[] = [
     year: '2022',
     headline: 'Employee Storytelling at Scale — All-Hands Launch Event',
     summary:
-      'A Fortune 500 company used RealVo to capture authentic employee voices during a major internal rebranding. Over 400 recordings were collected across two days, feeding directly into the company's intranet and leadership communications.',
+      `A Fortune 500 company used RealVo to capture authentic employee voices during a major internal rebranding. Over 400 recordings were collected across two days, feeding directly into the company's intranet and leadership communications.`,
     tags: ['Private Enclosed Booth', 'Employee Storytelling', 'Enterprise', 'Internal Comms'],
     image: '/case_studies/placeholder-corporate.jpg',
     imageAlt: 'Corporate employee storytelling event',
