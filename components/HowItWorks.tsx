@@ -14,7 +14,7 @@ const steps = [
 type InteractionMode = 'none' | 'hover' | 'click';
 
 // ─── Attract loop timing for Step 1 (milliseconds) ───────────────────────────
-const ATTRACT_MS = 2500;     // how long each Step 1 image shows before alternating
+const ATTRACT_MS = 3000;     // how long each Step 1 image shows before alternating
 const ATTRACT_FADE_MS = 800; // crossfade duration between 1a and 1b
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -238,14 +238,15 @@ const HowItWorks: React.FC = () => {
     if (mode === 'click') return;
 
     setIsKioskTapPaused(prev => {
-      const next = !prev;
-
-      // If resuming, nudge to next step so it feels responsive
-      if (!next) {
-        setActiveStep(s => (s % TOTAL_STEPS) + 1);
+      const resuming = prev === true;
+      if (resuming) {
+        // Defer step nudge so isKioskTapPaused=false settles first,
+        // allowing the sequencer useEffect to re-engage cleanly
+        window.setTimeout(() => {
+          setActiveStep(s => (s % TOTAL_STEPS) + 1);
+        }, 0);
       }
-
-      return next;
+      return !prev;
     });
   };
 
