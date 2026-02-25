@@ -384,10 +384,14 @@ const HowItWorks: React.FC = () => {
                 {isPaused ? 'Paused' : 'Hover to pause'}
               </div>
 
-              {/* Mobile pill */}
-              <div className="lg:hidden pointer-events-none absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md">
+              {/* Mobile pill — actual button so tap is reliable */}
+              <button
+                type="button"
+                onClick={handleKioskTapToggle}
+                className="lg:hidden absolute bottom-3 right-3 text-[11px] text-gray-500 dark:text-gray-400 bg-white/70 dark:bg-gray-900/60 backdrop-blur px-2 py-1 rounded-md"
+              >
                 Tap to {isPaused ? 'play' : 'pause'}
-              </div>
+              </button>
             </div>
           </div>
         </div>
