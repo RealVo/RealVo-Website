@@ -1,12 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ContactForm from '../components/ContactForm';
 
   const Contact: React.FC = () => {
     const [submitted, setSubmitted] = useState(false);
     const [phone, setPhone] = useState('');
+    const headlineRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  // Colour-cycle animation on headline — matches Hero.tsx pattern
+  useEffect(() => {
+    const node = headlineRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            node.classList.remove('animate-pulse-once');
+            void node.offsetWidth;
+            node.classList.add('animate-pulse-once');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
   }, []);
 
   const formatPhone = (value: string) => {
@@ -75,7 +96,12 @@ import ContactForm from '../components/ContactForm';
                 </p>
                 <h1 className="text-3xl md:text-4xl font-bold tracking-[-0.02em] leading-tight text-realvo-charcoal">
                   Ready to{' '}
-                  <span className="text-realvo-blue">capture real voices?</span>
+                  <span
+                    ref={headlineRef}
+                    className="text-realvo-teal animate-pulse-once"
+                  >
+                    capture real voices?
+                  </span>
                 </h1>
               </div>
               <p className="text-lg text-gray-600">
