@@ -102,7 +102,10 @@ const HowItWorks: React.FC = () => {
     }
   }, []);
 
-  // When KIOSK enters view, force Step 1 (every time)
+  // Track whether we have entered view at least once (to avoid re-resetting on scroll)
+  const hasEnteredViewRef = useRef(false);
+
+  // When KIOSK enters view: start animation from Step 1 on first entry only
   useEffect(() => {
     const el = kioskViewRef.current;
     if (!el) return;
@@ -113,19 +116,22 @@ const HowItWorks: React.FC = () => {
           if (entry.isIntersecting) {
             setIsInView(true);
 
-            // Force Step 1 when the kiosk comes into view
-            cancelHoverLeaveTimer();
-            setMode('none');
-            setIsHoveringKiosk(false);
-            setIsKioskTapPaused(false);
-            setActiveStep(1);
-            setAttractFrame('a'); // always start on 1a
+            // Only reset to Step 1 on first entry — not on every scroll bounce
+            if (!hasEnteredViewRef.current) {
+              hasEnteredViewRef.current = true;
+              cancelHoverLeaveTimer();
+              setMode('none');
+              setIsHoveringKiosk(false);
+              setIsKioskTapPaused(false);
+              setActiveStep(1);
+              setAttractFrame('a');
+            }
           } else {
             setIsInView(false);
           }
         });
       },
-      { threshold: 0.35 }
+      { threshold: 0.1 } // lower threshold — stays true on mobile while interacting
     );
 
     observer.observe(el);
