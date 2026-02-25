@@ -40,7 +40,7 @@ const CASE_STUDIES: CaseStudy[] = [
     pullQuoteAttrib: '— Ocean Vuong, as featured in The Booth',
     tags: ['Freestanding Kiosk', 'Higher Education', 'Community Voice', 'Permanent Installation'],
     // ⚠️  Using collage for now — swap to a single image if card crop is too busy
-    image: '/case_studies/duke-collage.jpg',
+    image: '/case_studies/duke-collage.png',
     imageAlt: 'Duke Chapel — "The Booth" kiosks deployed across campus',
   },
 
