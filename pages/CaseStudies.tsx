@@ -186,7 +186,7 @@ function Lightbox({
           <img
             src={images[imgIndex].src}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover scale-150 blur-xl opacity-70"
+            className="absolute inset-0 w-full h-full object-cover scale-125 blur-xl opacity-70"
             aria-hidden="true"
           />
           <img
