@@ -6,17 +6,20 @@ type NavLink =
   | { label: string; targetId: string; href?: never }
   | { label: string; href: string; targetId?: never };
 
-const navLinks: NavLink[] = [
+const navLinksLeft: NavLink[] = [
+  { label: 'Capture Systems', targetId: 'solutions' },
   { label: 'Why RealVo', targetId: 'why-realvo-exists' },
+];
+
+const navLinksRight: NavLink[] = [
   { label: 'Industries', targetId: 'industries' },
   { label: 'Use Cases', href: '/use-cases' },
-  { label: 'Capture Systems', targetId: 'solutions' },
 ];
 
 const PROCESS_PLATFORM_ITEMS: NavLink[] = [
   { label: 'Implementation Process', targetId: 'process-platform' },
   { label: 'The User Experience', targetId: 'how-it-works' },
-  { label: 'VideoBooth.tv Online Portal', href: '/vbplatform-more' }, // route
+  { label: 'VideoBooth.tv Online Portal', href: '/vbplatform-more' },
 ];
 
 // Solid filled triangle caret (uses currentColor)
@@ -25,6 +28,29 @@ const SolidCaretDown: React.FC<{ className?: string }> = ({ className }) => (
     <path d="M6 9.5 1.5 3.5h9L6 9.5Z" fill="currentColor" />
   </svg>
 );
+
+const renderDesktopLink = (link: NavLink) => {
+  if ('href' in link) {
+    return (
+      <a
+        key={link.label}
+        href={link.href}
+        className="relative transition-colors hover:text-realvo-blue"
+      >
+        {link.label}
+      </a>
+    );
+  }
+  return (
+    <a
+      key={link.targetId}
+      href={`/#${link.targetId}`}
+      className="relative transition-colors hover:text-realvo-blue"
+    >
+      {link.label}
+    </a>
+  );
+};
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -36,7 +62,6 @@ const Header: React.FC = () => {
     setMobileOpen(false);
     setProcessOpen(false);
     setProcessMobileOpen(false);
-
     if (typeof window === 'undefined') return;
     window.location.href = href;
   };
@@ -45,12 +70,9 @@ const Header: React.FC = () => {
     setMobileOpen(false);
     setProcessOpen(false);
     setProcessMobileOpen(false);
-
     if (typeof window === 'undefined') return;
-
     const { pathname, hash } = window.location;
     const isHome = pathname === '/';
-
     if (isHome) {
       window.scrollTo({ top: 0, behavior: 'auto' });
       if (hash) window.history.replaceState(null, '', '/');
@@ -68,7 +90,6 @@ const Header: React.FC = () => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setProcessOpen(false);
     };
-
     document.addEventListener('mousedown', onDown);
     document.addEventListener('keydown', onKey);
     return () => {
@@ -95,31 +116,10 @@ const Header: React.FC = () => {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium text-gray-600">
-            {navLinks.map((link) => {
-              if ('href' in link) {
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="relative transition-colors hover:text-realvo-blue"
-                  >
-                    {link.label}
-                  </a>
-                );
-              }
+            {/* Left links: Capture Systems, Why RealVo */}
+            {navLinksLeft.map(renderDesktopLink)}
 
-              return (
-                <a
-                  key={link.targetId}
-                  href={`/#${link.targetId}`}
-                  className="relative transition-colors hover:text-realvo-blue"
-                >
-                  {link.label}
-                </a>
-              );
-            })}
-
-            {/* Process & Platform dropdown (Desktop) */}
+            {/* Process & Platform dropdown */}
             <div
               ref={processWrapRef}
               className="relative"
@@ -163,7 +163,6 @@ const Header: React.FC = () => {
                           </a>
                         );
                       }
-
                       return (
                         <a
                           key={item.targetId}
@@ -180,6 +179,9 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
+
+            {/* Right links: Industries, Use Cases */}
+            {navLinksRight.map(renderDesktopLink)}
 
             {/* Program Structure (last) */}
             <a
@@ -215,7 +217,8 @@ const Header: React.FC = () => {
       {mobileOpen && (
         <div className="lg:hidden border-t border-gray-100 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 space-y-1">
-            {navLinks.map((link) => {
+            {/* Left links: Capture Systems, Why RealVo */}
+            {navLinksLeft.map((link) => {
               if ('href' in link) {
                 return (
                   <a
@@ -228,7 +231,6 @@ const Header: React.FC = () => {
                   </a>
                 );
               }
-
               return (
                 <a
                   key={link.targetId}
@@ -271,7 +273,6 @@ const Header: React.FC = () => {
                         </button>
                       );
                     }
-
                     return (
                       <a
                         key={item.targetId}
@@ -289,6 +290,32 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
+
+            {/* Right links: Industries, Use Cases */}
+            {navLinksRight.map((link) => {
+              if ('href' in link) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              return (
+                <a
+                  key={link.targetId}
+                  href={`/#${link.targetId}`}
+                  onClick={() => setMobileOpen(false)}
+                  className="block w-full text-left py-2 text-[15px] font-medium text-gray-700 hover:text-realvo-blue"
+                >
+                  {link.label}
+                </a>
+              );
+            })}
 
             {/* Program Structure (last, mobile) */}
             <a
