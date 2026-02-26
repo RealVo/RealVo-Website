@@ -23,7 +23,7 @@ type CaseStudy = {
 // ─────────────────────────────────────────────────────────────────────────────
 // Data
 // NOTE: Replace placeholder images with real paths once assets are ready.
-// For Duke, swap /case_studies/duke-collage.jpg with the best single image
+// For Duke, swap /case_studies/dukecs_collage.webp with the best single image
 // if the collage crops poorly at card size.
 // ─────────────────────────────────────────────────────────────────────────────
 const CASE_STUDIES: CaseStudy[] = [
@@ -40,7 +40,7 @@ const CASE_STUDIES: CaseStudy[] = [
     pullQuoteAttrib: '— Ocean Vuong, as featured in The Booth',
     tags: ['Freestanding Kiosk', 'Higher Education', 'Community Voice', 'Permanent Installation'],
     // ⚠️  Using collage for now — swap to a single image if card crop is too busy
-    image: '/case_studies/dukecs_collage,webp',
+    image: '/case_studies/dukecs_collage.webp',
     imageAlt: 'Duke Chapel — "The Booth" kiosks deployed across campus',
   },
 
