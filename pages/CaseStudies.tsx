@@ -175,7 +175,7 @@ function Lightbox({
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 inline-flex items-center justify-center w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-sm transition"
+          className="absolute top-4 right-4 z-30 inline-flex items-center justify-center w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 text-white text-sm transition"
           aria-label="Close"
         >
           ✕
@@ -200,7 +200,7 @@ function Lightbox({
               <button
                 type="button"
                 onClick={showPrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 text-white w-9 h-9 flex items-center justify-center text-lg transition"
+                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 text-white w-9 h-9 flex items-center justify-center text-lg transition z-30"
                 aria-label="Previous image"
               >
                 ‹
@@ -208,7 +208,7 @@ function Lightbox({
               <button
                 type="button"
                 onClick={showNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 text-white w-9 h-9 flex items-center justify-center text-lg transition"
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 hover:bg-black/70 text-white w-9 h-9 flex items-center justify-center text-lg transition z-30"
                 aria-label="Next image"
               >
                 ›
