@@ -89,10 +89,10 @@ const HomePage: React.FC = () => {
         <TrustedBy />
         <CaptureOptions />
         <WhyWhatBridge />
-        <Industries />
         <ImplementationProcess />
         <HowItWorks />
         <VBPlatform />
+        <Industries />
         <ProgramStructure />
       </main>
       <Footer />
