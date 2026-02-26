@@ -130,17 +130,17 @@ const Hero: React.FC = () => {
 
   {/* Subline — Desktop */}
 <p className="hidden sm:block mt-6 text-lg text-gray-600 max-w-3xl">
-  A fully managed, enterprise-ready video booth and kiosk system designed to capture stories, testimonials, and insights at conferences, campuses, healthcare institutions, and organizational programs — on-site or online.
+  A fully managed, enterprise video booth and kiosk rental — built for capturing stories, testimonials, and insights across events, programs, and permanent installations.
 </p>
 
 {/* Subline — Mobile (adds modality clarity) */}
 <p className="block sm:hidden mt-5 text-base text-gray-600">
-  A fully managed, enterprise-ready video booth and kiosk system designed to capture stories, testimonials, and insights at conferences, campuses, healthcare institutions, and organizational programs — on-site or online.
+  A fully managed, enterprise video booth and kiosk rental — built for capturing stories, testimonials, and insights across events, programs, and permanent installations.
 </p>
 
   {/* Supporting line */}
   <p className="text-sm text-gray-500 italic max-w-xl">
-    Available for single-event rentals, multi-site deployments, or permanent installation.
+    So the voices that matter most — actually get heard.
   </p>
 
   {/* CTA */}
