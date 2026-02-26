@@ -93,7 +93,7 @@ return (
 </h2>
         
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-  Purpose-built enterprise video booth, kiosk, and virtual capture options — fully managed and designed to adapt to your environment and goals.
+  Purpose-built video booths, kiosks, and virtual capture configurations — fully managed and aligned to your environment, brand, and program goals.
 </p>
       </div>
 
