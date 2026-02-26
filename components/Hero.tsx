@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
 
 {/* Subline — Mobile (adds modality clarity) */}
 <p className="block sm:hidden mt-5 text-base text-gray-600">
-  A fully managed, enterprise-ready solution for capturing stories, testimonials, and insights through video, voice, and text — in person and online.
+  A fully managed, enterprise-ready video booth and kiosk system designed to capture stories, testimonials, and insights at conferences, campuses, healthcare institutions, and organizational programs — on-site or online.
 </p>
 
   {/* Supporting line */}
@@ -150,7 +150,7 @@ const Hero: React.FC = () => {
       variant="primary"
       onClick={() => window.location.href = '/contact'}
     >
-      Start a Conversation
+      Discuss Your Program
     </Button>
   </div>
 </div>
