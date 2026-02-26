@@ -143,6 +143,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
           className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
           defaultValue=""
         >
+          <option value="" disabled>
+            Select a Program Type
+          </option>
+          
           <option value="Event Rental (1–5 days)">
             Event Rental (1–5 days)
           </option>
