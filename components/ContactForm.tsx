@@ -220,10 +220,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
           defaultValue=""
         >
           <option value="">Select a range (optional)</option>
-          <option value="< 7500">Under $7.5k</option>
-          <option value="7500-15000">$7.5k – $15k</option>
-          <option value="15000-25000">$15k – $25k</option>
-          <option value="25000-50000">$25k – $50k</option>
+          <option value="< 5000">Under $5k</option>
+          <option value="5000-10000">$5k – $10k</option>
+          <option value="10000-20000">$10k – $20k</option>
+          <option value="20000-50000">$20k – $50k</option>
           <option value="50000+">$50k+</option>
           <option value="unsure">Not sure yet</option>
         </select>
