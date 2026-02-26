@@ -183,20 +183,17 @@ function Lightbox({
 
         {/* Image slider */}
         <div className="relative h-64 sm:h-80 overflow-hidden">
-          {/* Blurred background */}
           <img
-          src={images[imgIndex].src}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover scale-110 blur-md opacity-60"
-          aria-hidden="true"
-        />
-        {/* Main image */}
-        <img
-          src={images[imgIndex].src}
-          alt={images[imgIndex].alt}
-          className="relative z-10 w-full h-full object-contain transition-opacity duration-300"
-        />
-      </div>
+            src={images[imgIndex].src}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover scale-110 blur-md opacity-60"
+            aria-hidden="true"
+          />
+          <img
+            src={images[imgIndex].src}
+            alt={images[imgIndex].alt}
+            className="relative z-10 w-full h-full object-contain transition-opacity duration-300"
+          />
 
           {total > 1 && (
             <>
