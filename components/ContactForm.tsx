@@ -209,6 +209,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <option value="Virtual Video Booth">Virtual Video Booth</option>
           <option value="Not sure yet / Exploring options">Not sure yet / Exploring options</option>
         </select>
+        <p className="mt-1 text-xs text-gray-400">Not sure? We'll help you find the right fit.</p>
       </div>
 
       {/* When is your event or program? (required) */}
