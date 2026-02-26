@@ -87,9 +87,9 @@ const HomePage: React.FC = () => {
       <main className="flex-grow">
         <Hero />
         <TrustedBy />
+        <CaptureOptions />
         <WhyWhatBridge />
         <Industries />
-        <CaptureOptions />
         <ImplementationProcess />
         <HowItWorks />
         <VBPlatform />
