@@ -195,7 +195,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       {/* Capture Format (optional) */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Capture Format
+          Capture Format <span className="text-gray-400 font-normal">(optional)</span>
         </label>
         <select
           name="captureSolution"
