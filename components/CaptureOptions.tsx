@@ -83,14 +83,15 @@ return (
     <Section id="solutions">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-realvo-charcoal dark:text-white mb-6">
-  <span
-    ref={fitsRef}
-    className="text-realvo-teal animate-pulse-once"
-  >
-    Capture Systems
-  </span>{' '}
-  — On-Site or Online
-</h2>
+          <span
+            ref={fitsRef}
+            className="text-realvo-teal animate-pulse-once"
+          >
+            Capture Systems
+          </span>
+          <span className="hidden md:inline"> — On-Site or Online</span>
+          <span className="block md:hidden"> On-Site or Online</span>
+        </h2>
         
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
   Purpose-built video booths, kiosks, and virtual capture configurations — fully managed and aligned to your environment, brand, and program goals.
