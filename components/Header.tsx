@@ -10,7 +10,7 @@ const navLinks: NavLink[] = [
   { label: 'Why RealVo', targetId: 'why-realvo-exists' },
   { label: 'Industries', targetId: 'industries' },
   { label: 'Use Cases', href: '/use-cases' },
-  { label: 'Solutions', targetId: 'solutions' },
+  { label: 'Capture Systems', targetId: 'solutions' },
 ];
 
 const PROCESS_PLATFORM_ITEMS: NavLink[] = [
