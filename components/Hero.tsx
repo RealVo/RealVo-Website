@@ -130,7 +130,7 @@ const Hero: React.FC = () => {
 
   {/* Subline — Desktop */}
 <p className="hidden sm:block mt-6 text-lg text-gray-600 max-w-3xl">
-  A fully managed, enterprise-ready video booth and storytelling solution for capturing stories, testimonials, and insights — in person and online.
+  A fully managed, enterprise-ready video booth and kiosk system designed to capture stories, testimonials, and insights at conferences, campuses, healthcare institutions, and organizational programs — on-site or online.
 </p>
 
 {/* Subline — Mobile (adds modality clarity) */}
@@ -140,8 +140,7 @@ const Hero: React.FC = () => {
 
   {/* Supporting line */}
   <p className="text-sm text-gray-500 italic max-w-xl">
-    Designed for moments that matter — from listening and learning to
-    trust-building and change.
+    Available for single-event rentals, multi-site deployments, or permanent installation.
   </p>
 
   {/* CTA */}
