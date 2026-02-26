@@ -169,6 +169,29 @@ const ContactForm: React.FC<ContactFormProps> = ({
         </select>
       </div>
 
+      {/* Primary Goal (optional but recommended) */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Primary Goal <span className="text-gray-400 font-normal">(optional)</span>
+        </label>
+        <select
+          name="primaryGoal"
+          className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select a goal (optional)
+          </option>
+          <option value="Testimonials">Testimonials</option>
+          <option value="Customer Insights / Feedback">Customer Insights / Feedback</option>
+          <option value="Employee Stories">Employee Stories</option>
+          <option value="Brand / Awareness Content">Brand / Awareness Content</option>
+          <option value="Community Stories">Community Stories</option>
+          <option value="Other / Not sure yet">Other / Not sure yet</option>
+        </select>
+        <p className="mt-1 text-xs text-gray-400">Helps us prepare for your conversation.</p>
+      </div>
+
       {/* Capture Format (optional) */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
