@@ -19,7 +19,7 @@ const navLinksRight: NavLink[] = [
 const PROCESS_PLATFORM_ITEMS: NavLink[] = [
   { label: 'Implementation Process', targetId: 'process-platform' },
   { label: 'The User Experience', targetId: 'how-it-works' },
-  { label: 'VideoBooth.tv Online Portal', href: '/vbplatform-more' },
+  { label: 'VideoBooth.tv Online Portal', targetId: 'vbtv' },
 ];
 
 // Solid filled triangle caret (uses currentColor)
