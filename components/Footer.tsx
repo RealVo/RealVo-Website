@@ -75,7 +75,8 @@ const Footer: React.FC = () => {
 
         {/* Legal Line */}
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} RealVo. RealVo is powered by VideoBooth Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} RealVo. RealVo is powered by VideoBooth Inc.
+          <span className="block sm:inline"> All rights reserved.</span>
         </div>
       </div>
     </footer>
