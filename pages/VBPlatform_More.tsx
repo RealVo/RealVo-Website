@@ -341,7 +341,7 @@ const VBPlatform_More: React.FC = () => {
 
             <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <Link
-                to="/#process-platform"
+                to="/#vbtv"
                 className="inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
               >
                 <span className="mr-1.5 text-base">←</span>
