@@ -291,7 +291,7 @@ const VBPlatform_More: React.FC = () => {
         <section className="w-full">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
             <Link
-              to="/#process-platform"
+              to="/#vbtv"
               className="mb-6 inline-flex items-center text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-realvo-blue dark:hover:text-sky-400 transition"
             >
               <span className="mr-1.5 text-base">←</span>
