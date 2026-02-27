@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center justify-start lg:justify-end gap-x-4">
                 <a href="/" className="hover:text-white transition-colors">Home</a>
                 <span className="text-gray-600">•</span>
-                <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
+                <a href="/#solutions" className="hover:text-white transition-colors">Capture Systems</a>
                 <span className="text-gray-600">•</span>
                 <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
                 <span className="text-gray-600">•</span>
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
             {/* Mobile (stacked) */}
             <div className="flex flex-col items-start gap-2 lg:hidden">
               <a href="/" className="hover:text-white transition-colors">Home</a>
-              <a href="/#solutions" className="hover:text-white transition-colors">Solutions</a>
+              <a href="/#solutions" className="hover:text-white transition-colors">Capture Systems</a>
               <a href="/use-cases" className="hover:text-white transition-colors">Use Cases</a>
               <a href="/#process-platform" className="hover:text-white transition-colors">Process &amp; Platform</a>
               <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
