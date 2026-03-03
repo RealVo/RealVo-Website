@@ -58,7 +58,10 @@ import ContactForm from '../components/ContactForm';
 
   // ✅ GA4 conversion event — fires only on confirmed successful submission
   const fireLeadEvent = () => {
+    console.log('fireLeadEvent called');
+    console.log('gtag type:', typeof (window as any).gtag);
     const sendEvent = () => {
+      console.log('sendEvent firing');
       (window as any).gtag('event', 'generate_lead', {
         form_name: 'contact',
         page_path: window.location.pathname,
@@ -67,6 +70,7 @@ import ContactForm from '../components/ContactForm';
     if (typeof (window as any).gtag === 'function') {
       sendEvent();
     } else {
+      console.log('gtag not ready, waiting for load');
       window.addEventListener('load', sendEvent, { once: true });
     }
   };
