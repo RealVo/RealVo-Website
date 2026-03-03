@@ -42,21 +42,34 @@ import ContactForm from '../components/ContactForm';
     setPhone(formatPhone(e.target.value));
   };
 
+  // ✅ GA4 loader — ensures gtag is available on /contact (standalone page)
+  useEffect(() => {
+    if (typeof (window as any).gtag === 'function') return; // already loaded
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QT7PJEMBHB';
+    script.async = true;
+    document.head.appendChild(script);
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+    (window as any).gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-QT7PJEMBHB');
+  }, []);
+
   // ✅ GA4 conversion event — fires only on confirmed successful submission
   const fireLeadEvent = () => {
-  const sendEvent = () => {
-    (window as any).gtag('event', 'generate_lead', {
-      form_name: 'contact',
-      page_path: window.location.pathname,
-    });
+    const sendEvent = () => {
+      (window as any).gtag('event', 'generate_lead', {
+        form_name: 'contact',
+        page_path: window.location.pathname,
+      });
+    };
+    if (typeof (window as any).gtag === 'function') {
+      sendEvent();
+    } else {
+      window.addEventListener('load', sendEvent, { once: true });
+    }
   };
-  if (typeof (window as any).gtag === 'function') {
-    sendEvent();
-  } else {
-    // gtag not ready yet — wait for script to load
-    window.addEventListener('load', sendEvent, { once: true });
-  }
-};
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
