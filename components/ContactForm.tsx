@@ -14,6 +14,25 @@ const ContactForm: React.FC<ContactFormProps> = ({
   phone,
   onPhoneChange,
 }) => {
+
+  // ✅ On successful submit, replace the form with a clean confirmation card
+  if (submitted) {
+    return (
+      <div
+        className="rounded-xl bg-realvo-teal/10 border border-realvo-teal px-6 py-6"
+        role="status"
+        aria-live="polite"
+      >
+        <p className="text-realvo-teal font-semibold text-lg">
+          Thanks — we received your request.
+        </p>
+        <p className="mt-2 text-gray-700 text-sm leading-relaxed">
+          We'll be in touch within 24 hours.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <form
       name="contact"
@@ -32,7 +51,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       {/* Honeypot */}
       <p className="hidden">
         <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
+          Don't fill this out if you're human: <input name="bot-field" />
         </label>
       </p>
 
@@ -146,26 +165,21 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <option value="" disabled>
             Select a Program Type
           </option>
-          
           <option value="Event Rental (1–5 days)">
             Event Rental (1–5 days)
           </option>
-
-        <option value="Extended Rental (6+ days)">
-          Extended Rental (6+ days)
-        </option>
-
-        <option value="Tour / Multi-Location Program">
-          Tour / Multi-Location Program
-        </option>
-
-        <option value="Owned Installation (purchase / permanent placement)">
-          Owned Installation (purchase / permanent placement)
-        </option>
-
-        <option value="Not sure yet / Need guidance">
-          Not sure yet / Need guidance
-        </option>
+          <option value="Extended Rental (6+ days)">
+            Extended Rental (6+ days)
+          </option>
+          <option value="Tour / Multi-Location Program">
+            Tour / Multi-Location Program
+          </option>
+          <option value="Owned Installation (purchase / permanent placement)">
+            Owned Installation (purchase / permanent placement)
+          </option>
+          <option value="Not sure yet / Need guidance">
+            Not sure yet / Need guidance
+          </option>
         </select>
       </div>
 
@@ -213,25 +227,25 @@ const ContactForm: React.FC<ContactFormProps> = ({
       </div>
 
       {/* When is your event or program? (required) */}
-<div>
-  <label className="block text-sm font-medium text-gray-700 mb-1">
-    When is your event or program?<span className="text-red-500">*</span>
-  </label>
-  <select
-    name="timeline"
-    required
-    className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-    defaultValue=""
-  >
-    <option value="" disabled>Select timing</option>
-    <option value="Within 4–6 weeks">Within 4–6 weeks</option>
-    <option value="1–3 months">1–3 months</option>
-    <option value="3–6 months">3–6 months</option>
-    <option value="6+ months">6+ months</option>
-    <option value="Exploring for next year">Exploring for next year</option>
-    <option value="Just exploring / no date yet">Just exploring / no date yet</option>
-  </select>
-</div>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          When is your event or program?<span className="text-red-500">*</span>
+        </label>
+        <select
+          name="timeline"
+          required
+          className="w-full h-11 rounded-lg border border-gray-300 bg-white text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
+          defaultValue=""
+        >
+          <option value="" disabled>Select timing</option>
+          <option value="Within 4–6 weeks">Within 4–6 weeks</option>
+          <option value="1–3 months">1–3 months</option>
+          <option value="3–6 months">3–6 months</option>
+          <option value="6+ months">6+ months</option>
+          <option value="Exploring for next year">Exploring for next year</option>
+          <option value="Just exploring / no date yet">Just exploring / no date yet</option>
+        </select>
+      </div>
 
       {/* Estimated Investment Range (optional) */}
       <div>
@@ -251,9 +265,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <option value="50000+">$50k+</option>
           <option value="unsure">Not sure yet</option>
         </select>
-
         <p className="mt-1 text-xs text-gray-400">
-          If you’re unsure, choose “Not sure yet” — we’ll help scope it.
+          If you're unsure, choose "Not sure yet" — we'll help scope it.
         </p>
       </div>
 
@@ -267,7 +280,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           rows={3}
           required
           className="w-full rounded-lg border border-gray-300 text-sm px-3 py-2 focus:border-realvo-blue focus:ring-realvo-blue"
-          placeholder="Share dates, location(s), audience, and what you’re hoping to capture"
+          placeholder="Share dates, location(s), audience, and what you're hoping to capture"
         />
       </div>
 
@@ -276,18 +289,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <Button type="submit" size="lg" variant="primary" className="w-full sm:w-auto">
           Submit
         </Button>
-
         <p className="mt-2 text-xs text-gray-400">
           <span className="text-red-500">*</span> Required fields
         </p>
-
-        {submitted && (
-          <div className="mt-4 rounded-xl bg-realvo-teal/10 border border-realvo-teal px-5 py-4">
-            <p className="text-realvo-teal font-semibold text-base">
-              Thank you — we'll be in touch within 24 hours.
-            </p>
-          </div>
-        )}
       </div>
     </form>
   );
