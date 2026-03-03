@@ -44,11 +44,19 @@ import ContactForm from '../components/ContactForm';
 
   // ✅ GA4 conversion event — fires only on confirmed successful submission
   const fireLeadEvent = () => {
-    (window as any).gtag?.('event', 'generate_lead', {
+  const sendEvent = () => {
+    (window as any).gtag('event', 'generate_lead', {
       form_name: 'contact',
       page_path: window.location.pathname,
     });
   };
+  if (typeof (window as any).gtag === 'function') {
+    sendEvent();
+  } else {
+    // gtag not ready yet — wait for script to load
+    window.addEventListener('load', sendEvent, { once: true });
+  }
+};
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
