@@ -42,6 +42,14 @@ import ContactForm from '../components/ContactForm';
     setPhone(formatPhone(e.target.value));
   };
 
+  // ✅ GA4 conversion event — fires only on confirmed successful submission
+  const fireLeadEvent = () => {
+    (window as any).gtag?.('event', 'generate_lead', {
+      form_name: 'contact',
+      page_path: window.location.pathname,
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -54,6 +62,8 @@ import ContactForm from '../components/ContactForm';
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as any).toString(),
       });
+      // ✅ Fire GA4 event only on success, before updating UI state
+      fireLeadEvent();
       setSubmitted(true);
       form.reset();
       setPhone('');
