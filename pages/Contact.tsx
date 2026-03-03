@@ -42,20 +42,6 @@ import ContactForm from '../components/ContactForm';
     setPhone(formatPhone(e.target.value));
   };
 
-  // ✅ GA4 loader — ensures gtag is available on /contact (standalone page)
-  useEffect(() => {
-    if (typeof (window as any).gtag === 'function') return;
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
-    (window as any).gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-QT7PJEMBHB');
-    const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QT7PJEMBHB';
-    script.async = true;
-    document.head.appendChild(script);
-  }, []);
-
   // ✅ GA4 conversion event — fires only on confirmed successful submission
   const fireLeadEvent = () => {
     const sendEvent = () => {
