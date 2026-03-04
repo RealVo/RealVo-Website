@@ -10,10 +10,12 @@ interface Client {
 const clients: Client[] = [
   // Original 14
   { name: "Microsoft", logo: "/trusted_by_logos/microsoft.png", className: "h-24 md:h-32" },
+  { name: "Rogers Sportsnet", logo: "/trusted_by_logos/RogersSportsnet.png", className: "h-24 md:h-32" },
   { name: "Stanford University", logo: "/trusted_by_logos/stanford.png", className: "h-24 md:h-32" },
   { name: "UPMC", logo: "/trusted_by_logos/upmc.png", className: "h-24 md:h-32" },
   { name: "Ford", logo: "/trusted_by_logos/ford.png", className: "h-24 md:h-32" },
   { name: "Duke University", logo: "/trusted_by_logos/duke.png", className: "h-24 md:h-32" },
+  { name: "Telus", logo: "/trusted_by_logos/Telus.png", className: "h-24 md:h-32" },
   { name: "Barnes Jewish Hospital", logo: "/trusted_by_logos/BarnesJewishHospital.png", className: "h-24 md:h-32" },
   { name: "ATT", logo: "/trusted_by_logos/ATT.png", className: "h-24 md:h-32" },
   { name: "Indiana University", logo: "/trusted_by_logos/IndianaU.png", className: "h-24 md:h-32" },
@@ -21,23 +23,20 @@ const clients: Client[] = [
   { name: "Banner Health", logo: "/trusted_by_logos/BannerHealth.png", className: "h-24 md:h-32" },
   { name: "Kelloggs", logo: "/trusted_by_logos/Kelloggs.png", className: "h-24 md:h-32" },
   { name: "Purdue", logo: "/trusted_by_logos/Purdue.png", className: "h-24 md:h-32" },
+  { name: "City of Brampton", logo: "/trusted_by_logos/CityofBrampton.png", className: "h-24 md:h-32" },
   { name: "Memorial Healthcare System", logo: "/trusted_by_logos/Memorial.png", className: "h-24 md:h-32" },
   { name: "Mastercard", logo: "/trusted_by_logos/Mastercard.png", className: "h-24 md:h-32" },
-  // New 16
   { name: "Aviva", logo: "/trusted_by_logos/Aviva.png", className: "h-24 md:h-32" },
   { name: "Campbells", logo: "/trusted_by_logos/Campbells.png", className: "h-24 md:h-32" },
-  { name: "City of Brampton", logo: "/trusted_by_logos/CityofBrampton.png", className: "h-24 md:h-32" },
   { name: "GlaxoSmithKline", logo: "/trusted_by_logos/GlaxoSmithKline.png", className: "h-24 md:h-32" },
   { name: "Laughing Cow", logo: "/trusted_by_logos/LaughingCow.png", className: "h-24 md:h-32" },
   { name: "Lego", logo: "/trusted_by_logos/Lego.png", className: "h-24 md:h-32" },
   { name: "LinkedIn", logo: "/trusted_by_logos/LinkedIn.png", className: "h-24 md:h-32" },
   { name: "Mohawk College", logo: "/trusted_by_logos/MohawkCollege.png", className: "h-24 md:h-32" },
+  { name: "TD Bank", logo: "/trusted_by_logos/TDBank.png", className: "h-24 md:h-32" },
   { name: "Novartis", logo: "/trusted_by_logos/Novartis.png", className: "h-24 md:h-32" },
   { name: "Participaction", logo: "/trusted_by_logos/Participaction.png", className: "h-24 md:h-32" },
-  { name: "Rogers Sportsnet", logo: "/trusted_by_logos/RogersSportsnet.png", className: "h-24 md:h-32" },
   { name: "Swiss Chalet", logo: "/trusted_by_logos/SwissChalet.png", className: "h-24 md:h-32" },
-  { name: "TD Bank", logo: "/trusted_by_logos/TDBank.png", className: "h-24 md:h-32" },
-  { name: "Telus", logo: "/trusted_by_logos/Telus.png", className: "h-24 md:h-32" },
   { name: "Zendesk", logo: "/trusted_by_logos/Zendesk.png", className: "h-24 md:h-32" },
 ];
 
