@@ -8,20 +8,20 @@ interface Client {
 }
 
 const clients: Client[] = [
-  { name: "Microsoft", logo: "/microsoft.png", className: "h-24 md:h-32" },
-  { name: "Stanford University", logo: "/stanford.png", className: "h-24 md:h-32" },
-  { name: "UPMC", logo: "/upmc.png", className: "h-24 md:h-32" },
-  { name: "Ford", logo: "/ford.png", className: "h-24 md:h-32" },
-  { name: "Duke University", logo: "/duke.png", className: "h-24 md:h-32" },
-  { name: "Barnes Jewish Hospital", logo: "/BarnesJewishHospital.png", className: "h-24 md:h-32" },
-  { name: "ATT", logo: "/ATT.png", className: "h-24 md:h-32" },
-  { name: "Indiana University", logo: "/IndianaU.png", className: "h-24 md:h-32" },
-  { name: "CP Rail", logo: "/CPRail.png", className: "h-24 md:h-32" },
-  { name: "Banner Health", logo: "/BannerHealth.png", className: "h-24 md:h-32" },
-  { name: "Kelloggs", logo: "/Kelloggs.png", className: "h-24 md:h-32" },
-  { name: "Purdue", logo: "/Purdue.png", className: "h-24 md:h-32" },
-  { name: "Memorial Healthcare System", logo: "/Memorial.png", className: "h-24 md:h-32" },
-  { name: "Mastercard", logo: "/Mastercard.png", className: "h-24 md:h-32" }
+  { name: "Microsoft", logo: "/trusted_by_logos/microsoft.png", className: "h-24 md:h-32" },
+  { name: "Stanford University", logo: "/trusted_by_logos/stanford.png", className: "h-24 md:h-32" },
+  { name: "UPMC", logo: "/trusted_by_logos/upmc.png", className: "h-24 md:h-32" },
+  { name: "Ford", logo: "/trusted_by_logos/ford.png", className: "h-24 md:h-32" },
+  { name: "Duke University", logo: "/trusted_by_logos/duke.png", className: "h-24 md:h-32" },
+  { name: "Barnes Jewish Hospital", logo: "/trusted_by_logos/BarnesJewishHospital.png", className: "h-24 md:h-32" },
+  { name: "ATT", logo: "/trusted_by_logos/ATT.png", className: "h-24 md:h-32" },
+  { name: "Indiana University", logo: "/trusted_by_logos/IndianaU.png", className: "h-24 md:h-32" },
+  { name: "CP Rail", logo: "/trusted_by_logos/CPRail.png", className: "h-24 md:h-32" },
+  { name: "Banner Health", logo: "/trusted_by_logos/BannerHealth.png", className: "h-24 md:h-32" },
+  { name: "Kelloggs", logo: "/trusted_by_logos/Kelloggs.png", className: "h-24 md:h-32" },
+  { name: "Purdue", logo: "/trusted_by_logos/Purdue.png", className: "h-24 md:h-32" },
+  { name: "Memorial Healthcare System", logo: "/trusted_by_logos/Memorial.png", className: "h-24 md:h-32" },
+  { name: "Mastercard", logo: "/trusted_by_logos/Mastercard.png", className: "h-24 md:h-32" }
 ];
 
 const TrustedBy: React.FC = () => {
@@ -127,4 +127,3 @@ const TrustedBy: React.FC = () => {
 };
 
 export default TrustedBy;
-
