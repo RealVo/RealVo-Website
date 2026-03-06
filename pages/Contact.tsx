@@ -58,26 +58,35 @@ import ContactForm from '../components/ContactForm';
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    if (!formData.get('phone')) formData.set('phone', phone);
-    if (!formData.get('form-name')) formData.append('form-name', 'contact');
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-      // ✅ Fire GA4 event only on success, before updating UI state
-      fireLeadEvent();
-      setSubmitted(true);
-      form.reset();
-      setPhone('');
-    } catch (err) {
-      console.error('Form submission error', err);
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  if (!formData.get('phone')) formData.set('phone', phone);
+  if (!formData.get('form-name')) formData.append('form-name', 'contact');
+
+  // ✅ Fire GA4 event immediately in browser
+  fireLeadEvent();
+
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData as any).toString(),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Form submission failed: ${response.status}`);
     }
-  };
+
+    setSubmitted(true);
+    form.reset();
+    setPhone('');
+  } catch (err) {
+    console.error('Form submission error', err);
+  }
+};
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
