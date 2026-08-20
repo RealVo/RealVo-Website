@@ -45,9 +45,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
       {/* Required by Netlify */}
       <input type="hidden" name="form-name" value="contact" />
 
-      {/* Keep capturing Role in Netlify payload (even though field is removed from UI) */}
-      <input type="hidden" name="role" value="" />
-
       {/* Honeypot */}
       <p className="hidden">
         <label>
