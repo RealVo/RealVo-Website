@@ -225,7 +225,6 @@ export const handler: Handler = async (event) => {
       country: "Country",
       phone: "Phone Number",
       organization: "Organization",
-      role: "Role",
       programType: "Program Type",
       primaryGoal: "Primary Goal",
       captureSolution: "Capture Format",
@@ -242,7 +241,6 @@ export const handler: Handler = async (event) => {
       "country",
       "phone",
       "organization",
-      "role",
       "programType",
       "primaryGoal",
       "captureSolution",
@@ -251,12 +249,15 @@ export const handler: Handler = async (event) => {
       "message",
     ];
 
+    // Netlify metadata / fields we never want in the email body.
+    const hiddenFields = new Set(["ip", "user_agent", "referrer"]);
+
     const orderedEntries = [
       ...fieldOrder
         .filter((k) => k in data)
         .map((k) => [k, (data as any)[k]] as [string, any]),
       ...Object.entries(data).filter(([k]) => !fieldOrder.includes(k)),
-    ];
+    ].filter(([k]) => !hiddenFields.has(k));
 
     const rows = orderedEntries.map(([k, v]) => {
       const label = fieldLabels[k] || k;
