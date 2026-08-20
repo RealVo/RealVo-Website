@@ -218,16 +218,57 @@ export const handler: Handler = async (event) => {
     const createdAt = payload.created_at || new Date().toISOString();
     const siteUrl = payload.site?.url || "https://realvo.io";
 
-    const rows = Object.entries(data).map(
-      ([k, v]) => `<tr>
+    // Friendly labels for each field key (falls back to the raw key if unmapped).
+    const fieldLabels: Record<string, string> = {
+      fullName: "Full Name",
+      email: "Email",
+      country: "Country",
+      phone: "Phone Number",
+      organization: "Organization",
+      role: "Role",
+      programType: "Program Type",
+      primaryGoal: "Primary Goal",
+      captureSolution: "Capture Format",
+      timeline: "Event / Program Timing",
+      budget: "Estimated Investment Range",
+      message: "Tell Us About Your Program",
+    };
+
+    // Preferred display order (matches the on-page form). Any fields not
+    // listed here are appended at the end in their original order.
+    const fieldOrder = [
+      "fullName",
+      "email",
+      "country",
+      "phone",
+      "organization",
+      "role",
+      "programType",
+      "primaryGoal",
+      "captureSolution",
+      "timeline",
+      "budget",
+      "message",
+    ];
+
+    const orderedEntries = [
+      ...fieldOrder
+        .filter((k) => k in data)
+        .map((k) => [k, (data as any)[k]] as [string, any]),
+      ...Object.entries(data).filter(([k]) => !fieldOrder.includes(k)),
+    ];
+
+    const rows = orderedEntries.map(([k, v]) => {
+      const label = fieldLabels[k] || k;
+      return `<tr>
         <td style="padding:6px 10px;border:1px solid #eee;"><b>${escapeHtml(
-          k
+          label
         )}</b></td>
         <td style="padding:6px 10px;border:1px solid #eee;">${escapeHtml(
           String(v ?? "")
         )}</td>
-      </tr>`
-    );
+      </tr>`;
+    });
 
     const html = `
       <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;">
@@ -345,5 +386,3 @@ export const handler: Handler = async (event) => {
     };
   }
 };
-
-
